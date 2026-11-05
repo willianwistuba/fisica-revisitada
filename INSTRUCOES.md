@@ -21,7 +21,7 @@ Série de notas técnicas em física (atualmente sobre o problema dos três corp
 | Vercel: time | `willianwistubas-projects` |
 | Vercel: projeto | `fisica-revisitada` (id `prj_I9zCrbrxL7azUWYENzdkvoxBYSg3`) |
 | SPEC (Claude Docs) | https://claude.ai/artifact/Tv6uowaJjGUr3KiUrPpMW3 (projeto `d9f7aadd-e302-447b-93ec-401ec91b46fc`, nó `745fc4e7-8e85`) |
-| Zenodo | conta do autor; registros das notas 1 a 13 já publicados; FR-TC-14 publicada no site em 5 nov. 2026, ainda sem depósito (FR-TC-13 v1: 10.5281/zenodo.23964751) |
+| Zenodo | conta do autor; registros das notas 1 a 13 já publicados; FR-TC-14 e FR-TC-15 publicadas no site em 5 nov. 2026, ainda sem depósito (FR-TC-13 v1: 10.5281/zenodo.23964751) |
 | ORCID | 0009-0008-2875-6607 |
 | Endereço antigo | `caderno-tres-corpos.vercel.app` redireciona (308) para o novo, mantendo os caminhos |
 
@@ -46,6 +46,29 @@ O site é estático (pasta `public/`). O método que funciona é o relay por san
 8. **Sempre** encerrar o sandbox (`stop_session`).
 9. Fazer commit e push no repositório (geradores, fontes, i18n, scripts e PDFs da nova nota). As pastas `public/` e `texbuild/` não são versionadas. Opcionalmente, atualizar também o zip de reserva no projeto.
 
+#### 2.2.1 Detalhes que já funcionaram (5 nov. 2026, deploy dpl_ESLJne7sriYcKfR9DRR3i6MXwS1L)
+
+- O sandbox não precisa de rede de saída especial: o servidor só recebe o PUT da sessão de trabalho e entrega o GET para o build da Vercel.
+- Servidor `srv.js` (copiar exatamente):
+
+```js
+const http=require('http'),fs=require('fs');const P='/07e369a56936816fb5878d89/site.tgz',F='/tmp/site.tgz';
+http.createServer((q,r)=>{if(q.url!==P){r.writeHead(404);return r.end();}
+if(q.method==='PUT'){const w=fs.createWriteStream(F);q.pipe(w);w.on('finish',()=>{r.writeHead(200);r.end('ok')});}
+else if(q.method==='GET'){if(!fs.existsSync(F)){r.writeHead(404);return r.end();}r.writeHead(200,{'Content-Type':'application/gzip'});fs.createReadStream(F).pipe(r);}
+else{r.writeHead(405);r.end();}}).listen(3000);
+```
+
+- Passos com as ferramentas MCP da Vercel (time `willianwistubas-projects`):
+  1. `create_sandboxes_v4` com `{"name":"fr-relay-NN","projectId":"prj_I9zCrbrxL7azUWYENzdkvoxBYSg3","ports":[3000],"persistent":false,"timeout":1800000}`. Guardar o `currentSessionId` (sbx_...) e a URL da rota da porta 3000 (`https://sb-....vercel.run`). Usar um NN novo a cada deploy (o último foi fr-relay-30).
+  2. Empacotar o `srv.js` num tar.gz, codificar em base64 (`tar czf srv.tgz srv.js && base64 -w0 srv.tgz`) e enviar com `write_session_files` (`xCwd: "/tmp"`).
+  3. `run_session_command` com `{"command":"node","args":["/tmp/srv.js"]}` (sem esperar o fim).
+  4. Na sessão de trabalho: `curl -sS -X PUT --data-binary @/tmp/site.tgz <url>/07e369a56936816fb5878d89/site.tgz` (resposta `ok`) e `curl -sS <url>/07e369a56936816fb5878d89/site.tgz | sha1sum`, que deve bater com o `sha1sum` local.
+  5. `create_deployment` com `forceNew: "1"`, `skipAutoDetectionConfirmation: "1"` e `requestBody`: `{"name":"fisica-revisitada","target":"production","files":[{"file":"README.md","data":"Física Revisitada","encoding":"utf-8"}],"projectSettings":{"framework":null,"installCommand":"true","outputDirectory":"public","buildCommand":"mkdir -p public && curl -sSf <url>/07e369a56936816fb5878d89/site.tgz -o /tmp/s.tgz && tar xzf /tmp/s.tgz -C public"}}`.
+  6. Esperar cerca de 40 a 50 s e conferir HTTP 200 nas 4 páginas e nos 4 PDFs da nota (seção 2.3), mais um arquivo novo da página de código. Conferir também que o sha1 do PDF pt publicado bate com o local.
+  7. `stop_session` no sandbox.
+- O pacote do site tem cerca de 9 MB; o upload leva poucos segundos.
+
 **Atenção:** nesse método, um `vercel.json` dentro do pacote é ignorado (por isso o redirecionamento `/sobre` → `/metodo/` não está ativo). Arquivos estáticos já saem com `Access-Control-Allow-Origin: *`.
 
 ### 2.3 Estrutura de URLs (`meta.py`: `ROUTES`, `PREFIX`)
@@ -59,6 +82,13 @@ O site é estático (pasta `public/`). O método que funciona é o relay por san
 | PDF | `/pdf/<slug>.pdf` | `/pdf/en/<slug>.pdf` | `/pdf/de/<slug>.pdf` | `/pdf/fr/<slug>.pdf` |
 
 Outros arquivos gerados: `sitemap.xml` (com `hreflang`), `robots.txt`, `rss.xml` por idioma e `zenodo.json` (índice das notas para o script de envio ao Zenodo; gerado no fim de `site.py`).
+
+### 2.4 Git (commit e push)
+
+- Identidade dos commits: `git -c user.name=Claude -c user.email=noreply@anthropic.com commit`. A mensagem termina com as linhas de atribuição que a sessão indicar (Co-Authored-By e Claude-Session).
+- Sequência: `git add` só do que mudou (geradores, `src/`, `i18n/`, `pdf/`, `codigo_src/`, `dados/`), commit, `git fetch origin main && git rebase origin/main && git push origin HEAD:main`.
+- Para ter permissão de push, o repositório precisa ser anexado à sessão com acesso de escrita. O classificador da plataforma pode recusar o push até o autor autorizar explicitamente no chat ("pode fazer o push").
+- `public/` e `texbuild/` não são versionados.
 
 ## 3. Identidade visual do site (valores do `estilo.css` publicado)
 
@@ -135,7 +165,21 @@ Linha de carregamento (`site.py`): `https://fonts.googleapis.com/css2?family=Int
 9. Registrar na SPEC: entrada do experimento e entrada de publicação (com o id do deploy).
 10. Commit e push no repositório, com mensagem que cite o código da nota (ex.: "Publica FR-TC-14").
 
+### 6.0 Detalhes de edição que evitam retrabalho
+
+- O resumo de cada nota fica em `i18n/<idioma>.json`, em `articles["FR-TC-NN"]["abstract"]`, e não no HTML.
+- Tabelas e figuras: a numeração no texto ("Tabela IV", "Table IV", "Tabelle IV", "Tableau IV") é escrita à mão; a legenda é numerada pelo gerador na ordem em que aparece.
+- Números negativos em tabelas e no texto: `\(-0{,}030\)` em pt, de e fr e `\(-0.030\)` em en (o sinal de menos matemático); positivos com `+0,004` em texto simples.
+- Em fr, usar o espaço inseparável U+00A0 (e não um espaço comum) nos milhares (`12 000`), antes de `:` `;` `%` `?` e dentro das aspas `« »`. Ao editar por script, substituir esses espaços explicitamente.
+- A página de código aceita subpastas: a chave em `code_page.files` é o caminho relativo a `codigo_src/` (ex.: `ergo/escada/run_age.py`), e o arquivo precisa existir nesse caminho. A contagem de scripts na página inicial sai automaticamente do número de entradas.
+- Depois de mudar o texto, rodar `python3 tex.py FR-TC-NN` (gera os 4 PDFs e informa overfull) e `python3 site.py` (gera o site inteiro). Conferir com `pdftoppm -r 60` a página onde está a tabela nova em pelo menos pt e de (o alemão é o idioma mais longo).
+- Traduções: manter a estrutura HTML idêntica nos 4 idiomas, com as mesmas tabelas, citações e equações; aplicar as convenções numéricas da seção 8.
+
 ### 6.1 Correções
+
+**Nota ainda não depositada no Zenodo:** se ela só está no site, a correção substitui o texto direto, sem nota de revisão e sem mudar `version_num` (decisão do autor, 5 nov. 2026; aplicada à FR-TC-15). A data da nota continua a da publicação.
+
+**Nota já depositada no Zenodo:**
 
 Correção de nota já publicada: nova versão, nunca apagar. No site, parágrafo "**Nota de revisão (versão N, data).**" no topo do corpo, explicando o que mudou e o que não mudou, e a frase "Versão N: ..." no fim do resumo. Links dos PDFs com `?v=N` para furar o cache. No Zenodo, botão "Nova versão" do script (cria nova versão do mesmo registro, com novo DOI de versão).
 
@@ -192,4 +236,4 @@ Convenções numéricas: pt, de e fr com vírgula decimal; de com ponto de milha
 2. A SPEC tem trechos antigos de identidade visual (Unbounded, IBM Plex, vermelho, cobalto, âmbar) e descrições defasadas ("dez scripts", "notas FR-TC-01 a FR-TC-04"): valem as seções 3 e 4 deste documento.
 3. `/sobre` dá 404 (redirecionamento não aplicado no método de deploy atual).
 4. Palavras-chave vazias nos metadados dos PDFs.
-5. Os dados brutos das simulações (CSVs de centenas de MB) ficam só nas sessões de trabalho; guardar os resumidos usados nas tabelas junto do código.
+5. Dados brutos das simulações: os do regime L = 0 (notas 13 a 15) estão em `dados/dados_l0.tar.xz` (42 MB; descrição em `dados/LEIA-ME.md`). Novos estudos devem guardar os seus dados brutos comprimidos em `dados/`, um arquivo por estudo, abaixo de 50 MB cada (limite prático do GitHub sem LFS).
