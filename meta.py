@@ -146,4 +146,14 @@ ARTS=[
    ('Y. B. Ginat et al., Dynamical evolution of quasi-hierarchical triples, arXiv:2509.02685 (2025).','https://arxiv.org/abs/2509.02685'),
    ('W. W. M. da Cunha, Física Revisitada, Technical Note FR-TC-09 (2026).',SITE+'/artigos/memoria-e-acaso/'),
  ]),
+ dict(slug='formula-posta-a-prova', src='a14.html', part=14, code='FR-TC-14', date_iso='2026-11-05', version_num='1', refs=[
+   ('B. Kol, Flux-based statistical prediction of three-body outcomes, Celest. Mech. Dyn. Astron. 133, 17 (2021).','https://doi.org/10.1007/s10569-021-10015-x'),
+   ('V. Manwadkar, A. A. Trani, and B. Kol, Measurement of three-body chaotic absorptivity predicts chaotic outcome distribution, Celest. Mech. Dyn. Astron. 136, 4 (2024).','https://doi.org/10.1007/s10569-023-10174-z'),
+   ('W. W. M. da Cunha, Física Revisitada, Technical Note FR-TC-13 (2026).',SITE+'/artigos/muro-de-excentricidade/'),
+   ('W. W. M. da Cunha, Física Revisitada, Technical Note FR-TC-12 (2026).',SITE+'/artigos/formula-da-absortividade/'),
+   ('S. Mikkola and K. Tanikawa, Algorithmic regularization of the few-body problem, Mon. Not. R. Astron. Soc. 310, 745 (1999).','https://doi.org/10.1046/j.1365-8711.1999.02982.x'),
+   ('B. Efron and R. J. Tibshirani, An Introduction to the Bootstrap (Chapman and Hall/CRC, New York, 1993).','https://doi.org/10.1201/9780429246593'),
+   ('S. Holm, A simple sequentially rejective multiple test procedure, Scand. J. Stat. 6, 65 (1979).','https://www.jstor.org/stable/4615733'),
+   ('T. Hastie, R. Tibshirani, and J. Friedman, The Elements of Statistical Learning, 2nd ed. (Springer, New York, 2009).','https://doi.org/10.1007/978-0-387-84858-7'),
+ ]),
 ]

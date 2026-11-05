@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "O problema dos três corpos",
-  "lead": "Por que não há fórmula geral, o que torna configurações de poucos corpos estáveis, quais ideias de estabilização falham, o que se pode prever antes de uma ejeção, quanto tempo um sistema vive e qual é a lei estatística dos desfechos. Treze notas, do fundamento ao teste de hipóteses."
+  "lead": "Por que não há fórmula geral, o que torna configurações de poucos corpos estáveis, quais ideias de estabilização falham, o que se pode prever antes de uma ejeção, quanto tempo um sistema vive e qual é a lei estatística dos desfechos. Catorze notas, do fundamento ao teste de hipóteses."
  },
  "articles": {
   "FR-TC-01": {
@@ -186,6 +186,22 @@
     "memória dinâmica",
     "teoria estatística"
    ]
+  },
+  "FR-TC-14": {
+   "title": "A fórmula da absortividade posta à prova: o que passa com 95% de confiança e o que ainda falha",
+   "short": "A fórmula posta à prova",
+   "type": "Artigo de pesquisa",
+   "abstract": "A versão 11 da fórmula aproximada da absortividade na teoria de fluxo de três corpos escreve o muro de excentricidade da nota FR-TC-13 como um degrau nítido, que depende da massa relativa do corpo que chega e da energia do par. Ajustada só a 939.000 espalhamentos planos com momento angular total nulo, ela foi submetida a uma prova formal de 95% de confiança nas quedas livres de três conjuntos de massas, com valores críticos obtidos por bootstrap paramétrico (200 réplicas) e correção de Holm. No conjunto 1-2-3, ela passa tanto na distribuição da excentricidade final (KS 0,020, crítico 0,028) quanto nas frações de escape, o primeiro conjunto aprovado por inteiro. O limite de massa do muro, ajustado livremente, é 0,93 vez a massa reduzida do par, de acordo com a medida direta. Nos conjuntos 1-1-3 e 3-3-1, a fórmula reprova no formato e, no 3-3-1, também na fração de escape do corpo pesado (4,6% previstos contra 6,3% medidos). Uma validação cruzada mostra que esses erros não vêm de excesso de parâmetros, e eles são do mesmo tamanho dos obtidos com a absortividade medida diretamente. Separar erro de medida de falha da teoria exige uma medida mais precisa nos canais pesados.",
+   "kw": [
+    "problema dos três corpos",
+    "absortividade caótica",
+    "teoria de fluxo",
+    "muro de excentricidade",
+    "bootstrap paramétrico",
+    "validação fora da amostra"
+   ],
+   "date_long": "5 de novembro de 2026",
+   "version_note": "v1: primeira publicação"
   }
  },
  "fig": {
@@ -289,6 +305,14 @@
    "s11": "par de massas iguais (1,1)",
    "s12": "par desigual (1,2)",
    "aria": "Excentricidade mínima do par para que um corpo leve seja capturado, em função da massa relativa"
+  },
+  "A14": {
+   "x": "excentricidade final do par",
+   "y": "CDF prevista menos medida",
+   "s_v10": "versão 10",
+   "s_v11": "versão 11",
+   "s_crit": "crítico de 95%",
+   "aria": "Diferença entre a distribuição prevista e a medida da excentricidade final no conjunto 1-2-3, versões 10 e 11"
   }
  },
  "ui": {
@@ -346,7 +370,7 @@
   "empty": "Nenhuma nota encontrada. Tente outra palavra.",
   "series_eyebrow": "Série · mecânica celeste",
   "series_order_title": "Ordem de leitura",
-  "series_order_text": "As notas foram escritas para ser lidas em sequência: a primeira situa o problema, a segunda testa uma hipótese de estabilização, a terceira valida o simulador contra critérios clássicos, a quarta testa uma heurística unificadora, a quinta investiga sinais antecipados da ejeção, a sexta testa se a velocidade prevê o corpo ejetado melhor que as massas, a sétima examina o primeiro dissidente e o primeiro contato, a oitava mede a meia-vida dos sistemas, a nona testa as teorias estatísticas dos desfechos, a décima testa as equações de evolução e mapeia a absortividade, a décima primeira separa as duas regras de massas, a décima segunda propõe uma fórmula aproximada para a absortividade e a décima terceira mede o muro de excentricidade abaixo do qual um corpo leve não é capturado.",
+  "series_order_text": "As notas foram escritas para ser lidas em sequência: a primeira situa o problema, a segunda testa uma hipótese de estabilização, a terceira valida o simulador contra critérios clássicos, a quarta testa uma heurística unificadora, a quinta investiga sinais antecipados da ejeção, a sexta testa se a velocidade prevê o corpo ejetado melhor que as massas, a sétima examina o primeiro dissidente e o primeiro contato, a oitava mede a meia-vida dos sistemas, a nona testa as teorias estatísticas dos desfechos, a décima testa as equações de evolução e mapeia a absortividade, a décima primeira separa as duas regras de massas, a décima segunda propõe uma fórmula aproximada para a absortividade, a décima terceira mede o muro de excentricidade abaixo do qual um corpo leve não é capturado e a décima quarta submete a fórmula a uma prova formal de 95%.",
   "series_count": "{n} notas",
   "foot_about": "Problemas clássicos da física revistos com inteligência artificial no processo criativo: perguntas, experimentos numéricos e verificação contra a literatura.",
   "foot_disc": "Por Willian Wistuba Melo da Cunha, entusiasta de física. O autor é advogado e não é físico. As buscas, as simulações e a redação contam com assistência de IA. Os textos não passaram por revisão por pares.",
@@ -414,7 +438,7 @@
  "code_page": {
   "eyebrow": "Reprodutibilidade",
   "h1": "Código dos experimentos",
-  "lead": "Os números das notas vêm destes scripts: em JavaScript (Node.js, sem dependências) para as notas 1 a 4 e em Python (NumPy, SciPy e Numba) para as notas 5 a 13.",
+  "lead": "Os números das notas vêm destes scripts: em JavaScript (Node.js, sem dependências) para as notas 1 a 4 e em Python (NumPy, SciPy e Numba) para as notas 5 a 14.",
   "intro": "Baixe todos para a mesma pasta e rode, por exemplo, <code>node fase1.js</code>. As unidades usam G = 1. O integrador é o leapfrog no esquema kick-drift-kick.",
   "th_file": "Arquivo",
   "th_what": "O que faz",
@@ -488,7 +512,16 @@
    "ergo/an34.py": "Memória entre episódios e dependência da idade.",
    "ergo/an34b.py": "Teste da teoria com corte no último episódio.",
    "ergo/an34c.py": "Teste coerente: mesmo limiar de embaralhamentos na absorção e na emissão.",
-   "ergo/an35.py": "Fórmulas v2 e v3 no teste coerente."
+   "ergo/an35.py": "Fórmulas v2 e v3 no teste coerente.",
+   "ergo/run_train.py": "Simulações de treino da fórmula (primeira grade de massas).",
+   "ergo/run_train2.py": "Simulações de treino: segunda grade de massas.",
+   "ergo/run_train3.py": "Simulações de treino: terceira grade de massas.",
+   "ergo/run_train_hi.py": "Simulações de treino com corpos pesados.",
+   "ergo/prova11.py": "Fórmula v11 e prova de 95% por bootstrap paramétrico com correção de Holm (FR-TC-14).",
+   "ergo/rapido.py": "Ajuste da v11 no treino e conferência rápida nas quedas livres.",
+   "ergo/cv.py": "Validação cruzada por grupos de massas do regime pesado.",
+   "ergo/diag_canais.py": "Absortividade medida contra a v11, canal a canal.",
+   "ergo/teto.py": "Previsão das quedas livres com a absortividade medida."
   },
   "note": "Os scripts são notas de trabalho, escritos para clareza e não para desempenho. Alguns dependem de <code>core.js</code> ou de <code>sim.js</code>."
  }

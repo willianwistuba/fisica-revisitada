@@ -5,7 +5,7 @@
  "decimal": ".",
  "series": {
   "title": "The three-body problem",
-  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Thirteen notes, from foundations to hypothesis testing."
+  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Fourteen notes, from foundations to hypothesis testing."
  },
  "articles": {
   "FR-TC-01": {
@@ -186,6 +186,22 @@
     "dynamical memory",
     "statistical theory"
    ]
+  },
+  "FR-TC-14": {
+   "title": "The absorptivity formula put to the test: what passes at 95% confidence and what still fails",
+   "short": "The formula put to the test",
+   "type": "Research article",
+   "abstract": "Version 11 of the approximate absorptivity formula in the flux theory of three bodies writes the eccentricity wall of note FR-TC-13 as a sharp step, which depends on the relative mass of the incoming body and on the energy of the pair. Fitted only to 939,000 planar scatterings with zero total angular momentum, it was subjected to a formal test at 95% confidence in the free falls of three mass sets, with critical values obtained by parametric bootstrap (200 replicas) and Holm correction. In the set 1-2-3, it passes both in the distribution of the final eccentricity (KS 0.020, critical 0.028) and in the escape fractions, the first set approved in full. The mass limit of the wall, fitted freely, is 0.93 times the reduced mass of the pair, in agreement with the direct measurement. In the sets 1-1-3 and 3-3-1, the formula fails in the shape and, in 3-3-1, also in the escape fraction of the heavy body (4.6% predicted against 6.3% measured). A cross-validation shows that these errors do not come from an excess of parameters, and they are of the same size as those obtained with the directly measured absorptivity. Separating measurement error from failure of the theory requires a more precise measurement in the heavy channels.",
+   "kw": [
+    "three-body problem",
+    "chaotic absorptivity",
+    "flux theory",
+    "eccentricity wall",
+    "parametric bootstrap",
+    "out-of-sample validation"
+   ],
+   "date_long": "5 November 2026",
+   "version_note": "v1: first publication"
   }
  },
  "fig": {
@@ -289,6 +305,14 @@
    "s11": "equal-mass pair (1,1)",
    "s12": "unequal pair (1,2)",
    "aria": "Minimum eccentricity of the pair for a light body to be captured, as a function of the relative mass"
+  },
+  "A14": {
+   "x": "final eccentricity of the pair",
+   "y": "predicted minus measured CDF",
+   "s_v10": "version 10",
+   "s_v11": "version 11",
+   "s_crit": "95% critical value",
+   "aria": "Difference between the predicted and the measured distribution of the final eccentricity in the set 1-2-3, versions 10 and 11"
   }
  },
  "ui": {
@@ -346,7 +370,7 @@
   "empty": "No notes found. Try another word.",
   "series_eyebrow": "Series · celestial mechanics",
   "series_order_title": "Reading order",
-  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, and the thirteenth measures the eccentricity wall below which a light body is not captured.",
+  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, the thirteenth measures the eccentricity wall below which a light body is not captured, and the fourteenth subjects the formula to a formal 95% test.",
   "series_count": "{n} notes",
   "foot_about": "Classical problems in physics revisited with artificial intelligence in the creative process: questions, numerical experiments, and verification against the literature.",
   "foot_disc": "By Willian Wistuba Melo da Cunha, physics enthusiast. The author is a lawyer and not a physicist. The searches, simulations, and writing are carried out with AI assistance. The texts have not undergone peer review.",
@@ -414,7 +438,7 @@
  "code_page": {
   "eyebrow": "Reproducibility",
   "h1": "Code for the experiments",
-  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 13.",
+  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 14.",
   "intro": "Download them all to the same folder and run, for example, <code>node fase1.js</code>. Units use G = 1. The integrator is the kick-drift-kick leapfrog.",
   "th_file": "File",
   "th_what": "What it does",
@@ -488,7 +512,16 @@
    "ergo/an34.py": "Memory between episodes and dependence on age.",
    "ergo/an34b.py": "Test of the theory with a cut on the last episode.",
    "ergo/an34c.py": "Consistent test: same scramble threshold in absorption and in emission.",
-   "ergo/an35.py": "Formulas v2 and v3 in the consistent test."
+   "ergo/an35.py": "Formulas v2 and v3 in the consistent test.",
+   "ergo/run_train.py": "Training simulations for the formula (first mass grid).",
+   "ergo/run_train2.py": "Training simulations: second mass grid.",
+   "ergo/run_train3.py": "Training simulations: third mass grid.",
+   "ergo/run_train_hi.py": "Training simulations with heavy bodies.",
+   "ergo/prova11.py": "Formula v11 and 95% test by parametric bootstrap with Holm correction (FR-TC-14).",
+   "ergo/rapido.py": "Fit of v11 on the training set and quick check in the free falls.",
+   "ergo/cv.py": "Cross-validation by mass groups of the heavy regime.",
+   "ergo/diag_canais.py": "Measured absorptivity against v11, channel by channel.",
+   "ergo/teto.py": "Prediction of the free falls with the measured absorptivity."
   },
   "note": "The scripts are working notes, written for clarity rather than performance. Some depend on <code>core.js</code> or <code>sim.js</code>."
  }

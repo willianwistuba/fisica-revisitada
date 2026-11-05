@@ -31,7 +31,7 @@ def build_tex(a,lang,L):
 """+esc_text(m['abstract'])+r"""
 \\[4pt]\noindent\textbf{"""+esc_text(ui['keywords'])+r""":} """+esc_text('; '.join(m['kw']))+r""".
 \\[2pt]\noindent\textbf{ORCID:} \href{https://orcid.org/0009-0008-2875-6607}{0009-0008-2875-6607}"""+(("\\\\[2pt]\\noindent\\textbf{"+esc_text(ui["contact"])+":} \\href{mailto:profwistuba01@gmail.com}{profwistuba01@gmail.com}") if a["part"]>=13 else "")+r"""
-\\[2pt]\noindent\textbf{"""+esc_text(ui['published'])+r""":} """+esc_text(ui['date_long'])+'. '+esc_text(ui['version'])+' 2. '+esc_text(ui['status_text'])+'.'+r"""
+\\[2pt]\noindent\textbf{"""+esc_text(ui['published'])+r""":} """+esc_text(m.get('date_long',ui['date_long']))+'. '+esc_text(ui['version'])+' '+a.get('version_num','2')+'. '+esc_text(ui['status_text'])+'.'+r"""
 \\[2pt]\noindent\textbf{"""+esc_text(ui['series'])+r""":} """+esc_text(L['series']['title'])+', '+esc_text(ui['part'].replace('{n}',str(a['part'])).replace('{N}',str(len(ARTS))))+'. \\url{'+aurl+'}'+tn+r"""
 \end{abstract}
 \maketitle

@@ -1,0 +1,93 @@
+<h2>Introduction</h2>
+<p>In Kol's flux theory, the probability of each outcome of a three-body system is the product of the phase-volume flux, known in closed form, and an absorptivity, which must be measured by simulation <cite>1,2</cite>. Note FR-TC-13 showed that, without total rotation, a light body is not captured by a nearly circular pair. This eccentricity wall is geometric and explained the largest error of the approximate absorptivity formula proposed in note FR-TC-12 <cite>3,4</cite>. Version 3 of the formula, presented in FR-TC-13, still used a measured table for the light bodies and did not pass the 95% test in the free falls.</p>
+<p>This note presents version 11, a closed formula, without tables, with the wall written as a sharp step. It was subjected to a formal test at 95% confidence, with critical values obtained by parametric bootstrap. We report what passes, what fails, and where the remaining errors lie.</p>
+
+<h2>Method</h2>
+<p>The simulations are those of the previous notes: planar, with zero total angular momentum and the chain integrator with algorithmic regularization <cite>5</cite>. To measure the absorptivity, the incoming body starts from 20 semimajor axes of the pair, with the relative energy of the pair \(x = E_B/E_0\) and the eccentricity \(e\) fixed and the orbital phase random. A run counts as absorbed when there are at least two scrambles before the first excursion.</p>
+<p>The training set gathers 939,000 runs in 5,170 cells of \((x, e)\), distributed over 60 mass combinations. We removed from training, by automatic check, the two combinations that coincide in mass ratios with channels of the test: (1; 0.5; 1.5), which is equivalent to the channel (1,2; 3), and (1; 1; 1/3), which is equivalent to the channel (3,3; 1).</p>
+<p>The test uses the free falls of FR-TC-13, with the same criterion of chaotic origin on both sides (\(k = 2\)). The accepted cases are 2,786 in the set 1-1-3, 3,376 in the set 3-3-1, and 2,812 in the set 1-2-3. In each set we ask two questions: the distribution of the final eccentricity of the pair (Kolmogorov-Smirnov statistic, KS) and the escape fractions of each body (\(\chi^2\) statistic).</p>
+<h3>The formula</h3>
+<p>With \(r = m_s/\mu\), where \(m_s\) is the mass of the incoming body and \(\mu\) the reduced mass of the pair, and with \(Q = q/a\), the passage distance of FR-TC-13, the formula has three factors:</p>
+<div class="eq">\[ A = \sigma(z)\, M(e, r, x)\, V(Q), \qquad z = (1-s)\, z_L + s\, z_H, \]</div>
+<div class="eq">\[ s = \sigma\!\left(\frac{\ln r - \ln r_m}{w_m}\right), \]</div>
+<p>where \(\sigma\) is the logistic function. The smooth part \(z\) mixes two regimes. The light regime, \(z_L\), is a polynomial of 20 terms in \(\ln x\), \(\ln r\), the mass ratio of the pair, \(e\), and \(Q\). The heavy regime, \(z_H\), has 26 terms in the same variables, without \(Q\). The valley \(V(Q)\) is a Gaussian minimum between \(Q = 0.2\) and \(Q = 0.7\). The novelty of version 11 is the wall \(M\):</p>
+<div class="eq">\[ M = 1 - g(r)\left[1 - \sigma\!\left(\frac{e - e^\ast(r,x)}{w}\right)\right], \]</div>
+<div class="eq">\[ g = \sigma\!\left(\frac{\ln r_c - \ln r}{0.05}\right), \]</div>
+<p>with \(e^\ast = 0.95\, \sigma(w_0 + w_1 \ln r + w_2 \ln x + w_3 \ln r \ln x)\). In version 10, the last of the unpublished intermediate versions, the wall was a soft cut in \(Q\) that depended only on \(x\). Version 11 has 57 parameters, fitted by flux-weighted binomial maximum likelihood, using only the training set.</p>
+<h3>The 95% test</h3>
+<p>The formula is fitted with uncertainty, and a test that treated the prediction as exact would reject correct formulas too often. For this reason the critical value comes from a parametric bootstrap <cite>6</cite>:</p>
+<ul>
+<li>in each of 200 replicas, we redraw the absorptions of each training cell from the binomial with the measured proportion, refit the formula, and recompute the prediction of the free falls;</li>
+<li>from each replica we draw five samples of the observed size (1,000 in total) and compute the KS and the \(\chi^2\) against the reference prediction;</li>
+<li>the critical value is the 95th percentile of these 1,000 statistics, and the \(p\) value is the fraction of them that exceeds the observed one.</li>
+</ul>
+<p>We apply the Holm correction in each family of three tests, that of the shape and that of the escapes <cite>7</cite>.</p>
+
+<h2>Results</h2>
+<h3>The new wall</h3>
+<p>The step in \(e\) improves the fit of the training set: the log-likelihood rises by 128 units over version 10, with three more parameters. The freely fitted mass limit, \(r_c = 0.93\), coincides with the physical limit of the wall measured in FR-TC-13 (\(r \lesssim 0.9\)). The width of the step is 0.028 in eccentricity, that is, the wall is sharp.</p>
+<p>The step, however, should not be read alone as the position of the wall. For \(r \geq 0.6\), it lies above the measured position (for example, 0.35 against 0 to 0.2 at \(r = 0.8\)), because the smooth part of the formula also drops near the wall. What is tested is the complete absorptivity.</p>
+<p>The channel (2,3,1), in which version 10 predicted 13% absorption for the nearly circular pair against none in 200 measured runs (absorptivity below 1.5% with 95% confidence), was used only to locate this error, never in the fit.</p>
+<h3>The heavy regime is not overfitted</h3>
+<p>A formula with many parameters can reproduce the training set and err outside it. To test this without using the free falls, we performed a grouped cross-validation <cite>8</cite>. The 45 mass combinations with \(r \geq 1.5\) were divided into eight groups; each group was removed from training in turn, the formula was refitted without it and evaluated on it. Table I compares the complete heavy regime with two reduced versions.</p>
+<div class="tblwrap"><p class="cap">Cross-validation of the heavy regime, with training data only. Excess out-of-sample negative log-likelihood over the saturated model, summed over the eight folds (lower is better).</p><table>
+<thead><tr><th>Heavy regime</th><th>terms</th><th>out-of-sample excess</th></tr></thead>
+<tbody>
+<tr><td>complete</td><td>26</td><td>5,889</td></tr>
+<tr><td>reduced</td><td>11</td><td>7,595</td></tr>
+<tr><td>intermediate</td><td>16</td><td>8,025</td></tr>
+</tbody></table></div>
+<p>Reducing the regime worsens the out-of-sample prediction. The errors that remain in the heavy regime do not come from an excess of parameters, and the complete regime was kept.</p>
+<h3>The test</h3>
+<p>Table II gives the result of the 200 replicas for versions 10 and 11.</p>
+<div class="tblwrap"><p class="cap">95% test in the free falls, with critical values by parametric bootstrap (200 replicas) and Holm correction. KS is the statistic of the final eccentricity; \(p\) is the bootstrap value. Escape fractions in the order: body of mass 1, of mass 3 and, in 1-2-3, of mass 2.</p><table>
+<thead><tr><th>Set (n)</th><th>version</th><th>KS (critical)</th><th>\(p\) shape</th><th>escapes measured / predicted</th><th>\(p\) escapes</th></tr></thead>
+<tbody>
+<tr><td>1-1-3 (2,786)</td><td>10</td><td>0.031 (0.032)</td><td>0.067</td><td>0.977; 0.023 / 0.972; 0.028</td><td>0.148</td></tr>
+<tr><td>1-1-3 (2,786)</td><td>11</td><td>0.042 (0.029)</td><td>0.001</td><td>0.977; 0.023 / 0.971; 0.029</td><td>0.095</td></tr>
+<tr><td>3-3-1 (3,376)</td><td>10</td><td>0.037 (0.027)</td><td>0.003</td><td>0.937; 0.063 / 0.955; 0.045</td><td>0.001</td></tr>
+<tr><td>3-3-1 (3,376)</td><td>11</td><td>0.037 (0.027)</td><td>0.006</td><td>0.937; 0.063 / 0.954; 0.046</td><td>\(&lt; 0.001\)</td></tr>
+<tr><td>1-2-3 (2,812)</td><td>10</td><td>0.041 (0.028)</td><td>0.003</td><td>0.865; 0.018; 0.117 / 0.869; 0.016; 0.115</td><td>0.705</td></tr>
+<tr><td>1-2-3 (2,812)</td><td>11</td><td>0.020 (0.028)</td><td>0.313</td><td>0.865; 0.018; 0.117 / 0.859; 0.017; 0.124</td><td>0.578</td></tr>
+</tbody></table></div>
+<p>Version 11 passes both questions in the set 1-2-3, the first set approved in full at 95% confidence. There, the KS drops from 0.041 to 0.020, and the largest difference between the predicted and the measured distribution lies well within the critical value (Fig. 1). In 1-1-3, the escape fractions pass, but the shape fails (KS 0.042 against a critical value of 0.029), worse than in version 10, which passed narrowly. In 3-3-1, both questions fail: the formula predicts that the heavy body escapes in 4.6% of the cases, against 6.3% measured.</p>
+<figure data-fig="A14"><figcaption>Difference between the predicted and the measured cumulative distribution of the final eccentricity in the set 1-2-3 (2,812 escapes), for versions 10 and 11. The dashed lines mark the 95% critical value of the KS obtained by bootstrap. Version 10 exceeds the limit between \(e = 0.85\) and \(e = 0.9\); version 11 stays within it over the whole range.</figcaption></figure>
+<h3>Comparison with the measured absorptivity</h3>
+<p>To find where the remaining errors lie, we compared the formula with the absorptivity measured directly in the channels of the test, with 26,400 runs per channel (Table III). This use is only diagnostic: these data do not enter any fit.</p>
+<div class="tblwrap"><p class="cap">Absorptivity measured and predicted by version 11, as a flux-weighted average, in the channels of the free falls. Each channel has 26,400 runs.</p><table>
+<thead><tr><th>Channel (pair; incoming body)</th><th>\(r\)</th><th>measured</th><th>version 11</th></tr></thead>
+<tbody>
+<tr><td>(3,3; 1)</td><td>0.67</td><td>0.182</td><td>0.178</td></tr>
+<tr><td>(2,3; 1)</td><td>0.83</td><td>0.166</td><td>0.149</td></tr>
+<tr><td>(1,3; 1)</td><td>1.33</td><td>0.132</td><td>0.125</td></tr>
+<tr><td>(1,3; 2)</td><td>2.67</td><td>0.114</td><td>0.103</td></tr>
+<tr><td>(3,1; 3)</td><td>4.00</td><td>0.056</td><td>0.051</td></tr>
+<tr><td>(1,2; 3)</td><td>4.50</td><td>0.040</td><td>0.038</td></tr>
+<tr><td>(1,1; 3)</td><td>6.00</td><td>0.103</td><td>0.102</td></tr>
+</tbody></table></div>
+<p>On average, the formula stays within 10% of the measurement in all channels, with a tendency to underestimate. In the free falls, the measured absorptivity gives KS of 0.036, 0.047, and 0.031 in the three sets <cite>3</cite>, against 0.042, 0.037, and 0.020 for version 11. The formula has therefore reached the level of the direct measurement, and it is held to a stricter standard: because it was fitted to 939,000 runs, its uncertainty is much smaller and its critical values are narrower. In FR-TC-13, with critical values that included the uncertainty of the measured absorptivity, the theory passed 8 of 9 tests of the final eccentricity <cite>3</cite>.</p>
+
+<h2>Discussion</h2>
+<p>The sharp wall resolves the error of the light bodies. The gain appears where the physics of FR-TC-13 said it would: in the channel (2,3,1), near the limit \(r_c\), and in the set 1-2-3, which depends on this channel. The limit \(r_c = 0.93\), fitted without any constraint, recovers the directly measured value, which indicates that the step describes a real effect and not an artifact of the fit.</p>
+<p>The remaining failures are in the heavy regime. The cross-validation shows that the cause is not an excess of parameters. The comparison with the measured absorptivity shows that, in these sets, the formula is no worse than the measurement itself. Two explanations remain, which this note cannot separate:</p>
+<ul>
+<li>the measured absorptivity of the heavy channels has too much uncertainty to hold the formula to this standard, and a measurement with many more runs would show where the formula still errs;</li>
+<li>the product of flux and absorptivity itself ceases to hold in these sets, for example because of the memory between episodes described in FR-TC-13, in which the final pair inherits the shape of the pair of the previous excursion.</li>
+</ul>
+<p>Both hypotheses can be tested with an absorptivity measured more precisely in the heavy channels and with a prediction that takes into account the memory of the last episode.</p>
+<p>Limitations:</p>
+<ul>
+<li>everything holds for planar simulations with zero total angular momentum;</li>
+<li>the test covers three mass sets;</li>
+<li>the formula is empirical, with 57 parameters, and only the wall has a direct physical interpretation;</li>
+<li>the channel (2,3,1) was used to diagnose the error of version 10 (not for fitting), and for this reason the result of the set 1-2-3 needs to be confirmed in other sets with light bodies;</li>
+<li>the measured absorptivity of the free falls only covers \(x \leq 20\).</li>
+</ul>
+
+<h2>Conclusions</h2>
+<ul>
+<li>Version 11 of the absorptivity formula, with the eccentricity wall as a sharp step in \(e\), passes both questions of the set 1-2-3 at 95% confidence, the first set approved in full.</li>
+<li>The mass limit of the wall, fitted freely, is \(r_c = 0.93\), in agreement with the direct measurement of FR-TC-13.</li>
+<li>In the sets 1-1-3 and 3-3-1, the formula fails in the shape and, in 3-3-1, also in the escape fraction of the heavy body (4.6% predicted against 6.3% measured).</li>
+<li>The remaining errors are in the heavy regime, do not come from an excess of parameters, and are of the same size as those of the measured absorptivity. Separating measurement error from failure of the theory requires a more precise measurement in the heavy channels.</li>
+</ul>

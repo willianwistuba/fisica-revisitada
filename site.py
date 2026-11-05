@@ -71,7 +71,7 @@ for lang in LANGS:
 
 def card(lang,a):
     ui=I[lang]['ui']
-    return f'''<a class="card" href="{a['url']}" data-q="{E((a['title']+' '+a['abstract']+' '+' '.join(a['kw'])+' '+a['type']).lower())}"><span class="eyebrow">{E(a['type'])} · {a['code']}</span><h3>{E(a['title'])}</h3><p>{E(a['abstract'][:220].rsplit(' ',1)[0])}…</p><span class="meta">{E(ui['date_long'])} · {a['min']} min · <span class="tag">PDF</span></span></a>'''
+    return f'''<a class="card" href="{a['url']}" data-q="{E((a['title']+' '+a['abstract']+' '+' '.join(a['kw'])+' '+a['type']).lower())}"><span class="eyebrow">{E(a['type'])} · {a['code']}</span><h3>{E(a['title'])}</h3><p>{E(a['abstract'][:220].rsplit(' ',1)[0])}…</p><span class="meta">{E(a.get('date_long',ui['date_long']))} · {a['min']} min · <span class="tag">PDF</span></span></a>'''
 
 for lang in LANGS:
     L=I[lang]; ui=L['ui']; hm=L['home']; S=L['series']; A=D[lang]; N=len(A)
@@ -131,7 +131,7 @@ f.addEventListener('input',run);run();}})();</script>'''
 <span class="ptype">{E(a['type'])}</span>
 <h1 class="ptitle">{E(a['title'])}</h1>
 <div class="authors"><span class="aname">{AUTHOR} <a class="orcid" href="{ORCID}" title="ORCID {ORCID_ID}" aria-label="ORCID {ORCID_ID}">{ORCID_SVG}<span>{ORCID_ID}</span></a></span><span class="aff">{E(ui['author_role'])}</span>{(f'<span class="aff">{E(ui["contact"])}: <a href="mailto:{EMAIL}">{EMAIL}</a></span>') if a['part']>=13 else ''}</div>
-<dl class="pinfo"><div><dt>{E(ui['published'])}</dt><dd>{E(ui['date_long'])}</dd></div><div><dt>{E(ui['version'])}</dt><dd>{E(ui['version_note'])}</dd></div><div><dt>{E(ui['status'])}</dt><dd>{E(ui['status_text'])}</dd></div><div><dt>{E(ui['series'])}</dt><dd><a href="{url(lang,'series')}">{E(S['title'])}</a>, {E(part)}</dd></div></dl>
+<dl class="pinfo"><div><dt>{E(ui['published'])}</dt><dd>{E(a.get('date_long',ui['date_long']))}</dd></div><div><dt>{E(ui['version'])}</dt><dd>{E(a.get('version_note',ui['version_note']))}</dd></div><div><dt>{E(ui['status'])}</dt><dd>{E(ui['status_text'])}</dd></div><div><dt>{E(ui['series'])}</dt><dd><a href="{url(lang,'series')}">{E(S['title'])}</a>, {E(part)}</dd></div></dl>
 <div class="pactions"><a class="btn pri" href="{a['pdf']}" download>{E(ui['download_pdf'])} · {a['pdfkb']} KB</a><a class="btn" href="#citar">{E(ui['cite_as'])}</a></div>
 <nav class="plangs" aria-label="{E(ui['other_langs'])}"><span>{E(ui['other_langs'])}:</span>{langs}</nav>
 {tn}
@@ -149,7 +149,7 @@ f.addEventListener('input',run);run();}})();</script>'''
 </div>
 <aside class="pside"><div class="stick"><span class="eyebrow">{E(ui['contents'])}</span><ol class="ptoc">{toc}</ol><a class="btn pri full" href="{a['pdf']}" download>{E(ui['download_pdf'])}</a><span class="eyebrow sp">{E(ui['series'])}</span><a class="stitle" href="{url(lang,'series')}">{E(S['title'])}</a><ol class="toc">{stoc}</ol></div></aside>
 </div></article>'''
-        ld={"@context":"https://schema.org","@type":"ScholarlyArticle","headline":a['title'],"abstract":a['abstract'],"keywords":a['kw'],"datePublished":DATE,"dateModified":DATE,"version":"2","inLanguage":HREFLANG[lang],"url":SITE+a['url'],"identifier":a['code'],"isPartOf":{"@type":"CreativeWorkSeries","name":S['title']},"author":{"@type":"Person","name":AUTHOR,"description":ui['author_role'],"identifier":ORCID,"sameAs":[ORCID]},"publisher":{"@type":"Organization","name":"Física Revisitada"},"citation":[t for t,_ in a['refs']],"encoding":{"@type":"MediaObject","contentUrl":SITE+a['pdf'],"encodingFormat":"application/pdf"}}
+        ld={"@context":"https://schema.org","@type":"ScholarlyArticle","headline":a['title'],"abstract":a['abstract'],"keywords":a['kw'],"datePublished":a.get("date_iso",DATE),"dateModified":a.get("date_iso",DATE),"version":a.get("version_num","2"),"inLanguage":HREFLANG[lang],"url":SITE+a['url'],"identifier":a['code'],"isPartOf":{"@type":"CreativeWorkSeries","name":S['title']},"author":{"@type":"Person","name":AUTHOR,"description":ui['author_role'],"identifier":ORCID,"sameAs":[ORCID]},"publisher":{"@type":"Organization","name":"Física Revisitada"},"citation":[t for t,_ in a['refs']],"encoding":{"@type":"MediaObject","contentUrl":SITE+a['pdf'],"encodingFormat":"application/pdf"}}
         if lang!='pt': ld["translationOfWork"]={"@type":"ScholarlyArticle","url":SITE+url('pt','art',a['slug'])}
         hw=f'<meta name="citation_title" content="{E(a["title"])}"><meta name="citation_author" content="Cunha, Willian Wistuba Melo da"><meta name="citation_author_orcid" content="'+ORCID+'"><meta name="citation_publication_date" content="2026/11/03"><meta name="citation_journal_title" content="Física Revisitada"><meta name="citation_technical_report_number" content="{a["code"]}"><meta name="citation_language" content="{lang}"><meta name="citation_pdf_url" content="{SITE}{a["pdf"]}"><meta name="citation_abstract_html_url" content="{SITE}{a["url"]}">'+''.join(f'<meta name="citation_keywords" content="{E(k)}">' for k in a['kw'])+''.join(f'<meta name="citation_reference" content="{E(t)}">' for t,_ in a['refs'])
         extra_meta[a['url']]=hw

@@ -1,0 +1,93 @@
+<h2>Introduction</h2>
+<p>Dans la théorie de flux de Kol, la probabilité de chaque issue d’un système de trois corps est le produit du flux de volume de phase, connu sous forme fermée, par une absorptivité, qui doit être mesurée par simulation <cite>1,2</cite>. La note FR-TC-13 a montré que, sans rotation totale, un corps léger n’est pas capturé par une paire presque circulaire. Ce mur d’excentricité est géométrique et expliquait la plus grande erreur de la formule approchée de l’absorptivité proposée dans la note FR-TC-12 <cite>3,4</cite>. La version 3 de la formule, présentée dans la FR-TC-13, utilisait encore une table mesurée pour les corps légers et ne passait pas le test à 95 % dans les chutes libres.</p>
+<p>Cette note présente la version 11, une formule fermée, sans tables, dans laquelle le mur est écrit comme une marche nette. Elle a été soumise à une épreuve formelle avec 95 % de confiance, avec des valeurs critiques obtenues par bootstrap paramétrique. Nous rapportons ce qui passe, ce qui échoue et où se situent les erreurs restantes.</p>
+
+<h2>Méthode</h2>
+<p>Les simulations sont celles des notes précédentes : planes, à moment cinétique total nul, avec l’intégrateur en chaîne à régularisation algorithmique <cite>5</cite>. Pour mesurer l’absorptivité, le corps incident part de 20 demi-grands axes de la paire, avec l’énergie relative de la paire \(x = E_B/E_0\) et l’excentricité \(e\) fixées et la phase orbitale tirée au sort. La simulation compte comme absorbée lorsqu’il y a au moins deux brassages avant la première excursion.</p>
+<p>Les données d’entraînement réunissent 939 000 simulations dans 5 170 cellules de \((x, e)\), réparties sur 60 combinaisons de masses. Nous avons retiré de l’entraînement, par vérification automatique, les deux combinaisons dont les rapports de masses coïncident avec des canaux du test : (1 ; 0,5 ; 1,5), qui équivaut au canal (1,2 ; 3), et (1 ; 1 ; 1/3), qui équivaut au canal (3,3 ; 1).</p>
+<p>Le test utilise les chutes libres de la FR-TC-13, avec le même critère d’origine chaotique des deux côtés (\(k = 2\)). Les cas retenus sont au nombre de 2 786 dans l’ensemble 1-1-3, de 3 376 dans le 3-3-1 et de 2 812 dans le 1-2-3. Dans chaque ensemble, nous posons deux questions : la distribution de l’excentricité finale de la paire (statistique de Kolmogorov-Smirnov, KS) et les fractions d’échappement de chaque corps (statistique \(\chi^2\)).</p>
+<h3>La formule</h3>
+<p>Avec \(r = m_s/\mu\), où \(m_s\) est la masse du corps incident et \(\mu\) la masse réduite de la paire, et avec \(Q = q/a\), la distance de passage de la FR-TC-13, la formule comporte trois facteurs :</p>
+<div class="eq">\[ A = \sigma(z)\, M(e, r, x)\, V(Q), \qquad z = (1-s)\, z_L + s\, z_H, \]</div>
+<div class="eq">\[ s = \sigma\!\left(\frac{\ln r - \ln r_m}{w_m}\right), \]</div>
+<p>où \(\sigma\) est la fonction logistique. La partie lisse \(z\) mélange deux régimes. Le régime léger, \(z_L\), est un polynôme de 20 termes portant sur \(\ln x\), \(\ln r\), le rapport des masses de la paire, \(e\) et \(Q\). Le régime lourd, \(z_H\), compte 26 termes dans les mêmes variables, sans \(Q\). La vallée \(V(Q)\) est un minimum gaussien entre \(Q = 0{,}2\) et \(Q = 0{,}7\). La nouveauté de la version 11 est le mur \(M\) :</p>
+<div class="eq">\[ M = 1 - g(r)\left[1 - \sigma\!\left(\frac{e - e^\ast(r,x)}{w}\right)\right], \]</div>
+<div class="eq">\[ g = \sigma\!\left(\frac{\ln r_c - \ln r}{0{,}05}\right), \]</div>
+<p>avec \(e^\ast = 0{,}95\, \sigma(w_0 + w_1 \ln r + w_2 \ln x + w_3 \ln r \ln x)\). Dans la version 10, la dernière des versions intermédiaires non publiées, le mur était une coupure douce en \(Q\) qui ne dépendait que de \(x\). La version 11 compte 57 paramètres, ajustés par maximum de vraisemblance binomiale pondérée par le flux, uniquement sur les données d’entraînement.</p>
+<h3>L’épreuve à 95 %</h3>
+<p>La formule est ajustée avec une incertitude, et un test qui traiterait la prévision comme exacte rejetterait trop souvent des formules correctes. C’est pourquoi la valeur critique provient d’un bootstrap paramétrique <cite>6</cite> :</p>
+<ul>
+<li>dans chacune des 200 répliques, nous tirons à nouveau les absorptions de chaque cellule d’entraînement selon la loi binomiale avec la proportion mesurée, réajustons la formule et recalculons la prévision des chutes libres ;</li>
+<li>de chaque réplique, nous tirons cinq échantillons de la taille des échantillons observés (1 000 au total) et calculons le KS et le \(\chi^2\) par rapport à la prévision de référence ;</li>
+<li>la valeur critique est le centile 95 de ces 1 000 statistiques, et la valeur \(p\) est la fraction d’entre elles qui dépasse la valeur observée.</li>
+</ul>
+<p>Nous appliquons la correction de Holm dans chaque famille de trois tests, celle de la forme et celle des échappements <cite>7</cite>.</p>
+
+<h2>Résultats</h2>
+<h3>Le nouveau mur</h3>
+<p>La marche en \(e\) améliore l’ajustement sur l’entraînement : la log-vraisemblance augmente de 128 unités par rapport à la version 10, avec trois paramètres de plus. La limite de masse ajustée librement, \(r_c = 0{,}93\), coïncide avec la limite physique du mur mesurée dans la FR-TC-13 (\(r \lesssim 0{,}9\)). La largeur de la marche est de 0,028 en excentricité, autrement dit le mur est net.</p>
+<p>La marche ne doit cependant pas être lue seule comme la position du mur. Pour \(r \geq 0{,}6\), elle se situe au-dessus de la position mesurée (par exemple, 0,35 contre 0 à 0,2 pour \(r = 0{,}8\)), parce que la partie lisse de la formule diminue aussi près du mur. Ce qui est testé, c’est l’absorptivité complète.</p>
+<p>Le canal (2,3,1), dans lequel la version 10 prévoyait 13 % d’absorption pour la paire presque circulaire contre aucune sur 200 simulations mesurées (absorptivité inférieure à 1,5 % avec 95 % de confiance), n’a servi qu’à localiser cette erreur, jamais à l’ajustement.</p>
+<h3>Le régime lourd n’est pas surajusté</h3>
+<p>Une formule à nombreux paramètres peut reproduire l’entraînement et se tromper en dehors. Pour le vérifier sans utiliser les chutes libres, nous avons effectué une validation croisée par groupes <cite>8</cite>. Les 45 combinaisons de masses avec \(r \geq 1{,}5\) ont été réparties en huit groupes ; chaque groupe a été retiré à tour de rôle de l’entraînement, la formule a été réajustée sans lui et évaluée sur lui. Le Tableau I compare le régime lourd complet à deux versions allégées.</p>
+<div class="tblwrap"><p class="cap">Validation croisée du régime lourd, avec les seules données d’entraînement. Excès de log-vraisemblance négative hors échantillon par rapport au modèle saturé, sommé sur les huit plis (plus petit est meilleur).</p><table>
+<thead><tr><th>Régime lourd</th><th>termes</th><th>excès hors échantillon</th></tr></thead>
+<tbody>
+<tr><td>complet</td><td>26</td><td>5 889</td></tr>
+<tr><td>allégé</td><td>11</td><td>7 595</td></tr>
+<tr><td>intermédiaire</td><td>16</td><td>8 025</td></tr>
+</tbody></table></div>
+<p>Alléger dégrade la prévision hors échantillon. Les erreurs restantes du régime lourd ne proviennent pas d’un excès de paramètres, et le régime complet a été conservé.</p>
+<h3>L’épreuve</h3>
+<p>Le Tableau II présente le résultat des 200 répliques pour les versions 10 et 11.</p>
+<div class="tblwrap"><p class="cap">Épreuve à 95 % dans les chutes libres, avec des valeurs critiques par bootstrap paramétrique (200 répliques) et correction de Holm. KS est la statistique de l’excentricité finale ; \(p\) est la valeur bootstrap. Fractions d’échappement dans l’ordre : corps de masse 1, de masse 3 et, dans le 1-2-3, de masse 2.</p><table>
+<thead><tr><th>Ensemble (n)</th><th>version</th><th>KS (critique)</th><th>\(p\) forme</th><th>échappements mesurés / prévus</th><th>\(p\) échappements</th></tr></thead>
+<tbody>
+<tr><td>1-1-3 (2 786)</td><td>10</td><td>0,031 (0,032)</td><td>0,067</td><td>0,977 ; 0,023 / 0,972 ; 0,028</td><td>0,148</td></tr>
+<tr><td>1-1-3 (2 786)</td><td>11</td><td>0,042 (0,029)</td><td>0,001</td><td>0,977 ; 0,023 / 0,971 ; 0,029</td><td>0,095</td></tr>
+<tr><td>3-3-1 (3 376)</td><td>10</td><td>0,037 (0,027)</td><td>0,003</td><td>0,937 ; 0,063 / 0,955 ; 0,045</td><td>0,001</td></tr>
+<tr><td>3-3-1 (3 376)</td><td>11</td><td>0,037 (0,027)</td><td>0,006</td><td>0,937 ; 0,063 / 0,954 ; 0,046</td><td>\(&lt; 0{,}001\)</td></tr>
+<tr><td>1-2-3 (2 812)</td><td>10</td><td>0,041 (0,028)</td><td>0,003</td><td>0,865 ; 0,018 ; 0,117 / 0,869 ; 0,016 ; 0,115</td><td>0,705</td></tr>
+<tr><td>1-2-3 (2 812)</td><td>11</td><td>0,020 (0,028)</td><td>0,313</td><td>0,865 ; 0,018 ; 0,117 / 0,859 ; 0,017 ; 0,124</td><td>0,578</td></tr>
+</tbody></table></div>
+<p>La version 11 passe les deux questions dans l’ensemble 1-2-3, le premier validé entièrement avec 95 % de confiance. Le KS y tombe de 0,041 à 0,020, et le plus grand écart entre la distribution prévue et la distribution mesurée reste bien en deçà de la valeur critique (Fig. 1). Dans le 1-1-3, les fractions d’échappement passent, mais la forme échoue (KS 0,042 contre une valeur critique de 0,029), moins bien que dans la version 10, qui passait de justesse. Dans le 3-3-1, les deux questions échouent : la formule prévoit que le corps lourd s’échappe dans 4,6 % des cas, contre 6,3 % mesurés.</p>
+<figure data-fig="A14"><figcaption>Écart entre la distribution cumulée prévue et la distribution mesurée de l’excentricité finale dans l’ensemble 1-2-3 (2 812 échappements), pour les versions 10 et 11. Les lignes en tirets marquent la valeur critique à 95 % du KS obtenue par bootstrap. La version 10 dépasse la limite entre \(e = 0{,}85\) et \(e = 0{,}9\) ; la version 11 reste en deçà sur tout l’intervalle.</figcaption></figure>
+<h3>Comparaison avec l’absorptivité mesurée</h3>
+<p>Pour savoir où se situent les erreurs restantes, nous comparons la formule à l’absorptivité mesurée directement dans les canaux du test, avec 26 400 simulations par canal (Tableau III). Cet usage est purement diagnostique : ces données n’entrent dans aucun ajustement.</p>
+<div class="tblwrap"><p class="cap">Absorptivité mesurée et prévue par la version 11, en moyenne pondérée par le flux, dans les canaux des chutes libres. Chaque canal compte 26 400 simulations.</p><table>
+<thead><tr><th>Canal (paire ; corps incident)</th><th>\(r\)</th><th>mesurée</th><th>version 11</th></tr></thead>
+<tbody>
+<tr><td>(3,3 ; 1)</td><td>0,67</td><td>0,182</td><td>0,178</td></tr>
+<tr><td>(2,3 ; 1)</td><td>0,83</td><td>0,166</td><td>0,149</td></tr>
+<tr><td>(1,3 ; 1)</td><td>1,33</td><td>0,132</td><td>0,125</td></tr>
+<tr><td>(1,3 ; 2)</td><td>2,67</td><td>0,114</td><td>0,103</td></tr>
+<tr><td>(3,1 ; 3)</td><td>4,00</td><td>0,056</td><td>0,051</td></tr>
+<tr><td>(1,2 ; 3)</td><td>4,50</td><td>0,040</td><td>0,038</td></tr>
+<tr><td>(1,1 ; 3)</td><td>6,00</td><td>0,103</td><td>0,102</td></tr>
+</tbody></table></div>
+<p>En moyenne, la formule reste à moins de 10 % de la mesure dans tous les canaux, avec une tendance à sous-estimer. Dans les chutes libres, l’absorptivité mesurée donne des KS de 0,036, 0,047 et 0,031 dans les trois ensembles <cite>3</cite>, contre 0,042, 0,037 et 0,020 pour la version 11. La formule a donc atteint le niveau de la mesure directe, et elle est jugée avec plus de rigueur : comme elle a été ajustée sur 939 000 simulations, son incertitude est bien plus faible et ses valeurs critiques sont plus étroites. Dans la FR-TC-13, avec des valeurs critiques qui incluaient l’incertitude de l’absorptivité mesurée, la théorie a passé 8 des 9 tests de l’excentricité finale <cite>3</cite>.</p>
+
+<h2>Discussion</h2>
+<p>Le mur net résout l’erreur des corps légers. Le gain apparaît là où la physique de la FR-TC-13 disait qu’il apparaîtrait : dans le canal (2,3,1), près de la limite \(r_c\), et dans l’ensemble 1-2-3, qui dépend de ce canal. La limite \(r_c = 0{,}93\), ajustée sans aucune contrainte, retrouve la valeur mesurée directement, ce qui indique que la marche décrit un effet réel et non un artifice de l’ajustement.</p>
+<p>Les échecs restants se situent dans le régime lourd. La validation croisée montre que la cause n’est pas un excès de paramètres. La comparaison avec l’absorptivité mesurée montre que, dans ces ensembles, la formule n’est pas moins bonne que la mesure elle-même. Il reste deux explications, que cette note ne parvient pas à départager :</p>
+<ul>
+<li>l’absorptivité mesurée des canaux lourds a une incertitude trop grande pour juger la formule avec cette rigueur, et une mesure avec beaucoup plus de simulations montrerait où la formule se trompe encore ;</li>
+<li>le produit du flux par l’absorptivité cesse lui-même de valoir dans ces ensembles, par exemple à cause de la mémoire entre épisodes décrite dans la FR-TC-13, dans laquelle la paire finale hérite de la forme de la paire de l’excursion précédente.</li>
+</ul>
+<p>Les deux hypothèses peuvent être testées avec une absorptivité mesurée plus précisément dans les canaux lourds et avec une prévision qui tienne compte de la mémoire du dernier épisode.</p>
+<p>Limites :</p>
+<ul>
+<li>tout vaut pour des simulations planes à moment cinétique total nul ;</li>
+<li>le test couvre trois ensembles de masses ;</li>
+<li>la formule est empirique, avec 57 paramètres, et seul le mur a une interprétation physique directe ;</li>
+<li>le canal (2,3,1) a servi à diagnostiquer l’erreur de la version 10 (et non à l’ajustement), et c’est pourquoi le résultat de l’ensemble 1-2-3 doit être confirmé sur d’autres ensembles comportant des corps légers ;</li>
+<li>l’absorptivité mesurée des chutes libres ne couvre que \(x \leq 20\).</li>
+</ul>
+
+<h2>Conclusions</h2>
+<ul>
+<li>La version 11 de la formule de l’absorptivité, avec le mur d’excentricité sous forme de marche nette en \(e\), passe avec 95 % de confiance les deux questions de l’ensemble 1-2-3, le premier validé entièrement.</li>
+<li>La limite de masse du mur, ajustée librement, est \(r_c = 0{,}93\), en accord avec la mesure directe de la FR-TC-13.</li>
+<li>Dans les ensembles 1-1-3 et 3-3-1, la formule échoue sur la forme et, dans le 3-3-1, également sur la fraction d’échappement du corps lourd (4,6 % prévus contre 6,3 % mesurés).</li>
+<li>Les erreurs restantes se situent dans le régime lourd, ne proviennent pas d’un excès de paramètres et sont de la même taille que celles de l’absorptivité mesurée. Distinguer une erreur de mesure d’un échec de la théorie exige une mesure plus précise dans les canaux lourds.</li>
+</ul>

@@ -1,0 +1,93 @@
+<h2>Einleitung</h2>
+<p>In der Flusstheorie von Kol ist die Wahrscheinlichkeit jedes Ausgangs eines Dreikörpersystems das Produkt aus dem in geschlossener Form bekannten Fluss des Phasenvolumens und einer Absorptivität, die durch Simulation gemessen werden muss <cite>1,2</cite>. Die Notiz FR-TC-13 hat gezeigt, dass ohne Gesamtdrehimpuls ein leichter Körper von einem nahezu kreisförmigen Paar nicht eingefangen wird. Diese Exzentrizitätsmauer ist geometrisch und erklärte den größten Fehler der in der Notiz FR-TC-12 vorgeschlagenen Näherungsformel für die Absorptivität <cite>3,4</cite>. Version 3 der Formel, vorgestellt in FR-TC-13, verwendete für die leichten Körper noch eine gemessene Tabelle und bestand den 95-%-Test in den freien Fällen nicht.</p>
+<p>Diese Notiz stellt Version 11 vor, eine geschlossene Formel ohne Tabellen, in der die Mauer als scharfe Stufe geschrieben ist. Sie wurde einer formalen Prüfung mit 95 % Konfidenz unterzogen, mit durch parametrischen Bootstrap gewonnenen kritischen Werten. Wir berichten, was besteht, was durchfällt und wo die verbleibenden Fehler liegen.</p>
+
+<h2>Methode</h2>
+<p>Die Simulationen sind die der vorherigen Notizen: eben, mit verschwindendem Gesamtdrehimpuls und dem Kettenintegrator mit algorithmischer Regularisierung <cite>5</cite>. Um die Absorptivität zu messen, startet der ankommende Körper aus 20 großen Halbachsen des Paares, mit festgelegter relativer Energie des Paares \(x = E_B/E_0\) und Exzentrizität \(e\) sowie ausgeloster Bahnphase. Als absorbiert zählt ein Lauf, wenn es vor der ersten Exkursion mindestens zwei Durchmischungen gibt.</p>
+<p>Das Training umfasst 939.000 Läufe in 5.170 Zellen von \((x, e)\), verteilt auf 60 Massenkombinationen. Durch automatische Prüfung haben wir die beiden Kombinationen aus dem Training entfernt, die in den Massenverhältnissen mit Kanälen des Tests übereinstimmen: (1; 0,5; 1,5), das dem Kanal (1,2; 3) entspricht, und (1; 1; 1/3), das dem Kanal (3,3; 1) entspricht.</p>
+<p>Der Test verwendet die freien Fälle aus FR-TC-13, mit demselben Kriterium für chaotische Herkunft auf beiden Seiten (\(k = 2\)). Akzeptiert sind 2.786 Fälle im Ensemble 1-1-3, 3.376 im Ensemble 3-3-1 und 2.812 im Ensemble 1-2-3. In jedem Ensemble stellen wir zwei Fragen: die Verteilung der Endexzentrizität des Paares (Kolmogorov-Smirnov-Statistik, KS) und die Fluchtanteile jedes Körpers (\(\chi^2\)-Statistik).</p>
+<h3>Die Formel</h3>
+<p>Mit \(r = m_s/\mu\), wobei \(m_s\) die Masse des ankommenden Körpers und \(\mu\) die reduzierte Masse des Paares ist, und mit \(Q = q/a\), dem Vorbeiflugabstand aus FR-TC-13, hat die Formel drei Faktoren:</p>
+<div class="eq">\[ A = \sigma(z)\, M(e, r, x)\, V(Q), \qquad z = (1-s)\, z_L + s\, z_H, \]</div>
+<div class="eq">\[ s = \sigma\!\left(\frac{\ln r - \ln r_m}{w_m}\right), \]</div>
+<p>wobei \(\sigma\) die logistische Funktion ist. Der glatte Teil \(z\) mischt zwei Regime. Das leichte Regime, \(z_L\), ist ein Polynom mit 20 Termen in \(\ln x\), \(\ln r\), im Massenverhältnis des Paares, in \(e\) und in \(Q\). Das schwere Regime, \(z_H\), hat 26 Terme in denselben Variablen, ohne \(Q\). Das Tal \(V(Q)\) ist ein gaußförmiges Minimum zwischen \(Q = 0{,}2\) und \(Q = 0{,}7\). Die Neuerung der Version 11 ist die Mauer \(M\):</p>
+<div class="eq">\[ M = 1 - g(r)\left[1 - \sigma\!\left(\frac{e - e^\ast(r,x)}{w}\right)\right], \]</div>
+<div class="eq">\[ g = \sigma\!\left(\frac{\ln r_c - \ln r}{0{,}05}\right), \]</div>
+<p>mit \(e^\ast = 0{,}95\, \sigma(w_0 + w_1 \ln r + w_2 \ln x + w_3 \ln r \ln x)\). In Version 10, der letzten der nicht veröffentlichten Zwischenversionen, war die Mauer ein weicher Schnitt in \(Q\), der nur von \(x\) abhing. Version 11 hat 57 Parameter, angepasst durch flussgewichtete binomiale Maximum-Likelihood, allein mit dem Training.</p>
+<h3>Die 95-%-Prüfung</h3>
+<p>Die Formel ist mit Unsicherheit angepasst, und ein Test, der die Vorhersage als exakt behandelte, würde korrekte Formeln zu häufig verwerfen. Deshalb stammt der kritische Wert aus einem parametrischen Bootstrap <cite>6</cite>:</p>
+<ul>
+<li>in jeder von 200 Replikationen losen wir die Absorptionen jeder Trainingszelle über die Binomialverteilung mit dem gemessenen Anteil neu aus, passen die Formel neu an und berechnen die Vorhersage der freien Fälle neu;</li>
+<li>aus jeder Replikation ziehen wir fünf Stichproben von der Größe der beobachteten (insgesamt 1.000) und berechnen KS und \(\chi^2\) gegen die Referenzvorhersage;</li>
+<li>der kritische Wert ist das 95. Perzentil dieser 1.000 Statistiken, und der \(p\)-Wert ist der Anteil von ihnen, der den beobachteten Wert übersteigt.</li>
+</ul>
+<p>Wir wenden die Holm-Korrektur in jeder Familie von drei Tests an, der der Form und der der Fluchten <cite>7</cite>.</p>
+
+<h2>Ergebnisse</h2>
+<h3>Die neue Mauer</h3>
+<p>Die Stufe in \(e\) verbessert die Anpassung an das Training: Die Log-Likelihood steigt gegenüber Version 10 um 128 Einheiten, bei drei zusätzlichen Parametern. Die frei angepasste Massengrenze \(r_c = 0{,}93\) stimmt mit der in FR-TC-13 gemessenen physikalischen Grenze der Mauer überein (\(r \lesssim 0{,}9\)). Die Breite der Stufe beträgt 0,028 in der Exzentrizität, die Mauer ist also scharf.</p>
+<p>Die Stufe darf jedoch nicht allein als Lage der Mauer gelesen werden. Für \(r \geq 0{,}6\) liegt sie oberhalb der gemessenen Lage (zum Beispiel 0,35 gegenüber 0 bis 0,2 bei \(r = 0{,}8\)), weil auch der glatte Teil der Formel nahe der Mauer abfällt. Getestet wird die vollständige Absorptivität.</p>
+<p>Der Kanal (2,3,1), in dem Version 10 für das nahezu kreisförmige Paar 13 % Absorption vorhersagte, gegenüber keiner in 200 gemessenen Läufen (Absorptivität unter 1,5 % mit 95 % Konfidenz), wurde nur zur Lokalisierung dieses Fehlers verwendet, nie in der Anpassung.</p>
+<h3>Das schwere Regime ist nicht überangepasst</h3>
+<p>Eine Formel mit vielen Parametern kann das Training reproduzieren und außerhalb davon danebenliegen. Um dies ohne Verwendung der freien Fälle zu prüfen, haben wir eine gruppierte Kreuzvalidierung durchgeführt <cite>8</cite>. Die 45 Massenkombinationen mit \(r \geq 1{,}5\) wurden in acht Gruppen aufgeteilt; jede Gruppe wurde nacheinander aus dem Training entfernt, die Formel ohne sie neu angepasst und an ihr ausgewertet. Tabelle I vergleicht das vollständige schwere Regime mit zwei schlanken Varianten.</p>
+<div class="tblwrap"><p class="cap">Kreuzvalidierung des schweren Regimes, nur mit Trainingsdaten. Überschuss der negativen Log-Likelihood außerhalb der Stichprobe gegenüber dem saturierten Modell, summiert über die acht Faltungen (kleiner ist besser).</p><table>
+<thead><tr><th>Schweres Regime</th><th>Terme</th><th>Überschuss außerhalb der Stichprobe</th></tr></thead>
+<tbody>
+<tr><td>vollständig</td><td>26</td><td>5.889</td></tr>
+<tr><td>schlank</td><td>11</td><td>7.595</td></tr>
+<tr><td>mittel</td><td>16</td><td>8.025</td></tr>
+</tbody></table></div>
+<p>Das Verschlanken verschlechtert die Vorhersage außerhalb der Stichprobe. Die verbleibenden Fehler im schweren Regime stammen nicht von zu vielen Parametern, und das vollständige Regime wurde beibehalten.</p>
+<h3>Die Prüfung</h3>
+<p>Tabelle II zeigt das Ergebnis der 200 Replikationen für die Versionen 10 und 11.</p>
+<div class="tblwrap"><p class="cap">95-%-Prüfung in den freien Fällen, mit kritischen Werten aus parametrischem Bootstrap (200 Replikationen) und Holm-Korrektur. KS ist die Statistik der Endexzentrizität; \(p\) ist der Bootstrap-Wert. Fluchtanteile in der Reihenfolge: Körper der Masse 1, der Masse 3 und, im Ensemble 1-2-3, der Masse 2.</p><table>
+<thead><tr><th>Ensemble (n)</th><th>Version</th><th>KS (kritisch)</th><th>\(p\) Form</th><th>Fluchten gemessen / vorhergesagt</th><th>\(p\) Fluchten</th></tr></thead>
+<tbody>
+<tr><td>1-1-3 (2.786)</td><td>10</td><td>0,031 (0,032)</td><td>0,067</td><td>0,977; 0,023 / 0,972; 0,028</td><td>0,148</td></tr>
+<tr><td>1-1-3 (2.786)</td><td>11</td><td>0,042 (0,029)</td><td>0,001</td><td>0,977; 0,023 / 0,971; 0,029</td><td>0,095</td></tr>
+<tr><td>3-3-1 (3.376)</td><td>10</td><td>0,037 (0,027)</td><td>0,003</td><td>0,937; 0,063 / 0,955; 0,045</td><td>0,001</td></tr>
+<tr><td>3-3-1 (3.376)</td><td>11</td><td>0,037 (0,027)</td><td>0,006</td><td>0,937; 0,063 / 0,954; 0,046</td><td>\(&lt; 0{,}001\)</td></tr>
+<tr><td>1-2-3 (2.812)</td><td>10</td><td>0,041 (0,028)</td><td>0,003</td><td>0,865; 0,018; 0,117 / 0,869; 0,016; 0,115</td><td>0,705</td></tr>
+<tr><td>1-2-3 (2.812)</td><td>11</td><td>0,020 (0,028)</td><td>0,313</td><td>0,865; 0,018; 0,117 / 0,859; 0,017; 0,124</td><td>0,578</td></tr>
+</tbody></table></div>
+<p>Version 11 besteht im Ensemble 1-2-3 beide Fragen; es ist das erste Ensemble, das mit 95 % Konfidenz vollständig besteht. Dort sinkt KS von 0,041 auf 0,020, und die größte Differenz zwischen vorhergesagter und gemessener Verteilung bleibt deutlich innerhalb des kritischen Werts (Abb. 1). Im Ensemble 1-1-3 bestehen die Fluchtanteile, aber die Form fällt durch (KS 0,042 gegenüber dem kritischen Wert 0,029), schlechter als in Version 10, die knapp bestand. Im Ensemble 3-3-1 fallen beide Fragen durch: Die Formel sagt voraus, dass der schwere Körper in 4,6 % der Fälle entkommt, gegenüber 6,3 % gemessen.</p>
+<figure data-fig="A14"><figcaption>Differenz zwischen der vorhergesagten und der gemessenen kumulativen Verteilung der Endexzentrizität im Ensemble 1-2-3 (2.812 Fluchten), für die Versionen 10 und 11. Die gestrichelten Linien markieren den durch Bootstrap gewonnenen kritischen 95-%-Wert von KS. Version 10 überschreitet die Grenze zwischen \(e = 0{,}85\) und \(e = 0{,}9\); Version 11 bleibt im gesamten Bereich innerhalb.</figcaption></figure>
+<h3>Vergleich mit der gemessenen Absorptivität</h3>
+<p>Um herauszufinden, wo die verbleibenden Fehler liegen, vergleichen wir die Formel mit der direkt in den Kanälen des Tests gemessenen Absorptivität, mit 26.400 Läufen pro Kanal (Tabelle III). Diese Verwendung dient nur der Diagnose: Diese Daten gehen in keine Anpassung ein.</p>
+<div class="tblwrap"><p class="cap">Gemessene und von Version 11 vorhergesagte Absorptivität, flussgewichtet gemittelt, in den Kanälen der freien Fälle. Jeder Kanal hat 26.400 Läufe.</p><table>
+<thead><tr><th>Kanal (Paar; ankommender Körper)</th><th>\(r\)</th><th>gemessen</th><th>Version 11</th></tr></thead>
+<tbody>
+<tr><td>(3,3; 1)</td><td>0,67</td><td>0,182</td><td>0,178</td></tr>
+<tr><td>(2,3; 1)</td><td>0,83</td><td>0,166</td><td>0,149</td></tr>
+<tr><td>(1,3; 1)</td><td>1,33</td><td>0,132</td><td>0,125</td></tr>
+<tr><td>(1,3; 2)</td><td>2,67</td><td>0,114</td><td>0,103</td></tr>
+<tr><td>(3,1; 3)</td><td>4,00</td><td>0,056</td><td>0,051</td></tr>
+<tr><td>(1,2; 3)</td><td>4,50</td><td>0,040</td><td>0,038</td></tr>
+<tr><td>(1,1; 3)</td><td>6,00</td><td>0,103</td><td>0,102</td></tr>
+</tbody></table></div>
+<p>Im Mittel liegt die Formel in allen Kanälen höchstens 10 % von der Messung entfernt, mit einer Tendenz zur Unterschätzung. In den freien Fällen ergibt die gemessene Absorptivität KS-Werte von 0,036, 0,047 und 0,031 in den drei Ensembles <cite>3</cite>, gegenüber 0,042, 0,037 und 0,020 bei Version 11. Die Formel hat also das Niveau der direkten Messung erreicht und wird strenger geprüft: Da sie an 939.000 Läufe angepasst wurde, ist ihre Unsicherheit deutlich kleiner und ihre kritischen Werte sind enger. In FR-TC-13 bestand die Theorie mit kritischen Werten, die die Unsicherheit der gemessenen Absorptivität einschlossen, 8 von 9 Tests der Endexzentrizität <cite>3</cite>.</p>
+
+<h2>Diskussion</h2>
+<p>Die scharfe Mauer behebt den Fehler bei den leichten Körpern. Der Gewinn zeigt sich dort, wo die Physik aus FR-TC-13 ihn erwarten ließ: im Kanal (2,3,1), nahe der Grenze \(r_c\), und im Ensemble 1-2-3, das von diesem Kanal abhängt. Die ohne jede Einschränkung angepasste Grenze \(r_c = 0{,}93\) trifft den direkt gemessenen Wert, was darauf hindeutet, dass die Stufe einen realen Effekt beschreibt und kein Artefakt der Anpassung ist.</p>
+<p>Die verbleibenden Ablehnungen liegen im schweren Regime. Die Kreuzvalidierung zeigt, dass die Ursache nicht zu viele Parameter sind. Der Vergleich mit der gemessenen Absorptivität zeigt, dass die Formel in diesen Ensembles nicht schlechter ist als die Messung selbst. Es bleiben zwei Erklärungen, die diese Notiz nicht trennen kann:</p>
+<ul>
+<li>die gemessene Absorptivität der schweren Kanäle ist zu unsicher, um die Formel so streng zu prüfen, und eine Messung mit sehr viel mehr Läufen würde zeigen, wo die Formel noch danebenliegt;</li>
+<li>das Produkt aus Fluss und Absorptivität selbst gilt in diesen Ensembles nicht mehr, zum Beispiel wegen des in FR-TC-13 beschriebenen Gedächtnisses zwischen Episoden, bei dem das Endpaar die Form des Paares der vorangehenden Exkursion erbt.</li>
+</ul>
+<p>Beide Hypothesen lassen sich mit einer genauer gemessenen Absorptivität in den schweren Kanälen und mit einer Vorhersage prüfen, die das Gedächtnis der letzten Episode berücksichtigt.</p>
+<p>Einschränkungen:</p>
+<ul>
+<li>alles gilt für ebene Simulationen mit verschwindendem Gesamtdrehimpuls;</li>
+<li>der Test umfasst drei Massenensembles;</li>
+<li>die Formel ist empirisch, mit 57 Parametern, und nur die Mauer hat eine direkte physikalische Deutung;</li>
+<li>der Kanal (2,3,1) wurde zur Diagnose des Fehlers von Version 10 verwendet (nicht zur Anpassung), weshalb das Ergebnis des Ensembles 1-2-3 in anderen Ensembles mit leichten Körpern bestätigt werden muss;</li>
+<li>die gemessene Absorptivität der freien Fälle deckt nur \(x \leq 20\) ab.</li>
+</ul>
+
+<h2>Schlussfolgerungen</h2>
+<ul>
+<li>Version 11 der Formel für die Absorptivität, mit der Exzentrizitätsmauer als scharfer Stufe in \(e\), besteht mit 95 % Konfidenz beide Fragen im Ensemble 1-2-3, dem ersten vollständig bestandenen Ensemble.</li>
+<li>Die frei angepasste Massengrenze der Mauer ist \(r_c = 0{,}93\), in Übereinstimmung mit der direkten Messung aus FR-TC-13.</li>
+<li>In den Ensembles 1-1-3 und 3-3-1 fällt die Formel bei der Form durch und im Ensemble 3-3-1 auch beim Fluchtanteil des schweren Körpers (4,6 % vorhergesagt gegenüber 6,3 % gemessen).</li>
+<li>Die verbleibenden Fehler liegen im schweren Regime, stammen nicht von zu vielen Parametern und sind genauso groß wie die der gemessenen Absorptivität. Um Messfehler von einem Versagen der Theorie zu trennen, ist eine genauere Messung in den schweren Kanälen nötig.</li>
+</ul>

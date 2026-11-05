@@ -1,0 +1,93 @@
+<h2>Introdução</h2>
+<p>Na teoria de fluxo de Kol, a chance de cada desfecho de um sistema de três corpos é o produto do fluxo de volume de fase, conhecido em forma fechada, por uma absortividade, que precisa ser medida por simulação <cite>1,2</cite>. A nota FR-TC-13 mostrou que, sem rotação total, um corpo leve não é capturado por um par quase circular. Esse muro de excentricidade é geométrico e explicava o maior erro da fórmula aproximada da absortividade proposta na nota FR-TC-12 <cite>3,4</cite>. A versão 3 da fórmula, apresentada na FR-TC-13, ainda usava uma tabela medida para os corpos leves e não passava no teste de 95% nas quedas livres.</p>
+<p>Esta nota apresenta a versão 11, uma fórmula fechada, sem tabelas, com o muro escrito como um degrau nítido. Ela foi submetida a uma prova formal com 95% de confiança, com valores críticos obtidos por bootstrap paramétrico. Relatamos o que passa, o que reprova e onde ficam os erros que restam.</p>
+
+<h2>Método</h2>
+<p>As simulações são as das notas anteriores: planas, com momento angular total nulo e o integrador de cadeia com regularização algorítmica <cite>5</cite>. Para medir a absortividade, o corpo que chega parte de 20 semieixos maiores do par, com a energia relativa do par \(x = E_B/E_0\) e a excentricidade \(e\) fixadas e a fase orbital sorteada. A corrida conta como absorvida quando há pelo menos dois embaralhamentos antes da primeira excursão.</p>
+<p>O treino reúne 939.000 corridas em 5.170 células de \((x, e)\), distribuídas por 60 combinações de massas. Retiramos do treino, por verificação automática, as duas combinações que coincidem em razões de massa com canais do teste: (1; 0,5; 1,5), que equivale ao canal (1,2; 3), e (1; 1; 1/3), que equivale ao canal (3,3; 1).</p>
+<p>O teste usa as quedas livres da FR-TC-13, com o mesmo critério de origem caótica dos dois lados (\(k = 2\)). Os casos aceitos são 2.786 no conjunto 1-1-3, 3.376 no 3-3-1 e 2.812 no 1-2-3. Em cada conjunto fazemos duas perguntas: a distribuição da excentricidade final do par (estatística de Kolmogorov-Smirnov, KS) e as frações de escape de cada corpo (estatística \(\chi^2\)).</p>
+<h3>A fórmula</h3>
+<p>Com \(r = m_s/\mu\), em que \(m_s\) é a massa do corpo que chega e \(\mu\) a massa reduzida do par, e com \(Q = q/a\), a distância de passagem da FR-TC-13, a fórmula tem três fatores:</p>
+<div class="eq">\[ A = \sigma(z)\, M(e, r, x)\, V(Q), \qquad z = (1-s)\, z_L + s\, z_H, \]</div>
+<div class="eq">\[ s = \sigma\!\left(\frac{\ln r - \ln r_m}{w_m}\right), \]</div>
+<p>em que \(\sigma\) é a função logística. A parte suave \(z\) mistura dois regimes. O regime leve, \(z_L\), é um polinômio de 20 termos em \(\ln x\), \(\ln r\), na razão de massas do par, em \(e\) e em \(Q\). O regime pesado, \(z_H\), tem 26 termos nas mesmas variáveis, sem \(Q\). O vale \(V(Q)\) é um mínimo gaussiano entre \(Q = 0{,}2\) e \(Q = 0{,}7\). A novidade da versão 11 é o muro \(M\):</p>
+<div class="eq">\[ M = 1 - g(r)\left[1 - \sigma\!\left(\frac{e - e^\ast(r,x)}{w}\right)\right], \]</div>
+<div class="eq">\[ g = \sigma\!\left(\frac{\ln r_c - \ln r}{0{,}05}\right), \]</div>
+<p>com \(e^\ast = 0{,}95\, \sigma(w_0 + w_1 \ln r + w_2 \ln x + w_3 \ln r \ln x)\). Na versão 10, a última das versões intermediárias não publicadas, o muro era um corte macio em \(Q\) que dependia só de \(x\). A versão 11 tem 57 parâmetros, ajustados por máxima verossimilhança binomial ponderada pelo fluxo, só com o treino.</p>
+<h3>A prova de 95%</h3>
+<p>A fórmula é ajustada com incerteza, e um teste que tratasse a previsão como exata reprovaria fórmulas corretas com frequência excessiva. Por isso o valor crítico vem de um bootstrap paramétrico <cite>6</cite>:</p>
+<ul>
+<li>em cada uma de 200 réplicas, sorteamos de novo as absorções de cada célula do treino pela binomial com a proporção medida, reajustamos a fórmula e recalculamos a previsão das quedas livres;</li>
+<li>de cada réplica tiramos cinco amostras do tamanho das observadas (1.000 no total) e calculamos o KS e o \(\chi^2\) contra a previsão de referência;</li>
+<li>o valor crítico é o percentil 95 dessas 1.000 estatísticas, e o valor \(p\) é a fração delas que supera a observada.</li>
+</ul>
+<p>Aplicamos a correção de Holm em cada família de três testes, a do formato e a dos escapes <cite>7</cite>.</p>
+
+<h2>Resultados</h2>
+<h3>O muro novo</h3>
+<p>O degrau em \(e\) melhora o ajuste do treino: a log-verossimilhança sobe 128 unidades sobre a versão 10, com três parâmetros a mais. O limite de massa ajustado livremente, \(r_c = 0{,}93\), coincide com o limite físico do muro medido na FR-TC-13 (\(r \lesssim 0{,}9\)). A largura do degrau é de 0,028 em excentricidade, ou seja, o muro é nítido.</p>
+<p>O degrau, porém, não deve ser lido sozinho como a posição do muro. Para \(r \geq 0{,}6\), ele fica acima da posição medida (por exemplo, 0,35 contra 0 a 0,2 em \(r = 0{,}8\)), porque a parte suave da fórmula também cai perto do muro. O que se testa é a absortividade completa.</p>
+<p>O canal (2,3,1), em que a versão 10 previa 13% de absorção para o par quase circular contra nenhuma em 200 corridas medidas (absortividade abaixo de 1,5% com 95% de confiança), foi usado só para localizar esse erro, nunca no ajuste.</p>
+<h3>O regime pesado não está superajustado</h3>
+<p>Uma fórmula com muitos parâmetros pode reproduzir o treino e errar fora dele. Para testar isso sem usar as quedas livres, fizemos uma validação cruzada por grupos <cite>8</cite>. As 45 combinações de massas com \(r \geq 1{,}5\) foram divididas em oito grupos; cada grupo foi retirado do treino por vez, a fórmula foi reajustada sem ele e avaliada nele. A Tabela I compara o regime pesado completo com duas versões enxutas.</p>
+<div class="tblwrap"><p class="cap">Validação cruzada do regime pesado, só com dados de treino. Excesso de verossimilhança negativa fora da amostra sobre o modelo saturado, somado nas oito dobras (menor é melhor).</p><table>
+<thead><tr><th>Regime pesado</th><th>termos</th><th>excesso fora da amostra</th></tr></thead>
+<tbody>
+<tr><td>completo</td><td>26</td><td>5.889</td></tr>
+<tr><td>enxuto</td><td>11</td><td>7.595</td></tr>
+<tr><td>intermediário</td><td>16</td><td>8.025</td></tr>
+</tbody></table></div>
+<p>Enxugar piora a previsão fora da amostra. Os erros que restam no regime pesado não vêm de excesso de parâmetros, e o regime completo foi mantido.</p>
+<h3>A prova</h3>
+<p>A Tabela II traz o resultado das 200 réplicas para as versões 10 e 11.</p>
+<div class="tblwrap"><p class="cap">Prova de 95% nas quedas livres, com valores críticos por bootstrap paramétrico (200 réplicas) e correção de Holm. KS é a estatística da excentricidade final; \(p\) é o valor bootstrap. Frações de escape na ordem: corpo de massa 1, de massa 3 e, no 1-2-3, de massa 2.</p><table>
+<thead><tr><th>Conjunto (n)</th><th>versão</th><th>KS (crítico)</th><th>\(p\) formato</th><th>escapes medidos / previstos</th><th>\(p\) escapes</th></tr></thead>
+<tbody>
+<tr><td>1-1-3 (2.786)</td><td>10</td><td>0,031 (0,032)</td><td>0,067</td><td>0,977; 0,023 / 0,972; 0,028</td><td>0,148</td></tr>
+<tr><td>1-1-3 (2.786)</td><td>11</td><td>0,042 (0,029)</td><td>0,001</td><td>0,977; 0,023 / 0,971; 0,029</td><td>0,095</td></tr>
+<tr><td>3-3-1 (3.376)</td><td>10</td><td>0,037 (0,027)</td><td>0,003</td><td>0,937; 0,063 / 0,955; 0,045</td><td>0,001</td></tr>
+<tr><td>3-3-1 (3.376)</td><td>11</td><td>0,037 (0,027)</td><td>0,006</td><td>0,937; 0,063 / 0,954; 0,046</td><td>\(&lt; 0{,}001\)</td></tr>
+<tr><td>1-2-3 (2.812)</td><td>10</td><td>0,041 (0,028)</td><td>0,003</td><td>0,865; 0,018; 0,117 / 0,869; 0,016; 0,115</td><td>0,705</td></tr>
+<tr><td>1-2-3 (2.812)</td><td>11</td><td>0,020 (0,028)</td><td>0,313</td><td>0,865; 0,018; 0,117 / 0,859; 0,017; 0,124</td><td>0,578</td></tr>
+</tbody></table></div>
+<p>A versão 11 passa nas duas perguntas no conjunto 1-2-3, o primeiro aprovado por inteiro com 95% de confiança. Ali, o KS cai de 0,041 para 0,020, e a maior diferença entre a distribuição prevista e a medida fica bem dentro do valor crítico (Fig. 1). No 1-1-3, as frações de escape passam, mas o formato reprova (KS 0,042 contra crítico 0,029), pior que na versão 10, que passava por pouco. No 3-3-1, as duas perguntas reprovam: a fórmula prevê que o corpo pesado escapa em 4,6% dos casos, contra 6,3% medidos.</p>
+<figure data-fig="A14"><figcaption>Diferença entre a distribuição acumulada prevista e a medida da excentricidade final no conjunto 1-2-3 (2.812 escapes), para as versões 10 e 11. As linhas tracejadas marcam o valor crítico de 95% do KS obtido por bootstrap. A versão 10 ultrapassa o limite entre \(e = 0{,}85\) e \(e = 0{,}9\); a versão 11 fica dentro dele em toda a faixa.</figcaption></figure>
+<h3>Comparação com a absortividade medida</h3>
+<p>Para saber onde ficam os erros que restam, comparamos a fórmula com a absortividade medida diretamente nos canais do teste, com 26.400 corridas por canal (Tabela III). Esse uso é só diagnóstico: esses dados não entram em nenhum ajuste.</p>
+<div class="tblwrap"><p class="cap">Absortividade medida e prevista pela versão 11, em média ponderada pelo fluxo, nos canais das quedas livres. Cada canal tem 26.400 corridas.</p><table>
+<thead><tr><th>Canal (par; corpo que chega)</th><th>\(r\)</th><th>medida</th><th>versão 11</th></tr></thead>
+<tbody>
+<tr><td>(3,3; 1)</td><td>0,67</td><td>0,182</td><td>0,178</td></tr>
+<tr><td>(2,3; 1)</td><td>0,83</td><td>0,166</td><td>0,149</td></tr>
+<tr><td>(1,3; 1)</td><td>1,33</td><td>0,132</td><td>0,125</td></tr>
+<tr><td>(1,3; 2)</td><td>2,67</td><td>0,114</td><td>0,103</td></tr>
+<tr><td>(3,1; 3)</td><td>4,00</td><td>0,056</td><td>0,051</td></tr>
+<tr><td>(1,2; 3)</td><td>4,50</td><td>0,040</td><td>0,038</td></tr>
+<tr><td>(1,1; 3)</td><td>6,00</td><td>0,103</td><td>0,102</td></tr>
+</tbody></table></div>
+<p>Nas médias, a fórmula fica a até 10% da medida em todos os canais, com tendência a subestimar. Nas quedas livres, a absortividade medida dá KS de 0,036, 0,047 e 0,031 nos três conjuntos <cite>3</cite>, contra 0,042, 0,037 e 0,020 da versão 11. A fórmula chegou, portanto, ao nível da medida direta, e é cobrada com mais rigor: por ter sido ajustada a 939.000 corridas, sua incerteza é bem menor e seus valores críticos são mais estreitos. Na FR-TC-13, com valores críticos que incluíam a incerteza da absortividade medida, a teoria passou em 8 de 9 testes da excentricidade final <cite>3</cite>.</p>
+
+<h2>Discussão</h2>
+<p>O muro nítido resolve o erro dos corpos leves. O ganho aparece onde a física da FR-TC-13 dizia que apareceria: no canal (2,3,1), perto do limite \(r_c\), e no conjunto 1-2-3, que depende desse canal. O limite \(r_c = 0{,}93\), ajustado sem nenhuma restrição, reencontra o valor medido diretamente, o que indica que o degrau descreve um efeito real e não um artifício do ajuste.</p>
+<p>As reprovações que restam estão no regime pesado. A validação cruzada mostra que a causa não é excesso de parâmetros. A comparação com a absortividade medida mostra que, nesses conjuntos, a fórmula não é pior que a própria medida. Restam duas explicações, que esta nota não consegue separar:</p>
+<ul>
+<li>a absortividade medida dos canais pesados tem incerteza demais para cobrar a fórmula com esse rigor, e uma medida com muito mais corridas mostraria onde a fórmula ainda erra;</li>
+<li>o próprio produto de fluxo por absortividade deixa de valer nesses conjuntos, por exemplo por causa da memória entre episódios descrita na FR-TC-13, em que o par final herda o formato do par da excursão anterior.</li>
+</ul>
+<p>As duas hipóteses podem ser testadas com uma absortividade medida com mais precisão nos canais pesados e com uma previsão que leve em conta a memória do último episódio.</p>
+<p>Limitações:</p>
+<ul>
+<li>tudo vale para simulações planas com momento angular total nulo;</li>
+<li>o teste cobre três conjuntos de massas;</li>
+<li>a fórmula é empírica, com 57 parâmetros, e só o muro tem interpretação física direta;</li>
+<li>o canal (2,3,1) foi usado para diagnosticar o erro da versão 10 (não para ajustar), e por isso o resultado do conjunto 1-2-3 precisa ser confirmado em outros conjuntos com corpos leves;</li>
+<li>a absortividade medida das quedas livres só cobre \(x \leq 20\).</li>
+</ul>
+
+<h2>Conclusões</h2>
+<ul>
+<li>A versão 11 da fórmula da absortividade, com o muro de excentricidade como degrau nítido em \(e\), passa com 95% de confiança nas duas perguntas do conjunto 1-2-3, o primeiro aprovado por inteiro.</li>
+<li>O limite de massa do muro, ajustado livremente, é \(r_c = 0{,}93\), de acordo com a medida direta da FR-TC-13.</li>
+<li>Nos conjuntos 1-1-3 e 3-3-1, a fórmula reprova no formato e, no 3-3-1, também na fração de escape do corpo pesado (4,6% previstos contra 6,3% medidos).</li>
+<li>Os erros que restam estão no regime pesado, não vêm de excesso de parâmetros e são do mesmo tamanho dos da absortividade medida. Separar erro de medida de falha da teoria exige uma medida mais precisa nos canais pesados.</li>
+</ul>

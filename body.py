@@ -554,3 +554,42 @@ tick label style={font=\scriptsize},label style={font=\footnotesize}]
 \caption{""" + cap + r"""}\end{figure}
 """
 TEXFIG['A13'] = tex_fig_a13; SVGFIG['A13'] = svg_a13
+
+def _a14():
+    import json as _j; return _j.load(open('a14_points.json'))
+A14_C = {'v10': 'hot', 'v11': 'accent'}; A14_TC = {'v10': 'frhot', 'v11': 'fraccent'}
+def svg_a14(L):
+    f = L['fig']['A14']; D = _a14(); W, Hh, Lm, R, T, B = 640, 380, 64, 24, 56, 52; ym = 0.05
+    X = lambda v: Lm + (W - Lm - R) * v; Y = lambda p: Hh - B - (Hh - B - T) * (p + ym) / (2 * ym)
+    s = [f'<svg viewBox="0 0 {W} {Hh}" role="img" aria-label="{E(f["aria"])}">']
+    for j, k in enumerate(('v11', 'v10')):
+        x0 = Lm + j * 200; s.append(f'<line x1="{x0}" y1="14" x2="{x0+18}" y2="14" stroke="var(--{A14_C[k]})" stroke-width="2.4"/><text x="{x0+24}" y="18" class="lbl">{E(f["s_" + k])}</text>')
+    x0 = Lm + 400; s.append(f'<line x1="{x0}" y1="14" x2="{x0+18}" y2="14" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="5 4"/><text x="{x0+24}" y="18" class="lbl">{E(f["s_crit"])}</text>')
+    for p in [-0.04, -0.02, 0, 0.02, 0.04]:
+        yy = Y(p); s.append(f'<line x1="{Lm}" y1="{yy:.1f}" x2="{W-R}" y2="{yy:.1f}" stroke="var(--line)"/><text x="{Lm-8}" y="{yy+4:.1f}" text-anchor="end" class="ax">{num(f"{p:.2f}", L)}</text>')
+    for v in [0, 0.2, 0.4, 0.6, 0.8, 1]:
+        s.append(f'<text x="{X(v):.1f}" y="{Hh-B+18}" text-anchor="middle" class="ax">{num(f"{v:g}", L)}</text>')
+    for c in (D['crit'], -D['crit']):
+        s.append(f'<line x1="{Lm}" y1="{Y(c):.1f}" x2="{W-R}" y2="{Y(c):.1f}" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="5 4"/>')
+    for k in ('v10', 'v11'):
+        s.append(f'<polyline points="{" ".join(f"{X(e):.1f},{Y(d):.1f}" for e, d in D[k])}" fill="none" stroke="var(--{A14_C[k]})" stroke-width="2.4"/>')
+    s.append(f'<text x="{(Lm+W-R)/2:.0f}" y="{Hh-10}" text-anchor="middle" class="ax">{E(f["x"])}</text><text x="{Lm}" y="{T-12}" class="ax">{E(f["y"])}</text>')
+    return ''.join(s) + '</svg>'
+def tex_fig_a14(L, cap):
+    f = L['fig']['A14']; D = _a14(); sep = '{,}' if L['decimal'] == ',' else '.'
+    t = lambda vs: ','.join(v.replace('.', sep) for v in vs)
+    pl = ''
+    for k in ('v11', 'v10'):
+        pl += r"\addplot[color=" + A14_TC[k] + r",very thick] coordinates {" + ' '.join(f'({e},{d})' for e, d in D[k]) + "};\\addlegendentry{" + esc_text(f['s_' + k]) + "}\n"
+    c = D['crit']
+    pl += r"\addplot[color=gray,dashed,thick,domain=0:1] {" + str(c) + "};\\addlegendentry{" + esc_text(f['s_crit']) + "}\n"
+    pl += r"\addplot[color=gray,dashed,thick,domain=0:1,forget plot] {" + str(-c) + "};\n"
+    return r"""\begin{figure}[tb]\centering
+\begin{tikzpicture}\begin{axis}[width=\columnwidth,height=6.2cm,xmin=0,xmax=1,ymin=-0.05,ymax=0.05,
+xtick={0,0.2,0.4,0.6,0.8,1},xticklabels={""" + t(['0', '0.2', '0.4', '0.6', '0.8', '1']) + r"""},ytick={-0.04,-0.02,0,0.02,0.04},yticklabels={""" + t(['-0.04', '-0.02', '0', '0.02', '0.04']) + r"""},
+scaled y ticks=false,xlabel={""" + esc_text(f['x']) + r"""},ylabel={""" + esc_text(f['y']) + r"""},grid=major,grid style={line width=.2pt,draw=gray!30},legend pos=south east,legend style={font=\scriptsize,draw=none,fill=white,fill opacity=0.9,text opacity=1},
+tick label style={font=\scriptsize},label style={font=\footnotesize}]
+""" + pl + r"""\end{axis}\end{tikzpicture}
+\caption{""" + cap + r"""}\end{figure}
+"""
+TEXFIG['A14'] = tex_fig_a14; SVGFIG['A14'] = svg_a14

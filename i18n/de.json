@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "Das Dreikörperproblem",
-  "lead": "Warum es keine allgemeine Formel gibt, was Konfigurationen weniger Körper stabil macht, welche Stabilisierungsideen scheitern, was sich vor einer Ejektion vorhersagen lässt, wie lange ein System lebt und welches statistische Gesetz die Ausgänge bestimmt. Dreizehn Notizen, von den Grundlagen bis zur Prüfung von Hypothesen."
+  "lead": "Warum es keine allgemeine Formel gibt, was Konfigurationen weniger Körper stabil macht, welche Stabilisierungsideen scheitern, was sich vor einer Ejektion vorhersagen lässt, wie lange ein System lebt und welches statistische Gesetz die Ausgänge bestimmt. Vierzehn Notizen, von den Grundlagen bis zur Prüfung von Hypothesen."
  },
  "articles": {
   "FR-TC-01": {
@@ -186,6 +186,22 @@
     "dynamisches Gedächtnis",
     "statistische Theorie"
    ]
+  },
+  "FR-TC-14": {
+   "title": "Die Formel der Absorptivität auf dem Prüfstand: was mit 95 % Konfidenz besteht und was noch scheitert",
+   "short": "Die Formel auf dem Prüfstand",
+   "type": "Forschungsartikel",
+   "abstract": "Version 11 der Näherungsformel für die Absorptivität in der Flusstheorie dreier Körper schreibt die Exzentrizitätsmauer aus der Notiz FR-TC-13 als scharfe Stufe, die von der relativen Masse des ankommenden Körpers und von der Energie des Paares abhängt. Allein an 939.000 ebene Streuungen mit verschwindendem Gesamtdrehimpuls angepasst, wurde sie in den freien Fällen dreier Massenensembles einer formalen Prüfung mit 95 % Konfidenz unterzogen, mit kritischen Werten aus parametrischem Bootstrap (200 Replikationen) und Holm-Korrektur. Im Ensemble 1-2-3 besteht sie sowohl bei der Verteilung der Endexzentrizität (KS 0,020, kritisch 0,028) als auch bei den Fluchtanteilen; es ist das erste vollständig bestandene Ensemble. Die frei angepasste Massengrenze der Mauer beträgt das 0,93-Fache der reduzierten Masse des Paares, in Übereinstimmung mit der direkten Messung. In den Ensembles 1-1-3 und 3-3-1 fällt die Formel bei der Form durch und im Ensemble 3-3-1 auch beim Fluchtanteil des schweren Körpers (4,6 % vorhergesagt gegenüber 6,3 % gemessen). Eine Kreuzvalidierung zeigt, dass diese Fehler nicht von zu vielen Parametern stammen, und sie sind genauso groß wie die mit der direkt gemessenen Absorptivität erhaltenen. Um Messfehler von einem Versagen der Theorie zu trennen, ist eine genauere Messung in den schweren Kanälen nötig.",
+   "kw": [
+    "Dreikörperproblem",
+    "chaotische Absorptivität",
+    "Flusstheorie",
+    "Exzentrizitätsmauer",
+    "parametrischer Bootstrap",
+    "Validierung außerhalb der Stichprobe"
+   ],
+   "date_long": "5. November 2026",
+   "version_note": "v1: Erstveröffentlichung"
   }
  },
  "fig": {
@@ -289,6 +305,14 @@
    "s11": "Paar gleicher Massen (1,1)",
    "s12": "ungleiches Paar (1,2)",
    "aria": "Minimale Exzentrizität des Paares, damit ein leichter Körper eingefangen wird, in Abhängigkeit von der relativen Masse"
+  },
+  "A14": {
+   "x": "Endexzentrizität des Paares",
+   "y": "vorhergesagte minus gemessene CDF",
+   "s_v10": "Version 10",
+   "s_v11": "Version 11",
+   "s_crit": "kritischer 95-%-Wert",
+   "aria": "Differenz zwischen der vorhergesagten und der gemessenen Verteilung der Endexzentrizität im Ensemble 1-2-3, Versionen 10 und 11"
   }
  },
  "ui": {
@@ -346,7 +370,7 @@
   "empty": "Keine Notiz gefunden. Versuchen Sie ein anderes Wort.",
   "series_eyebrow": "Reihe · Himmelsmechanik",
   "series_order_title": "Lesereihenfolge",
-  "series_order_text": "Die Notizen sind darauf angelegt, nacheinander gelesen zu werden: Die erste ordnet das Problem ein, die zweite prüft eine Stabilisierungshypothese, die dritte validiert den Simulator anhand klassischer Kriterien, die vierte prüft eine vereinheitlichende Heuristik, die fünfte untersucht Frühsignale der Ejektion, die sechste prüft, ob die Geschwindigkeit den herausgeschleuderten Körper besser vorhersagt als die Massen, die siebte untersucht den ersten Abweichler und den ersten Kontakt, die achte misst die Halbwertszeit der Systeme, die neunte prüft die statistischen Theorien der Ausgänge, die zehnte prüft die Entwicklungsgleichungen und kartiert die Absorptivität, die elfte trennt die beiden Massenregeln, die zwölfte schlägt eine Näherungsformel für die Absorptivität vor, und die dreizehnte misst die Exzentrizitätsmauer, unterhalb derer ein leichter Körper nicht eingefangen wird.",
+  "series_order_text": "Die Notizen sind darauf angelegt, nacheinander gelesen zu werden: Die erste ordnet das Problem ein, die zweite prüft eine Stabilisierungshypothese, die dritte validiert den Simulator anhand klassischer Kriterien, die vierte prüft eine vereinheitlichende Heuristik, die fünfte untersucht Frühsignale der Ejektion, die sechste prüft, ob die Geschwindigkeit den herausgeschleuderten Körper besser vorhersagt als die Massen, die siebte untersucht den ersten Abweichler und den ersten Kontakt, die achte misst die Halbwertszeit der Systeme, die neunte prüft die statistischen Theorien der Ausgänge, die zehnte prüft die Entwicklungsgleichungen und kartiert die Absorptivität, die elfte trennt die beiden Massenregeln, die zwölfte schlägt eine Näherungsformel für die Absorptivität vor, die dreizehnte misst die Exzentrizitätsmauer, unterhalb derer ein leichter Körper nicht eingefangen wird, und die vierzehnte unterzieht die Formel einer formalen 95-%-Prüfung.",
   "series_count": "{n} Notizen",
   "foot_about": "Klassische Probleme der Physik, neu betrachtet mit künstlicher Intelligenz im kreativen Prozess: Fragen, numerische Experimente und Abgleich mit der Literatur.",
   "foot_disc": "Von Willian Wistuba Melo da Cunha, Physikbegeisterter. Der Autor ist Jurist und kein Physiker. Recherche, Simulationen und Abfassung erfolgen mit Unterstützung durch KI. Die Texte haben kein Peer-Review durchlaufen.",
@@ -414,7 +438,7 @@
  "code_page": {
   "eyebrow": "Reproduzierbarkeit",
   "h1": "Code der Experimente",
-  "lead": "Die Zahlen in den Notizen stammen aus diesen Skripten: in JavaScript (Node.js, ohne Abhängigkeiten) für die Notizen 1 bis 4 und in Python (NumPy, SciPy und Numba) für die Notizen 5 bis 13.",
+  "lead": "Die Zahlen in den Notizen stammen aus diesen Skripten: in JavaScript (Node.js, ohne Abhängigkeiten) für die Notizen 1 bis 4 und in Python (NumPy, SciPy und Numba) für die Notizen 5 bis 14.",
   "intro": "Laden Sie alle Dateien in denselben Ordner herunter und führen Sie zum Beispiel <code>node fase1.js</code> aus. Die Einheiten verwenden G = 1. Der Integrator ist das Leapfrog-Verfahren (Kick-Drift-Kick).",
   "th_file": "Datei",
   "th_what": "Funktion",
@@ -488,7 +512,16 @@
    "ergo/an34.py": "Gedächtnis zwischen Episoden und Abhängigkeit vom Alter.",
    "ergo/an34b.py": "Test der Theorie mit Schnitt in der letzten Episode.",
    "ergo/an34c.py": "Einheitlicher Test: dieselbe Schwelle an Durchmischungen bei Absorption und Emission.",
-   "ergo/an35.py": "Formeln v2 und v3 im einheitlichen Test."
+   "ergo/an35.py": "Formeln v2 und v3 im einheitlichen Test.",
+   "ergo/run_train.py": "Trainingssimulationen der Formel (erstes Massengitter).",
+   "ergo/run_train2.py": "Trainingssimulationen: zweites Massengitter.",
+   "ergo/run_train3.py": "Trainingssimulationen: drittes Massengitter.",
+   "ergo/run_train_hi.py": "Trainingssimulationen mit schweren Körpern.",
+   "ergo/prova11.py": "Formel v11 und 95-%-Prüfung durch parametrischen Bootstrap mit Holm-Korrektur (FR-TC-14).",
+   "ergo/rapido.py": "Anpassung von v11 im Training und schnelle Kontrolle in den freien Fällen.",
+   "ergo/cv.py": "Kreuzvalidierung nach Massengruppen des schweren Regimes.",
+   "ergo/diag_canais.py": "Gemessene Absorptivität gegenüber v11, Kanal für Kanal.",
+   "ergo/teto.py": "Vorhersage der freien Fälle mit der gemessenen Absorptivität."
   },
   "note": "Die Skripte sind Arbeitsnotizen, auf Verständlichkeit und nicht auf Leistung ausgelegt. Einige hängen von <code>core.js</code> oder <code>sim.js</code> ab."
  }

@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "Le problème des trois corps",
-  "lead": "Pourquoi il n’existe pas de formule générale, ce qui rend stables les configurations à peu de corps, quelles idées de stabilisation échouent, ce que l’on peut prévoir avant une éjection, combien de temps vit un système et quelle est la loi statistique des issues. Treize notes, des fondements aux tests d’hypothèses."
+  "lead": "Pourquoi il n’existe pas de formule générale, ce qui rend stables les configurations à peu de corps, quelles idées de stabilisation échouent, ce que l’on peut prévoir avant une éjection, combien de temps vit un système et quelle est la loi statistique des issues. Quatorze notes, des fondements aux tests d’hypothèses."
  },
  "articles": {
   "FR-TC-01": {
@@ -186,6 +186,22 @@
     "mémoire dynamique",
     "théorie statistique"
    ]
+  },
+  "FR-TC-14": {
+   "title": "La formule de l’absorptivité à l’épreuve : ce qui passe avec 95 % de confiance et ce qui échoue encore",
+   "short": "La formule à l’épreuve",
+   "type": "Article de recherche",
+   "abstract": "La version 11 de la formule approchée de l’absorptivité dans la théorie de flux à trois corps écrit le mur d’excentricité de la note FR-TC-13 comme une marche nette, qui dépend de la masse relative du corps incident et de l’énergie de la paire. Ajustée uniquement sur 939 000 diffusions planes à moment cinétique total nul, elle a été soumise à une épreuve formelle à 95 % de confiance dans les chutes libres de trois ensembles de masses, avec des valeurs critiques obtenues par bootstrap paramétrique (200 répliques) et correction de Holm. Dans l’ensemble 1-2-3, elle passe à la fois sur la distribution de l’excentricité finale (KS 0,020, valeur critique 0,028) et sur les fractions d’échappement, le premier ensemble validé entièrement. La limite de masse du mur, ajustée librement, est de 0,93 fois la masse réduite de la paire, en accord avec la mesure directe. Dans les ensembles 1-1-3 et 3-3-1, la formule échoue sur la forme et, dans le 3-3-1, également sur la fraction d’échappement du corps lourd (4,6 % prévus contre 6,3 % mesurés). Une validation croisée montre que ces erreurs ne proviennent pas d’un excès de paramètres, et elles sont de la même taille que celles obtenues avec l’absorptivité mesurée directement. Distinguer une erreur de mesure d’un échec de la théorie exige une mesure plus précise dans les canaux lourds.",
+   "kw": [
+    "problème des trois corps",
+    "absorptivité chaotique",
+    "théorie de flux",
+    "mur d’excentricité",
+    "bootstrap paramétrique",
+    "validation hors échantillon"
+   ],
+   "date_long": "5 novembre 2026",
+   "version_note": "v1 : première publication"
   }
  },
  "fig": {
@@ -289,6 +305,14 @@
    "s11": "paire de masses égales (1,1)",
    "s12": "paire inégale (1,2)",
    "aria": "Excentricité minimale de la paire pour qu’un corps léger soit capturé, en fonction de la masse relative"
+  },
+  "A14": {
+   "x": "excentricité finale de la paire",
+   "y": "CDF prévue moins mesurée",
+   "s_v10": "version 10",
+   "s_v11": "version 11",
+   "s_crit": "valeur critique à 95 %",
+   "aria": "Écart entre la distribution prévue et la distribution mesurée de l’excentricité finale dans l’ensemble 1-2-3, versions 10 et 11"
   }
  },
  "ui": {
@@ -346,7 +370,7 @@
   "empty": "Aucune note trouvée. Essayez un autre mot.",
   "series_eyebrow": "Série · mécanique céleste",
   "series_order_title": "Ordre de lecture",
-  "series_order_text": "Les notes ont été écrites pour être lues dans l’ordre : la première situe le problème, la deuxième teste une hypothèse de stabilisation, la troisième valide le simulateur par rapport aux critères classiques, la quatrième teste une heuristique unificatrice, la cinquième étudie les signaux anticipés de l’éjection, la sixième teste si la vitesse prédit le corps éjecté mieux que les masses, la septième examine le premier dissident et le premier contact, la huitième mesure la demi-vie des systèmes, la neuvième teste les théories statistiques des issues, la dixième teste les équations d’évolution et cartographie l’absorptivité, la onzième sépare les deux règles de masses, la douzième propose une formule approchée pour l’absorptivité et la treizième mesure le mur d’excentricité au-dessous duquel un corps léger n’est pas capturé.",
+  "series_order_text": "Les notes ont été écrites pour être lues dans l’ordre : la première situe le problème, la deuxième teste une hypothèse de stabilisation, la troisième valide le simulateur par rapport aux critères classiques, la quatrième teste une heuristique unificatrice, la cinquième étudie les signaux anticipés de l’éjection, la sixième teste si la vitesse prédit le corps éjecté mieux que les masses, la septième examine le premier dissident et le premier contact, la huitième mesure la demi-vie des systèmes, la neuvième teste les théories statistiques des issues, la dixième teste les équations d’évolution et cartographie l’absorptivité, la onzième sépare les deux règles de masses, la douzième propose une formule approchée pour l’absorptivité, la treizième mesure le mur d’excentricité au-dessous duquel un corps léger n’est pas capturé et la quatorzième soumet la formule à une épreuve formelle à 95 %.",
   "series_count": "{n} notes",
   "foot_about": "Des problèmes classiques de la physique revisités avec l’intelligence artificielle dans le processus créatif : questions, expériences numériques et vérification par rapport à la littérature.",
   "foot_disc": "Par Willian Wistuba Melo da Cunha, passionné de physique. L’auteur est avocat et n’est pas physicien. Les recherches, les simulations et la rédaction bénéficient de l’assistance de l’IA. Les textes n’ont pas été évalués par les pairs.",
@@ -414,7 +438,7 @@
  "code_page": {
   "eyebrow": "Reproductibilité",
   "h1": "Code des expériences",
-  "lead": "Les nombres des notes proviennent de ces scripts : en JavaScript (Node.js, sans dépendances) pour les notes 1 à 4 et en Python (NumPy, SciPy et Numba) pour les notes 5 à 13.",
+  "lead": "Les nombres des notes proviennent de ces scripts : en JavaScript (Node.js, sans dépendances) pour les notes 1 à 4 et en Python (NumPy, SciPy et Numba) pour les notes 5 à 14.",
   "intro": "Téléchargez-les tous dans un même dossier et exécutez, par exemple, <code>node fase1.js</code>. Les unités sont telles que G = 1. L’intégrateur est le schéma saute-mouton (kick-drift-kick).",
   "th_file": "Fichier",
   "th_what": "Rôle",
@@ -488,7 +512,16 @@
    "ergo/an34.py": "Mémoire entre épisodes et dépendance à l’âge (note FR-TC-13).",
    "ergo/an34b.py": "Test de la théorie avec coupure au dernier épisode (note FR-TC-13).",
    "ergo/an34c.py": "Test cohérent : même seuil de brassages dans l’absorption et dans l’émission (note FR-TC-13).",
-   "ergo/an35.py": "Formules v2 et v3 dans le test cohérent (note FR-TC-13)."
+   "ergo/an35.py": "Formules v2 et v3 dans le test cohérent (note FR-TC-13).",
+   "ergo/run_train.py": "Simulations d’entraînement de la formule (première grille de masses).",
+   "ergo/run_train2.py": "Simulations d’entraînement : deuxième grille de masses.",
+   "ergo/run_train3.py": "Simulations d’entraînement : troisième grille de masses.",
+   "ergo/run_train_hi.py": "Simulations d’entraînement avec des corps lourds.",
+   "ergo/prova11.py": "Formule v11 et épreuve à 95 % par bootstrap paramétrique avec correction de Holm (FR-TC-14).",
+   "ergo/rapido.py": "Ajustement de la v11 sur l’entraînement et vérification rapide dans les chutes libres.",
+   "ergo/cv.py": "Validation croisée par groupes de masses du régime lourd.",
+   "ergo/diag_canais.py": "Absorptivité mesurée face à la v11, canal par canal.",
+   "ergo/teto.py": "Prévision des chutes libres avec l’absorptivité mesurée."
   },
   "note": "Les scripts sont des notes de travail, écrits pour la clarté et non pour la performance. Certains dépendent de <code>core.js</code> ou de <code>sim.js</code>."
  }

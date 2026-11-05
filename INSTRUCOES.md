@@ -21,7 +21,7 @@ Série de notas técnicas em física (atualmente sobre o problema dos três corp
 | Vercel: time | `willianwistubas-projects` |
 | Vercel: projeto | `fisica-revisitada` (id `prj_I9zCrbrxL7azUWYENzdkvoxBYSg3`) |
 | SPEC (Claude Docs) | https://claude.ai/artifact/Tv6uowaJjGUr3KiUrPpMW3 (projeto `d9f7aadd-e302-447b-93ec-401ec91b46fc`, nó `745fc4e7-8e85`) |
-| Zenodo | conta do autor; registros das notas 1 a 13 já publicados (FR-TC-13 v1: 10.5281/zenodo.23964751) |
+| Zenodo | conta do autor; registros das notas 1 a 13 já publicados; FR-TC-14 publicada no site em 5 nov. 2026, ainda sem depósito (FR-TC-13 v1: 10.5281/zenodo.23964751) |
 | ORCID | 0009-0008-2875-6607 |
 | Endereço antigo | `caderno-tres-corpos.vercel.app` redireciona (308) para o novo, mantendo os caminhos |
 
@@ -126,7 +126,7 @@ Linha de carregamento (`site.py`): `https://fonts.googleapis.com/css2?family=Int
 
 1. Escrever `src/pt/aNN.html` (h2, h3, p, ul, div.eq, div.tblwrap com p.cap e table, figure data-fig="ANN" com figcaption, citações `<cite>n</cite>`). Um "<" colado a letra dentro de fórmulas (por exemplo i<j) deve ser escrito `&lt;`, senão quebra o HTML.
 2. Acrescentar a entrada em `meta.py` (`slug`, `src`, `part`, `code`, `refs`) no fim da lista `ARTS`.
-3. Em `i18n/pt.json`: `articles["FR-TC-NN"]` (title, short, type, abstract, kw com 6 itens), `fig["ANN"]`, atualizar `series.lead` ("Treze notas" etc.), `ui.series_order_text`, `code_page.lead` e `code_page.files`.
+3. Em `i18n/pt.json`: `articles["FR-TC-NN"]` (title, short, type, abstract, kw com 6 itens), `fig["ANN"]`, atualizar `series.lead` ("Treze notas" etc.), `ui.series_order_text`, `code_page.lead` e `code_page.files`. Desde a FR-TC-14, cada nota nova leva data e versão próprias: em `meta.py`, `date_iso` (ex.: `2026-11-05`) e `version_num` (ex.: `'1'`); em cada `i18n/*.json`, dentro de `articles["FR-TC-NN"]`, `date_long` e `version_note`. Sem esses campos, a nota herda a data e a versão globais (`ui.date_long`, versão 2), como as notas 1 a 13.
 4. Se houver figura: funções `svg_aNN` e `tex_fig_aNN` em `body.py`, registradas em `SVGFIG` e `TEXFIG`.
 5. Copiar os scripts usados para `codigo_src/ergo/`.
 6. Gerar o PDF em pt e conferir `overfull 0` e o aspecto visual (pdftoppm).
