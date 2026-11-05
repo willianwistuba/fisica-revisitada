@@ -207,7 +207,7 @@
    "title": "Where flux theory fails in the plane without rotation: a test with the chaos criterion of the literature",
    "short": "Where the theory fails",
    "type": "Research article",
-   "abstract": "We test the three-body flux theory, with the measured absorptivity, in planar free falls with zero total angular momentum, requiring three to four scramble states before the escape, as in the literature, and the same threshold in absorption and in emission. At 95% confidence and with Holm correction, the theory passes in the mass sets 3-3-1 and 1-2-3, in the escape fractions and in the final eccentricity of the pair, but fails in the final eccentricity of the set 1-1-3. There, the failure grows with the depth of chaos: the Kolmogorov-Smirnov statistic goes from 0.082 to 0.126, and the measured mean eccentricity drops from 0.758 to 0.735, against 0.784 and 0.779 predicted, because of an excess of pairs of moderate eccentricity in the channel in which the pair of masses 3 and 1 remains. The failure does not come from the edges of the absorptivity grid, which we also measured for nearly radial pairs, or from the chaos criterion: an alternative criterion, based on democratic configurations, gives the same pattern. Rerunning the escapes with the geometry recorded, we show that only in 1-1-3 does the regime of the last episode strongly change the final shape of the pair: the mean eccentricity goes from 0.70, in the most mixed episodes, to 0.87, in the most hierarchical ones. Two explanations (more hierarchical time and more memory than in 1-2-3) were tested and ruled out, and the mechanism remains open.",
+   "abstract": "We test the three-body flux theory, with the measured absorptivity, in planar free falls with zero total angular momentum, requiring three to four scramble states before the escape, as in the literature, and the same threshold in absorption and in emission. At 95% confidence and with Holm correction, the theory passes in the mass sets 3-3-1 and 1-2-3, in the escape fractions and in the final eccentricity of the pair, but fails in the final eccentricity of the set 1-1-3. There, the failure grows with the depth of chaos: the Kolmogorov-Smirnov statistic goes from 0.082 to 0.126, and the measured mean eccentricity drops from 0.758 to 0.735, against 0.784 and 0.779 predicted, because of an excess of pairs of moderate eccentricity in the channel in which the pair of masses 3 and 1 remains. The failure does not come from the edges of the absorptivity grid, which we also measured for nearly radial pairs, or from the chaos criterion: an alternative criterion, based on democratic configurations, gives the same pattern. Rerunning the escapes with the geometry recorded, we show that only in 1-1-3 does the regime of the last episode strongly change the final shape of the pair: the mean eccentricity goes from 0.70, in the most mixed episodes, to 0.87, in the most hierarchical ones. Two explanations (more hierarchical time and more memory than in 1-2-3) were tested and ruled out. A replica with new seeds confirms the failure. A mass ladder 1-1-M, from M = 2 to 5, shows that it is not a narrow peak: with Holm correction, only the replica of M = 3 fails in the full shape, the neighbors M = 2.75 and 3.25 pass, and the measured mean eccentricity lies slightly below the predicted one at several steps, a pattern that is still exploratory. The mechanism remains open.",
    "kw": [
     "three-body problem",
     "flux theory",
@@ -555,7 +555,13 @@
    "ergo/run_gemeos2.py": "Twin test with an adjustable perturbation.",
    "ergo/run_gemeos3.py": "Confirmation of the twin test with a new sample.",
    "ergo/run_cauda.py": "Absorptivity at the edge e > 0.995, on a grid in j = sqrt(1 - e²) (FR-TC-15).",
-   "ergo/analise_v2.py": "Coherent test with the measured edge, also restricted to e up to 0.995 (FR-TC-15)."
+   "ergo/analise_v2.py": "Coherent test with the measured edge, also restricted to e up to 0.995 (FR-TC-15).",
+   "ergo/run_age_rep.py": "Replica of the 1-1-3 free falls with new seeds (FR-TC-15).",
+   "ergo/analise_rep.py": "Coherent test on the 1-1-3 replica (FR-TC-15).",
+   "ergo/escada/run_age.py": "Free falls of the mass ladder 1-1-M (FR-TC-15).",
+   "ergo/escada/run_abs_escada.py": "Absorptivity of both channels at each ladder step, including the edge (FR-TC-15).",
+   "ergo/escada/analise_escada.py": "Coherent test on the ladder, with Holm correction and trend with mass (FR-TC-15).",
+   "ergo/escada/geo_escada.py": "Geometry of the last episode at each ladder step (FR-TC-15)."
   },
   "note": "The scripts are working notes, written for clarity rather than performance. Some depend on <code>core.js</code> or <code>sim.js</code>."
  }
