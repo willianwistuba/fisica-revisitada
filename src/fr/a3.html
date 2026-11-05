@@ -1,0 +1,59 @@
+<h2>Introduction</h2>
+<p>Avant de proposer de nouveaux mécanismes de stabilisation, il convient de vérifier que le simulateur reproduit les critères classiques. Cette note rapporte cette vérification pour trois familles de configurations : le triangle de Lagrange à masses inégales <cite>1,2</cite>, les anneaux avec corps central dominant <cite>4</cite> et les systèmes triples hiérarchiques <cite>6</cite>. Elle y ajoute l’effet de la dissipation sur la stabilité gyroscopique <cite>7</cite> et documente des îlots d’instabilité résonante à l’intérieur de la région linéairement stable <cite>3</cite>. La simulation ne reçoit aucune information sur les critères ; les seuils émergent de l’intégration directe.</p>
+
+<h2>Méthode</h2>
+<p>Unités telles que \(G = 1\) ; intégration saute-mouton à pas fixe de 0,002, ou adaptatif, proportionnel à \(r_{\min}^{3/2}\), dans les cas comportant des rencontres proches ; cinq perturbations par configuration, de \(10^{-4}\) à \(10^{-3}\) en position ou en vitesse ; limite d’intégration comprise entre 600 et 3000 unités de temps, selon la famille. Une configuration est enregistrée comme stable lorsque aucune perturbation ne la rompt dans la limite, selon des critères géométriques explicites propres à chaque famille : déformation relative des côtés supérieure à 30 %, écart angulaire entre voisins supérieur à 30 % de l’espacement ou rupture du binaire interne.</p>
+
+<h2>Résultats</h2>
+<h3>Triangle de Lagrange : la limite de Gascheau et Routh</h3>
+<p>Pour des masses \(m_1, m_2, m_3\) en configuration équilatérale en rotation rigide, la stabilité linéaire exige <cite>1,2</cite></p>
+<div class="eq">\[ (m_1 + m_2 + m_3)^2 > 27\,(m_1 m_2 + m_2 m_3 + m_3 m_1) . \]</div>
+<p>Pour des masses \(1 : \mu : \mu\), la limite est \(\mu \approx 0{,}0198\), c’est-à-dire que le corps dominant doit avoir plus d’environ 50 fois la masse de chacun des deux autres. La simulation reproduit cette limite : toutes les perturbations restent bornées jusqu’à \(\mu = 0{,}0195\), avec une déformation maximale de 3,9 % ; en \(\mu = 0{,}0205\), la déformation croît lentement jusqu’à 18,5 % sans rupture dans l’intervalle intégré ; à partir de \(\mu = 0{,}022\), toutes les perturbations rompent le triangle, avec une survie médiane qui passe d’environ 60 unités de temps en \(\mu = 0{,}022\) à environ 8 en \(\mu = 1\).</p>
+<h3>Îlots d’instabilité résonante</h3>
+<p>La condition de Routh est linéaire. À l’intérieur de la région linéairement stable, les deux fréquences propres des petites oscillations autour de l’équilatéral, dans le référentiel tournant, sont données par</p>
+<div class="eq">\[ s^2 = \frac{1 \pm \sqrt{1 - 27\beta}}{2}, \qquad \beta = \frac{m_1 m_2 + m_2 m_3 + m_3 m_1}{(m_1 + m_2 + m_3)^2} . \]</div>
+<p>Lorsque le rapport \(s_1/s_2\) est un petit entier, des termes non linéaires peuvent transférer de l’énergie entre les modes. Le balayage à masses \(1 : \mu : \mu\) a trouvé exactement cela : en \(\mu = 0{,}0122\) et \(\mu = 0{,}0124\), où \(s_1/s_2 = 2{,}02\) et \(1{,}996\), les perturbations les plus grandes (\(10^{-3}\)) ont rompu le triangle, tandis qu’en \(\mu = 0{,}0118\) et \(\mu = 0{,}0126\), avec des rapports de 2,075 et 1,970, toutes les perturbations sont restées bornées. À masses \(1 : \mu : 0{,}25\mu\), la même résonance 2:1 est apparue en \(\mu = 0{,}020\) (\(\beta \approx 0{,}0239\)), à l’intérieur d’un intervalle que le critère de Routh classe comme stable jusqu’à \(\mu \approx 0{,}032\).</p>
+<p>Ce résultat est cohérent avec l’analyse non linéaire classique du problème restreint, dans laquelle la résonance 2:1 entre les fréquences de libration se produit en \(\mu \approx 0{,}0243\) <cite>3</cite> ; exprimée en \(\beta\), la valeur simulée (\(\beta \approx 0{,}0237\) à \(0{,}0239\)) coïncide. La résonance 3:1, prévue vers \(\mu \approx 0{,}0068\) dans cette famille, ne s’est pas manifestée aux amplitudes testées.</p>
+<h3>Anneaux avec corps central : le critère de Maxwell</h3>
+<p>Dans son essai de 1859 sur les anneaux de Saturne, Maxwell a montré que \(n\) masses égales \(\mu\), également espacées sur une orbite circulaire autour d’un corps dominant, ne peuvent être stables que si \(n \geq 7\), et à condition que \(\mu\) reste inférieure à environ \(2{,}298/n^3\) fois la masse centrale <cite>4</cite>. La simulation a produit les durées du Tableau I.</p>
+<div class="tblwrap"><p class="cap">Durée de survie, en unités de temps, d’anneaux de \(n\) corps avec corps central, pour trois perturbations, en multiples de la limite de masse de Maxwell. « Stable » indique une survie à toutes les perturbations jusqu’à \(t = 600\).</p><table>
+<thead><tr><th>\(n\)</th><th>\(0{,}1\times\) limite</th><th>\(0{,}5\times\)</th><th>\(0{,}9\times\)</th><th>\(1{,}5\times\)</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>34 à 46</td><td>19 à 23</td><td>16 à 19</td><td>13 à 16</td></tr>
+<tr><td>4</td><td>58 à 70</td><td>30 à 35</td><td>23 à 28</td><td>20 à 23</td></tr>
+<tr><td>5</td><td>80 à 102</td><td>45 à 56</td><td>36 à 43</td><td>29 à 36</td></tr>
+<tr><td>6</td><td>122 à 159</td><td>69 à 87</td><td>58 à 73</td><td>34 à 40</td></tr>
+<tr><td>7</td><td>stable</td><td>stable</td><td>stable</td><td>32 à 37</td></tr>
+<tr><td>8</td><td>stable</td><td>stable</td><td>stable</td><td>32 à 37</td></tr>
+<tr><td>9</td><td>stable</td><td>stable</td><td>stable</td><td>29 à 36</td></tr>
+</tbody></table></div>
+<p>La transition entre \(n = 6\) et \(n = 7\) est nette, et des balayages plus fins ont situé la limite de masse entre \(1{,}0\) et \(1{,}1\) fois la valeur de Maxwell pour \(n = 7\), 8 et 10. Pour \(n \leq 6\), la survie augmente lorsque la masse de l’anneau diminue, mais l’instabilité persiste, ce qui concorde avec l’analyse de stabilité linéaire des configurations à masse dominante <cite>5</cite>.</p>
+<h3>Systèmes triples hiérarchiques</h3>
+<p>Avec un binaire interne circulaire de masses égales, de séparation 1, et un troisième corps de masse \(m_3\) sur une orbite circulaire externe à la distance \(D\), le seuil de stabilité simulé est comparé, dans le Tableau II, au critère empirique de Mardling et Aarseth <cite>6</cite>, qui, pour des orbites circulaires et coplanaires, se réduit à</p>
+<div class="eq">\[ \frac{D}{a_{\text{in}}} > 2{,}8\left(1 + \frac{m_3}{m_1 + m_2}\right)^{2/5} . \]</div>
+<div class="tblwrap"><p class="cap">Distance critique du troisième corps, en unités de la séparation du binaire interne, obtenue par simulation et par le critère de Mardling et Aarseth.</p><table>
+<thead><tr><th>\(m_3\)</th><th>\(D\) critique simulée</th><th>Mardling et Aarseth</th></tr></thead>
+<tbody>
+<tr><td>0,1</td><td>2,4</td><td>2,86</td></tr>
+<tr><td>1</td><td>3,1</td><td>3,29</td></tr>
+<tr><td>10</td><td>5,8</td><td>5,73</td></tr>
+</tbody></table></div>
+<p>L’accord est bon pour \(m_3 \geq 1\). Pour \(m_3 = 0{,}1\), le seuil simulé est plus faible, ce qui est attendu : le critère a été calibré pour être conservateur et couvre les orbites excentriques, et l’intégration est ici limitée à environ 340 périodes du binaire interne.</p>
+<h3>Dissipation et stabilité gyroscopique</h3>
+<p>Les points triangulaires de Lagrange sont des maxima du potentiel effectif dans le référentiel tournant. La stabilité, lorsqu’elle existe, est gyroscopique : la force de Coriolis convertit l’éloignement en un mouvement autour du point. Le théorème de Kelvin, Tait et Tchetaev affirme que la stabilité gyroscopique d’un maximum du potentiel ne résiste pas à la dissipation <cite>7</cite>. Pour le vérifier, nous avons appliqué une traînée linéaire \(-\gamma(\mathbf{v} - \boldsymbol{\Omega} \times \mathbf{r})\) aux corps les plus petits d’un triangle stable avec \(\mu = 0{,}01\). Le Tableau III résume le résultat.</p>
+<div class="tblwrap"><p class="cap">Survie du triangle de Lagrange stable (\(\mu = 0{,}01\)) soumis à une traînée linéaire de coefficient \(\gamma\), pour deux perturbations.</p><table>
+<thead><tr><th>\(\gamma\)</th><th>Survie</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>stable jusqu’à \(t = 3000\)</td></tr>
+<tr><td>\(10^{-4}\)</td><td>stable jusqu’à \(t = 3000\)</td></tr>
+<tr><td>\(10^{-3}\)</td><td>1459 et 2269</td></tr>
+<tr><td>\(10^{-2}\)</td><td>162 et 231</td></tr>
+</tbody></table></div>
+<p>Le temps de rupture varie approximativement comme \(1/\gamma\), comme on l’attend d’une instabilité séculaire induite par la dissipation. Pour \(\gamma = 10^{-4}\), le temps caractéristique dépasse l’intervalle intégré.</p>
+
+<h2>Discussion</h2>
+<p>Dans toutes les familles stables, le système se décompose en sous-systèmes approximativement keplériens, et le couplage entre eux reste inférieur à un seuil. La séparation des échelles provient de la masse (Routh), de la distance (hiérarchie) ou du nombre et de la symétrie avec masse dominante (Maxwell). À l’intérieur des régions stables, les résonances entre fréquences propres ouvrent des îlots d’instabilité, et la dissipation détruit la stabilité d’origine gyroscopique.</p>
+<p>Les principales limites sont la géométrie plane, les orbites circulaires, le nombre réduit de perturbations par point et des temps d’intégration finis, qui diffèrent d’une famille à l’autre. Les seuils doivent être lus comme des reproductions de critères connus, qui valident le simulateur, et non comme des résultats nouveaux. L’exception est la localisation numérique de l’îlot résonant 2:1 dans la famille \(1 : \mu : 0{,}25\mu\), que nous n’avons pas trouvée tabulée dans la littérature consultée.</p>
+
+<h2>Conclusions</h2>
+<p>Le simulateur reproduit, sans les connaître, les critères de Gascheau et Routh, de Maxwell et de Mardling et Aarseth, et confirme le théorème de Kelvin, Tait et Tchetaev. La régularité observée suggère une heuristique commune, selon laquelle la stabilité dépend d’un faible couplage entre sous-systèmes keplériens. La note suivante de la série examine si ces seuils peuvent être décrits par un nombre de couplage unique.</p>

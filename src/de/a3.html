@@ -1,0 +1,59 @@
+<h2>Einleitung</h2>
+<p>Bevor neue Stabilisierungsmechanismen vorgeschlagen werden, empfiehlt es sich zu prüfen, ob der Simulator die klassischen Kriterien reproduziert. Diese Notiz dokumentiert diese Prüfung für drei Familien von Konfigurationen: das Lagrange-Dreieck mit ungleichen Massen <cite>1,2</cite>, Ringe mit dominantem Zentralkörper <cite>4</cite> und hierarchische Systeme <cite>6</cite>. Sie ergänzt den Einfluss der Dissipation auf die gyroskopische Stabilität <cite>7</cite> und dokumentiert Inseln resonanter Instabilität innerhalb des linear stabilen Bereichs <cite>3</cite>. Die Simulation erhält keinerlei Information über die Kriterien; die Schwellenwerte ergeben sich aus der direkten Integration.</p>
+
+<h2>Methode</h2>
+<p>Einheiten mit \(G = 1\); Leapfrog-Integration mit fester Schrittweite 0,002 oder, in Fällen mit engen Begegnungen, adaptiver Schrittweite proportional zu \(r_{\min}^{3/2}\); fünf Störungen pro Konfiguration, von \(10^{-4}\) bis \(10^{-3}\) in Position oder Geschwindigkeit; Integrationsgrenze je nach Familie zwischen 600 und 3000 Zeiteinheiten. Eine Konfiguration wird als stabil erfasst, wenn keine Störung sie innerhalb der Grenze auflöst, gemäß expliziten geometrischen Kriterien für jede Familie: relative Verformung der Seiten über 30 %, Winkelabweichung zwischen Nachbarn über 30 % des Abstands oder Zerfall des inneren Doppelsystems.</p>
+
+<h2>Ergebnisse</h2>
+<h3>Lagrange-Dreieck: die Grenze von Gascheau und Routh</h3>
+<p>Für Massen \(m_1, m_2, m_3\) in starr rotierender gleichseitiger Konfiguration erfordert die lineare Stabilität <cite>1,2</cite></p>
+<div class="eq">\[ (m_1 + m_2 + m_3)^2 > 27\,(m_1 m_2 + m_2 m_3 + m_3 m_1) . \]</div>
+<p>Bei Massen \(1 : \mu : \mu\) liegt die Grenze bei \(\mu \approx 0{,}0198\), das heißt, der dominante Körper muss mehr als etwa das 50-Fache der Masse jedes der beiden anderen besitzen. Die Simulation reproduziert die Grenze: Alle Störungen bleiben bis \(\mu = 0{,}0195\) beschränkt, mit einer maximalen Verformung von 3,9 %; bei \(\mu = 0{,}0205\) wächst die Verformung langsam auf 18,5 %, ohne im integrierten Intervall zum Zerfall zu führen; ab \(\mu = 0{,}022\) lösen alle Störungen das Dreieck auf, wobei die mediane Überlebenszeit von etwa 60 Zeiteinheiten bei \(\mu = 0{,}022\) auf etwa 8 bei \(\mu = 1\) sinkt.</p>
+<h3>Inseln resonanter Instabilität</h3>
+<p>Die Routh-Bedingung ist linear. Innerhalb des linear stabilen Bereichs sind die beiden Eigenfrequenzen kleiner Schwingungen um das gleichseitige Dreieck im rotierenden Bezugssystem gegeben durch</p>
+<div class="eq">\[ s^2 = \frac{1 \pm \sqrt{1 - 27\beta}}{2}, \qquad \beta = \frac{m_1 m_2 + m_2 m_3 + m_3 m_1}{(m_1 + m_2 + m_3)^2} . \]</div>
+<p>Ist das Verhältnis \(s_1/s_2\) eine kleine ganze Zahl, können nichtlineare Terme Energie zwischen den Moden übertragen. Der Parameterscan mit Massen \(1 : \mu : \mu\) fand genau dies: Bei \(\mu = 0{,}0122\) und \(\mu = 0{,}0124\), wo \(s_1/s_2 = 2{,}02\) bzw. \(1{,}996\) gilt, lösten die größeren Störungen (\(10^{-3}\)) das Dreieck auf, während bei \(\mu = 0{,}0118\) und \(\mu = 0{,}0126\), mit Verhältnissen von 2,075 und 1,970, alle Störungen beschränkt blieben. Bei Massen \(1 : \mu : 0{,}25\mu\) trat dieselbe 2:1-Resonanz bei \(\mu = 0{,}020\) (\(\beta \approx 0{,}0239\)) auf, innerhalb eines Bereichs, den das Routh-Kriterium bis \(\mu \approx 0{,}032\) als stabil einstuft.</p>
+<p>Das Ergebnis steht im Einklang mit der klassischen nichtlinearen Analyse des eingeschränkten Problems, in der die 2:1-Resonanz zwischen den Librationsfrequenzen bei \(\mu \approx 0{,}0243\) auftritt <cite>3</cite>; ausgedrückt in \(\beta\) stimmt der simulierte Wert (\(\beta \approx 0{,}0237\) bis \(0{,}0239\)) überein. Die 3:1-Resonanz, in dieser Familie nahe \(\mu \approx 0{,}0068\) vorhergesagt, zeigte sich bei den getesteten Amplituden nicht.</p>
+<h3>Ringe mit Zentralkörper: das Maxwell-Kriterium</h3>
+<p>In seiner Abhandlung von 1859 über die Saturnringe zeigte Maxwell, dass \(n\) gleiche Massen \(\mu\), die gleichmäßig verteilt auf einer Kreisbahn um einen dominanten Körper umlaufen, nur stabil sein können, wenn \(n \geq 7\) gilt und \(\mu\) unterhalb von ungefähr dem \(2{,}298/n^3\)-Fachen der Zentralmasse bleibt <cite>4</cite>. Die Simulation lieferte die Zeiten in Tabelle I.</p>
+<div class="tblwrap"><p class="cap">Überlebenszeit, in Zeiteinheiten, von Ringen aus \(n\) Körpern mit Zentralkörper, für drei Störungen, in Vielfachen der Maxwellschen Massengrenze. „Stabil“ bezeichnet das Überleben aller Störungen bis \(t = 600\).</p><table>
+<thead><tr><th>\(n\)</th><th>\(0{,}1\times\) Grenze</th><th>\(0{,}5\times\)</th><th>\(0{,}9\times\)</th><th>\(1{,}5\times\)</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>34 bis 46</td><td>19 bis 23</td><td>16 bis 19</td><td>13 bis 16</td></tr>
+<tr><td>4</td><td>58 bis 70</td><td>30 bis 35</td><td>23 bis 28</td><td>20 bis 23</td></tr>
+<tr><td>5</td><td>80 bis 102</td><td>45 bis 56</td><td>36 bis 43</td><td>29 bis 36</td></tr>
+<tr><td>6</td><td>122 bis 159</td><td>69 bis 87</td><td>58 bis 73</td><td>34 bis 40</td></tr>
+<tr><td>7</td><td>stabil</td><td>stabil</td><td>stabil</td><td>32 bis 37</td></tr>
+<tr><td>8</td><td>stabil</td><td>stabil</td><td>stabil</td><td>32 bis 37</td></tr>
+<tr><td>9</td><td>stabil</td><td>stabil</td><td>stabil</td><td>29 bis 36</td></tr>
+</tbody></table></div>
+<p>Der Übergang zwischen \(n = 6\) und \(n = 7\) ist scharf, und feinere Scans verorteten die Massengrenze für \(n = 7\), 8 und 10 zwischen dem \(1{,}0\)- und dem \(1{,}1\)-Fachen des Maxwellschen Werts. Für \(n \leq 6\) nimmt die Überlebenszeit mit abnehmender Ringmasse zu, die Instabilität bleibt jedoch bestehen, was mit der linearen Stabilitätsanalyse von Konfigurationen mit dominanter Masse übereinstimmt <cite>5</cite>.</p>
+<h3>Hierarchische Systeme</h3>
+<p>Mit einem inneren kreisförmigen Doppelsystem gleicher Massen und der Separation 1 sowie einem dritten Körper der Masse \(m_3\) auf einer äußeren Kreisbahn im Abstand \(D\) wird die simulierte Stabilitätsschwelle in Tabelle II mit dem empirischen Kriterium von Mardling und Aarseth <cite>6</cite> verglichen, das sich für kreisförmige und koplanare Bahnen reduziert auf</p>
+<div class="eq">\[ \frac{D}{a_{\text{in}}} > 2{,}8\left(1 + \frac{m_3}{m_1 + m_2}\right)^{2/5} . \]</div>
+<div class="tblwrap"><p class="cap">Kritischer Abstand des dritten Körpers, in Einheiten der Separation des inneren Doppelsystems, aus der Simulation und nach dem Kriterium von Mardling und Aarseth.</p><table>
+<thead><tr><th>\(m_3\)</th><th>Simuliertes kritisches \(D\)</th><th>Mardling und Aarseth</th></tr></thead>
+<tbody>
+<tr><td>0,1</td><td>2,4</td><td>2,86</td></tr>
+<tr><td>1</td><td>3,1</td><td>3,29</td></tr>
+<tr><td>10</td><td>5,8</td><td>5,73</td></tr>
+</tbody></table></div>
+<p>Die Übereinstimmung ist für \(m_3 \geq 1\) gut. Für \(m_3 = 0{,}1\) ist die simulierte Schwelle kleiner, was zu erwarten ist: Das Kriterium wurde konservativ kalibriert und deckt exzentrische Bahnen ab, und die Integration ist hier auf etwa 340 Perioden des inneren Doppelsystems beschränkt.</p>
+<h3>Dissipation und gyroskopische Stabilität</h3>
+<p>Die dreieckigen Lagrange-Punkte sind Maxima des effektiven Potentials im rotierenden Bezugssystem. Die Stabilität ist, sofern vorhanden, gyroskopisch: Die Corioliskraft wandelt die Entfernung in eine Bewegung um den Punkt herum um. Der Satz von Kelvin, Tait und Tschetajew besagt, dass die gyroskopische Stabilität eines Potentialmaximums Dissipation nicht standhält <cite>7</cite>. Zur Überprüfung wurde auf die kleineren Körper eines stabilen Dreiecks mit \(\mu = 0{,}01\) eine lineare Reibung \(-\gamma(\mathbf{v} - \boldsymbol{\Omega} \times \mathbf{r})\) angewandt. Tabelle III fasst das Ergebnis zusammen.</p>
+<div class="tblwrap"><p class="cap">Überlebenszeit des stabilen Lagrange-Dreiecks (\(\mu = 0{,}01\)) unter linearer Reibung mit Koeffizient \(\gamma\), für zwei Störungen.</p><table>
+<thead><tr><th>\(\gamma\)</th><th>Überlebenszeit</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>stabil bis \(t = 3000\)</td></tr>
+<tr><td>\(10^{-4}\)</td><td>stabil bis \(t = 3000\)</td></tr>
+<tr><td>\(10^{-3}\)</td><td>1459 und 2269</td></tr>
+<tr><td>\(10^{-2}\)</td><td>162 und 231</td></tr>
+</tbody></table></div>
+<p>Die Zerfallszeit skaliert näherungsweise mit \(1/\gamma\), wie es für eine durch Dissipation induzierte säkulare Instabilität zu erwarten ist. Für \(\gamma = 10^{-4}\) übersteigt die charakteristische Zeit das integrierte Intervall.</p>
+
+<h2>Diskussion</h2>
+<p>In allen stabilen Familien zerfällt das System in näherungsweise Keplersche Teilsysteme, und die Kopplung zwischen ihnen bleibt unterhalb einer Schwelle. Die Trennung der Skalen ergibt sich aus der Masse (Routh), dem Abstand (Hierarchie) oder der Anzahl und Symmetrie bei dominanter Masse (Maxwell). Innerhalb der stabilen Bereiche öffnen Resonanzen zwischen Eigenfrequenzen Inseln der Instabilität, und die Dissipation zerstört die Stabilität gyroskopischen Ursprungs.</p>
+<p>Die wesentlichen Einschränkungen sind die ebene Geometrie, kreisförmige Bahnen, die geringe Anzahl von Störungen pro Punkt und endliche Integrationszeiten, die sich zwischen den Familien unterscheiden. Die Schwellenwerte sind als Reproduktionen bekannter Kriterien zu lesen, die den Simulator validieren, und nicht als neue Ergebnisse. Die Ausnahme bildet die numerische Lokalisierung der resonanten 2:1-Insel in der Familie \(1 : \mu : 0{,}25\mu\), die wir in der herangezogenen Literatur nicht tabelliert gefunden haben.</p>
+
+<h2>Schlussfolgerungen</h2>
+<p>Der Simulator reproduziert, ohne sie zu kennen, die Kriterien von Gascheau und Routh, von Maxwell sowie von Mardling und Aarseth und bestätigt den Satz von Kelvin, Tait und Tschetajew. Die beobachtete Regelmäßigkeit legt eine gemeinsame Heuristik nahe, nämlich dass die Stabilität von einer kleinen Kopplung zwischen Keplerschen Teilsystemen abhängt. Die folgende Notiz der Reihe prüft, ob sich diese Schwellenwerte durch eine einzige Kopplungszahl beschreiben lassen.</p>

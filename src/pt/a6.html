@@ -1,0 +1,43 @@
+<h2>Introdução</h2>
+<p>A nota anterior da série <cite>6</cite> mostrou que, na desintegração de sistemas de três corpos com massas desiguais, a regra "fica o par dos dois mais pesados" prevê o desfecho melhor que qualquer sinal de energia das trajetórias. Fica a pergunta sobre o papel da velocidade. Na teoria de encontros entre binários e corpos isolados, o desfecho depende da comparação entre a velocidade orbital do binário e a velocidade de chegada do intruso: binários duros, que giram rápido diante de um intruso lento, tendem a se apertar e a arremessá-lo, e binários moles tendem a se desfazer <cite>1,2</cite>.</p>
+<p>Esta nota testa se essa comparação de velocidades prevê qual corpo será ejetado e, sobretudo, se acrescenta informação às massas. O resultado é que a velocidade carrega um sinal fraco, útil apenas quando as massas não decidem.</p>
+
+<h2>Método</h2>
+<h3>Simulações</h3>
+<p>Usamos o mesmo integrador regularizado <cite>4,5</cite>, os mesmos critérios de ejeção e os mesmos dois conjuntos de condições iniciais da nota anterior <cite>6</cite>: partida do repouso e razão virial 0,5, em simulações planas com \(G = 1\). Rodamos 300 corridas por conjunto para os grupos de massas (1, 1, 1), (1, 1, 3), (1, 1, 10), (3, 3, 1) e (10, 10, 1), com as mesmas sementes da nota anterior, e 600 corridas por conjunto com massas sorteadas independentemente, de forma log-uniforme entre 1 e 10, num total de 4.200 corridas. Foram analisadas as corridas com ejeção precedida de ao menos um pericentro e erro relativo de energia abaixo de \(10^{-4}\), entre 245 e 597 por linha.</p>
+<h3>Razão de velocidades</h3>
+<p>Para cada corpo candidato \(k\), consideramos o par formado pelos outros dois, \(i\) e \(j\), e definimos</p>
+<div class="eq">\[ \rho_k = \frac{v_{\rm orb}}{V_k}, \qquad v_{\rm orb}^2 = \frac{2\,|E_{ij}|}{\mu_{ij}}, \]</div>
+<p>em que \(E_{ij} < 0\) é a energia do par, \(\mu_{ij}\) sua massa reduzida e \(V_k\) a velocidade de \(k\) relativa ao centro de massa do par; se o par não está ligado, \(\rho_k = 0\). Valores grandes de \(\rho_k\) correspondem a um par que gira rápido diante de um terceiro corpo lento, o caso em que se espera a ejeção de \(k\).</p>
+<h3>Previsores</h3>
+<p>Comparamos, em frações \(f = 0{,}25\), 0,5, 0,75 e 0,9 do tempo até a ejeção: (i) massas: é ejetado o corpo mais leve, com empates contados como acerto fracionário; (ii) velocidade instantânea: é ejetado o \(k\) de maior \(\rho_k\) no instante \(f\,t_{\rm ej}\); (iii) velocidade média: é ejetado o \(k\) de maior média temporal de \(\ln \rho_k\) no intervalo \([0, f\,t_{\rm ej}]\), com \(\rho_k\) limitado inferiormente a 0,01; (iv) modelo combinado: um logit condicional, em que a probabilidade de ejeção de \(k\) é proporcional a \(\exp(\beta_1 \ln m_k + \beta_2 \ln \rho_k + \beta_3 \langle \ln \rho_k \rangle)\), ajustado separadamente em cada conjunto, com todos os grupos de massas, e avaliado por validação cruzada em cinco partes.</p>
+
+<h2>Resultados</h2>
+<p>A Tabela I resume as taxas de acerto em \(f = 0{,}5\), e a Fig. 1 as compara na partida do repouso. Os resultados são qualitativamente iguais nas outras frações de tempo.</p>
+<div class="tblwrap"><p class="cap">Taxa de acerto do corpo ejetado em \(f = 0{,}5\), por grupo de massas e por conjunto (R: partida do repouso; V: virial). Acaso: 0,33. O erro binomial é de cerca de três pontos percentuais.</p><table>
+<thead><tr><th>Massas</th><th>Conj.</th><th>Corridas</th><th>Mais leve</th><th>Velocidade instantânea</th><th>Velocidade média</th><th>Modelo combinado</th></tr></thead>
+<tbody>
+<tr><td>1, 1, 1</td><td>R</td><td>295</td><td>0,33</td><td>0,34</td><td>0,37</td><td>0,37</td></tr>
+<tr><td>1, 1, 1</td><td>V</td><td>261</td><td>0,33</td><td>0,47</td><td>0,43</td><td>0,43</td></tr>
+<tr><td>1, 1, 3</td><td>R</td><td>299</td><td>0,49</td><td>0,51</td><td>0,56</td><td>0,56</td></tr>
+<tr><td>1, 1, 3</td><td>V</td><td>264</td><td>0,49</td><td>0,51</td><td>0,50</td><td>0,54</td></tr>
+<tr><td>1, 1, 10</td><td>R</td><td>296</td><td>0,50</td><td>0,59</td><td>0,60</td><td>0,58</td></tr>
+<tr><td>1, 1, 10</td><td>V</td><td>254</td><td>0,50</td><td>0,63</td><td>0,61</td><td>0,66</td></tr>
+<tr><td>3, 3, 1</td><td>R</td><td>298</td><td>0,94</td><td>0,60</td><td>0,70</td><td>0,94</td></tr>
+<tr><td>3, 3, 1</td><td>V</td><td>256</td><td>0,91</td><td>0,62</td><td>0,69</td><td>0,91</td></tr>
+<tr><td>10, 10, 1</td><td>R</td><td>299</td><td>0,98</td><td>0,56</td><td>0,72</td><td>0,98</td></tr>
+<tr><td>10, 10, 1</td><td>V</td><td>245</td><td>0,98</td><td>0,74</td><td>0,82</td><td>0,98</td></tr>
+<tr><td>sorteadas</td><td>R</td><td>597</td><td>0,71</td><td>0,54</td><td>0,57</td><td>0,72</td></tr>
+<tr><td>sorteadas</td><td>V</td><td>526</td><td>0,76</td><td>0,54</td><td>0,57</td><td>0,76</td></tr>
+</tbody></table></div>
+<figure data-fig="A6"><figcaption>Taxa de acerto do corpo ejetado na partida do repouso, em \(f = 0{,}5\): previsor do corpo mais leve, previsor da velocidade média e modelo combinado. A linha tracejada indica o acaso.</figcaption></figure>
+<p>Três padrões se destacam. Com massas iguais, a razão de velocidades carrega um sinal fraco: de 34% a 47% de acerto, contra 33% do acaso, mais forte no conjunto virial. Com massas desiguais e um corpo claramente mais leve, a velocidade sozinha perde para as massas por larga margem, por exemplo 60% a 70% contra 91% a 94% no grupo (3, 3, 1). E o modelo combinado só supera o previsor das massas quando as massas empatam, isto é, quando há dois corpos leves iguais: nos grupos (1, 1, 3) e (1, 1, 10), o acerto sobe de cerca de 50% para 54% a 66%, porque a velocidade passa a desempatar entre os dois candidatos. Com massas sorteadas, o caso mais geral, o modelo combinado não melhora o previsor das massas: 72% e 76%, contra 71% e 76% das massas sozinhas.</p>
+<p>Os coeficientes ajustados confirmam essa leitura. Nos dois conjuntos, \(\beta_1 \approx -2{,}4\), ao passo que \(\beta_2\) e \(\beta_3\) ficam entre 0,02 e 0,11. O modelo atribui, portanto, uma probabilidade de ejeção aproximadamente proporcional a \(m^{-2{,}4}\), próxima da lei aproximada \(m^{-3}\) <cite>3</cite>, e quase nenhum peso à velocidade.</p>
+
+<h2>Discussão</h2>
+<p>A ausência de ganho com massas desiguais tem uma explicação simples. A razão \(\rho_k\) já depende das massas: com um corpo leve, o par formado pelos dois pesados tende a ser o mais ligado e o mais rápido, e a velocidade de chegada do leve reflete o mesmo desequilíbrio. A informação de velocidade é, em boa parte, redundante com a de massa. Quando as massas empatam, essa redundância desaparece, e o que resta da velocidade é útil para desempatar.</p>
+<p>O sinal fraco no caso de massas iguais é coerente com o resultado da nota anterior <cite>6</cite>: no regime caótico, a configuração muda a cada encontro, e uma medida tomada antes do último encontro próximo diz pouco sobre ele. A teoria de encontros com binários duros e moles <cite>1,2</cite> descreve bem o resultado médio de um encontro isolado, mas, numa sequência caótica de encontros, cada um apaga parte da informação do anterior.</p>
+<p>As limitações principais são as seguintes. As simulações são planas, e a partida do repouso tem momento angular total nulo. A razão \(\rho_k\) é uma escolha entre várias possíveis; medidas restritas aos encontros mais próximos, ou que levem em conta a geometria do encontro, poderiam carregar mais informação. O modelo combinado é linear nos logaritmos e não explora interações entre as variáveis. Com 245 a 597 corridas por linha, o erro binomial é de dois a três pontos percentuais.</p>
+
+<h2>Conclusões</h2>
+<p>A comparação entre a velocidade de giro do par e a velocidade de chegada do terceiro corpo não substitui as massas como previsor do corpo ejetado e quase não acrescenta informação a elas. Ela funciona como desempate quando dois candidatos têm a mesma massa e dá um sinal fraco quando as três massas são iguais. Como subproduto, o ajuste recupera de forma independente uma lei de ejeção próxima de \(m^{-3}\).</p>

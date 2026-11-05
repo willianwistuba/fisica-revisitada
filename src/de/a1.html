@@ -1,0 +1,32 @@
+<h2>Einleitung</h2>
+<p>Das Dreikörperproblem fragt, wie sich drei Punktmassen, die ausschließlich über die Newtonsche Gravitation wechselwirken, bei gegebenen Anfangspositionen und Anfangsgeschwindigkeiten zeitlich entwickeln. Für zwei Körper ist die Antwort seit Newton vollständig: Die Relativbahnen sind Kegelschnitte, und die Position zu jedem Zeitpunkt ergibt sich aus der Kepler-Gleichung. Für drei Körper existiert keine allgemeine Lösung in elementaren Funktionen, und der Grund dafür ist struktureller Natur, nicht ein Mangel an Erfindungsgabe.</p>
+<p>Diese Notiz fasst die Ergebnisse, die das Problem eingrenzen, in kompakter Form zusammen: die Abzählung der Ersten Integrale, die Unmöglichkeitssätze von Bruns und Poincaré <cite>1,2</cite>, die konvergente Reihe von Sundman <cite>3</cite> und die durch das Chaos auferlegte Grenze der Vorhersagbarkeit. Ziel ist es, präzise zu trennen, was bewiesen ist und was offen bleibt, als Grundlage für die folgenden Notizen der Reihe.</p>
+
+<h2>Formulierung</h2>
+<p>Mit den Massen \(m_i\) und den Positionen \(\mathbf{r}_i\), \(i = 1, 2, 3\), lauten die Bewegungsgleichungen</p>
+<div class="eq">\[ \ddot{\mathbf{r}}_i = \sum_{j \neq i} G\, m_j \, \frac{\mathbf{r}_j - \mathbf{r}_i}{\lvert \mathbf{r}_j - \mathbf{r}_i \rvert^{3}} . \]</div>
+<p>Im dreidimensionalen Raum hat der Zustand des Systems 18 Komponenten (drei für die Position und drei für die Geschwindigkeit je Körper). Die Symmetrien des Problems liefern 10 klassische Erste Integrale: die Energie (1), den Impuls und die gleichförmige Bewegung des Schwerpunkts (6) sowie den Drehimpuls (3). Beim Zweikörperproblem genügen diese Integrale zusammen mit dem Laplace-Runge-Lenz-Vektor, um die Bewegung auf Quadraturen zurückzuführen. Beim Dreikörperproblem verbleiben Freiheitsgrade ohne zugehöriges Integral.</p>
+
+<h2>Unmöglichkeitsergebnisse</h2>
+<p>Im Jahr 1887 bewies Bruns, dass das Problem außer den zehn klassischen keine weiteren Ersten Integrale zulässt, die algebraische Funktionen der kartesischen Koordinaten und der Geschwindigkeiten sind <cite>1</cite>. Poincaré erweiterte das Ergebnis auf eindeutige analytische Integrale im eingeschränkten Problem und beschrieb dabei erstmals die Verflechtung stabiler und instabiler Mannigfaltigkeiten, die heute das deterministische Chaos kennzeichnet <cite>2</cite>.</p>
+<p>Es ist wichtig, die Tragweite dieser Sätze abzugrenzen. Sie schließen eine genau bestimmte Klasse von Lösungen aus, die aus einer genau bestimmten Klasse von Funktionen gebildet werden. Sie schließen Darstellungen durch andere Funktionen nicht aus, so wie die Unmöglichkeit, die allgemeine Gleichung fünften Grades durch Radikale zu lösen (Abel, 1824), die Lösung durch elliptische Funktionen (Hermite, 1858) nicht verhinderte.</p>
+
+<h2>Die Reihe von Sundman</h2>
+<p>Im Jahr 1912 erhielt Sundman eine allgemeine Lösung, gültig für alle Anfangsbedingungen mit nicht verschwindendem Gesamtdrehimpuls, in Form von Potenzreihen in einer regularisierten Zeitvariablen <cite>3</cite>. Die Regularisierung behandelt die Zweierstöße, die die Singularitäten des Problems darstellen, und macht die Reihe für alle Zeiten konvergent. Das Ergebnis ist mathematisch vollständig, konvergiert jedoch so langsam, dass spätere Abschätzungen eine Anzahl von Termen in der Größenordnung von \(10^{8\,000\,000}\) für eine in der Astronomie brauchbare Genauigkeit ergaben <cite>7</cite>. Aus praktischer Sicht ersetzt die Reihe die numerische Integration nicht.</p>
+
+<h2>Empfindlichkeit gegenüber den Anfangsbedingungen</h2>
+<p>Die entscheidende praktische Schwierigkeit liegt anderswo. Im nicht hierarchischen Regime, das heißt, wenn die drei Massen vergleichbar sind und einander nahekommen, ist das System chaotisch: Zwei um \(\delta_0\) getrennte Anfangsbedingungen divergieren im Mittel gemäß</p>
+<div class="eq">\[ \delta(t) \sim \delta_0 \, e^{\lambda t}, \]</div>
+<p>wobei \(\lambda\) der größte Ljapunow-Exponent ist. Der Vorhersagehorizont wächst nur mit dem Logarithmus der Anfangsgenauigkeit: Jede zusätzliche korrekte Stelle in den Anfangsbedingungen verlängert die Vorhersagezeit um ein festes Intervall der Größenordnung \(\ln 10/\lambda\). Eine exakte Lösung, selbst wenn sie in brauchbarer Form existierte, würde diese Grenze nicht aufheben, da die Anfangsbedingungen stets nur mit endlicher Genauigkeit bekannt sind.</p>
+
+<h2>Aktuelle Forschungsrichtungen</h2>
+<p>Vor diesem Hintergrund gliedert sich die gegenwärtige Forschung in Richtungen, die nicht von einer geschlossenen Formel abhängen:</p>
+<ul>
+<li><b>Exakte Speziallösungen:</b> die kollinearen Konfigurationen von Euler (1767), das gleichseitige Dreieck von Lagrange (1772) und periodische Bahnen wie die achtförmige Bahn („Figur Acht“) gleicher Massen, deren Existenz Chenciner und Montgomery bewiesen <cite>4</cite>. Numerische Suchen haben seit 2013 Hunderte und später Tausende periodischer Bahnen katalogisiert <cite>6</cite>.</li>
+<li><b>Stabilitätskriterien:</b> Bedingungen, unter denen spezielle Konfigurationen oder hierarchische Systeme über lange Zeiten regulär bleiben.</li>
+<li><b>Statistische Beschreibungen:</b> im chaotischen Regime die Verteilung der Ausgänge vorherzusagen, typischerweise die Bildung eines Doppelsystems und den Auswurf des dritten Körpers, statt der einzelnen Trajektorie <cite>5</cite>.</li>
+<li><b>Geometrie des Formenraums:</b> Die Reduktion nach den Symmetrien führt die Bewegung auf eine Formsphäre, auf der Ausrichtungen und Stöße festgelegte Orte einnehmen und die Trajektorien symbolisch kodiert werden können <cite>8</cite>.</li>
+</ul>
+
+<h2>Schlussfolgerungen</h2>
+<p>Bewiesen sind die Nichtexistenz weiterer algebraischer oder eindeutiger analytischer Integrale, die Existenz einer konvergenten Reihe ohne praktischen Nutzen und die exponentielle Empfindlichkeit gegenüber den Anfangsbedingungen im nicht hierarchischen Regime. Offen bleibt nicht eine Formel, sondern das Verständnis dafür, welche Strukturen die Bewegung regulär machen und wie sich das Chaotische statistisch beschreiben lässt. Die folgenden Notizen dieser Reihe dokumentieren numerische Experimente in dieser Richtung, insbesondere zu den Mechanismen, die Konfigurationen weniger Körper stabil machen, und zu intuitiven Stabilisierungsvorschlägen, die scheitern.</p>

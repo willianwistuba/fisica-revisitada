@@ -1,0 +1,77 @@
+<h2>Introdução</h2>
+<p>Em sistemas de três corpos que se desintegram depois de uma interação longa, o corpo mais leve é quase sempre o ejetado <cite>5,6</cite>. Na nota FR-TC-05, por exemplo, o leve saiu em 92% a 99,8% das vezes <cite>8</cite>. Essa regra costuma ser lida como uma propriedade de cada encontro: quando três corpos se aproximam, o mais leve seria jogado para fora. A nota FR-TC-10 mostrou, porém, que a absortividade da teoria de Kol é fixada na primeira passagem e que, nessa passagem, a escolha entre passar direto e trocar de parceiro depende quase só das massas <cite>9</cite>. Esta nota investiga a parte das massas por completo, com três perguntas. Como as massas decidem o resultado de um único encontro regular? Como decidem quem sai de uma fase caótica, segundo o fator de fluxo da teoria de Kol <cite>1,2</cite>? E como essas duas regras se combinam para produzir o domínio final do corpo mais leve?</p>
+
+<h2>Método</h2>
+<h3>Encontro único</h3>
+<p>Usamos o integrador regularizado das notas anteriores <cite>7</cite>, em movimento plano com \(G = 1\), momento angular total nulo e energia total \(E_0 = -1\). Um par de massas \(m_a = 1\) e \(m_b\), com \(m_b\) de 0,1 a 1, recebe um terceiro corpo de massa \(m_s\) de 0,1 a 10, lançado de 20 semieixos maiores, com fase e orientação do par sorteadas, como nas medições de absortividade da nota FR-TC-10. Usamos três valores da energia relativa do par (\(x = E_B/E_0\) = 1,2, 2 e 5), três de excentricidade (0,15, 0,5 e 0,85) e 100 corridas por célula, em 28 combinações de massas (24.316 corridas válidas), integradas até a primeira saída. Registramos quem sai: o corpo que chegou (passagem) ou um dos membros do par (troca). Em separado, para o caso em que o corpo que chega tem a mesma massa do membro mais pesado, rodamos 8.100 corridas até o desfecho final, com \(m_b/m_a\) de 0,1 a 1.</p>
+<h3>Saídas do caos</h3>
+<p>Para as saídas de fases caóticas, usamos a decomposição em episódios da nota FR-TC-10 <cite>9</cite>, aplicada a quedas livres com momento angular total nulo em 13 conjuntos de massas: os quatro daquela nota, com 6.000 corridas cada, e mais nove, com 2.000 corridas cada, entre (1, 1, 2) e (1, 5, 10). Para cada episódio caótico depois do primeiro, registramos qual corpo sai e se a saída é definitiva (escape) ou temporária (excursão). Comparamos a fração de saídas de cada corpo com o fator de fluxo de Kol, que no plano é proporcional a \(k_s = (m_a m_b)^3/(m_a + m_b)\), em que \(m_a\) e \(m_b\) são as massas do par que fica <cite>1,9</cite>.</p>
+
+<h2>Resultados</h2>
+<h3>Encontro único: um limiar de massa e um sorteio</h3>
+<p>Num encontro regular, a escolha entre passagem e troca depende quase só da razão entre a massa do corpo que chega e a do membro mais pesado do par (Fig. 1). Quando \(m_s\) é bem menor que metade de \(m_a\), o corpo que chega quase sempre passa e vai embora; quando \(m_s\) é maior que \(m_a\), ele quase sempre troca de lugar com um dos membros. A curva</p>
+<div class="eq">\[ P_{\rm troca} = \frac{1}{1 + (0{,}52\, m_a/m_s)^{1{,}9}} \]</div>
+<p>descreve as 24 combinações com \(m_s \le 4\) com \(R^2 = 0{,}94\) e erro médio de 0,08. Ajustada sem um dos valores de \(m_b\) e usada para prevê-lo, ela erra em média 0,10. A energia e a excentricidade do par mudam pouco o resultado: o desvio entre as nove células de cada combinação é de 0,06. A massa do membro mais leve quase não entra; incluí-la melhora o ajuste só de 0,94 para 0,95. Com \(m_s = 10\), a fração de passagens volta a subir (de 4% a 25%), porque um corpo muito pesado atravessa o par sem ser capturado.</p>
+<figure data-fig="A11"><figcaption>Probabilidade de troca na primeira passagem em função da razão entre a massa do corpo que chega e a do membro mais pesado do par, para quatro razões de massa dentro do par. A linha tracejada é a curva ajustada às combinações com \(m_s/m_a \le 4\).</figcaption></figure>
+<p>Quando há troca e o corpo que chega tem pelo menos metade da massa do membro mais pesado, a escolha de quem sai é quase um sorteio entre os dois membros (Tabela I): o mais pesado é expulso em 43% a 62% das trocas, mesmo quando o outro membro é dez vezes mais leve. Só quando o corpo que chega é leve e o par é muito desigual o membro leve sai bem mais. Esse comportamento difere do que se conhece para encontros com parâmetro de impacto, em que as trocas tendem a expulsar o membro mais leve <cite>3,4</cite>. Aqui, com momento angular total nulo, os encontros são quase frontais.</p>
+<div class="tblwrap"><p class="cap">Fração das trocas na primeira passagem que expulsam o membro mais pesado do par, por massa do membro leve \(m_b\) (linhas) e do corpo que chega \(m_s\) (colunas), com \(m_a = 1\).</p><table>
+<thead><tr><th>\(m_b\)</th><th>\(m_s = 0{,}5\)</th><th>\(m_s = 1\)</th><th>\(m_s = 2\)</th><th>\(m_s = 4\)</th><th>\(m_s = 10\)</th></tr></thead>
+<tbody>
+<tr><td>0,1</td><td>0,35</td><td>0,46</td><td>0,56</td><td>0,54</td><td>0,45</td></tr>
+<tr><td>0,25</td><td>0,44</td><td>0,44</td><td>0,51</td><td>0,57</td><td>0,48</td></tr>
+<tr><td>0,5</td><td>0,62</td><td>0,43</td><td>0,47</td><td>0,49</td><td>0,47</td></tr>
+<tr><td>1</td><td>0,52</td><td>0,47</td><td>0,53</td><td>0,51</td><td>0,50</td></tr>
+</tbody></table></div>
+<h3>O caso de massa igual: o efeito de pêndulo de Newton</h3>
+<p>O caso em que o corpo que chega tem a mesma massa do membro mais pesado mostra o mecanismo (Tabela II). Acompanhando cada encontro até o fim, o membro leve é o expulso em 56% a 60% dos casos com \(m_b/m_a \le 0{,}5\), e o membro de massa igual em 33% a 38%, mesmo quando o leve tem um décimo da sua massa. Nessas expulsões do membro de massa igual, a energia do par quase não muda (variação logarítmica mediana de \(-0{,}29\) a \(+0{,}05\)): o corpo que chega toma o lugar do membro de mesma massa, como no pêndulo de Newton, em que a bola que bate para e a da outra ponta sai, e o membro leve continua quase na mesma órbita em volta do recém-chegado. Quando sai o leve, o novo par, formado pelos dois corpos pesados, fica bem mais ligado (variação mediana de \(+0{,}40\) a \(+0{,}66\)). A fração de expulsões do leve é maior quando o par está pouco ligado (cerca de 70% com \(x = 1{,}2\)) e menor quando está muito ligado (cerca de 50% com \(x = 5\)).</p>
+<div class="tblwrap"><p class="cap">Desfecho final de um encontro único em que o corpo que chega tem a mesma massa \(m_a\) do membro mais pesado do par, por razão \(m_b/m_a\) (cerca de 1.330 corridas por linha).</p><table>
+<thead><tr><th>\(m_b/m_a\)</th><th>Sai o membro leve</th><th>Sai o membro de massa igual</th><th>Sai o que chegou</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>0,39</td><td>0,40</td><td>0,21</td></tr>
+<tr><td>0,8</td><td>0,46</td><td>0,44</td><td>0,09</td></tr>
+<tr><td>0,5</td><td>0,57</td><td>0,38</td><td>0,04</td></tr>
+<tr><td>0,33</td><td>0,59</td><td>0,37</td><td>0,04</td></tr>
+<tr><td>0,2</td><td>0,60</td><td>0,33</td><td>0,07</td></tr>
+<tr><td>0,1</td><td>0,56</td><td>0,34</td><td>0,10</td></tr>
+</tbody></table></div>
+<h3>Saída do caos: o fator de fluxo</h3>
+<p>Nas fases caóticas a regra é outra. A fração de saídas de cada corpo, contando excursões e escapes, segue em primeira aproximação o fator de fluxo \(k_s\) da teoria de Kol (Tabela III): o erro médio é de 0,035, e a correlação entre os logaritmos das frações medidas e previstas é de 0,96. O fator \(k_s\) cresce com o cubo do produto das massas do par que fica, e por isso favorece fortemente a saída do mais leve. Os desvios maiores aparecem nas massas mais extremas, em que o fator superestima o domínio do leve: em (1, 5, 10), por exemplo, prevê 99% e mede 90%. Essa é a parte que, na teoria, a absortividade corrige.</p>
+<div class="tblwrap"><p class="cap">Fração das saídas de episódios caóticos (depois do primeiro) feitas pelo corpo mais leve, medida em quedas livres, comparada com o fator de fluxo \(k_s\) normalizado, por conjunto de massas.</p><table>
+<thead><tr><th>Massas</th><th>Saídas</th><th>Medido</th><th>Fator de fluxo</th></tr></thead>
+<tbody>
+<tr><td>1, 1, 2</td><td>1.483</td><td>0,889</td><td>0,914</td></tr>
+<tr><td>1, 1, 3</td><td>4.363</td><td>0,933</td><td>0,964</td></tr>
+<tr><td>1, 1, 5</td><td>1.717</td><td>0,967</td><td>0,988</td></tr>
+<tr><td>1, 1, 10</td><td>4.700</td><td>0,995</td><td>0,997</td></tr>
+<tr><td>2, 2, 1</td><td>2.564</td><td>0,776</td><td>0,750</td></tr>
+<tr><td>3, 3, 1</td><td>4.093</td><td>0,898</td><td>0,900</td></tr>
+<tr><td>5, 5, 1</td><td>340</td><td>0,906</td><td>0,974</td></tr>
+<tr><td>10, 10, 1</td><td>246</td><td>0,959</td><td>0,996</td></tr>
+<tr><td>1, 2, 3</td><td>4.841</td><td>0,776</td><td>0,821</td></tr>
+<tr><td>1, 2, 4</td><td>1.217</td><td>0,785</td><td>0,847</td></tr>
+<tr><td>1, 3, 5</td><td>987</td><td>0,850</td><td>0,939</td></tr>
+<tr><td>1, 5, 10</td><td>441</td><td>0,896</td><td>0,987</td></tr>
+</tbody></table></div>
+<h3>O filtro das saídas definitivas</h3>
+<p>Falta explicar por que o domínio final do leve é ainda maior que a sua fração de saídas. A razão é que as saídas não têm o mesmo destino (Tabela IV). Quando o corpo leve sai de uma fase caótica, a saída é definitiva em 17% a 46% dos casos, conforme o conjunto; quando sai um corpo pesado, ela é definitiva em menos casos, de 9% a 13% nos conjuntos com mais saídas, e no resto ele volta numa excursão e o caos recomeça. A fração final de escapes de cada corpo é, aproximadamente, a sua fração de saídas multiplicada pela chance de a saída ser definitiva. Em (3, 3, 1), por exemplo, 0,898 × 0,290 contra 0,102 × 0,123 dá ao leve 95% dos escapes, como medido.</p>
+<div class="tblwrap"><p class="cap">Por corpo, fração das saídas de episódios caóticos, fração dessas saídas que são definitivas e fração final dos escapes, em quatro conjuntos de massas.</p><table>
+<thead><tr><th>Massas</th><th>Corpo</th><th>Fração das saídas</th><th>Saída definitiva</th><th>Fração dos escapes</th></tr></thead>
+<tbody>
+<tr><td>1, 1, 3</td><td>massa 1</td><td>0,933</td><td>0,248</td><td>0,974</td></tr>
+<tr><td>1, 1, 3</td><td>massa 3</td><td>0,067</td><td>0,092</td><td>0,026</td></tr>
+<tr><td>3, 3, 1</td><td>massa 1</td><td>0,898</td><td>0,290</td><td>0,954</td></tr>
+<tr><td>3, 3, 1</td><td>massa 3</td><td>0,102</td><td>0,123</td><td>0,046</td></tr>
+<tr><td>2, 2, 1</td><td>massa 1</td><td>0,776</td><td>0,173</td><td>0,848</td></tr>
+<tr><td>2, 2, 1</td><td>massa 2</td><td>0,224</td><td>0,108</td><td>0,152</td></tr>
+<tr><td>1, 2, 3</td><td>massa 1</td><td>0,776</td><td>0,251</td><td>0,851</td></tr>
+<tr><td>1, 2, 3</td><td>massa 2</td><td>0,178</td><td>0,168</td><td>0,131</td></tr>
+<tr><td>1, 2, 3</td><td>massa 3</td><td>0,046</td><td>0,090</td><td>0,018</td></tr>
+</tbody></table></div>
+
+<h2>Discussão</h2>
+<p>A regra de que o corpo mais leve é ejetado não é uma regra de cada encontro. Num encontro único e regular, as massas decidem apenas se há troca, por um limiar na razão entre a massa do corpo que chega e a do membro mais pesado do par; quem sai do par, quando há troca, é quase sorteado, e o efeito de pêndulo de Newton faz o membro de mesma massa do recém-chegado sair com frequência. A preferência pelo leve aparece nas fases caóticas, pelo fator de fluxo \(k_s\), que cresce com o cubo do produto das massas do par que fica e mede quantos estados de saída cada escolha oferece <cite>1</cite>. Ela é reforçada por um filtro: as saídas de corpos pesados são, na maioria, excursões que voltam, enquanto as do leve são mais vezes definitivas. O domínio final do leve é o produto das duas coisas.</p>
+<p>Para a teoria de Kol, o resultado separa as duas partes da previsão. A parte das massas das saídas do caos é, em primeira aproximação, o fator de fluxo, sem parâmetro livre, e a absortividade corrige os casos extremos. A parte dos encontros regulares, que governa a primeira passagem e o mapa regular das equações de evolução <cite>9</cite>, segue outra lei, que aqui cabe numa curva de dois parâmetros. Essa curva é um primeiro ingrediente para uma fórmula da absortividade, cuja outra metade, a chance de o corpo que sai ficar ligado, depende da energia do par.</p>
+<p>As limitações principais são as seguintes. Tudo é plano, com momento angular total nulo, o que torna os encontros quase frontais; com momento angular, as trocas podem favorecer o leve, como nas seções de choque conhecidas <cite>3,4</cite>. A curva de troca foi ajustada a 24 combinações de massas, e sua forma funcional é empírica. Nos conjuntos de massas mais extremos, o número de saídas caóticas é pequeno (de 246 a 441), e a fração de saídas definitivas dos corpos pesados é medida com pouca precisão.</p>
+
+<h2>Conclusões</h2>
+<p>No problema de três corpos plano com momento angular nulo, há duas regras de massas. Num encontro regular, a troca de parceiro acontece quando o corpo que chega tem mais que cerca de metade da massa do membro mais pesado do par, segundo uma curva de dois parâmetros que acerta 94% da variação, e o membro expulso é quase sorteado; com massas iguais entre o corpo que chega e um membro, um efeito de pêndulo de Newton expulsa esse membro em cerca de um terço dos casos. Nas fases caóticas, a fração de saídas de cada corpo segue o fator de fluxo de Kol, que favorece o leve. Como as saídas dos corpos pesados tendem a ser temporárias e as do leve definitivas, o leve acaba como o ejetado final na grande maioria dos sistemas.</p>

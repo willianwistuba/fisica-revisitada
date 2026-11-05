@@ -1,0 +1,32 @@
+<h2>Introduction</h2>
+<p>The three-body problem asks how three point masses interacting only through Newtonian gravitation evolve in time, given their initial positions and velocities. For two bodies, the answer has been complete since Newton: the relative orbits are conic sections, and the position at any instant follows from Kepler's equation. For three bodies, no general solution expressed in elementary functions exists, and the reason is structural, not a lack of ingenuity.</p>
+<p>This note gathers, in compact form, the results that delimit the problem: the counting of first integrals, the impossibility theorems of Bruns and Poincaré <cite>1,2</cite>, the convergent series of Sundman <cite>3</cite>, and the predictability limit imposed by chaos. Our aim is to separate precisely what has been proven from what remains open, as a basis for the subsequent notes in the series.</p>
+
+<h2>Formulation</h2>
+<p>With masses \(m_i\) and positions \(\mathbf{r}_i\), \(i = 1, 2, 3\), the equations of motion are</p>
+<div class="eq">\[ \ddot{\mathbf{r}}_i = \sum_{j \neq i} G\, m_j \, \frac{\mathbf{r}_j - \mathbf{r}_i}{\lvert \mathbf{r}_j - \mathbf{r}_i \rvert^{3}} . \]</div>
+<p>In three-dimensional space, the state of the system has 18 components (three of position and three of velocity per body). The symmetries of the problem provide 10 classical first integrals: energy (1), linear momentum and uniform motion of the center of mass (6), and angular momentum (3). In the two-body problem, these integrals, together with the Laplace-Runge-Lenz vector, suffice to reduce the motion to quadratures. In the three-body problem, degrees of freedom remain without a corresponding integral.</p>
+
+<h2>Impossibility results</h2>
+<p>In 1887, Bruns proved that the problem admits no new first integrals that are algebraic functions of the Cartesian coordinates and velocities, beyond the ten classical ones <cite>1</cite>. Poincaré extended the result to uniform analytic integrals in the restricted problem and, in doing so, described for the first time the tangling of stable and unstable manifolds that today characterizes deterministic chaos <cite>2</cite>.</p>
+<p>It is important to delimit the scope of these theorems. They exclude a precise class of solutions, built from a precise class of functions. They do not exclude representations by other functions, just as the impossibility of solving the general quintic equation by radicals (Abel, 1824) did not prevent its solution by elliptic functions (Hermite, 1858).</p>
+
+<h2>The Sundman series</h2>
+<p>In 1912, Sundman obtained a general solution, valid for all initial conditions with nonzero total angular momentum, in the form of power series in a regularized time variable <cite>3</cite>. The regularization handles binary collisions, which are the singularities of the problem, and makes the series convergent for all time. The result is mathematically complete, but its convergence is so slow that later estimates indicated that a number of terms of order \(10^{8\,000\,000}\) would be needed for precision useful in astronomy <cite>7</cite>. From a practical standpoint, the series does not replace numerical integration.</p>
+
+<h2>Sensitivity to initial conditions</h2>
+<p>The decisive practical difficulty lies elsewhere. In the nonhierarchical regime, that is, when the three masses are comparable and approach one another, the system is chaotic: two initial conditions separated by \(\delta_0\) diverge, on average, as</p>
+<div class="eq">\[ \delta(t) \sim \delta_0 \, e^{\lambda t}, \]</div>
+<p>where \(\lambda\) is the largest Lyapunov exponent. The predictability horizon grows only with the logarithm of the initial precision: each additional correct digit in the initial conditions adds a fixed interval, of order \(\ln 10/\lambda\), to the prediction time. An exact solution, even if it existed in usable form, would not remove this limit, because initial conditions are always known with finite precision.</p>
+
+<h2>Current research directions</h2>
+<p>In view of this, contemporary research is organized along directions that do not depend on a closed-form formula:</p>
+<ul>
+<li><b>Exact particular solutions:</b> the collinear configurations of Euler (1767), the equilateral triangle of Lagrange (1772), and periodic orbits such as the equal-mass figure eight, proven by Chenciner and Montgomery <cite>4</cite>. Numerical searches since 2013 have catalogued hundreds and then thousands of periodic orbits <cite>6</cite>.</li>
+<li><b>Stability criteria:</b> conditions under which particular configurations or hierarchical systems remain regular over long times.</li>
+<li><b>Statistical descriptions:</b> in the chaotic regime, predicting the distribution of outcomes, typically the formation of a binary and the ejection of the third body, rather than the individual trajectory <cite>5</cite>.</li>
+<li><b>Geometry of shape space:</b> reduction by symmetries maps the motion onto a shape sphere, on which alignments and collisions occupy definite locations and trajectories can be encoded symbolically <cite>8</cite>.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<p>What has been proven is the nonexistence of new algebraic or uniform analytic integrals, the existence of a convergent series without practical utility, and the exponential sensitivity to initial conditions in the nonhierarchical regime. What remains open is not a formula, but rather the understanding of which structures make the motion regular and of how to describe statistically what is chaotic. The subsequent notes in this series report numerical experiments in this direction, in particular on the mechanisms that make few-body configurations stable and on intuitive stabilization proposals that fail.</p>

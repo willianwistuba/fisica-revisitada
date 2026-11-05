@@ -1,0 +1,32 @@
+<h2>Introduction</h2>
+<p>Le problème des trois corps demande comment évoluent au cours du temps trois masses ponctuelles qui n’interagissent que par la gravitation newtonienne, leurs positions et vitesses initiales étant données. Pour deux corps, la réponse est complète depuis Newton : les orbites relatives sont des coniques et la position à tout instant s’obtient par l’équation de Kepler. Pour trois corps, il n’existe pas de solution générale exprimée au moyen de fonctions élémentaires, et la raison en est structurelle, non un défaut d’ingéniosité.</p>
+<p>Cette note rassemble, sous une forme compacte, les résultats qui délimitent le problème : le décompte des intégrales premières, les théorèmes d’impossibilité de Bruns et de Poincaré <cite>1,2</cite>, la série convergente de Sundman <cite>3</cite> et la limite de prévisibilité imposée par le chaos. L’objectif est de séparer avec précision ce qui a été démontré de ce qui demeure ouvert, afin de servir de base aux notes suivantes de la série.</p>
+
+<h2>Formulation</h2>
+<p>Avec des masses \(m_i\) et des positions \(\mathbf{r}_i\), \(i = 1, 2, 3\), les équations du mouvement s’écrivent</p>
+<div class="eq">\[ \ddot{\mathbf{r}}_i = \sum_{j \neq i} G\, m_j \, \frac{\mathbf{r}_j - \mathbf{r}_i}{\lvert \mathbf{r}_j - \mathbf{r}_i \rvert^{3}} . \]</div>
+<p>Dans l’espace à trois dimensions, l’état du système comporte 18 composantes (trois de position et trois de vitesse par corps). Les symétries du problème fournissent 10 intégrales premières classiques : l’énergie (1), la quantité de mouvement et le mouvement uniforme du centre de masse (6) et le moment cinétique (3). Dans le problème des deux corps, ces intégrales, auxquelles s’ajoute le vecteur de Laplace-Runge-Lenz, suffisent à ramener le mouvement à des quadratures. Dans celui des trois corps, il reste des degrés de liberté sans intégrale correspondante.</p>
+
+<h2>Résultats d’impossibilité</h2>
+<p>En 1887, Bruns a démontré que le problème n’admet pas, outre les dix intégrales classiques, de nouvelles intégrales premières qui soient des fonctions algébriques des coordonnées cartésiennes et des vitesses <cite>1</cite>. Poincaré a étendu ce résultat aux intégrales analytiques uniformes dans le problème restreint et, ce faisant, a décrit pour la première fois l’enchevêtrement des variétés stables et instables qui caractérise aujourd’hui le chaos déterministe <cite>2</cite>.</p>
+<p>Il importe de délimiter la portée de ces théorèmes. Ils excluent une classe précise de solutions, construites à partir d’une classe précise de fonctions. Ils n’excluent pas des représentations au moyen d’autres fonctions, de même que l’impossibilité de résoudre l’équation générale du cinquième degré par radicaux (Abel, 1824) n’a pas empêché sa résolution au moyen de fonctions elliptiques (Hermite, 1858).</p>
+
+<h2>La série de Sundman</h2>
+<p>En 1912, Sundman a obtenu une solution générale, valable pour toutes les conditions initiales de moment cinétique total non nul, sous la forme de séries entières d’une variable temporelle régularisée <cite>3</cite>. La régularisation traite les collisions binaires, qui constituent les singularités du problème, et rend la série convergente pour tout temps. Le résultat est mathématiquement complet, mais sa convergence est si lente que des estimations ultérieures ont indiqué qu’un nombre de termes de l’ordre de \(10^{8\,000\,000}\) serait nécessaire pour atteindre une précision utile en astronomie <cite>7</cite>. Du point de vue pratique, la série ne remplace pas l’intégration numérique.</p>
+
+<h2>Sensibilité aux conditions initiales</h2>
+<p>La difficulté pratique décisive est d’une autre nature. En régime non hiérarchique, c’est-à-dire lorsque les trois masses sont comparables et s’approchent les unes des autres, le système est chaotique : deux conditions initiales séparées de \(\delta_0\) divergent, en moyenne, selon</p>
+<div class="eq">\[ \delta(t) \sim \delta_0 \, e^{\lambda t}, \]</div>
+<p>où \(\lambda\) est le plus grand exposant de Lyapunov. L’horizon de prévisibilité ne croît qu’avec le logarithme de la précision initiale : chaque chiffre exact supplémentaire dans les conditions initiales ajoute un intervalle fixe, de l’ordre de \(\ln 10/\lambda\), au temps de prévision. Une solution exacte, même si elle existait sous une forme exploitable, ne supprimerait pas cette limite, car les conditions initiales ne sont jamais connues qu’avec une précision finie.</p>
+
+<h2>Axes de recherche actuels</h2>
+<p>Dans ces conditions, la recherche contemporaine s’organise selon des axes qui ne dépendent pas d’une formule fermée :</p>
+<ul>
+<li><b>Solutions particulières exactes :</b> les configurations colinéaires d’Euler (1767), le triangle équilatéral de Lagrange (1772) et des orbites périodiques comme le huit à masses égales, démontré par Chenciner et Montgomery <cite>4</cite>. Des recherches numériques menées depuis 2013 ont catalogué des centaines, puis des milliers d’orbites périodiques <cite>6</cite>.</li>
+<li><b>Critères de stabilité :</b> conditions sous lesquelles des configurations particulières ou des systèmes hiérarchiques restent réguliers sur de longues durées.</li>
+<li><b>Descriptions statistiques :</b> dans le régime chaotique, prédire la distribution des issues, typiquement la formation d’un binaire et l’éjection du troisième corps, plutôt que la trajectoire individuelle <cite>5</cite>.</li>
+<li><b>Géométrie de l’espace des formes :</b> la réduction par les symétries ramène le mouvement sur une sphère des formes, sur laquelle les alignements et les collisions occupent des positions définies et les trajectoires peuvent être codées symboliquement <cite>8</cite>.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<p>Ce qui est démontré, c’est l’inexistence de nouvelles intégrales algébriques ou analytiques uniformes, l’existence d’une série convergente sans utilité pratique et la sensibilité exponentielle aux conditions initiales dans le régime non hiérarchique. Ce qui demeure ouvert n’est pas une formule, mais la compréhension des structures qui rendent le mouvement régulier et de la manière de décrire statistiquement ce qui est chaotique. Les notes suivantes de cette série rapportent des expériences numériques dans cette direction, en particulier sur les mécanismes qui rendent stables des configurations à peu de corps et sur des propositions intuitives de stabilisation qui échouent.</p>

@@ -1,0 +1,54 @@
+<h2>Introdução</h2>
+<p>Um pêndulo invertido pode ser estabilizado pela vibração rápida do seu ponto de suspensão, efeito descoberto por Kapitza <cite>1</cite>. No limite de alta frequência, o efeito médio da excitação entra na dinâmica lenta como um potencial efetivo proporcional ao quadrado da amplitude da força e inversamente proporcional ao quadrado da frequência <cite>2</cite>. O resultado sugere uma pergunta natural em mecânica celeste: um binário interno apertado, cujo campo gravitacional oscila rapidamente, poderia estabilizar uma configuração de três corpos que, sem ele, é instável?</p>
+<p>Esta nota descreve um teste numérico dessa hipótese, com grupo de controle, e uma restrição física que explica o resultado negativo obtido. A hipótese foi escolhida por ser pequena (um caso específico), testável (a simulação pode refutá-la) e não trivial (um resultado positivo seria surpreendente).</p>
+
+<h2>Método</h2>
+<h3>Configurações e grupos</h3>
+<p>A configuração de referência é um triângulo equilátero de três massas iguais (\(m = 1\)) a distância \(R = 1\) de um corpo central, girando rigidamente. Com massas iguais, essa configuração é instável, com ou sem corpo central.</p>
+<ul>
+<li><b>Grupo de teste:</b> no centro, um binário circular de massa total \(M\), componentes iguais e separação \(a_b\), girando no mesmo sentido do triângulo ou no sentido oposto.</li>
+<li><b>Grupo de controle:</b> no centro, uma massa única \(M\), que reproduz o termo monopolar do binário sem a componente oscilante.</li>
+<li><b>Perturbação:</b> deslocamentos de \(10^{-4}\) em posição ou velocidade, idênticos nos dois grupos; mediana de três perturbações.</li>
+</ul>
+<p>A velocidade orbital inicial do triângulo inclui a correção quadrupolar média do binário,</p>
+<div class="eq">\[ v^2 = \frac{1}{R}\left[ G M \left(1 + \frac{3}{16}\frac{a_b^2}{R^2}\right) + \frac{G m}{\sqrt{3}} \right], \]</div>
+<p>para que o grupo de teste não comece fora de equilíbrio por construção.</p>
+<h3>Integração e critério de ruptura</h3>
+<p>A integração usa o método leapfrog no esquema kick-drift-kick, simplético, com passo de \(P_b/60\), em que \(P_b\) é o período do binário, limitado a 0,002 unidades de tempo, em unidades com \(G = 1\). O triângulo é considerado desfeito quando o ponto representativo na esfera de formas <cite>7</cite> cai abaixo de \(53^\circ\) de latitude; o polo corresponde ao equilátero.</p>
+
+<h2>Resultados</h2>
+<h3>Triângulo com binário central</h3>
+<p>A Fig. 1 mostra a razão entre a sobrevivência com o binário e a do controle, para três massas centrais. Valores acima de 1 indicariam estabilização.</p>
+<figure data-fig="A2"><figcaption>Sobrevivência mediana do triângulo com binário central, dividida pela do controle com massa única, em função da separação do binário, para três massas centrais. A linha tracejada indica igualdade com o controle. Nenhum ponto o supera de forma significativa.</figcaption></figure>
+<p>Em nenhuma combinação o binário prolongou a sobrevivência de forma significativa. Para \(a_b \lesssim 0{,}07\), o resultado coincide com o controle; para separações maiores, o binário encurta a vida do triângulo, até cerca de 8% da sobrevivência do controle com \(M = 10\) e \(a_b = 0{,}6\). Inverter o sentido de rotação do binário não alterou o padrão.</p>
+<h3>Binário na fronteira de Routh</h3>
+<p>Um segundo teste colocou o binário no lugar do corpo dominante de um triângulo de Lagrange com massas \(1 : \mu : \mu\), na vizinhança do limite de estabilidade de Routh (\(\mu \approx 0{,}0198\)) <cite>8</cite>, onde efeitos pequenos poderiam inclinar o resultado. A Tabela I resume as medianas de sobrevivência.</p>
+<div class="tblwrap"><p class="cap">Sobrevivência mediana, em unidades de tempo, do triângulo de Lagrange \(1 : \mu : \mu\) com o corpo dominante substituído por um binário de separação \(a_b\). Limite de integração: 1500 unidades de tempo.</p><table>
+<thead><tr><th>\(\mu\)</th><th>Controle</th><th>\(a_b = 0{,}005\)</th><th>0,01</th><th>0,02</th><th>0,04</th><th>0,1</th><th>0,2</th></tr></thead>
+<tbody>
+<tr><td>0,015</td><td>estável</td><td>estável</td><td>estável</td><td>estável</td><td>estável</td><td>estável</td><td>estável</td></tr>
+<tr><td>0,022</td><td>150</td><td>135</td><td>205</td><td>241</td><td>62</td><td>46</td><td>28</td></tr>
+<tr><td>0,025</td><td>42</td><td>42</td><td>42</td><td>42</td><td>42</td><td>35</td><td>23</td></tr>
+<tr><td>0,030</td><td>32</td><td>32</td><td>32</td><td>32</td><td>32</td><td>26</td><td>18</td></tr>
+</tbody></table></div>
+<p>O aumento observado em \(\mu = 0{,}022\) para \(a_b = 0{,}01\) e \(0{,}02\) ocorre exatamente sobre a fronteira, onde a sobrevivência varia muito entre perturbações, e não se repete em \(\mu = 0{,}025\). Não há evidência de estabilização.</p>
+
+<h2>Discussão</h2>
+<h3>A restrição kepleriana</h3>
+<p>No pêndulo de Kapitza, amplitude e frequência da excitação são independentes. Num binário gravitacional, não são: a terceira lei de Kepler as vincula. Seja \(r\) a distância de um corpo externo ao binário. A componente oscilante dominante da aceleração é quadrupolar, com amplitude</p>
+<div class="eq">\[ F \sim \frac{G M a_b^2}{r^4}, \]</div>
+<p>e frequência da ordem de \(\omega_b = \sqrt{GM/a_b^3}\). No regime de Kapitza, o efeito médio da excitação rápida entra como um potencial efetivo proporcional a \(F^2/\omega^2\) <cite>2</cite>. Combinando as duas relações,</p>
+<div class="eq">\[ \frac{F^2}{\omega_b^2} \sim \frac{G M}{r^8}\, a_b^{7} . \]</div>
+<p>O termo estabilizador decai com a sétima potência da separação. Um binário apertado oscila rápido, condição necessária para o regime de média, mas produz um termo efetivo desprezível. Um binário largo produz excitação forte, porém lenta, e passa a ressoar com as frequências próprias do triângulo, o que desestabiliza. A estimativa é de escala e não substitui uma análise completa, mas é consistente com os dois regimes observados.</p>
+<h3>Relação com a literatura</h3>
+<p>Estabilizações de soluções caóticas no problema restrito foram obtidas com corpos adicionais posicionados nos pontos triangulares de Lagrange <cite>3</cite>, e órbitas periódicas instáveis do problema de três corpos foram estabilizadas com impulsos pequenos, um por período, calculados a partir do mapa de Poincaré linearizado <cite>4</cite>, na linha do controle de caos de Ott, Grebogi e Yorke <cite>6</cite>. Em ambos os casos, a estabilização decorre de corpos posicionados ou de controle ativo, não de excitação gravitacional passiva. Para planetas circumbinários, modelos médios do potencial quadrupolar descrevem bem a dinâmica secular, mas não capturam as ressonâncias entre o período do binário e o da órbita externa, que dominam a instabilidade perto do binário <cite>5</cite>.</p>
+<h3>Limitações</h3>
+<ul>
+<li>Simulação plana, com uma única família de configurações iniciais.</li>
+<li>Critério de ruptura definido pelo experimento (latitude de \(53^\circ\) na esfera de formas).</li>
+<li>Três perturbações por ponto; resultados na fronteira de estabilidade exigiriam amostras maiores.</li>
+<li>Não foram exploradas órbitas inclinadas nem binários excêntricos, que alteram o espectro da excitação.</li>
+</ul>
+
+<h2>Conclusões</h2>
+<p>Com as ressalvas acima, o resultado é negativo e tem explicação física simples: a gravidade não permite escolher livremente amplitude e frequência da vibração, e a combinação permitida pela lei de Kepler não atinge o regime de Kapitza. Um binário apertado equivale, para efeitos práticos, a uma massa única; um binário largo desestabiliza por ressonância.</p>

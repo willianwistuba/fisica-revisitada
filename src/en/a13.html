@@ -1,0 +1,111 @@
+<p><b>Revision note (version 2, November 4, 2026).</b> The first version of this note presented the wall as a property of the eccentricity of the pair and suggested an explanation through the Jacobi integral. A later analysis of the same data showed that, in our simulations with zero total angular momentum, the eccentricity of the pair fixes the passage distance of the incoming body, and that the wall is a cut in that distance. The conclusion that a circular pair does not capture a light body therefore holds only in this scenario. This version adds the subsection "The wall is geometric", with Table IV, and corrects the title, the abstract, the discussion, and the conclusions. The numbers of the other tables have not changed.</p>
+
+<h2>Introduction</h2>
+<p>In Kol's flux theory, the probability of each outcome of a three-body system is the product of the phase-volume flux, known in closed form, and an absorptivity, which must be measured by simulation <cite>1,2</cite>. Note FR-TC-12 proposed an approximate formula for this absorptivity, built from two rules of the first passage of the incoming body through the pair <cite>3</cite>. The formula predicted the escape chances well, but erred in the distribution of the final eccentricity in the 3-3-1 mass set, in which two heavy stars meet a light one. This note locates the cause of this error: an eccentricity threshold below which a light body is not captured by a nearly circular pair. We measure the threshold as a function of the masses, incorporate the result into the formula, and reexamine the test of the theory with a criterion that is consistent on both sides, which reveals a memory of the shape of the pair between chaotic episodes. We also show that, in this scenario, the wall is a cut in the passage distance of the incoming body.</p>
+
+<h2>Method</h2>
+<p>All simulations are planar, with zero total angular momentum and the chain integrator with algorithmic regularization of the previous notes <cite>4,5</cite>. To measure the absorptivity, we launch the incoming body from a distance of 20 semimajor axes of the pair, with fixed relative energy of the pair \(x = E_B/E_0\) and eccentricity \(e\), and random orbital phase. We count as absorbed a run with at least two scrambles. The main map has 225,000 new runs:</p>
+<ul>
+<li>equal-mass pair (1,1), with 12 masses of the incoming body, from 0.10 to 0.80, five values of \(x\), from 1.03 to 3, and ten values of \(e\), from 0.05 to 0.95, with 300 runs per cell;</li>
+<li>unequal pair (1,2), with six masses and 150 runs per cell.</li>
+</ul>
+<p>To these we add 69,300 first passages in the same regime, to separate exchange and flyby, and 48,000 free falls from rest (12,000 in each of the sets 1-1-1, 1-1-3, 1-2-3, and 3-3-1). In these free falls we measure the eccentricity of the pair in each excursion through the maximum separation between the members, \(r_{\max} = a(1+e)\), and in the final escape.</p>
+<p>We adopt a 95% confidence criterion for each statement:</p>
+<ul>
+<li>proportions with the Wilson interval; when there are zero occurrences in \(n\) runs, we only state that the probability is below \(3/n\);</li>
+<li>distributions with the Kolmogorov-Smirnov (KS) test, with the critical value obtained by simulation, including the statistical uncertainty of the measured absorptivity;</li>
+<li>when the same study makes several comparisons, the Holm correction.</li>
+</ul>
+<p>Every formula test uses data left out of the fit.</p>
+
+<h2>Results</h2>
+<h3>The eccentricity wall</h3>
+<p>When the incoming body is light, the absorptivity is null below a threshold eccentricity \(e^\ast\) of the pair and rises to values of 10% to 60% just above it. In the pair (1,1), 227 of the 600 cells, totaling 68,100 runs, had no absorption at all, that is, absorptivity below 1% with 95% confidence. The result does not depend on the launch distance: in the channel (3,3,1), launching from 40 instead of 20 semimajor axes also gives zero absorptions in 1,000 runs below the threshold. Nor does it depend on the random seeds: an independent map, with 40 runs per cell, differs from the main one in 4 of 192 common cells, below the roughly 10 expected by chance, with a correlation of 0.977.</p>
+<p>The threshold depends mainly on the ratio between the mass of the incoming body and the reduced mass of the pair,</p>
+<div class="eq">\[ r = \frac{m_s}{\mu}, \qquad \mu = \frac{m_a m_b}{m_a + m_b}, \]</div>
+<p>and hardly depends on the energy, which shifts it by at most 0.1 (Table I and Fig. 1). The wall exists while \(r \lesssim 0.9\) and rises as the body gets lighter: with \(r = 0.2\), there is capture only with \(e\) above about 0.9. Among the normalizations tested, \(m_s/\mu\) is the one that best unites the unequal pair with the equal pair, with a mean deviation of 0.058 in the position of the wall, about half a grid step. The alternatives range from 0.084 to 0.245 (\(m_s/\sqrt{m_a m_b}\), \(m_s\) divided by the mass of the lighter member, by the mass of the pair, or by that of the heavier member). The union is not exact: the table of the equal pair, used to predict the unequal pair, falls within the 95% interval of the measurement in 69% of the cells.</p>
+<div class="tblwrap"><p class="cap">Position of the wall \(e^\ast\), midpoint between the largest eccentricity with no absorption at all and the next one, averaged over the five values of \(x\), with the range between the smallest and largest value. The resolution in \(e\) is \(\pm 0.05\).</p><table>
+<thead><tr><th>\(r = m_s/\mu\)</th><th>pair (1,1)</th><th>pair (1,2)</th></tr></thead>
+<tbody>
+<tr><td>0.2 to 0.3</td><td>0.90 (0.9 to 0.9) and 0.84 (0.8 to 0.9)</td><td>0.82 (0.8 to 0.9)</td></tr>
+<tr><td>0.4 to 0.45</td><td>0.76 (0.7 to 0.8)</td><td>0.68 (0.6 to 0.7)</td></tr>
+<tr><td>0.6</td><td>0.50 (0.3 to 0.6)</td><td>0.40 (0.3 to 0.5)</td></tr>
+<tr><td>0.67 to 0.75</td><td>0.40 (0.2 to 0.5) and 0.32 (0.1 to 0.4)</td><td>0.10 (0.0 to 0.2)</td></tr>
+<tr><td>0.8</td><td>0.16 (0.0 to 0.3)</td><td>\(-\)</td></tr>
+<tr><td>0.9</td><td>0.04 (0.0 to 0.1)</td><td>\(-\)</td></tr>
+<tr><td>\(\geq 1\)</td><td>no wall</td><td>no wall</td></tr>
+</tbody></table></div>
+<figure data-fig="A13"><figcaption>Position of the eccentricity wall as a function of the mass of the incoming body divided by the reduced mass of the pair, for an equal-mass pair and an unequal pair. The bars show the variation among the five energy values. Below each point, the measured absorptivity was below 1% with 95% confidence.</figcaption></figure>
+<h3>The wall is geometric</h3>
+<p>With zero total angular momentum, the incoming body has angular momentum equal and opposite to that of the pair, \(l_s = -l_B\), and \(l_B = \mu\sqrt{m_B a (1-e^2)}\) grows when the pair is less eccentric. The eccentricity of the pair therefore fixes the periapsis \(q\) of the hyperbolic orbit of the incoming body relative to the pair:</p>
+<div class="eq">\[ q = \frac{p}{1 + e_s}, \qquad p = \frac{l_B^2}{\mu_s^2 M}, \qquad e_s = \sqrt{1 + \frac{2 E_s\, p}{m_s m_B}}, \]</div>
+<p>where \(\mu_s = m_s m_B / M\), \(m_B = m_a + m_b\), \(M\) is the total mass, and \(E_s = E_0 - E_B\) is the energy of the relative motion. Measured by the passage distance \(Q = q/a\), in semimajor axes of the pair, the wall no longer depends on the mass. Table IV gathers all runs with \(r &lt; 1\) of the main map. When the body passes more than about one semimajor axis from the center of the pair, the absorptivity drops to zero, and the limit depends only on the energy: from about 1.75 for slow arrivals (\(x = 1.03\)) to about 0.9 for \(x \geq 2\). Along the wall, the eccentricity varies from 0.1 to 0.9, while \(Q\) stays in this narrow range.</p>
+<p>This explains the dependence on \(m_s/\mu\). For the same angular momentum, a light body passes farther away, because \(p\) grows as \((\mu/m_s)^2\). A heavy body, with \(r \geq 2\), passes within 0.2 semimajor axis for any eccentricity, and therefore meets no wall. The same variable locates the valley that appears just above the wall: the absorptivity has a minimum near \(Q \approx 0.43\), between a maximum for nearly head-on passages (\(Q &lt; 0.2\)) and another for grazing passages (\(Q\) from 0.6 to 0.8).</p>
+<div class="tblwrap"><p class="cap">Absorptivity (at least two scrambles) of the light bodies (\(r &lt; 1\), pairs (1,1) and (1,2)) as a function of the passage distance \(Q = q/a\) and the relative energy \(x\). Each cell gathers 750 to 10,350 runs. Zero means no absorption at all, that is, absorptivity below 0.3% with 95% confidence.</p><table>
+<thead><tr><th>\(Q\)</th><th>\(x = 1.03\)</th><th>\(x = 1.1\)</th><th>\(x = 1.3\)</th><th>\(x = 2\)</th><th>\(x = 3\)</th></tr></thead>
+<tbody>
+<tr><td>up to 0.6</td><td>0.52</td><td>0.42</td><td>0.30</td><td>0.16</td><td>0.10</td></tr>
+<tr><td>0.6 to 0.9</td><td>0.62</td><td>0.51</td><td>0.30</td><td>0.09</td><td>0.04</td></tr>
+<tr><td>0.9 to 1.0</td><td>0.48</td><td>0.27</td><td>0.011</td><td>0.004</td><td>0</td></tr>
+<tr><td>1.0 to 1.2</td><td>0.29</td><td>0.048</td><td>0.0003</td><td>0</td><td>0</td></tr>
+<tr><td>1.2 to 1.75</td><td>0.07</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>above 1.75</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+</tbody></table></div>
+<p>In the first passage, below the wall, the exchange and the capture of the outgoing body are both null. In the channel (3,3,1), the mass rule of note FR-TC-12 predicted exchange in 25% to 36% of the passages, against 0% to 8% measured. It was this rule, fitted on a grid with only two points of a light body facing an equal pair, that made the absorptivity of the formula flat in \(e\) and produced the error in the final eccentricity <cite>3</cite>.</p>
+
+<h3>A formula with the wall</h3>
+<p>In version 3 of the formula, we kept the formula of note FR-TC-12 for \(r \geq 1.4\) and, for \(r \leq 1\), we now use a table of the measured absorptivity in \((r, x, e)\), built only with the pair (1,1) and without the ratio \(m_s = 1/3\), which is equivalent to the channel (3,3,1) of the test. Between \(r = 1\) and \(r = 1.4\), the two versions are blended linearly. Table II compares the versions on data left out of the fit. Version 3 corrects the light channel: the explained fraction of the absorptivity of the channel (3,3,1) rises from 0.45 to 0.93. In the free fall, however, not even version 3 passes the 95% test. It comes close to the measured absorptivity in the sets 1-1-3 and 1-2-3, but not in 3-3-1, and errs in the escape chances by up to 2 percentage points.</p>
+<div class="tblwrap"><p class="cap">Formulas of note FR-TC-12 (v2) and of this note (v3) against data left out of the fit. In the free falls, KS statistic of the final eccentricity in the consistent test with \(k = 2\) (next subsection); the last column uses the measured absorptivity instead of the formula.</p><table>
+<thead><tr><th>Test</th><th>v2</th><th>v3</th><th>measured absorptivity</th></tr></thead>
+<tbody>
+<tr><td>pair (1,2), \(R^2\) of the absorptivity</td><td>0.66</td><td>0.85</td><td>\(-\)</td></tr>
+<tr><td>channel (3,3,1), \(R^2\) of the absorptivity</td><td>0.45</td><td>0.93</td><td>\(-\)</td></tr>
+<tr><td>free fall 1-1-3, KS</td><td>0.036</td><td>0.039</td><td>0.036</td></tr>
+<tr><td>free fall 3-3-1, KS</td><td>0.215</td><td>0.100</td><td>0.047</td></tr>
+<tr><td>free fall 1-2-3, KS</td><td>0.132</td><td>0.043</td><td>0.031</td></tr>
+</tbody></table></div>
+
+<h3>Memory between episodes and a consistent test</h3>
+<p>On examining why not even the measured absorptivity reproduced the final eccentricity in the free falls of the previous notes, we found four things.</p>
+<ul>
+<li><b>Most escapes do not come from deep chaos:</b> 82% to 88% of the final escapes come from a last episode with only one or two scrambles, right after an excursion.</li>
+<li><b>In these escapes, the final pair inherits the shape of the pair of the previous excursion:</b> the Spearman correlation between the two eccentricities is 0.27 to 0.35 overall and 0.54 to 0.68 when the pair is the same. It falls with the number of scrambles and is no longer detectable with five or more.</li>
+<li><b>With unequal masses, the final result depends on the age of the system:</b> the mean final eccentricity falls from 0.78 to 0.75 in the set 1-1-3, from 0.87 to 0.84 in 3-3-1, and from 0.80 to 0.75 in 1-2-3 between the systems with 5 to 9 scrambles and those with 10 or more (\(p\) from \(2.6\times10^{-5}\) to \(1.6\times10^{-2}\), significant with Holm). The escape chances do not depend on the age. With equal masses there is no effect: with 22,139 cases, the means are 0.718 and 0.715 (\(p = 0.34\)).</li>
+<li><b>The dependence comes from selection, not from change over time:</b> following the same runs, the eccentricity of the excursions does not change after the first one. The first is more eccentric because the system starts from rest. With unequal masses, the runs that make many excursions are precisely those with less eccentric pairs. The mechanism of this selection remains open.</li>
+</ul>
+<p>This memory calls for care when comparing the theory with free falls. The theory deals with emission from chaos, and the criterion of chaotic origin must be the same in absorption and in emission. In the previous notes, we selected the escapes by the total number of scrambles in the run, not by those of the last episode, and used different thresholds on the two sides. With the same threshold \(k\) on both sides, the measured absorptivity reproduces the escapes (Table III):</p>
+<ul>
+<li>in absorption, at least \(k\) scrambles before the first excursion;</li>
+<li>in emission, at least \(k\) scrambles in the last episode.</li>
+</ul>
+<p>With the Holm correction, 8 of the 9 tests of the final eccentricity and all 9 tests of the escape chances pass. The only rejection is the set 1-1-3 with \(k = 3\).</p>
+<div class="tblwrap"><p class="cap">Consistent test of the flux theory with the measured absorptivity (200 runs per cell) against the free falls, with the same scramble threshold \(k\) in absorption and in emission. KS of the final eccentricity and 95% critical value that includes the uncertainty of the absorptivity. The escape chances pass in all cases.</p><table>
+<thead><tr><th>\(k\)</th><th>Set</th><th>\(n\)</th><th>KS</th><th>Critical</th><th>Result with Holm</th></tr></thead>
+<tbody>
+<tr><td>2</td><td>1-1-3</td><td>2,786</td><td>0.036</td><td>0.042</td><td>passes</td></tr>
+<tr><td>2</td><td>3-3-1</td><td>3,376</td><td>0.047</td><td>0.040</td><td>passes (\(p = 0.010\))</td></tr>
+<tr><td>2</td><td>1-2-3</td><td>2,812</td><td>0.031</td><td>0.037</td><td>passes</td></tr>
+<tr><td>3</td><td>1-1-3</td><td>1,181</td><td>0.099</td><td>0.066</td><td>rejected (\(p &lt; 0.005\))</td></tr>
+<tr><td>3</td><td>3-3-1</td><td>1,223</td><td>0.044</td><td>0.071</td><td>passes</td></tr>
+<tr><td>3</td><td>1-2-3</td><td>1,159</td><td>0.024</td><td>0.068</td><td>passes</td></tr>
+<tr><td>5</td><td>1-1-3</td><td>315</td><td>0.119</td><td>0.111</td><td>passes (\(p = 0.040\))</td></tr>
+<tr><td>5</td><td>3-3-1</td><td>290</td><td>0.083</td><td>0.152</td><td>passes</td></tr>
+<tr><td>5</td><td>1-2-3</td><td>290</td><td>0.068</td><td>0.122</td><td>passes</td></tr>
+</tbody></table></div>
+
+<h2>Discussion</h2>
+<p>The wall has a qualitative precedent. In the elliptic restricted problem, Astakhov, Lee, and Farrelly noted that low-mass intruders are rarely captured by circular binaries and more often by eccentric binaries, which they attributed to regularity barriers in phase space <cite>7</cite>. What we add is the measurement of the threshold in the full problem, its dependence on \(m_s/\mu\), and its effect on the absorptivity of the flux theory, whose direct measurement existed until now only for equal masses <cite>2</cite>.</p>
+<p>Version 1 of this note suggested an explanation through the Jacobi integral of the restricted problem <cite>8</cite>. Table IV shows that the wall is simpler: a cut in the passage distance, which the geometry of zero angular momentum ties to the eccentricity of the pair. Two consequences limit the scope of the result. First, the statement that a circular pair does not capture a light body holds only when the total angular momentum is zero. In a system with total angular momentum, a light body can arrive head-on at a circular pair, and nothing in our data prevents capture in that case. Second, the physical variable of the absorptivity of light bodies is the passage distance, not the eccentricity, which should guide any analytical model.</p>
+<p>The memory between episodes contradicts, in the regime of short encounters, the premise of the random walk model of Ginat and Perets, in which each chaotic phase draws the new pair without remembering the previous one <cite>9</cite>. This converges with the observation that nearly hierarchical triples do not mix enough for a purely statistical description <cite>10</cite>. The cut by the number of scrambles in the last episode is equivalent to the cut by the time since the last excursion used by Dandekar and collaborators <cite>6</cite>. The consequence for this series is a correction of method. The free-fall tests of notes FR-TC-09 to FR-TC-12 used the total number of scrambles and different thresholds on the two sides <cite>3,4,11</cite>. The conclusions about the escape chances hold in the consistent test. The statements about a residual in the distribution of the final eccentricity should be read in light of this note.</p>
+<p>Limitations:</p>
+<ul>
+<li>everything is planar and with zero angular momentum;</li>
+<li>the position of the wall has a resolution of \(\pm 0.05\) in eccentricity;</li>
+<li>the law in \(m_s/\mu\) was tested with a single unequal pair;</li>
+<li>the tests with \(k = 5\) have little statistical power;</li>
+<li>formula version 3 still does not pass the 95% criterion in the free falls;</li>
+<li>with zero total angular momentum, eccentricity and passage distance go together; the effect of the eccentricity at fixed passage distance was not measured.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<p>In planar systems with zero total angular momentum, a body whose mass is less than about 0.9 times the reduced mass of the pair is not captured when it passes more than about one semimajor axis from the center of the pair: from about 0.9 semimajor axis for fast arrivals to about 1.75 for slow arrivals. Since in this scenario the eccentricity of the pair fixes the passage distance, the cut appears as an eccentricity wall, which ranges from about 0.2 to 0.9 as the body gets lighter. Below the wall, the absorptivity is below 1% with 95% confidence. This wall was the cause of the error of the formula of note FR-TC-12 in the final eccentricity of the set 3-3-1, and including it greatly improves the formula, although it still does not reach the measured absorptivity. The final pair of a quick escape inherits the shape of the previous excursion. With the same criterion of chaotic origin in absorption and in emission, the flux theory with the measured absorptivity passes 8 of 9 tests of the final eccentricity and all tests of the escape chances.</p>

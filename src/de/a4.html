@@ -1,0 +1,50 @@
+<h2>Einleitung</h2>
+<p>Die klassischen Stabilitätskriterien für Konfigurationen weniger Körper, von Gascheau und Routh <cite>1</cite>, von Maxwell <cite>2</cite> sowie von Mardling und Aarseth <cite>3</cite>, wurden auf unterschiedlichen Wegen hergeleitet und in unterschiedlichen Variablen ausgedrückt. Eine grobe Betrachtung in der vorangehenden Notiz der Reihe <cite>8</cite> legte nahe, dass an allen drei Schwellen die Störung zwischen Teilsystemen einige Prozent der Kraft ausmacht, die jedes Teilsystem zusammenhält.</p>
+<p>Diese Notiz prüft diese Heuristik mit einem standardisierten Maß und an zusätzlichen Familien. Das Ergebnis ist, dass die Heuristik als universelle Konstante nicht haltbar ist, die Größenordnung aber korrekt beschreibt, und dass die Resonanzüberlappung <cite>4,5</cite> eine angemessenere Erklärung für das beobachtete Muster bietet.</p>
+
+<h2>Methode</h2>
+<h3>Kopplungsmaß</h3>
+<p>Jede bekannte stabile Konfiguration lässt sich in näherungsweise Keplersche Zweikörper-Teilsysteme zerlegen. Für jedes Teilsystem \(S\), bestehend aus den Körpern \(a\) und \(b\), definieren wir</p>
+<div class="eq">\[ \varepsilon_S = \frac{\left\lvert \sum_{k \notin S} \left(\mathbf{a}_{a,k} - \mathbf{a}_{b,k}\right) \right\rvert}{G\,(m_a + m_b)/r_{ab}^2}, \]</div>
+<p>wobei \(\mathbf{a}_{i,k}\) die vom äußeren Körper \(k\) am Körper \(i\) erzeugte Beschleunigung ist. Der Zähler ist die Gezeitenbeschleunigung, das heißt die Differenz der Anziehung, die die äußeren Körper auf die beiden Enden des Teilsystems ausüben; der Nenner ist die innere Relativbeschleunigung. Die Kopplung der Konfiguration ist \(\varepsilon = \max_S \varepsilon_S\), ausgewertet in der Anfangskonfiguration. Für den äußeren Körper eines hierarchischen Systems ist das maßgebliche Teilsystem das Paar aus diesem Körper und dem Schwerpunkt des Doppelsystems, und die Störung ist der Quadrupolterm des Doppelsystems.</p>
+<h3>Bestimmung der Schwellenwerte</h3>
+<p>Die Schwellenwerte wurden durch direkte Simulation mit Leapfrog-Integrator, mehreren Störungen pro Punkt und den in der vorangehenden Notiz <cite>8</cite> beschriebenen geometrischen Zerfallskriterien ermittelt. Anschließend wurde \(\varepsilon\) exakt an der Schwelle berechnet.</p>
+
+<h2>Ergebnisse</h2>
+<p>Tabelle I und Abb. 1 fassen die neun Schwellenwerte zusammen.</p>
+<div class="tblwrap"><p class="cap">Simulierte Stabilitätsschwellen in drei Familien und an jeder Schwelle berechnete Gezeitenkopplung \(\varepsilon\).</p><table>
+<thead><tr><th>Familie</th><th>Parameter an der Schwelle</th><th>Dominantes Teilsystem</th><th>\(\varepsilon\)</th></tr></thead>
+<tbody>
+<tr><td>Lagrange \(1 : \mu : \mu\)</td><td>\(\mu = 0{,}0206\)</td><td>dominanter und ein kleinerer Körper</td><td>2,0 %</td></tr>
+<tr><td>Lagrange \(1 : \mu : 0{,}25\mu\)</td><td>\(\mu \approx 0{,}032\)</td><td>dominanter und der kleinere der beiden</td><td>3,2 %</td></tr>
+<tr><td>Lagrange \(1 : \mu : 4\mu\)</td><td>\(\mu = 0{,}0083\)</td><td>dominanter und der kleinere der beiden</td><td>3,3 %</td></tr>
+<tr><td>Ring, \(n = 7\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>zentraler und ein Ringkörper</td><td>0,87 %</td></tr>
+<tr><td>Ring, \(n = 8\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>zentraler und ein Ringkörper</td><td>0,81 %</td></tr>
+<tr><td>Ring, \(n = 10\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>zentraler und ein Ringkörper</td><td>0,66 %</td></tr>
+<tr><td>Hierarchisch, \(m_3 = 0{,}1\)</td><td>\(D = 2{,}4\)</td><td>dritter Körper und Doppelsystem (Quadrupol)</td><td>3,3 %</td></tr>
+<tr><td>Hierarchisch, \(m_3 = 1\)</td><td>\(D = 3{,}1\)</td><td>inneres Doppelsystem (Gezeiten)</td><td>3,4 %</td></tr>
+<tr><td>Hierarchisch, \(m_3 = 10\)</td><td>\(D = 5{,}8\)</td><td>inneres Doppelsystem (Gezeiten)</td><td>5,1 %</td></tr>
+</tbody></table></div>
+<figure data-fig="A4"><figcaption>An jeder simulierten Stabilitätsschwelle berechnete Gezeitenkopplung \(\varepsilon\), in logarithmischer Skala. Die Werte verteilen sich zwischen 0,66 % und 5,1 %, ohne gemeinsamen Wert.</figcaption></figure>
+<p>Die neun Schwellenwerte liegen zwischen 0,66 % und 5,1 %, eine Spanne von etwa einem Faktor acht. Damit ist die Hypothese einer universellen kritischen Zahl mit dieser Definition der Kopplung ausgeschlossen.</p>
+
+<h2>Diskussion</h2>
+<h3>Deutung der Ergebnisse</h3>
+<p>Drei Beobachtungen stechen hervor:</p>
+<ul>
+<li><b>Gemeinsame Größenordnung.</b> In den Familien, die eine Schwelle besitzen, erfolgt der Übergang zur Instabilität, wenn die Gezeitenstörung ein bis einige Prozent der inneren Kraft erreicht.</li>
+<li><b>Die Kopplung allein genügt nicht.</b> Ringe mit \(n \leq 6\) sind für jede getestete Masse instabil, auch bei einer Kopplung deutlich unter 1 %. Für diese Konfigurationen existiert keine Schwelle: Die Instabilität ist strukturell und hängt nicht von der Stärke der Störung ab.</li>
+<li><b>Systematische Abhängigkeit.</b> Die Ringe haben eine niedrigere Schwelle, die mit \(n\) abnimmt. Die Instabilität eines Rings ist kollektiv: Viele Störkörper wirken kohärent, und die instabil werdende Mode umfasst alle Körper. Das lokale Gezeitenmaß erfasst diese Kohärenz nicht. Bei den hierarchischen Systemen wächst die Schwelle mit der Masse des dritten Körpers, was darauf hindeutet, dass das Massenverhältnis über einen Weg in das Kriterium eingeht, der über die momentane Gezeitenkraft hinausgeht.</li>
+</ul>
+<h3>Resonanzüberlappung</h3>
+<p>Das KAM-Theorem garantiert, dass bei hinreichend kleinen Störungen eines integrablen Systems der größte Teil der quasiperiodischen Bewegungen erhalten bleibt <cite>7</cite>. Der Übergang zu großskaligem Chaos erfolgt näherungsweise dann, wenn sich die Breiten der Resonanzen zwischen den Frequenzen der Teilsysteme zu überlappen beginnen, das Chirikow-Kriterium <cite>4</cite>. Mardling zeigte, dass sich das hierarchische Stabilitätskriterium aus diesem Mechanismus herleiten lässt, ausgehend von der Überlappung der \(N{:}1\)-Resonanzen zwischen äußerer und innerer Periode <cite>5</cite>.</p>
+<p>Diese Formulierung ist mit allen drei Beobachtungen vereinbar. Die Breite einer Resonanz wächst mit der Quadratwurzel der Störungsstärke, was eine gemeinsame Skala von einigen Prozent begründet. Und die Resonanzdichte hängt von der Frequenzstruktur der jeweiligen Familie ab, was unterschiedliche Schwellen für Ringe, Dreiecke und Hierarchien begründet und sogar das Fehlen einer Schwelle, wenn die Modenstruktur selbst instabil ist. Die im Lagrange-Dreieck dokumentierte 2:1-Instabilitätsinsel <cite>8</cite> ist ein unmittelbares Beispiel: Sie tritt bei einer Kopplung unterhalb der Routh-Schwelle auf, durch Frequenzkoinzidenz und nicht durch die Stärke der Störung. Die Unterscheidung zwischen Lagrange- und Ljapunow-Stabilität in hierarchischen Systemen <cite>6</cite> unterstreicht, dass die momentane Stärke der Kopplung für sich genommen nicht der Kontrollparameter ist.</p>
+<h3>Einschränkungen</h3>
+<ul>
+<li>Das Maß wird nur in der Anfangskonfiguration ausgewertet.</li>
+<li>Die Schwellenwerte hängen von den Zerfallskriterien und der Integrationszeit ab, die sich zwischen den Familien unterscheiden.</li>
+<li>Alle Konfigurationen sind eben und, mit Ausnahme der Ringe, kreisförmig.</li>
+</ul>
+
+<h2>Schlussfolgerungen</h2>
+<p>Die Heuristik einer einzigen Kopplungsschwelle wurde in ihrer einfachen Form widerlegt und überlebt als Größenordnungsregel. Der nächste naheliegende Schritt besteht darin, die momentane Gezeitenkraft durch ein Maß der Resonanzüberlappung zu ersetzen, das aus den Eigenfrequenzen der jeweiligen Konfiguration berechnet wird, und zu prüfen, ob es die hier beobachtete Streuung um einen Faktor acht verringert.</p>

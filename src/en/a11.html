@@ -1,0 +1,77 @@
+<h2>Introduction</h2>
+<p>In three-body systems that disintegrate after a long interaction, the lightest body is almost always the one ejected <cite>5,6</cite>. In note FR-TC-05, for example, the light body left in 92% to 99.8% of the cases <cite>8</cite>. This rule is usually read as a property of each encounter: when three bodies approach one another, the lightest would be thrown out. Note FR-TC-10 showed, however, that the absorptivity of Kol's theory is fixed in the first passage and that, in this passage, the choice between flyby and exchange depends almost only on the masses <cite>9</cite>. This note investigates the mass part in full, with three questions. How do the masses decide the outcome of a single regular encounter? How do they decide who leaves a chaotic phase, according to the flux factor of Kol's theory <cite>1,2</cite>? And how do these two rules combine to produce the final dominance of the lightest body?</p>
+
+<h2>Method</h2>
+<h3>Single encounter</h3>
+<p>We use the regularized integrator of the previous notes <cite>7</cite>, in planar motion with \(G = 1\), zero total angular momentum, and total energy \(E_0 = -1\). A pair of masses \(m_a = 1\) and \(m_b\), with \(m_b\) from 0.1 to 1, receives a third body of mass \(m_s\) from 0.1 to 10, launched from 20 semimajor axes, with random phase and orientation of the pair, as in the absorptivity measurements of note FR-TC-10. We use three values of the relative energy of the pair (\(x = E_B/E_0\) = 1.2, 2, and 5), three of eccentricity (0.15, 0.5, and 0.85), and 100 runs per cell, in 28 mass combinations (24,316 valid runs), integrated up to the first exit. We record who leaves: the incoming body (flyby) or one of the binary members (exchange). Separately, for the case in which the incoming body has the same mass as the heavier member, we ran 8,100 runs up to the final outcome, with \(m_b/m_a\) from 0.1 to 1.</p>
+<h3>Exits from chaos</h3>
+<p>For the exits from chaotic phases, we use the episode decomposition of note FR-TC-10 <cite>9</cite>, applied to free falls with zero total angular momentum in 13 mass sets: the four of that note, with 6,000 runs each, and nine more, with 2,000 runs each, between (1, 1, 2) and (1, 5, 10). For each chaotic episode after the first, we record which body leaves and whether the exit is definitive (escape) or temporary (excursion). We compare the fraction of exits of each body with Kol's flux factor, which in the plane is proportional to \(k_s = (m_a m_b)^3/(m_a + m_b)\), where \(m_a\) and \(m_b\) are the masses of the pair that remains <cite>1,9</cite>.</p>
+
+<h2>Results</h2>
+<h3>Single encounter: a mass threshold and a coin toss</h3>
+<p>In a regular encounter, the choice between flyby and exchange depends almost only on the ratio between the mass of the incoming body and that of the heavier binary member (Fig. 1). When \(m_s\) is well below half of \(m_a\), the incoming body almost always passes and goes away; when \(m_s\) is larger than \(m_a\), it almost always exchanges places with one of the members. The curve</p>
+<div class="eq">\[ P_{\rm exch} = \frac{1}{1 + (0.52\, m_a/m_s)^{1.9}} \]</div>
+<p>describes the 24 combinations with \(m_s \le 4\) with \(R^2 = 0.94\) and a mean error of 0.08. Fitted without one of the values of \(m_b\) and used to predict it, it errs by 0.10 on average. The energy and eccentricity of the pair change the outcome little: the deviation among the nine cells of each combination is 0.06. The mass of the lighter member hardly enters; including it improves the fit only from 0.94 to 0.95. With \(m_s = 10\), the fraction of flybys rises again (from 4% to 25%), because a very heavy body crosses the pair without being captured.</p>
+<figure data-fig="A11"><figcaption>Exchange probability in the first passage as a function of the ratio between the mass of the incoming body and that of the heavier binary member, for four mass ratios within the pair. The dashed line is the curve fitted to the combinations with \(m_s/m_a \le 4\).</figcaption></figure>
+<p>When there is an exchange and the incoming body has at least half the mass of the heavier member, the choice of who leaves is almost a coin toss between the two members (Table I): the heavier one is expelled in 43% to 62% of the exchanges, even when the other member is ten times lighter. Only when the incoming body is light and the pair is very unequal does the light member leave much more often. This behavior differs from what is known for encounters with an impact parameter, in which exchanges tend to expel the lighter member <cite>3,4</cite>. Here, with zero total angular momentum, the encounters are almost head-on.</p>
+<div class="tblwrap"><p class="cap">Fraction of the exchanges in the first passage that expel the heavier binary member, by mass of the light member \(m_b\) (rows) and of the incoming body \(m_s\) (columns), with \(m_a = 1\).</p><table>
+<thead><tr><th>\(m_b\)</th><th>\(m_s = 0.5\)</th><th>\(m_s = 1\)</th><th>\(m_s = 2\)</th><th>\(m_s = 4\)</th><th>\(m_s = 10\)</th></tr></thead>
+<tbody>
+<tr><td>0.1</td><td>0.35</td><td>0.46</td><td>0.56</td><td>0.54</td><td>0.45</td></tr>
+<tr><td>0.25</td><td>0.44</td><td>0.44</td><td>0.51</td><td>0.57</td><td>0.48</td></tr>
+<tr><td>0.5</td><td>0.62</td><td>0.43</td><td>0.47</td><td>0.49</td><td>0.47</td></tr>
+<tr><td>1</td><td>0.52</td><td>0.47</td><td>0.53</td><td>0.51</td><td>0.50</td></tr>
+</tbody></table></div>
+<h3>The equal-mass case: the Newton's cradle effect</h3>
+<p>The case in which the incoming body has the same mass as the heavier member reveals the mechanism (Table II). Following each encounter to the end, the light member is the one expelled in 56% to 60% of the cases with \(m_b/m_a \le 0.5\), and the equal-mass member in 33% to 38%, even when the light one has a tenth of its mass. In these expulsions of the equal-mass member, the energy of the pair hardly changes (median logarithmic change of \(-0.29\) to \(+0.05\)): the incoming body takes the place of the member of the same mass, as in Newton's cradle, in which the ball that strikes stops and the one at the other end leaves, and the light member stays in almost the same orbit around the newcomer. When the light one leaves, the new pair, formed by the two heavy bodies, becomes much more bound (median change of \(+0.40\) to \(+0.66\)). The fraction of expulsions of the light member is larger when the pair is weakly bound (about 70% with \(x = 1.2\)) and smaller when it is tightly bound (about 50% with \(x = 5\)).</p>
+<div class="tblwrap"><p class="cap">Final outcome of a single encounter in which the incoming body has the same mass \(m_a\) as the heavier binary member, by ratio \(m_b/m_a\) (about 1,330 runs per row).</p><table>
+<thead><tr><th>\(m_b/m_a\)</th><th>Light member leaves</th><th>Equal-mass member leaves</th><th>Incoming body leaves</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>0.39</td><td>0.40</td><td>0.21</td></tr>
+<tr><td>0.8</td><td>0.46</td><td>0.44</td><td>0.09</td></tr>
+<tr><td>0.5</td><td>0.57</td><td>0.38</td><td>0.04</td></tr>
+<tr><td>0.33</td><td>0.59</td><td>0.37</td><td>0.04</td></tr>
+<tr><td>0.2</td><td>0.60</td><td>0.33</td><td>0.07</td></tr>
+<tr><td>0.1</td><td>0.56</td><td>0.34</td><td>0.10</td></tr>
+</tbody></table></div>
+<h3>Exit from chaos: the flux factor</h3>
+<p>In the chaotic phases the rule is different. The fraction of exits of each body, counting excursions and escapes, follows to a first approximation the flux factor \(k_s\) of Kol's theory (Table III): the mean error is 0.035, and the correlation between the logarithms of the measured and predicted fractions is 0.96. The factor \(k_s\) grows with the cube of the product of the masses of the pair that remains, and therefore strongly favors the exit of the lightest body. The largest deviations appear for the most extreme masses, where the factor overestimates the dominance of the light body: in (1, 5, 10), for example, it predicts 99% and the measurement gives 90%. This is the part that, in the theory, the absorptivity corrects.</p>
+<div class="tblwrap"><p class="cap">Fraction of the exits from chaotic episodes (after the first) made by the lightest body, measured in free falls, compared with the normalized flux factor \(k_s\), by mass set.</p><table>
+<thead><tr><th>Masses</th><th>Exits</th><th>Measured</th><th>Flux factor</th></tr></thead>
+<tbody>
+<tr><td>1, 1, 2</td><td>1,483</td><td>0.889</td><td>0.914</td></tr>
+<tr><td>1, 1, 3</td><td>4,363</td><td>0.933</td><td>0.964</td></tr>
+<tr><td>1, 1, 5</td><td>1,717</td><td>0.967</td><td>0.988</td></tr>
+<tr><td>1, 1, 10</td><td>4,700</td><td>0.995</td><td>0.997</td></tr>
+<tr><td>2, 2, 1</td><td>2,564</td><td>0.776</td><td>0.750</td></tr>
+<tr><td>3, 3, 1</td><td>4,093</td><td>0.898</td><td>0.900</td></tr>
+<tr><td>5, 5, 1</td><td>340</td><td>0.906</td><td>0.974</td></tr>
+<tr><td>10, 10, 1</td><td>246</td><td>0.959</td><td>0.996</td></tr>
+<tr><td>1, 2, 3</td><td>4,841</td><td>0.776</td><td>0.821</td></tr>
+<tr><td>1, 2, 4</td><td>1,217</td><td>0.785</td><td>0.847</td></tr>
+<tr><td>1, 3, 5</td><td>987</td><td>0.850</td><td>0.939</td></tr>
+<tr><td>1, 5, 10</td><td>441</td><td>0.896</td><td>0.987</td></tr>
+</tbody></table></div>
+<h3>The filter of definitive exits</h3>
+<p>It remains to explain why the final dominance of the light body is even greater than its fraction of exits. The reason is that the exits do not have the same fate (Table IV). When the light body leaves a chaotic phase, the exit is definitive in 17% to 46% of the cases, depending on the set; when a heavy body leaves, it is definitive in fewer cases, from 9% to 13% in the sets with the most exits, and otherwise it returns in an excursion and chaos starts again. The final fraction of escapes of each body is approximately its fraction of exits multiplied by the chance that the exit is definitive. In (3, 3, 1), for example, 0.898 × 0.290 against 0.102 × 0.123 gives the light body 95% of the escapes, as measured.</p>
+<div class="tblwrap"><p class="cap">By body, fraction of the exits from chaotic episodes, fraction of these exits that are definitive, and final fraction of the escapes, in four mass sets.</p><table>
+<thead><tr><th>Masses</th><th>Body</th><th>Fraction of exits</th><th>Definitive exit</th><th>Fraction of escapes</th></tr></thead>
+<tbody>
+<tr><td>1, 1, 3</td><td>mass 1</td><td>0.933</td><td>0.248</td><td>0.974</td></tr>
+<tr><td>1, 1, 3</td><td>mass 3</td><td>0.067</td><td>0.092</td><td>0.026</td></tr>
+<tr><td>3, 3, 1</td><td>mass 1</td><td>0.898</td><td>0.290</td><td>0.954</td></tr>
+<tr><td>3, 3, 1</td><td>mass 3</td><td>0.102</td><td>0.123</td><td>0.046</td></tr>
+<tr><td>2, 2, 1</td><td>mass 1</td><td>0.776</td><td>0.173</td><td>0.848</td></tr>
+<tr><td>2, 2, 1</td><td>mass 2</td><td>0.224</td><td>0.108</td><td>0.152</td></tr>
+<tr><td>1, 2, 3</td><td>mass 1</td><td>0.776</td><td>0.251</td><td>0.851</td></tr>
+<tr><td>1, 2, 3</td><td>mass 2</td><td>0.178</td><td>0.168</td><td>0.131</td></tr>
+<tr><td>1, 2, 3</td><td>mass 3</td><td>0.046</td><td>0.090</td><td>0.018</td></tr>
+</tbody></table></div>
+
+<h2>Discussion</h2>
+<p>The rule that the lightest body is ejected is not a rule of each encounter. In a single regular encounter, the masses decide only whether there is an exchange, through a threshold in the ratio between the mass of the incoming body and that of the heavier binary member; who leaves the pair, when there is an exchange, is almost a coin toss, and the Newton's cradle effect makes the member with the same mass as the newcomer leave frequently. The preference for the light body appears in the chaotic phases, through the flux factor \(k_s\), which grows with the cube of the product of the masses of the pair that remains and measures how many exit states each choice offers <cite>1</cite>. It is reinforced by a filter: the exits of heavy bodies are mostly excursions that return, while those of the light body are more often definitive. The final dominance of the light body is the product of the two.</p>
+<p>For Kol's theory, the result separates the two parts of the prediction. The mass part of the exits from chaos is, to a first approximation, the flux factor, with no free parameter, and the absorptivity corrects the extreme cases. The part of the regular encounters, which governs the first passage and the regular map of the evolution equations <cite>9</cite>, follows another law, which here fits in a two-parameter curve. This curve is a first ingredient for a formula of the absorptivity, whose other half, the chance that the outgoing body remains bound, depends on the energy of the pair.</p>
+<p>The main limitations are as follows. Everything is planar, with zero total angular momentum, which makes the encounters almost head-on; with angular momentum, exchanges may favor the light body, as in the known cross sections <cite>3,4</cite>. The exchange curve was fitted to 24 mass combinations, and its functional form is empirical. In the most extreme mass sets, the number of chaotic exits is small (from 246 to 441), and the fraction of definitive exits of the heavy bodies is measured with little precision.</p>
+
+<h2>Conclusions</h2>
+<p>In the planar three-body problem with zero angular momentum, there are two mass rules. In a regular encounter, exchange takes place when the incoming body has more than about half the mass of the heavier binary member, according to a two-parameter curve that captures 94% of the variation, and the expelled member is almost a coin toss; with equal masses between the incoming body and a member, a Newton's cradle effect expels that member in about one third of the cases. In the chaotic phases, the fraction of exits of each body follows Kol's flux factor, which favors the light body. Since the exits of the heavy bodies tend to be temporary and those of the light body definitive, the light body ends up as the final ejected body in the vast majority of systems.</p>

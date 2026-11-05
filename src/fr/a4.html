@@ -1,0 +1,50 @@
+<h2>Introduction</h2>
+<p>Les critères classiques de stabilité des configurations à peu de corps, de Gascheau et Routh <cite>1</cite>, de Maxwell <cite>2</cite> et de Mardling et Aarseth <cite>3</cite>, ont été établis par des voies différentes et s’expriment dans des variables différentes. Un examen sommaire, mené dans la note précédente de la série <cite>8</cite>, a suggéré qu’aux trois seuils la perturbation entre sous-systèmes représente quelques pour cent de la force qui maintient la cohésion de chaque sous-système.</p>
+<p>Cette note teste cette heuristique au moyen d’une mesure normalisée et de familles supplémentaires. Il en ressort que l’heuristique ne tient pas en tant que constante universelle, mais décrit correctement l’ordre de grandeur, et que le chevauchement des résonances <cite>4,5</cite> offre une explication plus adéquate du comportement observé.</p>
+
+<h2>Méthode</h2>
+<h3>Mesure du couplage</h3>
+<p>Toute configuration stable connue peut être décomposée en sous-systèmes à deux corps approximativement keplériens. Pour chaque sous-système \(S\), formé des corps \(a\) et \(b\), nous définissons</p>
+<div class="eq">\[ \varepsilon_S = \frac{\left\lvert \sum_{k \notin S} \left(\mathbf{a}_{a,k} - \mathbf{a}_{b,k}\right) \right\rvert}{G\,(m_a + m_b)/r_{ab}^2}, \]</div>
+<p>où \(\mathbf{a}_{i,k}\) est l’accélération produite sur le corps \(i\) par le corps externe \(k\). Le numérateur est l’accélération de marée, c’est-à-dire la différence d’attraction que les corps externes exercent sur les deux extrémités du sous-système ; le dénominateur est l’accélération relative interne. Le couplage de la configuration est \(\varepsilon = \max_S \varepsilon_S\), évalué dans la configuration initiale. Pour le corps externe d’un système hiérarchique, le sous-système pertinent est le couple qu’il forme avec le centre de masse du binaire, et la perturbation est le terme quadrupolaire du binaire.</p>
+<h3>Détermination des seuils</h3>
+<p>Les seuils ont été obtenus par simulation directe, avec un intégrateur saute-mouton, plusieurs perturbations par point et les critères géométriques de rupture décrits dans la note précédente <cite>8</cite>. Nous avons ensuite calculé \(\varepsilon\) exactement au seuil.</p>
+
+<h2>Résultats</h2>
+<p>Le Tableau I et la Fig. 1 rassemblent les neuf seuils.</p>
+<div class="tblwrap"><p class="cap">Seuils de stabilité simulés dans trois familles et couplage de marée \(\varepsilon\) calculé à chaque seuil.</p><table>
+<thead><tr><th>Famille</th><th>Paramètre au seuil</th><th>Sous-système dominant</th><th>\(\varepsilon\)</th></tr></thead>
+<tbody>
+<tr><td>Lagrange \(1 : \mu : \mu\)</td><td>\(\mu = 0{,}0206\)</td><td>dominant et un petit</td><td>2,0 %</td></tr>
+<tr><td>Lagrange \(1 : \mu : 0{,}25\mu\)</td><td>\(\mu \approx 0{,}032\)</td><td>dominant et le plus petit des deux</td><td>3,2 %</td></tr>
+<tr><td>Lagrange \(1 : \mu : 4\mu\)</td><td>\(\mu = 0{,}0083\)</td><td>dominant et le plus petit des deux</td><td>3,3 %</td></tr>
+<tr><td>Anneau, \(n = 7\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>central et un de l’anneau</td><td>0,87 %</td></tr>
+<tr><td>Anneau, \(n = 8\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>central et un de l’anneau</td><td>0,81 %</td></tr>
+<tr><td>Anneau, \(n = 10\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>central et un de l’anneau</td><td>0,66 %</td></tr>
+<tr><td>Hiérarchique, \(m_3 = 0{,}1\)</td><td>\(D = 2{,}4\)</td><td>troisième corps et binaire (quadrupôle)</td><td>3,3 %</td></tr>
+<tr><td>Hiérarchique, \(m_3 = 1\)</td><td>\(D = 3{,}1\)</td><td>binaire interne (marée)</td><td>3,4 %</td></tr>
+<tr><td>Hiérarchique, \(m_3 = 10\)</td><td>\(D = 5{,}8\)</td><td>binaire interne (marée)</td><td>5,1 %</td></tr>
+</tbody></table></div>
+<figure data-fig="A4"><figcaption>Couplage de marée \(\varepsilon\) calculé à chaque seuil de stabilité simulé, en échelle logarithmique. Les valeurs se répartissent entre 0,66 % et 5,1 %, sans nombre commun.</figcaption></figure>
+<p>Les neuf seuils se situent entre 0,66 % et 5,1 %, soit un intervalle d’un facteur huit environ. Cela écarte l’hypothèse d’un nombre critique universel pour cette définition du couplage.</p>
+
+<h2>Discussion</h2>
+<h3>Lecture des résultats</h3>
+<p>Trois observations se dégagent :</p>
+<ul>
+<li><b>Un ordre de grandeur commun.</b> Dans les familles qui possèdent un seuil, la transition vers l’instabilité se produit lorsque la perturbation de marée atteint de un à quelques pour cent de la force interne.</li>
+<li><b>Le couplage ne suffit pas.</b> Les anneaux avec \(n \leq 6\) sont instables pour toutes les masses testées, y compris avec un couplage bien inférieur à 1 %. Pour ces configurations, il n’existe pas de seuil : l’instabilité est structurelle et ne dépend pas de l’intensité de la perturbation.</li>
+<li><b>Une dépendance systématique.</b> Les anneaux ont un seuil plus bas, et décroissant avec \(n\). L’instabilité d’un anneau est collective : de nombreux perturbateurs agissent de façon cohérente, et le mode qui devient instable implique tous les corps. La mesure locale de marée ne rend pas compte de cette cohérence. Dans les systèmes hiérarchiques, le seuil croît avec la masse du troisième corps, ce qui indique que le rapport des masses intervient dans le critère par une voie qui dépasse la force de marée instantanée.</li>
+</ul>
+<h3>Chevauchement des résonances</h3>
+<p>Le théorème KAM garantit que, pour des perturbations suffisamment petites d’un système intégrable, la plupart des mouvements quasi périodiques subsistent <cite>7</cite>. La transition vers le chaos à grande échelle se produit, approximativement, lorsque les largeurs des résonances entre les fréquences des sous-systèmes commencent à se chevaucher, selon le critère de Chirikov <cite>4</cite>. Mardling a montré que le critère de stabilité hiérarchique peut être déduit de ce mécanisme, à partir du chevauchement des résonances \(N{:}1\) entre la période externe et la période interne <cite>5</cite>.</p>
+<p>Cette formulation est compatible avec les trois observations. La largeur d’une résonance croît comme la racine carrée de l’intensité de la perturbation, ce qui justifie une échelle commune de quelques pour cent. Et la densité des résonances dépend de la structure des fréquences de chaque famille, ce qui justifie des seuils différents pour les anneaux, les triangles et les hiérarchies, et même l’absence de seuil lorsque la structure des modes est elle-même instable. L’îlot d’instabilité 2:1 documenté dans le triangle de Lagrange <cite>8</cite> en est un exemple direct : il apparaît pour un couplage inférieur au seuil de Routh, par coïncidence de fréquences, et non par l’intensité de la perturbation. La distinction entre stabilité au sens de Lagrange et au sens de Lyapunov dans les systèmes hiérarchiques <cite>6</cite> confirme que l’intensité instantanée du couplage n’est pas, à elle seule, le paramètre de contrôle.</p>
+<h3>Limites</h3>
+<ul>
+<li>La mesure n’est évaluée que dans la configuration initiale.</li>
+<li>Les seuils dépendent des critères de rupture et du temps d’intégration, qui diffèrent d’une famille à l’autre.</li>
+<li>Toutes les configurations sont planes et, hormis les anneaux, circulaires.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<p>L’heuristique d’un seuil unique de couplage a été réfutée sous sa forme simple et subsiste comme règle d’ordre de grandeur. L’étape suivante naturelle consiste à remplacer la force de marée instantanée par une mesure du chevauchement des résonances, calculée à partir des fréquences propres de chaque configuration, et à vérifier si elle réduit la dispersion d’un facteur huit observée ici.</p>

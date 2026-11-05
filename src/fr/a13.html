@@ -1,0 +1,111 @@
+<p><b>Note de révision (version 2, 4 novembre 2026).</b> La première version de cette note présentait le mur comme une propriété de l’excentricité de la paire et suggérait une explication par l’intégrale de Jacobi. Une analyse ultérieure des mêmes données a montré que, dans nos simulations à moment cinétique total nul, l’excentricité de la paire fixe la distance de passage du corps incident, et que le mur est une coupure sur cette distance. La conclusion selon laquelle une paire circulaire ne capture pas un corps léger ne vaut donc que dans ce scénario. Cette version ajoute la sous-section « Le mur est géométrique », avec le Tableau IV, et corrige le titre, le résumé, la discussion et les conclusions. Les chiffres des autres tableaux n’ont pas changé.</p>
+
+<h2>Introduction</h2>
+<p>Dans la théorie de flux de Kol, la probabilité de chaque issue d’un système de trois corps est le produit du flux de volume de phase, connu sous forme fermée, par une absorptivité, qui doit être mesurée par simulation <cite>1,2</cite>. La note FR-TC-12 a proposé une formule approchée pour cette absorptivité, construite à partir de deux règles du premier passage du corps incident à travers la paire <cite>3</cite>. La formule prévoyait bien les chances d’échappement, mais se trompait sur la distribution de l’excentricité finale dans l’ensemble de masses 3-3-1, dans lequel deux étoiles lourdes rencontrent une étoile légère. Cette note localise la cause de cette erreur : un seuil d’excentricité au-dessous duquel un corps léger n’est pas capturé par une paire presque circulaire. Nous mesurons ce seuil en fonction des masses, incorporons le résultat à la formule et réexaminons le test de la théorie avec un critère cohérent des deux côtés, ce qui révèle une mémoire de la forme de la paire entre épisodes chaotiques. Nous montrons en outre que, dans ce scénario, le mur est une coupure sur la distance de passage du corps incident.</p>
+
+<h2>Méthode</h2>
+<p>Toutes les simulations sont planes, à moment cinétique total nul, avec l’intégrateur en chaîne à régularisation algorithmique des notes précédentes <cite>4,5</cite>. Pour mesurer l’absorptivité, nous lançons le corps incident depuis une distance de 20 demi-grands axes de la paire, avec une énergie relative de la paire \(x = E_B/E_0\) et une excentricité \(e\) fixées et une phase orbitale tirée au sort. Nous comptons comme absorbée toute simulation comportant au moins deux brassages. La carte principale compte 225 000 nouvelles simulations :</p>
+<ul>
+<li>paire de masses égales (1,1), avec 12 masses du corps incident, de 0,10 à 0,80, cinq valeurs de \(x\), de 1,03 à 3, et dix valeurs de \(e\), de 0,05 à 0,95, avec 300 simulations par cellule ;</li>
+<li>paire inégale (1,2), avec six masses et 150 simulations par cellule.</li>
+</ul>
+<p>S’y ajoutent 69 300 premiers passages dans le même régime, pour séparer l’échange de partenaire et le survol direct, et 48 000 chutes libres à partir du repos (12 000 dans chacun des ensembles 1-1-1, 1-1-3, 1-2-3 et 3-3-1). Dans ces chutes libres, nous mesurons l’excentricité de la paire à chaque excursion, par la séparation maximale entre ses membres, \(r_{\max} = a(1+e)\), et lors de l’échappement final.</p>
+<p>Nous adoptons un critère de confiance de 95 % pour chaque affirmation :</p>
+<ul>
+<li>proportions avec l’intervalle de Wilson ; lorsqu’il y a zéro occurrence sur \(n\) simulations, nous affirmons seulement que la probabilité est inférieure à \(3/n\) ;</li>
+<li>distributions avec le test de Kolmogorov-Smirnov (KS), avec la valeur critique obtenue par simulation, en incluant l’incertitude statistique de l’absorptivité mesurée ;</li>
+<li>lorsqu’une même étude effectue plusieurs comparaisons, la correction de Holm.</li>
+</ul>
+<p>Tout test de formule utilise des données restées hors de l’ajustement.</p>
+
+<h2>Résultats</h2>
+<h3>Le mur d’excentricité</h3>
+<p>Lorsque le corps incident est léger, l’absorptivité est nulle au-dessous d’une excentricité seuil \(e^\ast\) de la paire et passe à des valeurs de 10 % à 60 % juste au-dessus. Pour la paire (1,1), 227 des 600 cellules, qui totalisent 68 100 simulations, n’ont présenté aucune absorption, c’est-à-dire une absorptivité inférieure à 1 % avec 95 % de confiance. Le résultat ne dépend pas de la distance de lancement : dans le canal (3,3,1), lancer depuis 40 au lieu de 20 demi-grands axes donne aussi zéro absorption sur 1 000 simulations au-dessous du seuil. Il ne dépend pas non plus des graines aléatoires : une carte indépendante, avec 40 simulations par cellule, diffère de la carte principale dans 4 des 192 cellules communes, moins que les quelque 10 attendues par hasard, avec une corrélation de 0,977.</p>
+<p>Le seuil dépend surtout du rapport entre la masse du corps incident et la masse réduite de la paire,</p>
+<div class="eq">\[ r = \frac{m_s}{\mu}, \qquad \mu = \frac{m_a m_b}{m_a + m_b}, \]</div>
+<p>et presque pas de l’énergie, qui le déplace d’au plus 0,1 (Tableau I et Fig. 1). Le mur existe tant que \(r \lesssim 0{,}9\) et monte à mesure que le corps devient plus léger : avec \(r = 0{,}2\), il n’y a capture que pour \(e\) au-dessus d’environ 0,9. Parmi les normalisations testées, \(m_s/\mu\) est celle qui réunit le mieux la paire inégale et la paire égale, avec un écart moyen de 0,058 sur la position du mur, environ un demi-pas de la grille. Les autres se situent entre 0,084 et 0,245 (\(m_s/\sqrt{m_a m_b}\), \(m_s\) divisée par la masse du membre le plus léger, par la masse de la paire ou par celle du membre le plus lourd). L’union n’est pas exacte : la table de la paire égale, utilisée pour prévoir la paire inégale, tombe dans l’intervalle à 95 % de la mesure dans 69 % des cellules.</p>
+<div class="tblwrap"><p class="cap">Position du mur \(e^\ast\), point médian entre la plus grande excentricité sans aucune absorption et la suivante, en moyenne sur les cinq valeurs de \(x\), avec l’intervalle entre la plus petite et la plus grande valeur. La résolution en \(e\) est de \(\pm 0{,}05\).</p><table>
+<thead><tr><th>\(r = m_s/\mu\)</th><th>paire (1,1)</th><th>paire (1,2)</th></tr></thead>
+<tbody>
+<tr><td>0,2 à 0,3</td><td>0,90 (0,9 à 0,9) et 0,84 (0,8 à 0,9)</td><td>0,82 (0,8 à 0,9)</td></tr>
+<tr><td>0,4 à 0,45</td><td>0,76 (0,7 à 0,8)</td><td>0,68 (0,6 à 0,7)</td></tr>
+<tr><td>0,6</td><td>0,50 (0,3 à 0,6)</td><td>0,40 (0,3 à 0,5)</td></tr>
+<tr><td>0,67 à 0,75</td><td>0,40 (0,2 à 0,5) et 0,32 (0,1 à 0,4)</td><td>0,10 (0,0 à 0,2)</td></tr>
+<tr><td>0,8</td><td>0,16 (0,0 à 0,3)</td><td>\(-\)</td></tr>
+<tr><td>0,9</td><td>0,04 (0,0 à 0,1)</td><td>\(-\)</td></tr>
+<tr><td>\(\geq 1\)</td><td>pas de mur</td><td>pas de mur</td></tr>
+</tbody></table></div>
+<figure data-fig="A13"><figcaption>Position du mur d’excentricité en fonction de la masse du corps incident divisée par la masse réduite de la paire, pour une paire de masses égales et une paire inégale. Les barres montrent la variation entre les cinq valeurs d’énergie. Au-dessous de chaque point, l’absorptivité mesurée est restée inférieure à 1 % avec 95 % de confiance.</figcaption></figure>
+<h3>Le mur est géométrique</h3>
+<p>À moment cinétique total nul, le corps incident a un moment cinétique égal et opposé à celui de la paire, \(l_s = -l_B\), et \(l_B = \mu\sqrt{m_B a (1-e^2)}\) croît lorsque la paire est moins excentrique. L’excentricité de la paire fixe donc le périastre \(q\) de l’orbite hyperbolique du corps incident par rapport à la paire :</p>
+<div class="eq">\[ q = \frac{p}{1 + e_s}, \qquad p = \frac{l_B^2}{\mu_s^2 M}, \qquad e_s = \sqrt{1 + \frac{2 E_s\, p}{m_s m_B}}, \]</div>
+<p>où \(\mu_s = m_s m_B / M\), \(m_B = m_a + m_b\), \(M\) est la masse totale et \(E_s = E_0 - E_B\) est l’énergie du mouvement relatif. Mesuré par la distance de passage \(Q = q/a\), en demi-grands axes de la paire, le mur cesse de dépendre de la masse. Le Tableau IV réunit toutes les simulations avec \(r &lt; 1\) de la carte principale. Lorsque le corps passe à plus d’environ un demi-grand axe du centre de la paire, l’absorptivité tombe à zéro, et la limite ne dépend que de l’énergie : d’environ 1,75 pour les arrivées lentes (\(x = 1{,}03\)) à environ 0,9 pour \(x \geq 2\). Le long du mur, l’excentricité varie de 0,1 à 0,9, tandis que \(Q\) reste dans cet intervalle étroit.</p>
+<p>Cela explique la dépendance en \(m_s/\mu\). Pour un même moment cinétique, un corps léger passe plus loin, parce que \(p\) croît comme \((\mu/m_s)^2\). Un corps lourd, avec \(r \geq 2\), passe à moins de 0,2 demi-grand axe quelle que soit l’excentricité, et c’est pourquoi il ne rencontre pas de mur. La même variable localise le creux qui apparaît juste au-dessus du mur : l’absorptivité présente un minimum près de \(Q \approx 0{,}43\), entre un maximum pour les passages presque frontaux (\(Q &lt; 0{,}2\)) et un autre pour les passages rasants (\(Q\) de 0,6 à 0,8).</p>
+<div class="tblwrap"><p class="cap">Absorptivité (au moins deux brassages) des corps légers (\(r &lt; 1\), paires (1,1) et (1,2)) en fonction de la distance de passage \(Q = q/a\) et de l’énergie relative \(x\). Chaque cellule réunit de 750 à 10 350 simulations. Zéro signifie aucune absorption, c’est-à-dire une absorptivité inférieure à 0,3 % avec 95 % de confiance.</p><table>
+<thead><tr><th>\(Q\)</th><th>\(x = 1{,}03\)</th><th>\(x = 1{,}1\)</th><th>\(x = 1{,}3\)</th><th>\(x = 2\)</th><th>\(x = 3\)</th></tr></thead>
+<tbody>
+<tr><td>jusqu’à 0,6</td><td>0,52</td><td>0,42</td><td>0,30</td><td>0,16</td><td>0,10</td></tr>
+<tr><td>0,6 à 0,9</td><td>0,62</td><td>0,51</td><td>0,30</td><td>0,09</td><td>0,04</td></tr>
+<tr><td>0,9 à 1,0</td><td>0,48</td><td>0,27</td><td>0,011</td><td>0,004</td><td>0</td></tr>
+<tr><td>1,0 à 1,2</td><td>0,29</td><td>0,048</td><td>0,0003</td><td>0</td><td>0</td></tr>
+<tr><td>1,2 à 1,75</td><td>0,07</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>au-dessus de 1,75</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+</tbody></table></div>
+<p>Au premier passage, au-dessous du mur, l’échange de partenaire et la capture du corps qui sort sont tous deux nuls. Dans le canal (3,3,1), la règle de masses de la note FR-TC-12 prévoyait un échange dans 25 % à 36 % des passages, contre 0 % à 8 % mesurés. C’était cette règle, ajustée sur une grille ne comportant que deux points de corps léger face à une paire égale, qui rendait l’absorptivité de la formule plate en \(e\) et produisait l’erreur sur l’excentricité finale <cite>3</cite>.</p>
+
+<h3>Une formule avec le mur</h3>
+<p>Dans la version 3 de la formule, nous avons conservé la formule de la note FR-TC-12 pour \(r \geq 1{,}4\) et, pour \(r \leq 1\), nous utilisons désormais une table de l’absorptivité mesurée en \((r, x, e)\), construite uniquement avec la paire (1,1) et sans le rapport \(m_s = 1/3\), qui équivaut au canal (3,3,1) du test. Entre \(r = 1\) et \(r = 1{,}4\), les deux versions se mélangent linéairement. Le Tableau II compare les versions sur des données hors de l’ajustement. La version 3 corrige le canal léger : la fraction expliquée de l’absorptivité du canal (3,3,1) passe de 0,45 à 0,93. Dans la chute libre, en revanche, même la version 3 ne passe pas le test à 95 %. Elle s’approche de l’absorptivité mesurée pour les ensembles 1-1-3 et 1-2-3, mais pas pour 3-3-1, et se trompe sur les chances d’échappement de jusqu’à 2 points de pourcentage.</p>
+<div class="tblwrap"><p class="cap">Formules de la note FR-TC-12 (v2) et de cette note (v3) confrontées à des données hors de l’ajustement. Dans les chutes libres, statistique KS de l’excentricité finale dans le test cohérent avec \(k = 2\) (sous-section suivante) ; la dernière colonne utilise l’absorptivité mesurée à la place de la formule.</p><table>
+<thead><tr><th>Test</th><th>v2</th><th>v3</th><th>absorptivité mesurée</th></tr></thead>
+<tbody>
+<tr><td>paire (1,2), \(R^2\) de l’absorptivité</td><td>0,66</td><td>0,85</td><td>\(-\)</td></tr>
+<tr><td>canal (3,3,1), \(R^2\) de l’absorptivité</td><td>0,45</td><td>0,93</td><td>\(-\)</td></tr>
+<tr><td>chute libre 1-1-3, KS</td><td>0,036</td><td>0,039</td><td>0,036</td></tr>
+<tr><td>chute libre 3-3-1, KS</td><td>0,215</td><td>0,100</td><td>0,047</td></tr>
+<tr><td>chute libre 1-2-3, KS</td><td>0,132</td><td>0,043</td><td>0,031</td></tr>
+</tbody></table></div>
+
+<h3>Mémoire entre épisodes et test cohérent</h3>
+<p>En examinant pourquoi même l’absorptivité mesurée ne reproduisait pas l’excentricité finale dans les chutes libres des notes précédentes, nous avons constaté quatre choses.</p>
+<ul>
+<li><b>La plupart des échappements ne proviennent pas d’un chaos profond :</b> de 82 % à 88 % des échappements finaux proviennent d’un dernier épisode comportant seulement un ou deux brassages, juste après une excursion.</li>
+<li><b>Dans ces échappements, la paire finale hérite de la forme de la paire de l’excursion précédente :</b> la corrélation de Spearman entre les deux excentricités est de 0,27 à 0,35 en général et de 0,54 à 0,68 lorsque la paire est la même. Elle diminue avec le nombre de brassages et cesse d’être détectable à partir de cinq.</li>
+<li><b>Avec des masses inégales, le résultat final dépend de l’âge du système :</b> l’excentricité finale moyenne passe de 0,78 à 0,75 pour l’ensemble 1-1-3, de 0,87 à 0,84 pour 3-3-1 et de 0,80 à 0,75 pour 1-2-3 entre les systèmes comptant de 5 à 9 brassages et ceux qui en comptent 10 ou plus (\(p\) de \(2{,}6\times10^{-5}\) à \(1{,}6\times10^{-2}\), significatif avec Holm). Les chances d’échappement ne dépendent pas de l’âge. Avec des masses égales, il n’y a pas d’effet : sur 22 139 cas, les moyennes sont de 0,718 et 0,715 (\(p = 0{,}34\)).</li>
+<li><b>La dépendance provient d’une sélection, et non d’un changement au cours du temps :</b> en suivant les mêmes simulations, l’excentricité des excursions ne change pas après la première. La première est plus excentrique parce que le système part du repos. Avec des masses inégales, les simulations qui font beaucoup d’excursions sont justement celles dont les paires sont les moins excentriques. Le mécanisme de cette sélection reste ouvert.</li>
+</ul>
+<p>Cette mémoire impose de la prudence lorsque l’on compare la théorie aux chutes libres. La théorie traite de l’émission à partir du chaos, et le critère d’origine chaotique doit être le même dans l’absorption et dans l’émission. Dans les notes précédentes, nous avons sélectionné les échappements par le total des brassages de la simulation, et non par ceux du dernier épisode, et nous avons utilisé des seuils différents des deux côtés. Avec le même seuil \(k\) des deux côtés, l’absorptivité mesurée reproduit les échappements (Tableau III) :</p>
+<ul>
+<li>dans l’absorption, au moins \(k\) brassages avant la première excursion ;</li>
+<li>dans l’émission, au moins \(k\) brassages dans le dernier épisode.</li>
+</ul>
+<p>Avec la correction de Holm, 8 des 9 tests de l’excentricité finale et les 9 tests des chances d’échappement sont passés. Le seul rejet concerne l’ensemble 1-1-3 avec \(k = 3\).</p>
+<div class="tblwrap"><p class="cap">Test cohérent de la théorie de flux avec l’absorptivité mesurée (200 simulations par cellule) confrontée aux chutes libres, avec le même seuil \(k\) de brassages dans l’absorption et dans l’émission. KS de l’excentricité finale et valeur critique à 95 % incluant l’incertitude de l’absorptivité. Les chances d’échappement passent dans tous les cas.</p><table>
+<thead><tr><th>\(k\)</th><th>Ensemble</th><th>\(n\)</th><th>KS</th><th>Critique</th><th>Résultat avec Holm</th></tr></thead>
+<tbody>
+<tr><td>2</td><td>1-1-3</td><td>2 786</td><td>0,036</td><td>0,042</td><td>passe</td></tr>
+<tr><td>2</td><td>3-3-1</td><td>3 376</td><td>0,047</td><td>0,040</td><td>passe (\(p = 0{,}010\))</td></tr>
+<tr><td>2</td><td>1-2-3</td><td>2 812</td><td>0,031</td><td>0,037</td><td>passe</td></tr>
+<tr><td>3</td><td>1-1-3</td><td>1 181</td><td>0,099</td><td>0,066</td><td>rejeté (\(p &lt; 0{,}005\))</td></tr>
+<tr><td>3</td><td>3-3-1</td><td>1 223</td><td>0,044</td><td>0,071</td><td>passe</td></tr>
+<tr><td>3</td><td>1-2-3</td><td>1 159</td><td>0,024</td><td>0,068</td><td>passe</td></tr>
+<tr><td>5</td><td>1-1-3</td><td>315</td><td>0,119</td><td>0,111</td><td>passe (\(p = 0{,}040\))</td></tr>
+<tr><td>5</td><td>3-3-1</td><td>290</td><td>0,083</td><td>0,152</td><td>passe</td></tr>
+<tr><td>5</td><td>1-2-3</td><td>290</td><td>0,068</td><td>0,122</td><td>passe</td></tr>
+</tbody></table></div>
+
+<h2>Discussion</h2>
+<p>Le mur a un précédent qualitatif. Dans le problème restreint elliptique, Astakhov, Lee et Farrelly ont noté que des intrus de faible masse sont rarement capturés par des binaires circulaires et le sont davantage par des binaires excentriques, ce qu’ils ont attribué à des barrières de régularité dans l’espace des phases <cite>7</cite>. Ce que nous ajoutons, c’est la mesure du seuil dans le problème complet, sa dépendance en \(m_s/\mu\) et son effet sur l’absorptivité de la théorie de flux, dont la mesure directe n’existait jusqu’ici que pour des masses égales <cite>2</cite>.</p>
+<p>La version 1 de cette note suggérait une explication par l’intégrale de Jacobi du problème restreint <cite>8</cite>. Le Tableau IV montre que le mur est plus simple : une coupure sur la distance de passage, que la géométrie du moment cinétique nul lie à l’excentricité de la paire. Deux conséquences limitent la portée du résultat. Premièrement, l’énoncé selon lequel une paire circulaire ne capture pas un corps léger ne vaut que lorsque le moment cinétique total est nul. Dans un système doté d’un moment cinétique total, un corps léger peut arriver de front sur une paire circulaire, et rien dans nos données n’empêche la capture dans ce cas. Deuxièmement, la variable physique de l’absorptivité des corps légers est la distance de passage, et non l’excentricité, ce qui doit orienter tout modèle analytique.</p>
+<p>La mémoire entre épisodes contredit, dans le régime des rencontres brèves, la prémisse du modèle de marche aléatoire de Ginat et Perets, dans lequel chaque phase chaotique tire au sort la nouvelle paire sans se souvenir de la précédente <cite>9</cite>. Cela rejoint l’observation selon laquelle les triples presque hiérarchiques ne se mélangent pas suffisamment pour une description purement statistique <cite>10</cite>. La coupure par le nombre de brassages dans le dernier épisode équivaut à la coupure par le temps écoulé depuis la dernière excursion utilisée par Dandekar et ses collaborateurs <cite>6</cite>. La conséquence pour cette série est une correction de méthode. Les tests de chute libre des notes FR-TC-09 à FR-TC-12 ont utilisé le total des brassages et des seuils différents des deux côtés <cite>3,4,11</cite>. Les conclusions sur les chances d’échappement se maintiennent dans le test cohérent. Les affirmations sur un résidu dans la distribution de l’excentricité finale doivent être lues à la lumière de cette note.</p>
+<p>Limites :</p>
+<ul>
+<li>tout est plan et à moment cinétique nul ;</li>
+<li>la position du mur a une résolution de \(\pm 0{,}05\) en excentricité ;</li>
+<li>la loi en \(m_s/\mu\) n’a été testée qu’avec une seule paire inégale ;</li>
+<li>les tests avec \(k = 5\) ont une faible puissance statistique ;</li>
+<li>la formule en version 3 ne passe pas encore le critère à 95 % dans les chutes libres ;</li>
+<li>à moment cinétique total nul, excentricité et distance de passage vont de pair ; l’effet de l’excentricité à distance de passage fixée n’a pas été mesuré.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<p>Dans les systèmes plans à moment cinétique total nul, un corps dont la masse est inférieure à environ 0,9 fois la masse réduite de la paire n’est pas capturé lorsqu’il passe à plus d’environ un demi-grand axe du centre de la paire : d’environ 0,9 demi-grand axe pour les arrivées rapides à environ 1,75 pour les arrivées lentes. Comme, dans ce scénario, l’excentricité de la paire fixe la distance de passage, la coupure apparaît comme un mur d’excentricité, qui va d’environ 0,2 à 0,9 à mesure que le corps devient plus léger. Au-dessous du mur, l’absorptivité est inférieure à 1 % avec 95 % de confiance. Ce mur était la cause de l’erreur de la formule de la note FR-TC-12 sur l’excentricité finale de l’ensemble 3-3-1, et l’inclure améliore beaucoup la formule, bien qu’elle n’atteigne pas encore l’absorptivité mesurée. La paire finale d’un échappement rapide hérite de la forme de l’excursion précédente. Avec le même critère d’origine chaotique dans l’absorption et dans l’émission, la théorie de flux avec l’absorptivité mesurée passe 8 des 9 tests de l’excentricité finale et tous les tests des chances d’échappement.</p>

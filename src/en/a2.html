@@ -1,0 +1,54 @@
+<h2>Introduction</h2>
+<p>An inverted pendulum can be stabilized by rapid vibration of its suspension point, an effect discovered by Kapitza <cite>1</cite>. In the high-frequency limit, the averaged effect of the excitation enters the slow dynamics as an effective potential proportional to the square of the force amplitude and inversely proportional to the square of the frequency <cite>2</cite>. This result suggests a natural question in celestial mechanics: could a tight internal binary, whose gravitational field oscillates rapidly, stabilize a three-body configuration that is unstable without it?</p>
+<p>This note describes a numerical test of this hypothesis, with a control group, and a physical constraint that explains the negative result obtained. The hypothesis was chosen because it is small (a specific case), testable (the simulation can refute it), and nontrivial (a positive result would be surprising).</p>
+
+<h2>Method</h2>
+<h3>Configurations and groups</h3>
+<p>The reference configuration is an equilateral triangle of three equal masses (\(m = 1\)) at distance \(R = 1\) from a central body, rotating rigidly. With equal masses, this configuration is unstable, with or without a central body.</p>
+<ul>
+<li><b>Test group:</b> at the center, a circular binary of total mass \(M\), equal components, and separation \(a_b\), rotating in the same sense as the triangle or in the opposite sense.</li>
+<li><b>Control group:</b> at the center, a single mass \(M\), which reproduces the monopole term of the binary without the oscillating component.</li>
+<li><b>Perturbation:</b> displacements of \(10^{-4}\) in position or velocity, identical in both groups; median of three perturbations.</li>
+</ul>
+<p>The initial orbital velocity of the triangle includes the mean quadrupole correction of the binary,</p>
+<div class="eq">\[ v^2 = \frac{1}{R}\left[ G M \left(1 + \frac{3}{16}\frac{a_b^2}{R^2}\right) + \frac{G m}{\sqrt{3}} \right], \]</div>
+<p>so that the test group does not start out of equilibrium by construction.</p>
+<h3>Integration and disruption criterion</h3>
+<p>The integration uses the symplectic kick-drift-kick leapfrog method, with a step of \(P_b/60\), where \(P_b\) is the binary period, capped at 0.002 time units, in units with \(G = 1\). The triangle is considered disrupted when the representative point on the shape sphere <cite>7</cite> falls below \(53^\circ\) latitude; the pole corresponds to the equilateral configuration.</p>
+
+<h2>Results</h2>
+<h3>Triangle with a central binary</h3>
+<p>Figure 1 shows the ratio of the survival time with the binary to that of the control, for three central masses. Values above 1 would indicate stabilization.</p>
+<figure data-fig="A2"><figcaption>Median survival time of the triangle with a central binary, divided by that of the single-mass control, as a function of the binary separation, for three central masses. The dashed line indicates equality with the control. No point exceeds it significantly.</figcaption></figure>
+<p>In no combination did the binary significantly prolong survival. For \(a_b \lesssim 0.07\), the result coincides with the control; for larger separations, the binary shortens the lifetime of the triangle, down to about 8% of the control survival time for \(M = 10\) and \(a_b = 0.6\). Reversing the sense of rotation of the binary did not change the pattern.</p>
+<h3>Binary at the Routh boundary</h3>
+<p>A second test placed the binary in the position of the dominant body of a Lagrange triangle with masses \(1 : \mu : \mu\), in the vicinity of the Routh stability limit (\(\mu \approx 0.0198\)) <cite>8</cite>, where small effects could tip the outcome. Table I summarizes the median survival times.</p>
+<div class="tblwrap"><p class="cap">Median survival time, in time units, of the Lagrange triangle \(1 : \mu : \mu\) with the dominant body replaced by a binary of separation \(a_b\). Integration limit: 1500 time units.</p><table>
+<thead><tr><th>\(\mu\)</th><th>Control</th><th>\(a_b = 0.005\)</th><th>0.01</th><th>0.02</th><th>0.04</th><th>0.1</th><th>0.2</th></tr></thead>
+<tbody>
+<tr><td>0.015</td><td>stable</td><td>stable</td><td>stable</td><td>stable</td><td>stable</td><td>stable</td><td>stable</td></tr>
+<tr><td>0.022</td><td>150</td><td>135</td><td>205</td><td>241</td><td>62</td><td>46</td><td>28</td></tr>
+<tr><td>0.025</td><td>42</td><td>42</td><td>42</td><td>42</td><td>42</td><td>35</td><td>23</td></tr>
+<tr><td>0.030</td><td>32</td><td>32</td><td>32</td><td>32</td><td>32</td><td>26</td><td>18</td></tr>
+</tbody></table></div>
+<p>The increase observed at \(\mu = 0.022\) for \(a_b = 0.01\) and \(0.02\) occurs exactly on the boundary, where survival varies greatly between perturbations, and is not repeated at \(\mu = 0.025\). There is no evidence of stabilization.</p>
+
+<h2>Discussion</h2>
+<h3>The Keplerian constraint</h3>
+<p>In the Kapitza pendulum, the amplitude and frequency of the excitation are independent. In a gravitational binary, they are not: Kepler's third law links them. Let \(r\) be the distance from an external body to the binary. The dominant oscillating component of the acceleration is quadrupolar, with amplitude</p>
+<div class="eq">\[ F \sim \frac{G M a_b^2}{r^4}, \]</div>
+<p>and frequency of order \(\omega_b = \sqrt{GM/a_b^3}\). In the Kapitza regime, the averaged effect of the rapid excitation enters as an effective potential proportional to \(F^2/\omega^2\) <cite>2</cite>. Combining the two relations,</p>
+<div class="eq">\[ \frac{F^2}{\omega_b^2} \sim \frac{G M}{r^8}\, a_b^{7} . \]</div>
+<p>The stabilizing term decays with the seventh power of the separation. A tight binary oscillates rapidly, a necessary condition for the averaging regime, but produces a negligible effective term. A wide binary produces strong but slow excitation and begins to resonate with the eigenfrequencies of the triangle, which destabilizes it. The estimate is a scaling argument and does not replace a complete analysis, but it is consistent with the two observed regimes.</p>
+<h3>Relation to the literature</h3>
+<p>Stabilization of chaotic solutions in the restricted problem has been achieved with additional bodies placed at the triangular Lagrange points <cite>3</cite>, and unstable periodic orbits of the three-body problem have been stabilized with small impulses, one per period, computed from the linearized Poincaré map <cite>4</cite>, in the spirit of the chaos control of Ott, Grebogi, and Yorke <cite>6</cite>. In both cases, stabilization arises from positioned bodies or from active control, not from passive gravitational excitation. For circumbinary planets, averaged models of the quadrupole potential describe the secular dynamics well, but do not capture the resonances between the binary period and that of the outer orbit, which dominate the instability near the binary <cite>5</cite>.</p>
+<h3>Limitations</h3>
+<ul>
+<li>Planar simulation, with a single family of initial configurations.</li>
+<li>Disruption criterion defined by the experiment (latitude of \(53^\circ\) on the shape sphere).</li>
+<li>Three perturbations per point; results at the stability boundary would require larger samples.</li>
+<li>Inclined orbits and eccentric binaries, which alter the excitation spectrum, were not explored.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<p>With the caveats above, the result is negative and has a simple physical explanation: gravity does not allow the amplitude and frequency of the vibration to be chosen freely, and the combination permitted by Kepler's law does not reach the Kapitza regime. A tight binary is, for practical purposes, equivalent to a single mass; a wide binary destabilizes through resonance.</p>

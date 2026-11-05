@@ -1,0 +1,45 @@
+<p>A estabilização dinâmica de um pêndulo invertido por vibração rápida do ponto de suspensão, o pêndulo de Kapitza, sugere uma pergunta natural em mecânica celeste: um binário interno apertado, cujo campo gravitacional oscila rapidamente, poderia estabilizar uma configuração de três corpos que, sem ele, é instável? Este artigo descreve um teste numérico dessa hipótese, com grupo de controle, e uma restrição física que explica o resultado negativo obtido.</p>
+
+<h2>Hipótese e desenho do experimento</h2>
+<p>A configuração de referência é um triângulo equilátero de três massas iguais (\(m = 1\)) a distância \(R = 1\) de um corpo central, girando rigidamente. Com massas iguais, essa configuração é instável, com ou sem corpo central.</p>
+<ul>
+<li><b>Grupo de teste:</b> no centro, um binário circular de massa total \(M\), componentes iguais e separação \(a_b\), girando no mesmo sentido do triângulo ou no sentido oposto.</li>
+<li><b>Grupo de controle:</b> no centro, uma massa única \(M\), que reproduz o termo monopolar do binário sem a componente oscilante.</li>
+<li><b>Perturbação:</b> deslocamentos de \(10^{-4}\) em posição ou velocidade, idênticos nos dois grupos; mediana de três perturbações.</li>
+<li><b>Medida:</b> tempo até o triângulo se desfazer, definido como a queda do ponto representativo na esfera de formas abaixo de \(53^\circ\) de latitude (o polo corresponde ao equilátero).</li>
+</ul>
+<p>A velocidade orbital inicial do triângulo inclui a correção quadrupolar média do binário, \(v^2 = [GM(1 + \tfrac{3}{16}(a_b/R)^2) + Gm/\sqrt{3}]/R\), para que o grupo de teste não comece fora de equilíbrio por construção. A integração usa o método leapfrog (kick-drift-kick), simplético, com passo de \(P_b/60\), em que \(P_b\) é o período do binário, limitado a 0,002 unidades de tempo, em unidades com \(G = 1\).</p>
+
+<h2>Resultados</h2>
+<p>A figura mostra a razão entre a sobrevivência com o binário e a do controle, para três massas centrais. Valores acima de 1 indicariam estabilização.</p>
+{{FIG_A2}}
+<p>Em nenhuma combinação o binário prolongou a sobrevivência de forma significativa. Para \(a_b \lesssim 0{,}07\), o resultado coincide com o controle; para separações maiores, o binário encurta a vida do triângulo, até cerca de 8% da sobrevivência do controle com \(M = 10\) e \(a_b = 0{,}6\). Inverter o sentido de rotação do binário não alterou o padrão.</p>
+<p>Um segundo teste colocou o binário no lugar do corpo dominante de um triângulo de Lagrange com massas \(1 : \mu : \mu\), na vizinhança do limite de estabilidade de Routh (\(\mu \approx 0{,}0198\)), onde efeitos pequenos poderiam inclinar o resultado. A tabela resume as medianas de sobrevivência, em unidades de tempo, com limite de integração de 1500.</p>
+<div class="tblwrap"><table>
+<thead><tr><th>\(\mu\)</th><th>Controle</th><th>\(a_b = 0{,}005\)</th><th>0,01</th><th>0,02</th><th>0,04</th><th>0,1</th><th>0,2</th></tr></thead>
+<tbody>
+<tr><td>0,015</td><td>estável</td><td>estável</td><td>estável</td><td>estável</td><td>estável</td><td>estável</td><td>estável</td></tr>
+<tr><td>0,022</td><td>150</td><td>135</td><td>205</td><td>241</td><td>62</td><td>46</td><td>28</td></tr>
+<tr><td>0,025</td><td>42</td><td>42</td><td>42</td><td>42</td><td>42</td><td>35</td><td>23</td></tr>
+<tr><td>0,030</td><td>32</td><td>32</td><td>32</td><td>32</td><td>32</td><td>26</td><td>18</td></tr>
+</tbody></table></div>
+<p>O aumento observado em \(\mu = 0{,}022\) para \(a_b = 0{,}01\) e \(0{,}02\) ocorre exatamente sobre a fronteira, onde a sobrevivência varia muito entre perturbações, e não se repete em \(\mu = 0{,}025\). Não há evidência de estabilização.</p>
+
+<h2>A restrição kepleriana</h2>
+<p>No pêndulo de Kapitza, amplitude e frequência da excitação são independentes. Num binário gravitacional, não são: a terceira lei de Kepler as vincula. Seja \(r\) a distância de um corpo externo ao binário. A componente oscilante dominante da aceleração é quadrupolar, com amplitude</p>
+<div class="eq">\[ F \sim \frac{G M a_b^2}{r^4}, \]</div>
+<p>e frequência da ordem de \(\omega_b = \sqrt{GM/a_b^3}\). No regime de Kapitza, o efeito médio da excitação rápida entra como um potencial efetivo proporcional a \(F^2/\omega^2\). Combinando as duas relações,</p>
+<div class="eq">\[ \frac{F^2}{\omega_b^2} \sim \frac{G M}{r^8}\, a_b^{7} . \]</div>
+<p>O termo estabilizador decai com a sétima potência da separação. Um binário apertado oscila rápido, condição necessária para o regime de média, mas produz um termo efetivo desprezível. Um binário largo produz excitação forte, porém lenta, e passa a ressoar com as frequências próprias do triângulo, o que desestabiliza. A estimativa é de escala e não substitui uma análise completa, mas é consistente com os dois regimes observados.</p>
+
+<h2>Relação com a literatura</h2>
+<p>Estabilizações de soluções caóticas no problema restrito foram obtidas com corpos adicionais posicionados nos pontos triangulares de Lagrange (Dzhanoev e colaboradores, 2007), e órbitas periódicas instáveis do problema de três corpos foram estabilizadas com impulsos pequenos, um por período, calculados a partir do mapa de Poincaré linearizado (2025). Em ambos os casos, a estabilização decorre de corpos posicionados ou de controle ativo, não de excitação gravitacional passiva. Para planetas circumbinários, modelos médios do potencial quadrupolar descrevem bem a dinâmica secular, mas não capturam as ressonâncias entre o período do binário e o da órbita externa, que dominam a instabilidade perto do binário.</p>
+
+<h2>Limitações</h2>
+<ul>
+<li>Simulação plana, com uma única família de configurações iniciais.</li>
+<li>Critério de ruptura definido pelo experimento (latitude de \(53^\circ\) na esfera de formas).</li>
+<li>Três perturbações por ponto; resultados na fronteira de estabilidade exigiriam amostras maiores.</li>
+<li>Não foram exploradas órbitas inclinadas nem binários excêntricos, que alteram o espectro da excitação.</li>
+</ul>
+<p>Com essas ressalvas, o resultado é negativo e tem explicação física simples: a gravidade não permite escolher livremente amplitude e frequência da vibração, e a combinação permitida pela lei de Kepler não atinge o regime de Kapitza.</p>

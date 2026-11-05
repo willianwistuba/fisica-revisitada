@@ -1,0 +1,54 @@
+<h2>Einleitung</h2>
+<p>Ein invertiertes Pendel lässt sich durch schnelle Vibration seines Aufhängepunkts stabilisieren, ein von Kapitza entdeckter Effekt <cite>1</cite>. Im Hochfrequenzlimes geht die gemittelte Wirkung der Anregung als effektives Potential in die langsame Dynamik ein, das proportional zum Quadrat der Kraftamplitude und umgekehrt proportional zum Quadrat der Frequenz ist <cite>2</cite>. Das Ergebnis wirft eine naheliegende Frage der Himmelsmechanik auf: Könnte ein enges inneres Doppelsystem, dessen Gravitationsfeld schnell oszilliert, eine Dreikörperkonfiguration stabilisieren, die ohne es instabil ist?</p>
+<p>Diese Notiz beschreibt einen numerischen Test dieser Hypothese mit Kontrollgruppe sowie eine physikalische Einschränkung, die das erhaltene negative Ergebnis erklärt. Die Hypothese wurde gewählt, weil sie klein (ein spezifischer Fall), überprüfbar (die Simulation kann sie widerlegen) und nicht trivial (ein positives Ergebnis wäre überraschend) ist.</p>
+
+<h2>Methode</h2>
+<h3>Konfigurationen und Gruppen</h3>
+<p>Die Referenzkonfiguration ist ein gleichseitiges Dreieck aus drei gleichen Massen (\(m = 1\)) im Abstand \(R = 1\) von einem Zentralkörper, das starr rotiert. Bei gleichen Massen ist diese Konfiguration instabil, mit oder ohne Zentralkörper.</p>
+<ul>
+<li><b>Testgruppe:</b> im Zentrum ein kreisförmiges Doppelsystem der Gesamtmasse \(M\) mit gleichen Komponenten und Separation \(a_b\), das im gleichen oder im entgegengesetzten Drehsinn wie das Dreieck rotiert.</li>
+<li><b>Kontrollgruppe:</b> im Zentrum eine einzelne Masse \(M\), die den Monopolterm des Doppelsystems ohne die oszillierende Komponente reproduziert.</li>
+<li><b>Störung:</b> Auslenkungen von \(10^{-4}\) in Position oder Geschwindigkeit, in beiden Gruppen identisch; Median über drei Störungen.</li>
+</ul>
+<p>Die anfängliche Bahngeschwindigkeit des Dreiecks enthält die gemittelte Quadrupolkorrektur des Doppelsystems,</p>
+<div class="eq">\[ v^2 = \frac{1}{R}\left[ G M \left(1 + \frac{3}{16}\frac{a_b^2}{R^2}\right) + \frac{G m}{\sqrt{3}} \right], \]</div>
+<p>damit die Testgruppe nicht konstruktionsbedingt außerhalb des Gleichgewichts beginnt.</p>
+<h3>Integration und Zerfallskriterium</h3>
+<p>Die Integration verwendet das symplektische Leapfrog-Verfahren (Kick-Drift-Kick) mit einer Schrittweite von \(P_b/60\), wobei \(P_b\) die Periode des Doppelsystems ist, begrenzt auf 0,002 Zeiteinheiten, in Einheiten mit \(G = 1\). Das Dreieck gilt als zerfallen, wenn der darstellende Punkt auf der Formsphäre <cite>7</cite> unter \(53^\circ\) Breite fällt; der Pol entspricht dem gleichseitigen Dreieck.</p>
+
+<h2>Ergebnisse</h2>
+<h3>Dreieck mit zentralem Doppelsystem</h3>
+<p>Abb. 1 zeigt das Verhältnis der Überlebenszeit mit Doppelsystem zu derjenigen der Kontrolle für drei Zentralmassen. Werte über 1 würden auf eine Stabilisierung hindeuten.</p>
+<figure data-fig="A2"><figcaption>Mediane Überlebenszeit des Dreiecks mit zentralem Doppelsystem, geteilt durch diejenige der Kontrolle mit Einzelmasse, als Funktion der Separation des Doppelsystems, für drei Zentralmassen. Die gestrichelte Linie markiert Gleichheit mit der Kontrolle. Kein Punkt übertrifft sie signifikant.</figcaption></figure>
+<p>In keiner Kombination verlängerte das Doppelsystem die Überlebenszeit signifikant. Für \(a_b \lesssim 0{,}07\) stimmt das Ergebnis mit der Kontrolle überein; bei größeren Separationen verkürzt das Doppelsystem die Lebensdauer des Dreiecks, bis auf etwa 8 % der Überlebenszeit der Kontrolle bei \(M = 10\) und \(a_b = 0{,}6\). Eine Umkehr des Drehsinns des Doppelsystems änderte das Muster nicht.</p>
+<h3>Doppelsystem an der Routh-Grenze</h3>
+<p>Ein zweiter Test setzte das Doppelsystem an die Stelle des dominanten Körpers eines Lagrange-Dreiecks mit Massen \(1 : \mu : \mu\), in der Nähe der Stabilitätsgrenze von Routh (\(\mu \approx 0{,}0198\)) <cite>8</cite>, wo kleine Effekte das Ergebnis kippen könnten. Tabelle I fasst die Mediane der Überlebenszeit zusammen.</p>
+<div class="tblwrap"><p class="cap">Mediane Überlebenszeit, in Zeiteinheiten, des Lagrange-Dreiecks \(1 : \mu : \mu\), bei dem der dominante Körper durch ein Doppelsystem der Separation \(a_b\) ersetzt ist. Integrationsgrenze: 1500 Zeiteinheiten.</p><table>
+<thead><tr><th>\(\mu\)</th><th>Kontrolle</th><th>\(a_b = 0{,}005\)</th><th>0,01</th><th>0,02</th><th>0,04</th><th>0,1</th><th>0,2</th></tr></thead>
+<tbody>
+<tr><td>0,015</td><td>stabil</td><td>stabil</td><td>stabil</td><td>stabil</td><td>stabil</td><td>stabil</td><td>stabil</td></tr>
+<tr><td>0,022</td><td>150</td><td>135</td><td>205</td><td>241</td><td>62</td><td>46</td><td>28</td></tr>
+<tr><td>0,025</td><td>42</td><td>42</td><td>42</td><td>42</td><td>42</td><td>35</td><td>23</td></tr>
+<tr><td>0,030</td><td>32</td><td>32</td><td>32</td><td>32</td><td>32</td><td>26</td><td>18</td></tr>
+</tbody></table></div>
+<p>Der bei \(\mu = 0{,}022\) für \(a_b = 0{,}01\) und \(0{,}02\) beobachtete Anstieg tritt genau auf der Grenze auf, wo die Überlebenszeit zwischen den Störungen stark schwankt, und wiederholt sich bei \(\mu = 0{,}025\) nicht. Es gibt keinen Hinweis auf eine Stabilisierung.</p>
+
+<h2>Diskussion</h2>
+<h3>Die Kepler-Einschränkung</h3>
+<p>Beim Kapitza-Pendel sind Amplitude und Frequenz der Anregung unabhängig. Bei einem gravitativen Doppelsystem sind sie es nicht: Das dritte Keplersche Gesetz verknüpft sie. Es sei \(r\) der Abstand eines äußeren Körpers vom Doppelsystem. Die dominante oszillierende Komponente der Beschleunigung ist quadrupolar, mit der Amplitude</p>
+<div class="eq">\[ F \sim \frac{G M a_b^2}{r^4}, \]</div>
+<p>und einer Frequenz der Größenordnung \(\omega_b = \sqrt{GM/a_b^3}\). Im Kapitza-Regime geht die gemittelte Wirkung der schnellen Anregung als effektives Potential proportional zu \(F^2/\omega^2\) ein <cite>2</cite>. Kombiniert man beide Beziehungen, so folgt</p>
+<div class="eq">\[ \frac{F^2}{\omega_b^2} \sim \frac{G M}{r^8}\, a_b^{7} . \]</div>
+<p>Der stabilisierende Term fällt mit der siebten Potenz der Separation ab. Ein enges Doppelsystem oszilliert schnell, was für das Mittelungsregime notwendig ist, erzeugt aber einen vernachlässigbaren effektiven Term. Ein weites Doppelsystem erzeugt eine starke, jedoch langsame Anregung und gerät in Resonanz mit den Eigenfrequenzen des Dreiecks, was destabilisierend wirkt. Die Abschätzung ist eine Skalenbetrachtung und ersetzt keine vollständige Analyse, ist aber mit beiden beobachteten Regimen konsistent.</p>
+<h3>Bezug zur Literatur</h3>
+<p>Stabilisierungen chaotischer Lösungen im eingeschränkten Problem wurden mit zusätzlichen Körpern an den dreieckigen Lagrange-Punkten erzielt <cite>3</cite>, und instabile periodische Bahnen des Dreikörperproblems wurden mit kleinen Impulsen, einem pro Periode, stabilisiert, die aus der linearisierten Poincaré-Abbildung berechnet wurden <cite>4</cite>, in der Tradition der Chaoskontrolle nach Ott, Grebogi und Yorke <cite>6</cite>. In beiden Fällen beruht die Stabilisierung auf positionierten Körpern oder aktiver Regelung, nicht auf passiver gravitativer Anregung. Für zirkumbinäre Planeten beschreiben gemittelte Modelle des Quadrupolpotentials die säkulare Dynamik gut, erfassen aber nicht die Resonanzen zwischen der Periode des Doppelsystems und derjenigen der äußeren Bahn, die die Instabilität in der Nähe des Doppelsystems bestimmen <cite>5</cite>.</p>
+<h3>Einschränkungen</h3>
+<ul>
+<li>Ebene Simulation mit einer einzigen Familie von Anfangskonfigurationen.</li>
+<li>Durch das Experiment festgelegtes Zerfallskriterium (Breite von \(53^\circ\) auf der Formsphäre).</li>
+<li>Drei Störungen pro Punkt; Ergebnisse an der Stabilitätsgrenze würden größere Stichproben erfordern.</li>
+<li>Geneigte Bahnen und exzentrische Doppelsysteme, die das Spektrum der Anregung verändern, wurden nicht untersucht.</li>
+</ul>
+
+<h2>Schlussfolgerungen</h2>
+<p>Mit den obigen Vorbehalten ist das Ergebnis negativ und hat eine einfache physikalische Erklärung: Die Gravitation erlaubt keine freie Wahl von Amplitude und Frequenz der Vibration, und die durch das Keplersche Gesetz zugelassene Kombination erreicht das Kapitza-Regime nicht. Ein enges Doppelsystem entspricht praktisch einer Einzelmasse; ein weites Doppelsystem destabilisiert durch Resonanz.</p>

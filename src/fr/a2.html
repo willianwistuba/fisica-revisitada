@@ -1,0 +1,54 @@
+<h2>Introduction</h2>
+<p>Un pendule inversé peut être stabilisé par la vibration rapide de son point de suspension, effet découvert par Kapitza <cite>1</cite>. Dans la limite des hautes fréquences, l’effet moyen de l’excitation intervient dans la dynamique lente comme un potentiel effectif proportionnel au carré de l’amplitude de la force et inversement proportionnel au carré de la fréquence <cite>2</cite>. Ce résultat suggère une question naturelle en mécanique céleste : un binaire interne serré, dont le champ gravitationnel oscille rapidement, pourrait-il stabiliser une configuration de trois corps qui, sans lui, est instable ?</p>
+<p>Cette note décrit un test numérique de cette hypothèse, avec groupe témoin, ainsi qu’une contrainte physique qui explique le résultat négatif obtenu. L’hypothèse a été choisie parce qu’elle est restreinte (un cas spécifique), testable (la simulation peut la réfuter) et non triviale (un résultat positif serait surprenant).</p>
+
+<h2>Méthode</h2>
+<h3>Configurations et groupes</h3>
+<p>La configuration de référence est un triangle équilatéral de trois masses égales (\(m = 1\)) situées à la distance \(R = 1\) d’un corps central, en rotation rigide. À masses égales, cette configuration est instable, avec ou sans corps central.</p>
+<ul>
+<li><b>Groupe test :</b> au centre, un binaire circulaire de masse totale \(M\), à composantes égales et de séparation \(a_b\), tournant dans le même sens que le triangle ou dans le sens opposé.</li>
+<li><b>Groupe témoin :</b> au centre, une masse unique \(M\), qui reproduit le terme monopolaire du binaire sans la composante oscillante.</li>
+<li><b>Perturbation :</b> déplacements de \(10^{-4}\) en position ou en vitesse, identiques dans les deux groupes ; médiane sur trois perturbations.</li>
+</ul>
+<p>La vitesse orbitale initiale du triangle inclut la correction quadrupolaire moyenne du binaire,</p>
+<div class="eq">\[ v^2 = \frac{1}{R}\left[ G M \left(1 + \frac{3}{16}\frac{a_b^2}{R^2}\right) + \frac{G m}{\sqrt{3}} \right], \]</div>
+<p>afin que le groupe test ne démarre pas hors d’équilibre par construction.</p>
+<h3>Intégration et critère de rupture</h3>
+<p>L’intégration utilise le schéma saute-mouton (kick-drift-kick), symplectique, avec un pas de \(P_b/60\), où \(P_b\) est la période du binaire, limité à 0,002 unité de temps, en unités telles que \(G = 1\). Le triangle est considéré comme rompu lorsque le point représentatif sur la sphère des formes <cite>7</cite> descend sous \(53^\circ\) de latitude ; le pôle correspond à l’équilatéral.</p>
+
+<h2>Résultats</h2>
+<h3>Triangle avec binaire central</h3>
+<p>La Fig. 1 montre le rapport entre la survie avec le binaire et celle du témoin, pour trois masses centrales. Des valeurs supérieures à 1 indiqueraient une stabilisation.</p>
+<figure data-fig="A2"><figcaption>Survie médiane du triangle avec binaire central, divisée par celle du témoin à masse unique, en fonction de la séparation du binaire, pour trois masses centrales. La ligne en tirets indique l’égalité avec le témoin. Aucun point ne la dépasse de façon significative.</figcaption></figure>
+<p>Dans aucune combinaison le binaire n’a prolongé la survie de façon significative. Pour \(a_b \lesssim 0{,}07\), le résultat coïncide avec le témoin ; pour des séparations plus grandes, le binaire raccourcit la vie du triangle, jusqu’à environ 8 % de la survie du témoin pour \(M = 10\) et \(a_b = 0{,}6\). L’inversion du sens de rotation du binaire n’a pas modifié ce comportement.</p>
+<h3>Binaire sur la frontière de Routh</h3>
+<p>Un second test a placé le binaire à la place du corps dominant d’un triangle de Lagrange de masses \(1 : \mu : \mu\), au voisinage de la limite de stabilité de Routh (\(\mu \approx 0{,}0198\)) <cite>8</cite>, où de petits effets pourraient faire basculer le résultat. Le Tableau I résume les médianes de survie.</p>
+<div class="tblwrap"><p class="cap">Survie médiane, en unités de temps, du triangle de Lagrange \(1 : \mu : \mu\) dont le corps dominant est remplacé par un binaire de séparation \(a_b\). Limite d’intégration : 1500 unités de temps.</p><table>
+<thead><tr><th>\(\mu\)</th><th>Témoin</th><th>\(a_b = 0{,}005\)</th><th>0,01</th><th>0,02</th><th>0,04</th><th>0,1</th><th>0,2</th></tr></thead>
+<tbody>
+<tr><td>0,015</td><td>stable</td><td>stable</td><td>stable</td><td>stable</td><td>stable</td><td>stable</td><td>stable</td></tr>
+<tr><td>0,022</td><td>150</td><td>135</td><td>205</td><td>241</td><td>62</td><td>46</td><td>28</td></tr>
+<tr><td>0,025</td><td>42</td><td>42</td><td>42</td><td>42</td><td>42</td><td>35</td><td>23</td></tr>
+<tr><td>0,030</td><td>32</td><td>32</td><td>32</td><td>32</td><td>32</td><td>26</td><td>18</td></tr>
+</tbody></table></div>
+<p>L’augmentation observée en \(\mu = 0{,}022\) pour \(a_b = 0{,}01\) et \(0{,}02\) se produit exactement sur la frontière, où la survie varie fortement d’une perturbation à l’autre, et ne se reproduit pas en \(\mu = 0{,}025\). Il n’y a aucun indice de stabilisation.</p>
+
+<h2>Discussion</h2>
+<h3>La contrainte keplérienne</h3>
+<p>Dans le pendule de Kapitza, l’amplitude et la fréquence de l’excitation sont indépendantes. Dans un binaire gravitationnel, elles ne le sont pas : la troisième loi de Kepler les relie. Soit \(r\) la distance d’un corps externe au binaire. La composante oscillante dominante de l’accélération est quadrupolaire, d’amplitude</p>
+<div class="eq">\[ F \sim \frac{G M a_b^2}{r^4}, \]</div>
+<p>et de fréquence de l’ordre de \(\omega_b = \sqrt{GM/a_b^3}\). Dans le régime de Kapitza, l’effet moyen de l’excitation rapide intervient comme un potentiel effectif proportionnel à \(F^2/\omega^2\) <cite>2</cite>. En combinant les deux relations,</p>
+<div class="eq">\[ \frac{F^2}{\omega_b^2} \sim \frac{G M}{r^8}\, a_b^{7} . \]</div>
+<p>Le terme stabilisateur décroît comme la puissance septième de la séparation. Un binaire serré oscille rapidement, condition nécessaire au régime de moyennisation, mais produit un terme effectif négligeable. Un binaire large produit une excitation forte, mais lente, et entre en résonance avec les fréquences propres du triangle, ce qui le déstabilise. L’estimation est une estimation d’échelle et ne remplace pas une analyse complète, mais elle est cohérente avec les deux régimes observés.</p>
+<h3>Lien avec la littérature</h3>
+<p>Des stabilisations de solutions chaotiques dans le problème restreint ont été obtenues au moyen de corps supplémentaires placés aux points triangulaires de Lagrange <cite>3</cite>, et des orbites périodiques instables du problème des trois corps ont été stabilisées par de petites impulsions, une par période, calculées à partir de l’application de Poincaré linéarisée <cite>4</cite>, dans la lignée du contrôle du chaos d’Ott, Grebogi et Yorke <cite>6</cite>. Dans les deux cas, la stabilisation résulte de corps placés ou d’un contrôle actif, et non d’une excitation gravitationnelle passive. Pour les planètes circumbinaires, les modèles moyennés du potentiel quadrupolaire décrivent bien la dynamique séculaire, mais ne rendent pas compte des résonances entre la période du binaire et celle de l’orbite externe, qui dominent l’instabilité près du binaire <cite>5</cite>.</p>
+<h3>Limites</h3>
+<ul>
+<li>Simulation plane, avec une seule famille de configurations initiales.</li>
+<li>Critère de rupture défini par l’expérience (latitude de \(53^\circ\) sur la sphère des formes).</li>
+<li>Trois perturbations par point ; les résultats sur la frontière de stabilité exigeraient des échantillons plus grands.</li>
+<li>Les orbites inclinées et les binaires excentriques, qui modifient le spectre de l’excitation, n’ont pas été explorés.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<p>Sous les réserves ci-dessus, le résultat est négatif et admet une explication physique simple : la gravitation ne permet pas de choisir librement l’amplitude et la fréquence de la vibration, et la combinaison permise par la loi de Kepler n’atteint pas le régime de Kapitza. Un binaire serré équivaut, en pratique, à une masse unique ; un binaire large déstabilise par résonance.</p>

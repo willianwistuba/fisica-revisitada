@@ -1,0 +1,50 @@
+<h2>Introduction</h2>
+<p>The classical stability criteria for few-body configurations, those of Gascheau and Routh <cite>1</cite>, of Maxwell <cite>2</cite>, and of Mardling and Aarseth <cite>3</cite>, were derived by different routes and are expressed in different variables. A rough inspection, carried out in the previous note in the series <cite>8</cite>, suggested that, at all three thresholds, the perturbation between subsystems amounts to a few percent of the force that holds each subsystem together.</p>
+<p>This note tests that heuristic with a standardized measure and with additional families. The result is that the heuristic does not hold as a universal constant, but correctly describes the order of magnitude, and that resonance overlap <cite>4,5</cite> offers a more adequate explanation for the observed pattern.</p>
+
+<h2>Method</h2>
+<h3>Coupling measure</h3>
+<p>Each known stable configuration can be decomposed into approximately Keplerian two-body subsystems. For each subsystem \(S\), formed by bodies \(a\) and \(b\), we define</p>
+<div class="eq">\[ \varepsilon_S = \frac{\left\lvert \sum_{k \notin S} \left(\mathbf{a}_{a,k} - \mathbf{a}_{b,k}\right) \right\rvert}{G\,(m_a + m_b)/r_{ab}^2}, \]</div>
+<p>where \(\mathbf{a}_{i,k}\) is the acceleration produced on body \(i\) by the external body \(k\). The numerator is the tidal acceleration, that is, the difference in the attraction that the external bodies exert on the two ends of the subsystem; the denominator is the internal relative acceleration. The coupling of the configuration is \(\varepsilon = \max_S \varepsilon_S\), evaluated at the initial configuration. For the outer body of a hierarchical system, the relevant subsystem is the pair formed by it and the center of mass of the binary, and the perturbation is the quadrupole term of the binary.</p>
+<h3>Determination of the thresholds</h3>
+<p>The thresholds were obtained by direct simulation, with a leapfrog integrator, several perturbations per point, and the geometric disruption criteria described in the previous note <cite>8</cite>. Then \(\varepsilon\) was computed exactly at the threshold.</p>
+
+<h2>Results</h2>
+<p>Table I and Fig. 1 collect the nine thresholds.</p>
+<div class="tblwrap"><p class="cap">Simulated stability thresholds in three families and tidal coupling \(\varepsilon\) computed at each threshold.</p><table>
+<thead><tr><th>Family</th><th>Parameter at threshold</th><th>Dominant subsystem</th><th>\(\varepsilon\)</th></tr></thead>
+<tbody>
+<tr><td>Lagrange \(1 : \mu : \mu\)</td><td>\(\mu = 0.0206\)</td><td>dominant and one smaller body</td><td>2.0%</td></tr>
+<tr><td>Lagrange \(1 : \mu : 0.25\mu\)</td><td>\(\mu \approx 0.032\)</td><td>dominant and the smaller of the two</td><td>3.2%</td></tr>
+<tr><td>Lagrange \(1 : \mu : 4\mu\)</td><td>\(\mu = 0.0083\)</td><td>dominant and the smaller of the two</td><td>3.3%</td></tr>
+<tr><td>Ring, \(n = 7\)</td><td>\(\mu = 2.298/n^3\)</td><td>central and one ring body</td><td>0.87%</td></tr>
+<tr><td>Ring, \(n = 8\)</td><td>\(\mu = 2.298/n^3\)</td><td>central and one ring body</td><td>0.81%</td></tr>
+<tr><td>Ring, \(n = 10\)</td><td>\(\mu = 2.298/n^3\)</td><td>central and one ring body</td><td>0.66%</td></tr>
+<tr><td>Hierarchical, \(m_3 = 0.1\)</td><td>\(D = 2.4\)</td><td>third body and binary (quadrupole)</td><td>3.3%</td></tr>
+<tr><td>Hierarchical, \(m_3 = 1\)</td><td>\(D = 3.1\)</td><td>inner binary (tidal)</td><td>3.4%</td></tr>
+<tr><td>Hierarchical, \(m_3 = 10\)</td><td>\(D = 5.8\)</td><td>inner binary (tidal)</td><td>5.1%</td></tr>
+</tbody></table></div>
+<figure data-fig="A4"><figcaption>Tidal coupling \(\varepsilon\) computed at each simulated stability threshold, on a logarithmic scale. The values are distributed between 0.66% and 5.1%, with no common number.</figcaption></figure>
+<p>The nine thresholds lie between 0.66% and 5.1%, a range of about a factor of eight. This rules out the hypothesis of a universal critical number with this definition of coupling.</p>
+
+<h2>Discussion</h2>
+<h3>Interpretation of the results</h3>
+<p>Three observations stand out:</p>
+<ul>
+<li><b>Common order of magnitude.</b> In the families that have a threshold, the transition to instability occurs when the tidal perturbation reaches one to a few percent of the internal force.</li>
+<li><b>Coupling is not sufficient.</b> Rings with \(n \leq 6\) are unstable for every mass tested, even with coupling well below 1%. For these configurations no threshold exists: the instability is structural and does not depend on the strength of the perturbation.</li>
+<li><b>Systematic dependence.</b> Rings have a lower threshold, decreasing with \(n\). The instability of a ring is collective: many perturbers act coherently, and the mode that becomes unstable involves all the bodies. The local tidal measure does not capture this coherence. In hierarchical systems, the threshold increases with the mass of the third body, which indicates that the mass ratio enters the criterion through a channel beyond the instantaneous tidal force.</li>
+</ul>
+<h3>Resonance overlap</h3>
+<p>The KAM theorem guarantees that, for sufficiently small perturbations of an integrable system, most quasiperiodic motions survive <cite>7</cite>. The transition to large-scale chaos occurs, approximately, when the widths of the resonances between the frequencies of the subsystems begin to overlap, the Chirikov criterion <cite>4</cite>. Mardling showed that the hierarchical stability criterion can be derived from this mechanism, from the overlap of the \(N{:}1\) resonances between the outer and inner periods <cite>5</cite>.</p>
+<p>This formulation is compatible with the three observations. The width of a resonance grows with the square root of the perturbation strength, which accounts for a common scale of a few percent. And the density of resonances depends on the frequency structure of each family, which accounts for different thresholds for rings, triangles, and hierarchies, and even for the absence of a threshold when the mode structure itself is unstable. The 2:1 instability island documented in the Lagrange triangle <cite>8</cite> is a direct example: it occurs at a coupling smaller than the Routh threshold, owing to a frequency coincidence, and not to perturbation strength. The distinction between Lagrange and Lyapunov stability in hierarchical systems <cite>6</cite> reinforces that the instantaneous coupling strength is not, by itself, the control parameter.</p>
+<h3>Limitations</h3>
+<ul>
+<li>The measure is evaluated only at the initial configuration.</li>
+<li>The thresholds depend on the disruption criteria and on the integration time, which differ between families.</li>
+<li>All configurations are planar and, except for the rings, circular.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<p>The heuristic of a single coupling threshold is refuted in its simple form and survives as an order-of-magnitude rule. The natural next step is to replace the instantaneous tidal force by a measure of resonance overlap, computed from the eigenfrequencies of each configuration, and to verify whether it reduces the eightfold scatter observed here.</p>

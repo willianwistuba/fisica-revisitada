@@ -1,0 +1,57 @@
+<p>Antes de propor mecanismos novos de estabilização, convém verificar se o simulador reproduz os critérios clássicos. Este artigo registra essa verificação para três famílias de configurações (triângulo de Lagrange com massas desiguais, anéis com corpo central dominante e sistemas hierárquicos), acrescenta o efeito de dissipação e documenta ilhas de instabilidade ressonante dentro da região linearmente estável.</p>
+
+<h2>Método comum</h2>
+<p>Unidades com \(G = 1\); integração leapfrog com passo fixo de 0,002 (ou adaptativo, proporcional a \(r_{\min}^{3/2}\), nos casos com encontros próximos); cinco perturbações por configuração, de \(10^{-4}\) a \(10^{-3}\) em posição ou velocidade; limite de integração entre 600 e 3000 unidades de tempo, conforme a família. Uma configuração é registrada como estável quando nenhuma perturbação a desfaz dentro do limite, segundo critérios geométricos explícitos para cada família (deformação relativa dos lados acima de 30%, desvio angular entre vizinhos acima de 30% do espaçamento ou ruptura do binário interno).</p>
+
+<h2>1. Triângulo de Lagrange: o limite de Gascheau e Routh</h2>
+<p>Para massas \(m_1, m_2, m_3\) em configuração equilátera girando rigidamente, a estabilidade linear exige</p>
+<div class="eq">\[ (m_1 + m_2 + m_3)^2 > 27\,(m_1 m_2 + m_2 m_3 + m_3 m_1) . \]</div>
+<p>Com massas \(1 : \mu : \mu\), o limite é \(\mu \approx 0{,}0198\), ou seja, o corpo dominante precisa ter mais de cerca de 50 vezes a massa de cada um dos outros. A simulação reproduz o limite: todas as perturbações permanecem limitadas até \(\mu = 0{,}0195\) (deformação máxima de 3,9%); em \(\mu = 0{,}0205\) a deformação cresce lentamente até 18,5% sem romper no intervalo integrado; a partir de \(\mu = 0{,}022\) todas as perturbações rompem o triângulo, com sobrevivência mediana que cai de cerca de 60 unidades de tempo em \(\mu = 0{,}022\) para cerca de 8 em \(\mu = 1\).</p>
+
+<h2>2. Ilhas de instabilidade ressonante</h2>
+<p>A condição de Routh é linear. Dentro da região linearmente estável, as duas frequências próprias de pequenas oscilações em torno do equilátero, no referencial girante, são dadas por</p>
+<div class="eq">\[ s^2 = \frac{1 \pm \sqrt{1 - 27\beta}}{2}, \qquad \beta = \frac{m_1 m_2 + m_2 m_3 + m_3 m_1}{(m_1 + m_2 + m_3)^2} . \]</div>
+<p>Quando a razão \(s_1/s_2\) é um inteiro pequeno, termos não lineares podem transferir energia entre os modos. A varredura com massas \(1 : \mu : \mu\) encontrou exatamente isso: em \(\mu = 0{,}0122\) e \(\mu = 0{,}0124\), onde \(s_1/s_2 = 2{,}02\) e \(1{,}996\), as perturbações maiores (\(10^{-3}\)) desfizeram o triângulo, enquanto em \(\mu = 0{,}0118\) e \(\mu = 0{,}0126\), com razões 2,075 e 1,970, todas as perturbações permaneceram limitadas. Com massas \(1 : \mu : 0{,}25\mu\), a mesma ressonância 2:1 apareceu em \(\mu = 0{,}020\) (\(\beta \approx 0{,}0239\)), dentro de uma faixa que o critério de Routh classifica como estável até \(\mu \approx 0{,}032\).</p>
+<p>O resultado é coerente com a análise não linear clássica do problema restrito, em que a ressonância 2:1 entre as frequências de libração ocorre em \(\mu \approx 0{,}0243\) (Deprit e Deprit-Bartholomé, 1967); em termos de \(\beta\), o valor simulado (\(\beta \approx 0{,}0237\) a \(0{,}0239\)) coincide. A ressonância 3:1, prevista perto de \(\mu \approx 0{,}0068\) nesta família, não se manifestou com as amplitudes testadas.</p>
+
+<h2>3. Anéis com corpo central: o critério de Maxwell</h2>
+<p>No ensaio de 1859 sobre os anéis de Saturno, Maxwell mostrou que \(n\) massas iguais \(\mu\), igualmente espaçadas em órbita circular em torno de um corpo dominante, só podem ser estáveis se \(n \geq 7\), e desde que \(\mu\) fique abaixo de aproximadamente \(2{,}298/n^3\) vezes a massa central. A simulação, sem qualquer informação sobre o critério, produziu:</p>
+<div class="tblwrap"><table>
+<thead><tr><th>\(n\)</th><th>\(0{,}1\times\) limite</th><th>\(0{,}5\times\)</th><th>\(0{,}9\times\)</th><th>\(1{,}5\times\)</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>34 a 46</td><td>19 a 23</td><td>16 a 19</td><td>13 a 16</td></tr>
+<tr><td>4</td><td>58 a 70</td><td>30 a 35</td><td>23 a 28</td><td>20 a 23</td></tr>
+<tr><td>5</td><td>80 a 102</td><td>45 a 56</td><td>36 a 43</td><td>29 a 36</td></tr>
+<tr><td>6</td><td>122 a 159</td><td>69 a 87</td><td>58 a 73</td><td>34 a 40</td></tr>
+<tr><td>7</td><td>estável</td><td>estável</td><td>estável</td><td>32 a 37</td></tr>
+<tr><td>8</td><td>estável</td><td>estável</td><td>estável</td><td>32 a 37</td></tr>
+<tr><td>9</td><td>estável</td><td>estável</td><td>estável</td><td>29 a 36</td></tr>
+</tbody></table></div>
+<p class="note">Valores: tempo de sobrevivência, em unidades de tempo, para três perturbações; "estável" indica sobrevivência a todas as perturbações até \(t = 600\).</p>
+<p>A transição entre \(n = 6\) e \(n = 7\) é nítida, e varreduras mais finas situaram o limite de massa entre \(1{,}0\) e \(1{,}1\) vezes o valor de Maxwell para \(n = 7\), 8 e 10. Para \(n \leq 6\), a sobrevivência aumenta quando a massa do anel diminui, mas a instabilidade persiste, o que concorda com a análise de estabilidade linear de configurações com massa dominante (Moeckel, 1994).</p>
+
+<h2>4. Sistemas hierárquicos</h2>
+<p>Com um binário interno circular de massas iguais (separação 1) e um terceiro corpo de massa \(m_3\) em órbita circular externa a distância \(D\), o limiar de estabilidade simulado foi:</p>
+<div class="tblwrap"><table>
+<thead><tr><th>\(m_3\)</th><th>\(D\) crítico simulado</th><th>Critério de Mardling e Aarseth</th></tr></thead>
+<tbody>
+<tr><td>0,1</td><td>2,4</td><td>2,86</td></tr>
+<tr><td>1</td><td>3,1</td><td>3,29</td></tr>
+<tr><td>10</td><td>5,8</td><td>5,73</td></tr>
+</tbody></table></div>
+<p>O critério empírico de Mardling e Aarseth (2001), para órbitas circulares e coplanares, reduz-se a \(D/a_{\text{in}} > 2{,}8\,(1 + m_3/(m_1 + m_2))^{2/5}\). A concordância é boa para \(m_3 \geq 1\). Para \(m_3 = 0{,}1\), o limiar simulado é menor, o que é esperado: o critério foi calibrado para ser conservador e cobre órbitas excêntricas, e a integração aqui é limitada a cerca de 340 períodos do binário interno.</p>
+
+<h2>5. Dissipação destrói a estabilidade giroscópica</h2>
+<p>Os pontos triangulares de Lagrange são máximos do potencial efetivo no referencial girante. A estabilidade, quando existe, é giroscópica: a força de Coriolis converte o afastamento em movimento ao redor do ponto. O teorema de Kelvin, Tait e Chetaev afirma que estabilidade giroscópica de um máximo de potencial não resiste a dissipação. Para verificar, foi aplicado um arrasto linear \(-\gamma(\mathbf{v} - \boldsymbol{\Omega} \times \mathbf{r})\) sobre os corpos menores de um triângulo estável com \(\mu = 0{,}01\):</p>
+<div class="tblwrap"><table>
+<thead><tr><th>\(\gamma\)</th><th>Sobrevivência (duas perturbações)</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>estável até \(t = 3000\)</td></tr>
+<tr><td>\(10^{-4}\)</td><td>estável até \(t = 3000\)</td></tr>
+<tr><td>\(10^{-3}\)</td><td>1459 e 2269</td></tr>
+<tr><td>\(10^{-2}\)</td><td>162 e 231</td></tr>
+</tbody></table></div>
+<p>O tempo de ruptura escala aproximadamente com \(1/\gamma\), como esperado de uma instabilidade secular induzida por dissipação. Para \(\gamma = 10^{-4}\), o tempo característico excede o intervalo integrado.</p>
+
+<h2>Síntese</h2>
+<p>Em todas as famílias estáveis, o sistema se decompõe em subsistemas aproximadamente keplerianos, e o acoplamento entre eles fica abaixo de um limiar. A separação de escalas vem da massa (Routh), da distância (hierarquia) ou do número e da simetria com massa dominante (Maxwell). Dentro das regiões estáveis, ressonâncias entre frequências próprias abrem ilhas de instabilidade, e a dissipação destrói a estabilidade de origem giroscópica. O artigo seguinte testa se esses limiares podem ser descritos por um único número de acoplamento.</p>

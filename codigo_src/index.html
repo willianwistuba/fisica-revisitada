@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Código · Caderno dos Três Corpos</title>
+<meta name="description" content="Scripts usados nos experimentos numéricos do Caderno dos Três Corpos.">
+<link rel="canonical" href="https://caderno-tres-corpos.vercel.app/codigo/">
+<meta property="og:title" content="Código · Caderno dos Três Corpos">
+<meta property="og:description" content="Scripts usados nos experimentos numéricos do Caderno dos Três Corpos.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://caderno-tres-corpos.vercel.app/codigo/">
+<meta name="theme-color" content="#111214">
+<link rel="alternate" type="application/rss+xml" title="Caderno dos Três Corpos" href="/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/estilo.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='8' cy='16' r='6' fill='%23E8360C'/%3E%3Ccircle cx='24' cy='9' r='5' fill='%231F3FE0'/%3E%3Ccircle cx='23' cy='24' r='5' fill='%23B57C00'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="/"><span class="dots"><i></i><i></i><i></i></span>Caderno dos Três Corpos</a>
+<nav class="main" aria-label="Principal"><a href="/">Artigos</a><a href="/codigo/">Código</a><a href="/sobre/">Sobre</a></nav>
+</div></header>
+<main id="conteudo"><div class="wrap"><div class="page"><span class="eyebrow">Reprodutibilidade</span><h1 style="margin-top:12px">Código dos experimentos</h1>
+<p>Todos os números dos artigos vêm destes scripts em JavaScript, que rodam com Node.js sem dependências externas (<code>node fase1.js</code>). As unidades usam G = 1. O integrador é o leapfrog no esquema kick-drift-kick.</p>
+<ul><li><a href="/codigo/core.js"><code>core.js</code></a>: Integrador leapfrog e montagem do triângulo de Lagrange com massas quaisquer, opcionalmente com um binário no lugar de um vértice.</li><li><a href="/codigo/fase1.js"><code>fase1.js</code></a>: Limite de Gascheau e Routh com massas 1 : μ : μ.</li><li><a href="/codigo/fase2.js"><code>fase2.js</code></a>: Binário no lugar do corpo dominante, na fronteira de estabilidade.</li><li><a href="/codigo/fase3.js"><code>fase3.js</code></a>: Anéis de n corpos com corpo central: critério de Maxwell.</li><li><a href="/codigo/fase4.js"><code>fase4.js</code></a>: Dissipação sobre o triângulo estável.</li><li><a href="/codigo/fase5.js"><code>fase5.js</code></a>: Sistemas hierárquicos com massas iguais.</li><li><a href="/codigo/sim.js"><code>sim.js</code></a>: Experimento de estabilização vibracional: triângulo com binário central e controle.</li><li><a href="/codigo/verify.js"><code>verify.js</code></a>: Limiares de Lagrange com massas desiguais.</li><li><a href="/codigo/verify2.js"><code>verify2.js</code></a>: Limiares dos anéis e acoplamento de maré.</li><li><a href="/codigo/verify3.js"><code>verify3.js</code></a>: Limiares hierárquicos com massas desiguais.</li></ul>
+<p class="note">Os scripts são notas de trabalho, escritos para clareza e não para desempenho. Alguns dependem de <code>core.js</code> ou de <code>sim.js</code> na mesma pasta.</p></div></div></main>
+<footer><div class="wrap">
+<div><b style="color:var(--ink)">Caderno dos Três Corpos</b><br>Notas de pesquisa independente sobre o problema dos três corpos e a estabilidade de sistemas gravitacionais de poucos corpos.<br><br>O autor não é físico. Os experimentos numéricos, a pesquisa bibliográfica e a redação contam com assistência de inteligência artificial. Os resultados não passaram por revisão por pares. <a href="/sobre/">Saiba mais</a>.</div>
+<div><a href="/">Artigos</a><br><a href="/codigo/">Código dos experimentos</a><br><a href="/sobre/">Sobre e transparência</a><br><a href="/rss.xml">RSS</a></div>
+</div></footer>
+</body>
+</html>

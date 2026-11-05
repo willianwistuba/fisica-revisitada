@@ -1,0 +1,76 @@
+<h2>Introdução</h2>
+<p>O triângulo equilátero de Lagrange com três massas iguais é uma solução exata do problema dos três corpos, mas é instável: não satisfaz a condição de Gascheau e Routh, que exige um corpo dominante <cite>1,7</cite>. Qualquer perturbação, por menor que seja, cresce até desfazer o triângulo, e o sistema evolui para a ejeção de um dos corpos. A nota FR-TC-05 mostrou que, com massas iguais, o binário sobrevivente só se define no último encontro próximo <cite>6</cite>. Esta nota examina a mesma questão a partir do outro extremo, o início da desintegração, com duas perguntas: o corpo que primeiro se afasta da configuração, o "primeiro dissidente", é o que será ejetado? E, quando duas massas leves disputam uma pesada, a leve que primeiro forma um par próximo com a pesada tende a permanecer com ela?</p>
+
+<h2>Método</h2>
+<h3>Simulações</h3>
+<p>Usamos o integrador regularizado das notas anteriores <cite>5</cite>, em simulações planas com \(G = 1\), sem amortecimento do potencial e com o critério de ejeção da nota FR-TC-05 <cite>6</cite>. O erro relativo de energia ficou abaixo de \(5 \times 10^{-9}\) em todas as corridas. O limite de integração foi de 500 tempos de cruzamento.</p>
+<h3>Primeiro dissidente</h3>
+<p>Partimos do triângulo equilátero de lado 1 girando rigidamente com velocidade angular \(\Omega = \sqrt{GM}\), com perturbações gaussianas independentes de amplitude \(\epsilon\) em posição e velocidade. Para massas iguais, usamos \(\epsilon = 10^{-8}\), \(10^{-5}\) e \(10^{-3}\), com 400 corridas cada. Para massas desiguais, usamos os grupos (1, 1, 3), (1, 1, 10), (3, 3, 1) e (10, 10, 1), com \(\epsilon = 10^{-5}\) e \(10^{-3}\) e 400 corridas cada. O dissidente foi definido de quatro modos: o corpo que recebeu a maior perturbação de posição; o corpo mais afastado, em relação ao equilíbrio, do centro de massa dos outros dois, quando a deformação máxima dos lados atinge 10% e 30%; e o corpo excluído do primeiro encontro próximo, isto é, o primeiro instante em que um lado fica abaixo de 0,2.</p>
+<h3>Primeiro contato</h3>
+<p>Para massas \((1, 1, q)\), com \(q = 2\), 3, 10 e 30, chamamos de primeiro contato o primeiro instante em que a distância entre a massa pesada e uma das leves fica abaixo de uma fração \(f\) do raio característico \(r_{\rm v} = \sum_{i&lt;j} m_i m_j / |W_0|\), em que \(W_0\) é a energia potencial inicial; usamos \(f = 0{,}1\), 0,2 e 0,3. Testamos três tipos de partida, com 2.500 corridas em cada combinação, num total de 30.000: o triângulo de Lagrange com \(\epsilon = 10^{-3}\), em que as duas leves começam em posições equivalentes; a partida do repouso com posições aleatórias; e a partida com velocidades aleatórias e razão virial 0,5. Como controle, avaliamos o previsor "fica a leve que começou mais perto da pesada", que separa o efeito do contato do efeito da geometria inicial. Consideramos apenas as corridas em que uma das leves foi ejetada.</p>
+
+<h3>Ligação do par no primeiro contato</h3>
+<p>Para investigar a origem do efeito, repetimos 1.500 corridas por combinação de partida e razão de massas, com as mesmas sementes, num total de 18.000, e registramos, no instante do primeiro contato com \(f = 0{,}1\), a energia de ligação do par recém-formado, \(E_{\rm b} = -E_{ij}\), em unidades do módulo da energia total do sistema, \(|E|\). O caso \(E_{\rm b} > |E|\) tem significado direto: o par guarda mais ligação que o sistema inteiro, de modo que, em primeira aproximação, a energia que resta para o terceiro corpo é positiva.</p>
+
+<h2>Resultados</h2>
+<h3>Massas iguais: o dissidente não prevê o desfecho</h3>
+<p>A Tabela I mostra que nenhuma das quatro definições de dissidente prevê o corpo ejetado melhor que o acaso. Entre a primeira deformação e a ejeção ocorrem, na mediana, de 105 a 135 encontros próximos. A fase inicial, em contraste, segue a análise linear: o tempo até 10% de deformação, medido em voltas do triângulo, foi de 1,05, 2,09 e 3,63 para \(\epsilon = 10^{-3}\), \(10^{-5}\) e \(10^{-8}\). Cada redução de mil vezes na perturbação atrasa a ruptura em pouco mais de uma volta, coerente com uma taxa de crescimento da ordem de \(\Omega\).</p>
+<div class="tblwrap"><p class="cap">Triângulo de Lagrange de massas iguais: taxa de acerto do corpo ejetado para cada definição de dissidente. Acaso: 0,33. Ejeções por coluna: 346, 349 e 348.</p><table>
+<thead><tr><th>Definição do dissidente</th><th>\(\epsilon = 10^{-8}\)</th><th>\(\epsilon = 10^{-5}\)</th><th>\(\epsilon = 10^{-3}\)</th></tr></thead>
+<tbody>
+<tr><td>maior perturbação inicial</td><td>0,33</td><td>0,33</td><td>0,38</td></tr>
+<tr><td>mais afastado com 10% de deformação</td><td>0,32</td><td>0,33</td><td>0,31</td></tr>
+<tr><td>mais afastado com 30% de deformação</td><td>0,29</td><td>0,35</td><td>0,34</td></tr>
+<tr><td>excluído do primeiro encontro próximo</td><td>0,40</td><td>0,33</td><td>0,38</td></tr>
+</tbody></table></div>
+<h3>Massas desiguais: o sinal do dissidente é a massa disfarçada</h3>
+<p>Com massas desiguais, o corpo mais leve foi ejetado em 94% a 100% das corridas. O dissidente "mais afastado" acertou de 32% a 52%, acima do acaso nos grupos com duas massas grandes, mas apenas porque, nesses grupos, o dissidente é frequentemente o corpo leve. Nos grupos com duas massas leves iguais, o dissidente não indica qual das duas é ejetada: o acerto ficou entre 43% e 52%, para um acaso de 50%. O número mediano de encontros próximos até a ejeção caiu de 65 a 93 nos grupos com duas leves para 22 a 33 no grupo (3, 3, 1) e 4 no grupo (10, 10, 1).</p>
+<h3>Primeiro contato</h3>
+<p>A Tabela II resume o efeito do primeiro contato com \(f = 0{,}1\), e a Fig. 1 o mostra para a partida simétrica nos três limiares.</p>
+<div class="tblwrap"><p class="cap">Fração de corridas em que a leve do primeiro contato com a pesada permanece no binário final (\(f = 0{,}1\)), comparada com o previsor da proximidade inicial. "Discordantes": corridas em que as duas regras apontam leves diferentes, e fração em que o contato vence. Acaso: 0,50. O intervalo de confiança de 95% é de cerca de \(\pm 0{,}02\) nas colunas principais.</p><table>
+<thead><tr><th>Partida</th><th>\(q\)</th><th>Corridas</th><th>Contato fica</th><th>Mais perto fica</th><th>Discordantes</th><th>Contato vence</th></tr></thead>
+<tbody>
+<tr><td>Lagrange</td><td>2</td><td>1819</td><td>0,64</td><td>0,48</td><td>980</td><td>0,64</td></tr>
+<tr><td>Lagrange</td><td>3</td><td>1743</td><td>0,73</td><td>0,49</td><td>949</td><td>0,72</td></tr>
+<tr><td>Lagrange</td><td>10</td><td>1206</td><td>0,78</td><td>0,50</td><td>651</td><td>0,77</td></tr>
+<tr><td>Lagrange</td><td>30</td><td>659</td><td>0,83</td><td>0,51</td><td>319</td><td>0,82</td></tr>
+<tr><td>repouso</td><td>2</td><td>2346</td><td>0,61</td><td>0,59</td><td>152</td><td>0,66</td></tr>
+<tr><td>repouso</td><td>3</td><td>2392</td><td>0,58</td><td>0,55</td><td>140</td><td>0,71</td></tr>
+<tr><td>repouso</td><td>10</td><td>2440</td><td>0,55</td><td>0,54</td><td>117</td><td>0,60</td></tr>
+<tr><td>repouso</td><td>30</td><td>2388</td><td>0,57</td><td>0,57</td><td>68</td><td>0,47</td></tr>
+<tr><td>virial</td><td>2</td><td>1886</td><td>0,55</td><td>0,53</td><td>791</td><td>0,52</td></tr>
+<tr><td>virial</td><td>3</td><td>1928</td><td>0,54</td><td>0,55</td><td>819</td><td>0,49</td></tr>
+<tr><td>virial</td><td>10</td><td>1832</td><td>0,59</td><td>0,59</td><td>810</td><td>0,51</td></tr>
+<tr><td>virial</td><td>30</td><td>1796</td><td>0,59</td><td>0,60</td><td>754</td><td>0,50</td></tr>
+</tbody></table></div>
+<figure data-fig="A7"><figcaption>Partida simétrica (triângulo de Lagrange perturbado): fração de corridas em que a leve do primeiro contato permanece com a pesada, para contato a 10% e a 30% do raio característico, e fração em que permanece a leve que começou mais perto, em função da razão de massas \(q\). A linha tracejada indica o acaso.</figcaption></figure>
+<p>Na partida simétrica, o efeito é forte e cresce com a razão de massas, de 64% para \(q = 2\) a 83% para \(q = 30\), enquanto a proximidade inicial não tem poder preditivo (48% a 51%). O efeito é mais forte para contatos mais apertados: com \(f = 0{,}3\), fica entre 53% e 64%. Nas partidas aleatórias, a leve do primeiro contato permanece em 54% a 61% das corridas, mas o previsor da proximidade inicial acerta quase o mesmo, porque em geral a leve que começa mais perto é a que faz o primeiro contato. Nos casos discordantes, o contato vence na partida do repouso para \(q \leq 10\) (60% a 71%) e empata na partida virial (49% a 52%). Quando o primeiro contato ocorre depois de um tempo de cruzamento, na partida virial, o efeito sobe para 54% a 74%, com amostras menores.</p>
+
+<h3>Origem do efeito</h3>
+<p>A Tabela III separa as corridas em que o par do primeiro contato nasce com \(E_{\rm b} > |E|\). Nesses casos, a leve do contato permanece em 91% a 100% das corridas, nas células com pelo menos 50 casos, e a ejeção da outra leve ocorre, em 88% a 100% delas, menos de um tempo de cruzamento depois do contato: o primeiro contato é, ele próprio, o encontro que expulsa. Esses casos são frequentes na partida simétrica (20% a 36% das corridas), menos frequentes na partida virial (11% a 16%) e raros na partida do repouso (até 4%), o que explica boa parte da diferença entre as famílias.</p>
+<div class="tblwrap"><p class="cap">Primeiro contato decomposto pela ligação do par recém-formado. "Decisivos": corridas com \(E_{\rm b} > |E|\) no contato. "Demais": as restantes, com a fração em que a leve do contato permanece no conjunto e no terço de pares mais ligados. Acaso: 0,50.</p><table>
+<thead><tr><th>Partida</th><th>\(q\)</th><th>Corridas</th><th>Decisivos</th><th>Contato fica (decisivos)</th><th>Contato fica (demais)</th><th>Demais, terço mais ligado</th></tr></thead>
+<tbody>
+<tr><td>Lagrange</td><td>2</td><td>1108</td><td>0,20</td><td>0,99</td><td>0,56</td><td>0,63</td></tr>
+<tr><td>Lagrange</td><td>3</td><td>1046</td><td>0,26</td><td>0,99</td><td>0,62</td><td>0,71</td></tr>
+<tr><td>Lagrange</td><td>10</td><td>724</td><td>0,36</td><td>1,00</td><td>0,66</td><td>0,72</td></tr>
+<tr><td>Lagrange</td><td>30</td><td>396</td><td>0,28</td><td>1,00</td><td>0,74</td><td>0,80</td></tr>
+<tr><td>repouso</td><td>2</td><td>1396</td><td>0,04</td><td>0,91</td><td>0,59</td><td>0,57</td></tr>
+<tr><td>repouso</td><td>3</td><td>1439</td><td>0,04</td><td>0,96</td><td>0,57</td><td>0,58</td></tr>
+<tr><td>repouso</td><td>10</td><td>1468</td><td>0,01</td><td>0,60</td><td>0,56</td><td>0,60</td></tr>
+<tr><td>repouso</td><td>30</td><td>1428</td><td>0,00</td><td>sem casos</td><td>0,56</td><td>0,57</td></tr>
+<tr><td>virial</td><td>2</td><td>1127</td><td>0,11</td><td>0,91</td><td>0,49</td><td>0,55</td></tr>
+<tr><td>virial</td><td>3</td><td>1167</td><td>0,14</td><td>0,92</td><td>0,47</td><td>0,60</td></tr>
+<tr><td>virial</td><td>10</td><td>1096</td><td>0,15</td><td>0,96</td><td>0,52</td><td>0,66</td></tr>
+<tr><td>virial</td><td>30</td><td>1072</td><td>0,16</td><td>0,97</td><td>0,52</td><td>0,60</td></tr>
+</tbody></table></div>
+<p>Excluídos os contatos decisivos, resta um efeito menor. Na partida simétrica, a leve do contato permanece em 56% a 74% das corridas, ainda crescendo com \(q\); na partida do repouso, em 56% a 59%; na virial, em 47% a 52%, no nível do acaso. Dentro desse resíduo, a ligação continua a importar: no terço de pares mais ligados, a permanência sobe para 63% a 80% na partida simétrica e para 55% a 66% na virial, mas não na partida do repouso. Registramos também a razão entre a velocidade orbital do par e a velocidade de chegada da outra leve, como na nota FR-TC-06. No instante do contato, essa razão é uma medida enganosa: ela reflete sobretudo a velocidade da outra leve, que é alta justamente quando ela está de saída.</p>
+
+<h2>Discussão</h2>
+<p>Com massas iguais, a ausência de memória entre o início e o fim da desintegração é consequência da longa sequência de encontros próximos que os separa: cada encontro redistribui energia e momento angular entre os pares e apaga a informação sobre a deformação inicial. O resultado complementa o da nota FR-TC-05 <cite>6</cite>: nem o início nem o meio da evolução preveem o desfecho com massas iguais.</p>
+<p>O efeito do primeiro contato tem interpretação física direta. Quando uma leve se aproxima muito da pesada, forma-se um par cuja energia de ligação cresce com a massa da pesada. Pela lei de Heggie <cite>2,3</cite>, encontros posteriores com a outra leve tendem a apertar esse par duro e a arremessar a intrusa, de modo que a vantagem de quem chega primeiro aumenta com \(q\) e com a proximidade do contato. Na partida simétrica, a vantagem aparece isolada, porque as duas leves começam em posições equivalentes. Nas partidas aleatórias, ela se mistura à geometria inicial e, na partida virial, as velocidades iniciais distribuem as aproximações de modo que o primeiro contato perde informação, exceto quando ocorre tarde.</p>
+<p>A decomposição da Tabela III mostra que boa parte do efeito do primeiro contato vem de contatos decisivos, em que o par formado já é duro o bastante para que o terceiro corpo tenha energia de escape: a expulsão acontece no próprio encontro. O efeito residual é coerente com a lei de Heggie <cite>2,3</cite>: pares mais ligados tendem a sobreviver aos encontros seguintes e a ejetar a intrusa. A medida relevante é a energia de ligação do par comparada com a energia total do sistema, e não a razão instantânea de velocidades.</p>
+<p>As limitações principais são as seguintes. As simulações são planas. As definições de dissidente, de contato e de encontro próximo são escolhas nossas, embora os resultados sejam estáveis entre os limiares testados. A partida simétrica é um caso especial: o efeito forte que ela revela não se transfere integralmente a condições iniciais genéricas. A detecção de contatos usa a trajetória registrada, que é dizimada em corridas longas, o que pode deixar de registrar aproximações muito breves.</p>
+
+<h2>Conclusões</h2>
+<p>O primeiro corpo a se afastar do triângulo de Lagrange não prevê o corpo ejetado: com massas iguais, o acerto fica no nível do acaso, e, com massas desiguais, o sinal aparente é efeito da massa. Já o primeiro contato apertado entre uma leve e a pesada tem um efeito real: numa partida simétrica, a leve que o forma permanece com a pesada em 64% a 83% dos casos, com vantagem crescente com a razão de massas. Em partidas genéricas, o efeito é fraco e em boa parte equivalente à vantagem de começar mais perto. A decomposição pela ligação do par mostra a origem do efeito: em 11% a 36% das corridas com velocidade ou partida simétrica, o par do primeiro contato já guarda mais ligação que a energia total do sistema, e a outra leve é expulsa no próprio encontro, com permanência da leve do contato em 91% a 100% dos casos; fora desses casos, o efeito é menor e cresce com a ligação do par.</p>

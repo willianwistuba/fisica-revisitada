@@ -1,0 +1,45 @@
+<p>Os critérios clássicos de estabilidade para configurações de poucos corpos (Gascheau e Routh, Maxwell, Mardling e Aarseth) foram deduzidos por caminhos diferentes e se expressam em variáveis diferentes. Uma inspeção grosseira sugeriu que, nos três limiares, a perturbação entre subsistemas representa alguns por cento da força que mantém cada subsistema coeso. Este artigo testa essa heurística com uma medida padronizada e com famílias adicionais. O resultado é que a heurística não se sustenta como constante universal, mas descreve corretamente a ordem de grandeza.</p>
+
+<h2>Definição da medida de acoplamento</h2>
+<p>Cada configuração estável conhecida pode ser decomposta em subsistemas de dois corpos aproximadamente keplerianos. Para cada subsistema \(S\), formado pelos corpos \(a\) e \(b\), define-se</p>
+<div class="eq">\[ \varepsilon_S = \frac{\left\lvert \sum_{k \notin S} \left(\mathbf{a}_{a,k} - \mathbf{a}_{b,k}\right) \right\rvert}{G\,(m_a + m_b)/r_{ab}^2}, \]</div>
+<p>em que \(\mathbf{a}_{i,k}\) é a aceleração produzida no corpo \(i\) pelo corpo externo \(k\). O numerador é a aceleração de maré, isto é, a diferença de atração que os corpos externos exercem sobre as duas extremidades do subsistema; o denominador é a aceleração relativa interna. O acoplamento da configuração é \(\varepsilon = \max_S \varepsilon_S\), avaliado na configuração inicial. Para o corpo externo de um sistema hierárquico, o subsistema relevante é o par formado por ele e pelo centro de massa do binário, e a perturbação é o termo quadrupolar do binário.</p>
+
+<h2>Famílias e limiares</h2>
+<p>Os limiares foram obtidos por simulação direta, com integrador leapfrog, várias perturbações por ponto e critérios geométricos de ruptura descritos no artigo anterior. Em seguida, \(\varepsilon\) foi calculado exatamente no limiar.</p>
+<div class="tblwrap"><table>
+<thead><tr><th>Família</th><th>Parâmetro no limiar</th><th>Subsistema dominante</th><th>\(\varepsilon\) no limiar</th></tr></thead>
+<tbody>
+<tr><td>Lagrange \(1 : \mu : \mu\)</td><td>\(\mu = 0{,}0206\)</td><td>dominante e um menor</td><td>2,0%</td></tr>
+<tr><td>Lagrange \(1 : \mu : 0{,}25\mu\)</td><td>\(\mu \approx 0{,}032\)</td><td>dominante e o menor dos dois</td><td>3,2%</td></tr>
+<tr><td>Lagrange \(1 : \mu : 4\mu\)</td><td>\(\mu = 0{,}0083\)</td><td>dominante e o menor dos dois</td><td>3,3%</td></tr>
+<tr><td>Anel, \(n = 7\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>central e um do anel</td><td>0,87%</td></tr>
+<tr><td>Anel, \(n = 8\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>central e um do anel</td><td>0,81%</td></tr>
+<tr><td>Anel, \(n = 10\)</td><td>\(\mu = 2{,}298/n^3\)</td><td>central e um do anel</td><td>0,66%</td></tr>
+<tr><td>Hierárquico, \(m_3 = 0{,}1\)</td><td>\(D = 2{,}4\)</td><td>terceiro e binário (quadrupolo)</td><td>3,3%</td></tr>
+<tr><td>Hierárquico, \(m_3 = 1\)</td><td>\(D = 3{,}1\)</td><td>binário interno (maré)</td><td>3,4%</td></tr>
+<tr><td>Hierárquico, \(m_3 = 10\)</td><td>\(D = 5{,}8\)</td><td>binário interno (maré)</td><td>5,1%</td></tr>
+</tbody></table></div>
+{{FIG_A4}}
+
+<h2>Leitura dos resultados</h2>
+<p>Os nove limiares ficam entre 0,66% e 5,1%, uma faixa de cerca de oito vezes. Isso afasta a hipótese de um número crítico universal com essa definição de acoplamento. Três observações se destacam:</p>
+<ul>
+<li><b>Ordem de grandeza comum.</b> Nas famílias que possuem limiar, a transição para a instabilidade ocorre quando a perturbação de maré atinge de um a alguns por cento da força interna.</li>
+<li><b>O acoplamento não basta.</b> Anéis com \(n \leq 6\) são instáveis para qualquer massa testada, inclusive com acoplamento bem abaixo de 1%. Para essas configurações não existe limiar: a instabilidade é estrutural e não depende da intensidade da perturbação.</li>
+<li><b>Dependência sistemática.</b> Os anéis têm limiar mais baixo, e decrescente com \(n\). A instabilidade de um anel é coletiva: muitos perturbadores atuam de forma coerente, e o modo que se torna instável envolve todos os corpos. A medida local de maré não captura essa coerência. Nos sistemas hierárquicos, o limiar cresce com a massa do terceiro corpo, o que indica que a razão de massas entra no critério por um caminho além da força de maré instantânea.</li>
+</ul>
+
+<h2>Uma explicação melhor: sobreposição de ressonâncias</h2>
+<p>O teorema KAM garante que, para perturbações suficientemente pequenas de um sistema integrável, a maior parte dos movimentos quase periódicos sobrevive. A transição para o caos em larga escala ocorre, aproximadamente, quando as larguras das ressonâncias entre as frequências dos subsistemas passam a se sobrepor, o critério de Chirikov. Mardling mostrou que o critério de estabilidade hierárquica pode ser derivado desse mecanismo, a partir da sobreposição das ressonâncias \(N{:}1\) entre o período externo e o interno.</p>
+<p>Essa formulação é compatível com as três observações. A largura de uma ressonância cresce com a raiz quadrada da intensidade da perturbação, o que justifica uma escala comum de alguns por cento. E a densidade de ressonâncias depende da estrutura de frequências de cada família, o que justifica limiares diferentes para anéis, triângulos e hierarquias, e até a ausência de limiar quando a própria estrutura de modos é instável. A ilha de instabilidade 2:1 documentada no triângulo de Lagrange é um exemplo direto: ela ocorre num acoplamento menor que o limiar de Routh, por coincidência de frequências, e não por intensidade de perturbação.</p>
+
+<h2>Conclusão</h2>
+<p>A heurística de um limiar único de acoplamento foi refutada na forma simples e sobrevive como regra de ordem de grandeza. O próximo passo natural é substituir a força de maré instantânea por uma medida de sobreposição de ressonâncias, calculada a partir das frequências próprias de cada configuração, e verificar se ela reduz a dispersão de oito vezes observada aqui.</p>
+
+<h2>Limitações</h2>
+<ul>
+<li>A medida é avaliada apenas na configuração inicial.</li>
+<li>Os limiares dependem dos critérios de ruptura e do tempo de integração, que diferem entre famílias.</li>
+<li>Todas as configurações são planas e, salvo os anéis, circulares.</li>
+</ul>

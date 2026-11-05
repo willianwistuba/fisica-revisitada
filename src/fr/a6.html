@@ -1,0 +1,43 @@
+<h2>Introduction</h2>
+<p>La note précédente de la série <cite>6</cite> a montré que, dans la désintégration de systèmes à trois corps à masses inégales, la règle « la paire des deux plus lourds reste » prédit l’issue mieux que n’importe quel signal énergétique des trajectoires. Reste la question du rôle de la vitesse. Dans la théorie des rencontres entre binaires et corps isolés, l’issue dépend de la comparaison entre la vitesse orbitale du binaire et la vitesse d’arrivée de l’intrus : les binaires durs, qui tournent vite face à un intrus lent, tendent à se resserrer et à le projeter au loin, tandis que les binaires mous tendent à se défaire <cite>1,2</cite>.</p>
+<p>Cette note teste si cette comparaison de vitesses prédit quel corps sera éjecté et, surtout, si elle apporte une information supplémentaire par rapport aux masses. Le résultat est que la vitesse porte un signal faible, utile seulement lorsque les masses ne tranchent pas.</p>
+
+<h2>Méthode</h2>
+<h3>Simulations</h3>
+<p>Nous utilisons le même intégrateur régularisé <cite>4,5</cite>, les mêmes critères d’éjection et les deux mêmes ensembles de conditions initiales que dans la note précédente <cite>6</cite> : départ au repos et rapport du viriel de 0,5, en simulations planes avec \(G = 1\). Nous effectuons 300 simulations par ensemble pour les groupes de masses (1, 1, 1), (1, 1, 3), (1, 1, 10), (3, 3, 1) et (10, 10, 1), avec les mêmes graines que dans la note précédente, et 600 simulations par ensemble avec des masses tirées indépendamment, selon une loi log-uniforme entre 1 et 10, soit 4 200 simulations au total. Nous avons analysé les simulations dont l’éjection est précédée d’au moins un péricentre et dont l’erreur relative sur l’énergie est inférieure à \(10^{-4}\), soit entre 245 et 597 par ligne.</p>
+<h3>Rapport des vitesses</h3>
+<p>Pour chaque corps candidat \(k\), nous considérons la paire formée par les deux autres, \(i\) et \(j\), et nous définissons</p>
+<div class="eq">\[ \rho_k = \frac{v_{\rm orb}}{V_k}, \qquad v_{\rm orb}^2 = \frac{2\,|E_{ij}|}{\mu_{ij}}, \]</div>
+<p>où \(E_{ij} < 0\) est l’énergie de la paire, \(\mu_{ij}\) sa masse réduite et \(V_k\) la vitesse de \(k\) relative au centre de masse de la paire ; si la paire n’est pas liée, \(\rho_k = 0\). De grandes valeurs de \(\rho_k\) correspondent à une paire qui tourne vite face à un troisième corps lent, cas où l’on attend l’éjection de \(k\).</p>
+<h3>Prédicteurs</h3>
+<p>Nous comparons, aux fractions \(f = 0{,}25\), 0,5, 0,75 et 0,9 du temps jusqu’à l’éjection : (i) masses : le corps éjecté est le plus léger, les égalités étant comptées comme une réussite fractionnaire ; (ii) vitesse instantanée : le corps éjecté est le \(k\) de plus grand \(\rho_k\) à l’instant \(f\,t_{\rm ej}\) ; (iii) vitesse moyenne : le corps éjecté est le \(k\) de plus grande moyenne temporelle de \(\ln \rho_k\) sur l’intervalle \([0, f\,t_{\rm ej}]\), avec \(\rho_k\) borné inférieurement à 0,01 ; (iv) modèle combiné : un logit conditionnel, dans lequel la probabilité d’éjection de \(k\) est proportionnelle à \(\exp(\beta_1 \ln m_k + \beta_2 \ln \rho_k + \beta_3 \langle \ln \rho_k \rangle)\), ajusté séparément dans chaque ensemble, avec tous les groupes de masses, et évalué par validation croisée en cinq parties.</p>
+
+<h2>Résultats</h2>
+<p>Le Tableau I résume les taux de réussite en \(f = 0{,}5\), et la Fig. 1 les compare pour le départ au repos. Les résultats sont qualitativement identiques aux autres fractions de temps.</p>
+<div class="tblwrap"><p class="cap">Taux de réussite sur le corps éjecté en \(f = 0{,}5\), par groupe de masses et par ensemble (R : départ au repos ; V : viriel). Hasard : 0,33. L’erreur binomiale est d’environ trois points de pourcentage.</p><table>
+<thead><tr><th>Masses</th><th>Ens.</th><th>Simulations</th><th>Plus léger</th><th>Vitesse instantanée</th><th>Vitesse moyenne</th><th>Modèle combiné</th></tr></thead>
+<tbody>
+<tr><td>1, 1, 1</td><td>R</td><td>295</td><td>0,33</td><td>0,34</td><td>0,37</td><td>0,37</td></tr>
+<tr><td>1, 1, 1</td><td>V</td><td>261</td><td>0,33</td><td>0,47</td><td>0,43</td><td>0,43</td></tr>
+<tr><td>1, 1, 3</td><td>R</td><td>299</td><td>0,49</td><td>0,51</td><td>0,56</td><td>0,56</td></tr>
+<tr><td>1, 1, 3</td><td>V</td><td>264</td><td>0,49</td><td>0,51</td><td>0,50</td><td>0,54</td></tr>
+<tr><td>1, 1, 10</td><td>R</td><td>296</td><td>0,50</td><td>0,59</td><td>0,60</td><td>0,58</td></tr>
+<tr><td>1, 1, 10</td><td>V</td><td>254</td><td>0,50</td><td>0,63</td><td>0,61</td><td>0,66</td></tr>
+<tr><td>3, 3, 1</td><td>R</td><td>298</td><td>0,94</td><td>0,60</td><td>0,70</td><td>0,94</td></tr>
+<tr><td>3, 3, 1</td><td>V</td><td>256</td><td>0,91</td><td>0,62</td><td>0,69</td><td>0,91</td></tr>
+<tr><td>10, 10, 1</td><td>R</td><td>299</td><td>0,98</td><td>0,56</td><td>0,72</td><td>0,98</td></tr>
+<tr><td>10, 10, 1</td><td>V</td><td>245</td><td>0,98</td><td>0,74</td><td>0,82</td><td>0,98</td></tr>
+<tr><td>aléatoires</td><td>R</td><td>597</td><td>0,71</td><td>0,54</td><td>0,57</td><td>0,72</td></tr>
+<tr><td>aléatoires</td><td>V</td><td>526</td><td>0,76</td><td>0,54</td><td>0,57</td><td>0,76</td></tr>
+</tbody></table></div>
+<figure data-fig="A6"><figcaption>Taux de réussite sur le corps éjecté pour le départ au repos, en \(f = 0{,}5\) : prédicteur du corps le plus léger, prédicteur de la vitesse moyenne et modèle combiné. La ligne en tirets indique le hasard.</figcaption></figure>
+<p>Trois tendances se dégagent. Avec des masses égales, le rapport des vitesses porte un signal faible : de 34 % à 47 % de réussite, contre 33 % pour le hasard, plus marqué dans l’ensemble viriel. Avec des masses inégales et un corps nettement plus léger, la vitesse seule est largement battue par les masses, par exemple 60 % à 70 % contre 91 % à 94 % dans le groupe (3, 3, 1). Enfin, le modèle combiné ne dépasse le prédicteur des masses que lorsque les masses sont à égalité, c’est-à-dire lorsqu’il y a deux corps légers identiques : dans les groupes (1, 1, 3) et (1, 1, 10), la réussite passe d’environ 50 % à 54 % à 66 %, car la vitesse permet alors de départager les deux candidats. Avec des masses aléatoires, le cas le plus général, le modèle combiné n’améliore pas le prédicteur des masses : 72 % et 76 %, contre 71 % et 76 % pour les masses seules.</p>
+<p>Les coefficients ajustés confirment cette lecture. Dans les deux ensembles, \(\beta_1 \approx -2{,}4\), alors que \(\beta_2\) et \(\beta_3\) restent compris entre 0,02 et 0,11. Le modèle attribue donc une probabilité d’éjection approximativement proportionnelle à \(m^{-2{,}4}\), proche de la loi approchée \(m^{-3}\) <cite>3</cite>, et presque aucun poids à la vitesse.</p>
+
+<h2>Discussion</h2>
+<p>L’absence de gain avec des masses inégales s’explique simplement. Le rapport \(\rho_k\) dépend déjà des masses : avec un corps léger, la paire formée par les deux corps lourds tend à être la plus liée et la plus rapide, et la vitesse d’arrivée du corps léger reflète le même déséquilibre. L’information de vitesse est en grande partie redondante avec celle de masse. Lorsque les masses sont à égalité, cette redondance disparaît, et ce qui reste de la vitesse sert à départager.</p>
+<p>Le signal faible dans le cas des masses égales est cohérent avec le résultat de la note précédente <cite>6</cite> : dans le régime chaotique, la configuration change à chaque rencontre, et une mesure prise avant la dernière rencontre proche en dit peu sur celle-ci. La théorie des rencontres avec des binaires durs et mous <cite>1,2</cite> décrit bien le résultat moyen d’une rencontre isolée, mais, dans une suite chaotique de rencontres, chacune efface une partie de l’information de la précédente.</p>
+<p>Les principales limites sont les suivantes. Les simulations sont planes, et le départ au repos a un moment cinétique total nul. Le rapport \(\rho_k\) est un choix parmi plusieurs possibles ; des mesures restreintes aux rencontres les plus proches, ou tenant compte de la géométrie de la rencontre, pourraient porter davantage d’information. Le modèle combiné est linéaire dans les logarithmes et n’exploite pas les interactions entre les variables. Avec 245 à 597 simulations par ligne, l’erreur binomiale est de deux à trois points de pourcentage.</p>
+
+<h2>Conclusions</h2>
+<p>La comparaison entre la vitesse de rotation de la paire et la vitesse d’arrivée du troisième corps ne remplace pas les masses comme prédicteur du corps éjecté et ne leur ajoute presque aucune information. Elle sert à départager lorsque deux candidats ont la même masse et donne un signal faible lorsque les trois masses sont égales. Accessoirement, l’ajustement retrouve de façon indépendante une loi d’éjection proche de \(m^{-3}\).</p>

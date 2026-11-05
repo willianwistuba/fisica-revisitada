@@ -1,0 +1,495 @@
+{
+ "lang": "pt",
+ "locale": "pt-BR",
+ "name": "Português",
+ "decimal": ",",
+ "series": {
+  "title": "O problema dos três corpos",
+  "lead": "Por que não há fórmula geral, o que torna configurações de poucos corpos estáveis, quais ideias de estabilização falham, o que se pode prever antes de uma ejeção, quanto tempo um sistema vive e qual é a lei estatística dos desfechos. Treze notas, do fundamento ao teste de hipóteses."
+ },
+ "articles": {
+  "FR-TC-01": {
+   "title": "Por que o problema dos três corpos não tem solução geral em forma fechada",
+   "short": "Por que não há solução geral",
+   "type": "Artigo de revisão",
+   "abstract": "Revisamos os resultados que delimitam o problema newtoniano dos três corpos. O estado do sistema tem 18 componentes, e as simetrias fornecem apenas 10 integrais primeiras clássicas. Os teoremas de Bruns (1887) e Poincaré (1890) excluem integrais adicionais algébricas e analíticas uniformes, mas não outras representações. A série de Sundman (1912) resolve o problema para momento angular total não nulo, com convergência lenta demais para uso prático. No regime não hierárquico, a divergência exponencial das trajetórias faz o horizonte de previsibilidade crescer apenas com o logaritmo da precisão inicial, limite que nenhuma fórmula exata removeria. Concluímos que a questão aberta não é a de uma fórmula fechada, e sim a de compreender as estruturas que tornam o movimento regular e de descrever estatisticamente o regime caótico, e indicamos as frentes de pesquisa correspondentes.",
+   "kw": [
+    "problema dos três corpos",
+    "integrais primeiras",
+    "série de Sundman",
+    "caos determinístico",
+    "previsibilidade"
+   ]
+  },
+  "FR-TC-02": {
+   "title": "Estabilização vibracional por um binário interno: um resultado negativo",
+   "short": "Vibração por binário interno",
+   "type": "Artigo de pesquisa · resultado negativo",
+   "abstract": "Testamos se um binário central apertado pode estabilizar, por analogia com o pêndulo de Kapitza, um triângulo equilátero de três massas iguais que é instável com uma massa central única. Comparamos o tempo de sobrevivência com o de um grupo de controle com a mesma massa total concentrada num só corpo, para três massas centrais, dez separações do binário e os dois sentidos de rotação, e repetimos o teste na fronteira de estabilidade de Routh do triângulo de Lagrange. Em nenhum caso o binário prolongou a sobrevivência de forma significativa; para separações maiores, encurtou-a até cerca de 8% do controle. Uma estimativa de escala explica o resultado: como a terceira lei de Kepler vincula amplitude e frequência da excitação quadrupolar, o termo efetivo de Kapitza decai com a sétima potência da separação do binário. A estabilização vibracional passiva não ocorre nesse sistema.",
+   "kw": [
+    "estabilização vibracional",
+    "pêndulo de Kapitza",
+    "binário interno",
+    "configuração de Lagrange",
+    "resultado negativo"
+   ]
+  },
+  "FR-TC-03": {
+   "title": "Mapa de estabilidade em configurações de poucos corpos: Routh, Maxwell, hierarquia e dissipação",
+   "short": "Mapa de estabilidade",
+   "type": "Artigo de pesquisa",
+   "abstract": "Verificamos se um integrador simplético simples reproduz, sem informação prévia, os critérios clássicos de estabilidade de configurações de poucos corpos. O limite de Gascheau e Routh para o triângulo de Lagrange (μ ≈ 0,0198 para massas 1:μ:μ), o critério de Maxwell para anéis com corpo central (n ≥ 7 e μ < 2,298/n³) e o critério hierárquico de Mardling e Aarseth são reproduzidos, este último com boa concordância para m₃ ≥ 1. Dentro da região linearmente estável, documentamos ilhas de instabilidade associadas à ressonância 2:1 entre as frequências próprias, em β ≈ 0,0237 a 0,0239, de acordo com Deprit e Deprit-Bartholomé (1967). Um arrasto linear destrói a estabilidade giroscópica do triângulo em tempo aproximadamente proporcional a 1/γ, como prevê o teorema de Kelvin, Tait e Chetaev.",
+   "kw": [
+    "estabilidade",
+    "critério de Routh",
+    "anéis de Maxwell",
+    "sistemas hierárquicos",
+    "ressonância 2:1",
+    "dissipação"
+   ]
+  },
+  "FR-TC-04": {
+   "title": "Existe um limiar universal de acoplamento para a estabilidade de poucos corpos?",
+   "short": "Limiar universal de acoplamento?",
+   "type": "Artigo de pesquisa · hipótese testada",
+   "abstract": "Testamos a hipótese de que um único valor de acoplamento de maré entre subsistemas keplerianos determina o limiar de estabilidade de configurações de poucos corpos. Definimos uma medida padronizada, a razão entre a aceleração de maré dos corpos externos e a aceleração interna de cada subsistema, e a calculamos em nove limiares simulados de três famílias: triângulos de Lagrange com massas desiguais, anéis de Maxwell e sistemas hierárquicos. Os valores vão de 0,66% a 5,1%, uma faixa de cerca de oito vezes, o que refuta a constante universal e preserva uma regra de ordem de grandeza. Anéis com n ≤ 6 são instáveis mesmo com acoplamento muito abaixo de 1%. Propomos que a sobreposição de ressonâncias, no sentido de Chirikov, explica melhor tanto a escala comum quanto as diferenças sistemáticas entre famílias.",
+   "kw": [
+    "acoplamento de maré",
+    "limiares de estabilidade",
+    "sobreposição de ressonâncias",
+    "teorema KAM",
+    "critério de Chirikov"
+   ]
+  },
+  "FR-TC-05": {
+   "title": "Sinais antecipados da ejeção no problema dos três corpos: o papel das razões de massa",
+   "short": "Sinais da ejeção",
+   "type": "Artigo de pesquisa",
+   "abstract": "Perguntamos se o binário que sobrevive à desintegração de um sistema de três corpos pode ser reconhecido antes da ejeção do terceiro. Em 7.000 integrações planas regularizadas, com partida do repouso e com razão virial 0,5, comparamos massas iguais, duas pequenas e uma grande e duas grandes e uma pequena. Com massas iguais não há sinal antecipado: o par final só se torna definitivamente o mais ligado no último encontro próximo, e o previsor baseado nas energias de par acerta de 35% a 45%, perto do acaso. Com massas desiguais, o corpo mais leve é ejetado em 92% a 99,8% dos casos, de acordo com a lei aproximada m⁻³, e o sinal cresce com a disparidade: com massas 10, 10 e 1, o par final está definido na metade do tempo que antecede a ejeção. Mesmo assim, a regra de que os dois corpos mais pesados permanecem prevê o desfecho tão bem ou melhor que qualquer sinal dinâmico. Duas massas grandes ejetam a pequena mais cedo e com menos tentativas de fuga.",
+   "kw": [
+    "problema dos três corpos",
+    "ejeção",
+    "binário final",
+    "razão de massas",
+    "previsibilidade",
+    "regularização"
+   ]
+  },
+  "FR-TC-06": {
+   "title": "A velocidade de giro do par prevê o corpo ejetado? Um teste contra as razões de massa",
+   "short": "Velocidade e ejeção",
+   "type": "Artigo de pesquisa · hipótese testada",
+   "abstract": "Testamos se a comparação entre a velocidade orbital de cada par e a velocidade de chegada do terceiro corpo prevê qual corpo será ejetado na desintegração de sistemas de três corpos, e se essa informação acrescenta algo às massas. Em 4.200 integrações planas regularizadas, com grupos de massas fixos e com massas sorteadas entre 1 e 10, comparamos o previsor do corpo mais leve, dois previsores baseados na razão de velocidades e um modelo logit condicional que combina massas e velocidades, avaliado por validação cruzada. Com massas iguais, a razão de velocidades carrega um sinal fraco, de 34% a 47% de acerto contra 33% do acaso. Com massas desiguais, a velocidade sozinha perde para as massas, e o modelo combinado só as supera quando dois candidatos têm a mesma massa, caso em que a velocidade desempata. Com massas sorteadas não há ganho. O ajuste recupera uma probabilidade de ejeção aproximadamente proporcional à massa elevada a −2,4, próxima da lei conhecida com expoente −3.",
+   "kw": [
+    "problema dos três corpos",
+    "ejeção",
+    "binários duros e moles",
+    "razão de massas",
+    "logit condicional",
+    "previsibilidade"
+   ]
+  },
+  "FR-TC-07": {
+   "title": "O primeiro dissidente e o primeiro contato: o que o início da desintegração revela sobre o corpo ejetado",
+   "short": "Primeiro contato",
+   "type": "Artigo de pesquisa",
+   "abstract": "Examinamos se o início da desintegração de um sistema de três corpos revela qual corpo será ejetado. Partindo do triângulo de Lagrange perturbado, definimos o primeiro dissidente de quatro modos e verificamos, em 4.400 integrações planas regularizadas, que ele não prevê o corpo ejetado: com massas iguais, o acerto fica entre 29% e 40%, no nível do acaso, porque entre o início e a ejeção ocorrem de 105 a 135 encontros próximos; com massas desiguais, o sinal aparente é efeito da massa. Em seguida testamos, em 30.000 integrações com massas 1, 1 e q (q de 2 a 30) e três tipos de partida, se a leve que primeiro forma um par próximo com a pesada permanece com ela. Na partida simétrica, isso ocorre em 64% a 83% dos casos, com vantagem crescente com q, enquanto a proximidade inicial não prevê nada. Em partidas aleatórias, o efeito cai para 54% a 61% e se confunde em boa parte com a vantagem de começar mais perto. Uma decomposição por energia, em 18.000 integrações adicionais, mostra a origem do efeito: quando o par do primeiro contato já guarda mais ligação que a energia total do sistema, a outra leve é expulsa no próprio encontro e a leve do contato permanece em 91% a 100% dos casos; fora desses casos, o efeito é menor e cresce com a ligação do par.",
+   "kw": [
+    "problema dos três corpos",
+    "ejeção",
+    "triângulo de Lagrange",
+    "instabilidade",
+    "primeiro contato",
+    "lei de Heggie"
+   ]
+  },
+  "FR-TC-08": {
+   "title": "Meia-vida e cauda pesada na desintegração de sistemas de três corpos",
+   "short": "Meia-vida",
+   "type": "Artigo de pesquisa",
+   "abstract": "Medimos a distribuição dos tempos de vida de sistemas de três corpos não hierárquicos em 9.000 integrações planas regularizadas, com massas iguais, com duas leves e uma pesada e com duas pesadas e uma leve, a partir do repouso e com razão virial 0,5, até dez mil tempos de cruzamento. A meia-vida, mediana do tempo de vida, vai de cerca de 3 a 30 tempos de cruzamento e diminui com a disparidade de massas. A desintegração, porém, não é exponencial: de 0,8% a 8% dos sistemas sobrevivem até mil tempos de cruzamento, muitas ordens de grandeza acima do previsto por uma exponencial, e a cauda da sobrevivência segue aproximadamente uma lei de potência. Na partida do repouso, o expoente fica entre 0,63 e 0,94, perto do valor 2/3 previsto para voos de Lévy, e os sistemas longevos são dominados por uma única excursão longa. Na partida virial, a cauda é mais pesada, com expoente entre 0,17 e 0,45, e, com um par pesado, os longevos são configurações hierárquicas quase estáveis, com centenas de voltas do corpo leve.",
+   "kw": [
+    "problema dos três corpos",
+    "tempo de vida",
+    "meia-vida",
+    "voos de Lévy",
+    "lei de potência",
+    "sistemas hierárquicos"
+   ]
+  },
+  "FR-TC-09": {
+   "title": "Memória e acaso no problema de três corpos: teste plano das teorias estatísticas",
+   "short": "Memória e acaso",
+   "type": "Artigo de pesquisa",
+   "abstract": "Testamos, no problema de três corpos plano com momento angular total nulo, se o sistema esquece as condições iniciais e com que medida ocupa os estados finais. Num mapa de 34.115 quedas livres com massas iguais, a dependência do desfecho em relação à configuração inicial desaparece, dentro da resolução do teste, depois de cinco fases de interação democrática. A distribuição da energia do par final concorda com a teoria de volume de fase, mas a da excentricidade não: a teoria prevê 49% de pares com excentricidade acima de 0,9, e as simulações dão 35%. Como o desvio não depende da história, não é memória, e sim falha da ocupação uniforme. Medimos diretamente a absortividade da teoria de fluxo de Kol em 210.000 espalhamentos invertidos no tempo. O fluxo multiplicado por ela reproduz, sem parâmetro ajustado, as distribuições com massas iguais e reduz a cerca de um ponto percentual o erro nas chances de ejeção com massas desiguais, contra 4,2 pontos da teoria de volume. Ao contrário do caso tridimensional, a absortividade é indispensável para prever qual corpo é ejetado. O resíduo resiste a uma grade mais fina, a uma distância de lançamento maior e a outro critério de caos, e é menor que a variação das próprias frações medidas conforme o tempo de vida do sistema, o que indica o limite de uma descrição estatística fixa no tempo.",
+   "kw": [
+    "problema dos três corpos",
+    "ergodicidade",
+    "teoria estatística",
+    "absortividade",
+    "queda livre",
+    "caos"
+   ]
+  },
+  "FR-TC-10": {
+   "title": "As equações de evolução de Kol testadas episódio a episódio e a estrutura da absortividade",
+   "short": "Evolução e absortividade",
+   "type": "Artigo de pesquisa",
+   "abstract": "Testamos os ingredientes das equações de evolução estatística de Kol para o problema de três corpos plano com momento angular total nulo, dividindo 24.000 quedas livres em 110.117 episódios caóticos separados por excursões. As excursões que voltam são reabsorvidas pelo caos com a mesma absortividade medida por lançamento externo, de 0,06 a 0,23 conforme o canal. As saídas do caos quase não têm memória, e as chances de escape com massas desiguais são previstas dentro do erro estatístico, com erro médio de 0,6 a 0,9 ponto percentual, quando a absortividade e a medição usam a mesma definição de episódio caótico; o resíduo da nota anterior vinha de definições incoerentes. A dependência dos desfechos com o tempo de vida vem do primeiro episódio e dos escapes regulares, dois canais previstos pela teoria. A duração dos episódios caóticos, porém, não é exponencial. A absortividade não segue uma lei simples do empurrão e da velocidade do encontro, que explicam no máximo 71% da sua variação e falham em massas não usadas no ajuste. Mapas da primeira passagem mostram faixas regulares suaves, zonas de excursão também suaves, que concentram a maior parte da absortividade, e um conjunto caótico direto pequeno e de fronteira fractal. A absortividade de uma corrida inteira é igual à chance de a primeira passagem terminar em excursão ou em caos (correlação de 0,98 em 147 situações), o que reduz o problema a um único encontro; nele, a escolha entre passagem e troca depende quase só das massas, mas não há ainda lei universal.",
+   "kw": [
+    "problema dos três corpos",
+    "teoria estatística",
+    "absortividade",
+    "excursões",
+    "caos",
+    "espalhamento caótico"
+   ]
+  },
+  "FR-TC-11": {
+   "title": "Duas regras de massas no problema de três corpos: o encontro regular e a saída do caos",
+   "short": "Regras de massas",
+   "type": "Artigo de pesquisa",
+   "abstract": "Investigamos como as massas decidem quem é ejetado no problema de três corpos plano com momento angular total nulo. Num encontro regular único, em 28 combinações de massas e 24.316 corridas, a troca de parceiro acontece quando o corpo que chega tem mais que cerca de metade da massa do membro mais pesado do par, segundo uma curva de dois parâmetros que explica 94% da variação e vale para razões de massa não usadas no ajuste; quem sai do par, quando há troca, é quase sorteado, mesmo com um membro dez vezes mais leve. Com o corpo que chega de massa igual à do membro mais pesado, um efeito de pêndulo de Newton expulsa esse membro em cerca de um terço dos casos. Nas fases caóticas, em 13 conjuntos de massas, a fração de saídas de cada corpo segue o fator de fluxo da teoria de Kol, que favorece o mais leve, com erro médio de 0,035. As saídas do leve são definitivas em 17% a 46% das vezes, contra cerca de 10% para os pesados, e esse filtro explica por que o leve é o ejetado final na grande maioria dos sistemas.",
+   "kw": [
+    "problema dos três corpos",
+    "ejeção",
+    "troca de parceiro",
+    "razão de massas",
+    "teoria estatística",
+    "espalhamento"
+   ]
+  },
+  "FR-TC-12": {
+   "title": "Uma fórmula aproximada para a absortividade do problema de três corpos",
+   "short": "Fórmula da absortividade",
+   "type": "Artigo de pesquisa",
+   "abstract": "A absortividade é a única peça da teoria de fluxo de Kol para o problema de três corpos que ainda precisa ser medida por simulação. Como ela é fixada na primeira passagem, decompomos essa passagem em duas regras: uma regra de massas, que decide entre passar direto e trocar de parceiro, e uma regra de energia, que decide se o corpo que sai fica ligado ao par. Em 42.415 primeiras passagens no plano com momento angular total nulo, a chance de ficar ligado cai com a ligação do par e, nas trocas, com o ganho de massa do novo par, segundo leis logísticas que explicam até 72% da variação em combinações de massas não usadas no ajuste. A fórmula resultante, com oito constantes ajustadas só numa grade de massas, reproduz a absortividade medida em sete canais fora dessa grade com R² de 0,72 a 0,77, na média sobre a excentricidade, e, multiplicada pelo fluxo, prevê as chances de escape com erro médio de 1,7 ponto percentual, contra 4,2 da teoria de volume e 2,5 do fluxo sem absortividade. A dependência da excentricidade, forte em alguns canais, é capturada só em parte pela velocidade do par no apoastro, e a distribuição da excentricidade final continua exigindo a absortividade medida.",
+   "kw": [
+    "problema dos três corpos",
+    "absortividade",
+    "teoria estatística",
+    "troca de parceiro",
+    "fórmula empírica",
+    "espalhamento"
+   ]
+  },
+  "FR-TC-13": {
+   "title": "O muro de excentricidade: por que, sem rotação total, um par circular não captura um corpo leve",
+   "short": "O muro de excentricidade",
+   "type": "Artigo de pesquisa",
+   "abstract": "A fórmula aproximada da absortividade da nota FR-TC-12 errava a excentricidade final quando duas estrelas pesadas encontram uma leve. Mostramos que a causa é um limiar: em 225.000 espalhamentos planos com momento angular total nulo, um corpo com massa menor que cerca de 0,9 vez a massa reduzida do par não é capturado quando a excentricidade do par fica abaixo de um valor que vai de cerca de 0,2 a 0,9 à medida que o corpo fica mais leve. Abaixo desse muro, a absortividade fica abaixo de 1% com 95% de confiança. O muro é geométrico: com momento angular nulo, a excentricidade do par fixa a distância de passagem do corpo que chega, e não há captura quando ela passa de cerca de um semieixo do par (de 0,9 a 1,75 semieixo, conforme a energia). Por isso o resultado vale só nesse cenário. Incluir o muro eleva de 0,45 para 0,93 a fração explicada da absortividade do canal leve fora do ajuste, embora a fórmula ainda não alcance a absortividade medida nas quedas livres. Em 48.000 quedas livres, de 82% a 88% dos escapes vêm de um último episódio curto, cujo par final herda o formato do par da excursão anterior. Com o mesmo critério de origem caótica na absorção e na emissão, a teoria de fluxo com a absortividade medida passa em 8 de 9 testes da excentricidade final e em todos os testes das chances de escape, o que corrige o método das notas anteriores. Versão 2: acrescenta a interpretação geométrica e restringe o alcance da conclusão.",
+   "kw": [
+    "problema dos três corpos",
+    "absortividade",
+    "captura",
+    "distância de passagem",
+    "memória dinâmica",
+    "teoria estatística"
+   ]
+  }
+ },
+ "fig": {
+  "A2": {
+   "x": "separação do binário a_b (escala logarítmica)",
+   "y": "sobrevivência com binário ÷ controle",
+   "control": "controle",
+   "aria": "Sobrevivência com binário dividida pela do controle, em função da separação do binário"
+  },
+  "A4": {
+   "x": "acoplamento de maré no limiar (escala logarítmica)",
+   "rows": [
+    "Lagrange 1:μ:μ",
+    "Lagrange 1:μ:0,25μ",
+    "Lagrange 1:μ:4μ",
+    "Anel, n = 7",
+    "Anel, n = 8",
+    "Anel, n = 10",
+    "Hierárquico, m₃ = 0,1",
+    "Hierárquico, m₃ = 1",
+    "Hierárquico, m₃ = 10"
+   ],
+   "aria": "Acoplamento de maré no limiar de estabilidade, por configuração"
+  },
+  "A5": {
+   "x": "taxa de acerto do par final",
+   "most": "par mais ligado na metade do tempo",
+   "naive": "dois mais pesados",
+   "chance": "acaso",
+   "na": "indefinido",
+   "aria": "Taxa de acerto dos previsores do par final por grupo de massas"
+  },
+  "A6": {
+   "x": "taxa de acerto do corpo ejetado",
+   "mass": "mais leve",
+   "speed": "velocidade média",
+   "both": "modelo combinado",
+   "chance": "acaso",
+   "rows_last": "sorteadas",
+   "aria": "Taxa de acerto dos previsores do corpo ejetado por grupo de massas"
+  },
+  "A7": {
+   "x": "razão de massas q (massas 1, 1 e q)",
+   "y": "fração em que a leve permanece",
+   "c10": "contato a 10%",
+   "c30": "contato a 30%",
+   "near": "começou mais perto",
+   "chance": "acaso",
+   "aria": "Efeito do primeiro contato em função da razão de massas"
+  },
+  "A8": {
+   "x": "tempo de vida T (tempos de cruzamento, escala logarítmica)",
+   "y": "fração ainda ligada",
+   "eq": "massas iguais",
+   "l10": "1, 1, 10",
+   "h10": "10, 10, 1",
+   "rest": "repouso",
+   "vir": "virial",
+   "aria": "Curvas de sobrevivência dos sistemas de três corpos"
+  },
+  "A9": {
+   "x": "excentricidade do par final",
+   "y": "fração por intervalo",
+   "meas": "simulação",
+   "sl": "volume de fase",
+   "flux": "fluxo puro",
+   "fa": "fluxo × absortividade",
+   "aria": "Distribuição da excentricidade do par final comparada com três previsões teóricas"
+  },
+  "A10": {
+   "x": "fase do par (graus)",
+   "y": "orientação (graus)",
+   "panels": [
+    "(a) 1, 1, 1; x = 1,2; e = 0,5",
+    "(b) 1, 1, 1; x = 3; e = 0,15",
+    "(c) 1, 1, 1; x = 1,05; e = 0,85",
+    "(d) leve contra par 3, 3; x = 1,2"
+   ],
+   "chaos": "caos",
+   "ex0": "troca (sai um)",
+   "ex1": "troca (sai o outro)",
+   "fly": "passagem",
+   "bound": "ainda ligado",
+   "aria": "Mapas do resultado da primeira passagem em função da fase e da orientação do par"
+  },
+  "A11": {
+   "x": "massa do corpo que chega / massa do membro mais pesado",
+   "y": "probabilidade de troca",
+   "mb": "par 1 : {v}",
+   "fit": "curva ajustada",
+   "aria": "Probabilidade de troca na primeira passagem em função da razão de massas"
+  },
+  "A12": {
+   "x": "absortividade medida",
+   "y": "absortividade prevista pela fórmula",
+   "aria": "Absortividade prevista pela fórmula contra a medida por simulação"
+  },
+  "A13": {
+   "x": "massa do corpo que chega / massa reduzida do par",
+   "y": "excentricidade mínima para captura",
+   "s11": "par de massas iguais (1,1)",
+   "s12": "par desigual (1,2)",
+   "aria": "Excentricidade mínima do par para que um corpo leve seja capturado, em função da massa relativa"
+  }
+ },
+ "ui": {
+  "skip": "Pular para o conteúdo",
+  "nav_notes": "Notas",
+  "nav_series": "Séries",
+  "nav_method": "Método",
+  "nav_code": "Código",
+  "search_ph": "Buscar nas notas",
+  "language": "Idioma",
+  "journal_sub": "Notas técnicas em física",
+  "note": "Nota técnica",
+  "affiliation": "Pesquisador independente, São Paulo, Brasil",
+  "author_role": "Entusiasta de física",
+  "published": "Publicado",
+  "version": "Versão",
+  "version_note": "v2: formato de periódico e traduções",
+  "date_long": "3 de novembro de 2026",
+  "date_short": "3 nov. 2026",
+  "status": "Situação",
+  "status_text": "Não revisado por pares",
+  "abstract": "Resumo",
+  "keywords": "Palavras-chave",
+  "contents": "Sumário",
+  "references": "Referências",
+  "figure": "Fig.",
+  "figure_long": "Figura",
+  "table": "Tabela",
+  "download_pdf": "Baixar PDF",
+  "pdf": "PDF",
+  "cite_as": "Como citar",
+  "cite_tpl": "CUNHA, Willian Wistuba Melo da. {title}. Física Revisitada, nota técnica {code}, 3 nov. 2026. Disponível em: {url}.",
+  "series": "Série",
+  "part": "parte {n} de {N}",
+  "prev": "Anterior",
+  "next": "Próxima",
+  "overview": "Visão geral",
+  "all_notes": "Todas as notas",
+  "more": "Mais",
+  "min_read": "min de leitura",
+  "translation_note": "",
+  "other_langs": "Este artigo em outros idiomas",
+  "backmatter_transparency_title": "Nota de transparência e uso de inteligência artificial",
+  "backmatter_transparency_text": "O autor é advogado e não é físico. Este trabalho resulta de pesquisa independente, conduzida com assistência de inteligência artificial (um modelo de linguagem) nas buscas bibliográficas, na programação das simulações, na análise dos resultados, na redação e na tradução. O autor formulou as perguntas, acompanhou os experimentos e é responsável pelo conteúdo publicado.",
+  "backmatter_data_title": "Disponibilidade de dados e código",
+  "backmatter_data_text": "Todos os números foram obtidos com scripts publicados em {codeurl}, que rodam com Node.js sem dependências externas e permitem reproduzir os resultados.",
+  "backmatter_coi_title": "Conflito de interesses",
+  "backmatter_coi_text": "O autor declara não haver conflitos de interesse. Este trabalho não recebeu financiamento.",
+  "backmatter_review_title": "Revisão",
+  "backmatter_review_text": "Este texto não passou por revisão por pares e deve ser lido como nota de trabalho. Correções são registradas na própria nota, com data.",
+  "notes_title": "Todas as notas",
+  "notes_lead": "Filtre por título, tema ou palavra-chave.",
+  "filter_ph": "Por exemplo: ressonância, Kapitza, Maxwell",
+  "filter_aria": "Filtrar notas",
+  "empty": "Nenhuma nota encontrada. Tente outra palavra.",
+  "series_eyebrow": "Série · mecânica celeste",
+  "series_order_title": "Ordem de leitura",
+  "series_order_text": "As notas foram escritas para ser lidas em sequência: a primeira situa o problema, a segunda testa uma hipótese de estabilização, a terceira valida o simulador contra critérios clássicos, a quarta testa uma heurística unificadora, a quinta investiga sinais antecipados da ejeção, a sexta testa se a velocidade prevê o corpo ejetado melhor que as massas, a sétima examina o primeiro dissidente e o primeiro contato, a oitava mede a meia-vida dos sistemas, a nona testa as teorias estatísticas dos desfechos, a décima testa as equações de evolução e mapeia a absortividade, a décima primeira separa as duas regras de massas, a décima segunda propõe uma fórmula aproximada para a absortividade e a décima terceira mede o muro de excentricidade abaixo do qual um corpo leve não é capturado.",
+  "series_count": "{n} notas",
+  "foot_about": "Problemas clássicos da física revistos com inteligência artificial no processo criativo: perguntas, experimentos numéricos e verificação contra a literatura.",
+  "foot_disc": "Por Willian Wistuba Melo da Cunha, entusiasta de física. O autor é advogado e não é físico. As buscas, as simulações e a redação contam com assistência de IA. Os textos não passaram por revisão por pares.",
+  "foot_how": "Como trabalhamos",
+  "foot_nav": "Navegar",
+  "foot_series": "Série: três corpos",
+  "foot_method": "Método e transparência",
+  "foot_code": "Código",
+  "rss_desc": "Problemas clássicos da física revistos com IA no processo criativo.",
+  "site_title": "Física Revisitada · problemas clássicos da física revistos com IA",
+  "site_desc": "Notas técnicas que revisitam problemas clássicos da física com inteligência artificial no processo criativo, com experimentos numéricos, código aberto e PDFs em formato de artigo científico, em português, inglês, alemão e francês.",
+  "notes_desc": "Todas as notas técnicas da Física Revisitada, com busca.",
+  "method_title": "Método e transparência",
+  "method_desc": "Como a Física Revisitada funciona: autoria, uso de inteligência artificial, regras das notas e limites.",
+  "code_title": "Código",
+  "code_desc": "Scripts usados nos experimentos numéricos da Física Revisitada.",
+  "pdf_author": "Entusiasta e autodidata em física",
+  "contact": "Contato"
+ },
+ "home": {
+  "eyebrow": "IA no processo criativo",
+  "h1": "Problemas clássicos da física, <em>revisitados</em>",
+  "lead": "Notas técnicas que retomam problemas consagrados da física com um método declarado: a curiosidade formula a pergunta, a inteligência artificial ajuda a buscar, programar e redigir, e a simulação decide. Cada nota segue o formato de artigo científico e sai também em PDF, em quatro idiomas.",
+  "cta_read": "Ler as notas",
+  "cta_method": "Conhecer o método",
+  "stat_notes": "notas técnicas",
+  "stat_series": "série",
+  "stat_langs": "idiomas",
+  "stat_scripts": "scripts abertos",
+  "series_eyebrow": "Séries",
+  "series_h2": "Em andamento",
+  "series_sub": "Cada série reúne notas sobre um mesmo problema clássico, da revisão do que se sabe aos testes de hipóteses.",
+  "series_card_eyebrow": "Série · {n} notas · mecânica celeste",
+  "series_link": "Ver a série →",
+  "latest_eyebrow": "Publicações",
+  "latest_h2": "Últimas notas",
+  "latest_sub": "Revisões, experimentos numéricos e hipóteses testadas, com código e referências.",
+  "see_all": "Ver todas →",
+  "method_eyebrow": "Método",
+  "method_h2": "Como uma nota nasce",
+  "steps": [
+   [
+    "Pergunta",
+    "Uma dúvida sobre um problema clássico vira uma pergunta pequena, testável e capaz de surpreender."
+   ],
+   [
+    "Experimento",
+    "A IA ajuda a programar a simulação, sempre com grupo de controle, várias perturbações e limites declarados."
+   ],
+   [
+    "Verificação",
+    "O resultado é confrontado com a literatura. O que já é conhecido é dito; o que falha também é publicado."
+   ]
+  ],
+  "transp_eyebrow": "Transparência",
+  "transp_text": "Escrito por Willian Wistuba Melo da Cunha, entusiasta de física. O autor é advogado e não é físico. As buscas bibliográficas, as simulações e a redação contam com assistência de inteligência artificial, e os resultados não passaram por revisão por pares.",
+  "transp_link": "Leia como o blog funciona"
+ },
+ "method_page": {
+  "eyebrow": "Método e transparência",
+  "h1": "Como este blog funciona",
+  "lead": "Física Revisitada retoma problemas clássicos da física usando inteligência artificial como parte declarada do processo criativo: para buscar literatura, programar experimentos, analisar resultados, redigir e traduzir.",
+  "body": "<h2>Quem escreve</h2>{byline}<p>O autor é advogado e não é físico nem matemático profissional. As perguntas que dão origem às notas nascem da curiosidade por física e do hábito de investigação, aplicados a problemas clássicos, não de um programa acadêmico.</p><h2>O papel da inteligência artificial</h2><p>Um modelo de linguagem participa das buscas bibliográficas, da programação das simulações, da análise dos números, da redação e da tradução. O autor formula as perguntas, acompanha os experimentos e decide o que publicar. A IA pode errar com segurança aparente; por isso cada nota declara o método, publica o código e separa resultado próprio de literatura estabelecida.</p><h2>Regras de cada nota</h2><ul><li>Hipóteses passam por três filtros antes do teste: são pequenas (um caso específico), testáveis (a simulação pode dizer não) e corajosas (surpreenderiam alguém se dessem certo).</li><li>Experimentos têm grupo de controle, várias perturbações e critérios de ruptura explícitos.</li><li>Quando o resultado coincide com um critério conhecido, isso é dito: reproduzir a literatura valida o simulador, não é descoberta.</li><li>Resultados negativos são publicados com o mesmo cuidado dos positivos.</li></ul><h2>Formato</h2><p>As notas seguem as convenções de artigos científicos de física: título, autoria e afiliação, data e versão, resumo, palavras-chave, seções numeradas, equações, figuras e tabelas numeradas, citações numeradas no texto, referências e declarações finais sobre uso de IA, dados e conflito de interesses. O PDF é composto em duas colunas com REVTeX, a classe LaTeX usada nos periódicos da American Physical Society. O original é escrito em português; as versões em inglês, alemão e francês são traduções.</p><h2>O que as notas não são</h2><p>Não são artigos revisados por pares e não devem ser citadas como resultados estabelecidos. São notas de trabalho, abertas à verificação.</p><h2>Correções</h2><p>Erros identificados são corrigidos na própria nota e no PDF, com indicação da data e do que mudou.</p>"
+ },
+ "code_page": {
+  "eyebrow": "Reprodutibilidade",
+  "h1": "Código dos experimentos",
+  "lead": "Os números das notas vêm destes scripts: em JavaScript (Node.js, sem dependências) para as notas 1 a 4 e em Python (NumPy, SciPy e Numba) para as notas 5 a 13.",
+  "intro": "Baixe todos para a mesma pasta e rode, por exemplo, <code>node fase1.js</code>. As unidades usam G = 1. O integrador é o leapfrog no esquema kick-drift-kick.",
+  "th_file": "Arquivo",
+  "th_what": "O que faz",
+  "files": {
+   "core.js": "Integrador leapfrog e montagem do triângulo de Lagrange com massas quaisquer, opcionalmente com um binário no lugar de um vértice.",
+   "fase1.js": "Limite de Gascheau e Routh com massas 1 : μ : μ.",
+   "fase2.js": "Binário no lugar do corpo dominante, na fronteira de estabilidade.",
+   "fase3.js": "Anéis de n corpos com corpo central: critério de Maxwell.",
+   "fase4.js": "Dissipação sobre o triângulo estável.",
+   "fase5.js": "Sistemas hierárquicos com massas iguais.",
+   "sim.js": "Estabilização vibracional: triângulo com binário central e controle.",
+   "verify.js": "Limiares de Lagrange com massas desiguais.",
+   "verify2.js": "Limiares dos anéis e acoplamento de maré.",
+   "verify3.js": "Limiares hierárquicos com massas desiguais.",
+   "ejecao/sim.py": "Experimento da ejeção (FR-TC-05): integrador regularizado em cadeia e diagnósticos de par (Python, NumPy, Numba).",
+   "ejecao/run_all.py": "Roda as 7.000 corridas da nota FR-TC-05 e calcula os sinais por corrida.",
+   "ejecao/summarize.py": "Gera a tabela resumida da nota FR-TC-05.",
+   "ejecao/run_speed.py": "Roda as 4.200 corridas da nota FR-TC-06 e calcula a razão de velocidades de cada candidato.",
+   "ejecao/analyse_speed.py": "Compara os previsores e ajusta o modelo combinado da nota FR-TC-06.",
+   "ejecao/run_dissid.py": "Primeiro dissidente no triângulo de Lagrange de massas iguais (nota FR-TC-07).",
+   "ejecao/run_dissid2.py": "Primeiro dissidente com massas desiguais (nota FR-TC-07).",
+   "ejecao/run_contato.py": "Roda as 30.000 corridas do teste do primeiro contato (nota FR-TC-07).",
+   "ejecao/analyse_contato.py": "Calcula as taxas e os intervalos de confiança do primeiro contato (nota FR-TC-07).",
+   "ejecao/run_dureza.py": "Mede a ligação do par no primeiro contato (complemento da nota FR-TC-07).",
+   "ejecao/run_vida.py": "Roda as 9.000 corridas da nota FR-TC-08 e mede as excursões de cada sistema.",
+   "ejecao/analyse_vida.py": "Calcula meia-vida, sobrevivência e expoente da cauda (nota FR-TC-08).",
+   "ergo/sim.py": "Cópia do integrador regularizado usada nos experimentos da nota FR-TC-09.",
+   "ergo/run_ergo.py": "Roda o mapa de 34.115 quedas livres com massas iguais e conta os embaralhamentos (nota FR-TC-09).",
+   "ergo/analyse_ergo.py": "Compara as distribuições de energia e de excentricidade com a previsão de volume e calcula a incerteza entre vizinhos (nota FR-TC-09).",
+   "ergo/map_ergo.py": "Testa a dependência espacial do desfecho por células do mapa e desenha o mapa (nota FR-TC-09).",
+   "ergo/ergo_theory.py": "Previsão de volume de fase em versão plana, análoga à de Stone e Leigh (nota FR-TC-09).",
+   "ergo/run_absorb.py": "Mede a absortividade com massas iguais por espalhamentos invertidos no tempo (nota FR-TC-09).",
+   "ergo/analyse_absorb.py": "Calcula a previsão de fluxo vezes absortividade e a compara com as quedas livres (nota FR-TC-09).",
+   "ergo/run_absorb2.py": "Mede a absortividade por canal com massas desiguais (nota FR-TC-09).",
+   "ergo/run_ffrand.py": "Roda as quedas livres aleatórias com massas desiguais (nota FR-TC-09).",
+   "ergo/analyse17.py": "Compara as frações de ejeção medidas com as três previsões (nota FR-TC-09).",
+   "ergo/sim2.py": "Variante do integrador que registra as distâncias entre os pares (nota FR-TC-09, origem do resíduo).",
+   "ergo/segs2.py": "Conta embaralhamentos, configurações democráticas e excursões em cada corrida (nota FR-TC-09).",
+   "ergo/run_absorb4.py": "Absortividade com grade refinada e distância de lançamento configurável (nota FR-TC-09).",
+   "ergo/run_ffrand3.py": "Quedas livres com massas desiguais e contagem de excursões (nota FR-TC-09).",
+   "ergo/analyse18.py": "Funções de interpolação da absortividade e previsão por canal (nota FR-TC-09).",
+   "ergo/an19.py": "Compara a previsão com grade antiga, grade fina e lançamento a 40 semieixos (nota FR-TC-09).",
+   "ergo/an20.py": "Compara as previsões com a faixa de frações medidas em sete seleções de corridas (nota FR-TC-09).",
+   "ergo/run_episodes.py": "Divide as quedas livres em episódios caóticos e excursões (nota FR-TC-10).",
+   "ergo/an_kol.py": "Testa os ingredientes das equações de evolução de Kol episódio por episódio (nota FR-TC-10).",
+   "ergo/an_push.py": "Procura uma lei para a absortividade com o empurrão e a velocidade do encontro (nota FR-TC-10).",
+   "ergo/run_phase.py": "Mapa da primeira passagem em função da fase e da orientação do par (nota FR-TC-10).",
+   "ergo/an_phase.py": "Mede as regiões dos mapas e o expoente de incerteza (nota FR-TC-10).",
+   "ergo/run_onepass.py": "Integra só até a primeira saída e registra a energia do par depois da primeira passagem (nota FR-TC-10).",
+   "ergo/an_onepass.py": "Modelo de uma passagem: distribuição da variação de energia e busca de leis (nota FR-TC-10).",
+   "ergo/run_massgrid.py": "Grade de massas da primeira passagem: passagem ou troca e quem sai do par (nota FR-TC-11).",
+   "ergo/run_massrule.py": "Encontro único com o corpo que chega de massa igual à do membro mais pesado (nota FR-TC-11).",
+   "ergo/an_b2.py": "Distribuição da variação de energia do par na primeira passagem, por ramo (nota FR-TC-12).",
+   "ergo/an_b2d.py": "Leis logísticas compactas para a chance de ficar ligado (nota FR-TC-12).",
+   "ergo/an_b2e.py": "Fórmula completa sem excentricidade e teste nas chances de escape (nota FR-TC-12).",
+   "ergo/an_ecc.py": "Efeito da excentricidade nas regras de massas e de energia (nota FR-TC-12).",
+   "ergo/formula_v2.py": "Fórmula com excentricidade, ajustada na grade de massas, e teste ponta a ponta (nota FR-TC-12).",
+   "ergo/an_b2c.py": "Modelos logísticos da chance de ficar ligado, com previsão deixando uma combinação de massas de fora (nota FR-TC-12).",
+   "ergo/run_wall.py": "Primeiro mapa do muro de excentricidade (par 1-1, 40 corridas por célula).",
+   "ergo/run_wall2.py": "Mapa do muro com 225.000 corridas: par 1-1 com 12 massas e par 1-2 com 6 massas.",
+   "ergo/an30.py": "Origem do erro de excentricidade final no conjunto 3-3-1, por canal.",
+   "ergo/an30b.py": "Tentativas de corrigir a fórmula com termos suaves (descartadas).",
+   "ergo/an30c.py": "Diagnóstico: fórmula com o muro aplicado ao canal 3,3,1.",
+   "ergo/an31.py": "Intervalos de confiança do muro, reprodutibilidade e par desigual.",
+   "ergo/run_onepass_light.py": "Primeiras passagens no regime de corpo leve (69.300 corridas).",
+   "ergo/an32.py": "Fórmula v3 (tabela em m_s/μ) e testes fora do ajuste.",
+   "ergo/an32b.py": "Teto do teste: fluxo vezes absortividade medida.",
+   "ergo/an33.py": "Teste KS com valor crítico que inclui a incerteza da previsão.",
+   "ergo/an33b.py": "O resíduo em função do número de embaralhamentos.",
+   "ergo/run_age.py": "48.000 quedas livres com a excentricidade do par em cada excursão.",
+   "ergo/an34.py": "Memória entre episódios e dependência da idade.",
+   "ergo/an34b.py": "Teste da teoria com corte no último episódio.",
+   "ergo/an34c.py": "Teste coerente: mesmo limiar de embaralhamentos na absorção e na emissão.",
+   "ergo/an35.py": "Fórmulas v2 e v3 no teste coerente."
+  },
+  "note": "Os scripts são notas de trabalho, escritos para clareza e não para desempenho. Alguns dependem de <code>core.js</code> ou de <code>sim.js</code>."
+ }
+}

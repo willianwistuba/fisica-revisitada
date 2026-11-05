@@ -1,0 +1,28 @@
+<p>O problema dos três corpos pergunta como evoluem, no tempo, três massas pontuais que interagem apenas pela gravitação newtoniana, dadas as suas posições e velocidades iniciais. Para dois corpos, a resposta é completa desde Newton: as órbitas relativas são cônicas e a posição em qualquer instante se obtém pela equação de Kepler. Para três corpos, não existe uma solução geral expressa por funções elementares, e a razão é estrutural, não uma lacuna de engenho.</p>
+
+<h2>Formulação</h2>
+<p>Com massas \(m_i\) e posições \(\mathbf{r}_i\), \(i = 1, 2, 3\), as equações do movimento são</p>
+<div class="eq">\[ \ddot{\mathbf{r}}_i = \sum_{j \neq i} G\, m_j \, \frac{\mathbf{r}_j - \mathbf{r}_i}{\lvert \mathbf{r}_j - \mathbf{r}_i \rvert^{3}} . \]</div>
+<p>No espaço tridimensional, o estado do sistema tem 18 componentes (três de posição e três de velocidade por corpo). As simetrias do problema fornecem 10 integrais primeiras clássicas: energia (1), momento linear e movimento uniforme do centro de massa (6) e momento angular (3). No problema de dois corpos, essas integrais, somadas ao vetor de Laplace-Runge-Lenz, bastam para reduzir o movimento a quadraturas. No de três corpos, sobram graus de liberdade sem integral correspondente.</p>
+
+<h2>Os resultados de impossibilidade</h2>
+<p>Em 1887, Heinrich Bruns demonstrou que o problema não admite novas integrais primeiras que sejam funções algébricas das coordenadas cartesianas e das velocidades, além das dez clássicas. Poincaré estendeu o resultado, no fim da década de 1880, para integrais analíticas uniformes no problema restrito, e, ao fazê-lo, descreveu pela primeira vez o entrelaçamento de variedades estáveis e instáveis que hoje caracteriza o caos determinístico.</p>
+<p>É importante delimitar o alcance desses teoremas. Eles excluem uma classe precisa de soluções, construídas com uma classe precisa de funções. Não excluem representações por outras funções, assim como a impossibilidade de resolver a equação geral do quinto grau por radicais (Abel, 1824) não impediu a solução por funções elípticas (Hermite, 1858).</p>
+
+<h2>A série de Sundman</h2>
+<p>Em 1912, Karl Sundman obteve uma solução geral, válida para quase todas as condições iniciais com momento angular não nulo, na forma de séries de potências de uma variável temporal regularizada. A regularização trata as colisões binárias, que são as singularidades do problema, e torna a série convergente para todo o tempo. O resultado é matematicamente completo, porém de convergência tão lenta que estimativas posteriores indicaram ser necessário um número de termos da ordem de \(10^{8\,000\,000}\) para precisão útil em astronomia. Do ponto de vista prático, a série não substitui a integração numérica.</p>
+
+<h2>Sensibilidade às condições iniciais</h2>
+<p>A dificuldade prática decisiva é outra. Em regime não hierárquico, isto é, quando as três massas são comparáveis e se aproximam umas das outras, o sistema é caótico: duas condições iniciais separadas por \(\delta_0\) divergem, em média, como</p>
+<div class="eq">\[ \delta(t) \sim \delta_0 \, e^{\lambda t}, \]</div>
+<p>em que \(\lambda\) é o maior expoente de Lyapunov. O horizonte de previsibilidade cresce apenas com o logaritmo da precisão inicial: cada dígito correto adicional nas condições iniciais acrescenta um intervalo fixo, da ordem de \(\ln 10/\lambda\), ao tempo de previsão. Uma solução exata, ainda que existisse em forma utilizável, não removeria esse limite, porque as condições iniciais são sempre conhecidas com precisão finita.</p>
+
+<h2>O que se busca, então</h2>
+<p>Diante disso, a pesquisa contemporânea se organiza em frentes que não dependem de uma fórmula fechada:</p>
+<ul>
+<li><b>Soluções particulares exatas:</b> as configurações colineares de Euler (1767), o triângulo equilátero de Lagrange (1772) e órbitas periódicas como a figura oito de massas iguais, demonstrada por Chenciner e Montgomery em 2000. Buscas numéricas desde 2013 catalogaram centenas e depois milhares de órbitas periódicas.</li>
+<li><b>Critérios de estabilidade:</b> condições sob as quais configurações particulares ou sistemas hierárquicos permanecem regulares por tempos longos.</li>
+<li><b>Descrições estatísticas:</b> no regime caótico, prever a distribuição dos desfechos, tipicamente a formação de um binário e a ejeção do terceiro corpo, em vez da trajetória individual. Stone e Leigh publicaram em 2019 uma solução estatística desse tipo.</li>
+<li><b>Geometria do espaço de formas:</b> a redução por simetrias leva o movimento a uma esfera de formas, na qual alinhamentos e colisões ocupam lugares definidos e as trajetórias podem ser codificadas simbolicamente.</li>
+</ul>
+<p>Os artigos seguintes deste caderno registram experimentos numéricos nessas frentes, em especial na de estabilidade: quais mecanismos tornam configurações de poucos corpos regulares e quais propostas intuitivas de estabilização falham.</p>

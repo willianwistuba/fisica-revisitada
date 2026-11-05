@@ -1,0 +1,495 @@
+{
+ "lang": "en",
+ "locale": "en",
+ "name": "English",
+ "decimal": ".",
+ "series": {
+  "title": "The three-body problem",
+  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Thirteen notes, from foundations to hypothesis testing."
+ },
+ "articles": {
+  "FR-TC-01": {
+   "title": "Why the three-body problem has no general closed-form solution",
+   "short": "Why there is no general solution",
+   "type": "Review article",
+   "abstract": "We review the results that delimit the Newtonian three-body problem. The state of the system has 18 components, and the symmetries provide only 10 classical first integrals. The theorems of Bruns (1887) and Poincaré (1890) exclude additional algebraic and uniform analytic integrals, but not other representations. Sundman's series (1912) solves the problem for nonzero total angular momentum, with convergence too slow for practical use. In the nonhierarchical regime, the exponential divergence of trajectories makes the predictability horizon grow only with the logarithm of the initial precision, a limit that no exact formula would remove. We conclude that the open question is not that of a closed-form formula, but rather that of understanding the structures that make the motion regular and of describing the chaotic regime statistically, and we indicate the corresponding research directions.",
+   "kw": [
+    "three-body problem",
+    "first integrals",
+    "Sundman series",
+    "deterministic chaos",
+    "predictability"
+   ]
+  },
+  "FR-TC-02": {
+   "title": "Vibrational stabilization by an internal binary: a negative result",
+   "short": "Vibration by an internal binary",
+   "type": "Research article · negative result",
+   "abstract": "We test whether a tight central binary can stabilize, by analogy with the Kapitza pendulum, an equilateral triangle of three equal masses that is unstable with a single central mass. We compare the survival time with that of a control group with the same total mass concentrated in a single body, for three central masses, ten binary separations, and both senses of rotation, and we repeat the test at the Routh stability boundary of the Lagrange triangle. In no case did the binary significantly prolong survival; for larger separations, it shortened survival to about 8% of the control. A scaling estimate explains the result: since Kepler's third law links the amplitude and frequency of the quadrupole excitation, the effective Kapitza term decays with the seventh power of the binary separation. Passive vibrational stabilization does not occur in this system.",
+   "kw": [
+    "vibrational stabilization",
+    "Kapitza pendulum",
+    "internal binary",
+    "Lagrange configuration",
+    "negative result"
+   ]
+  },
+  "FR-TC-03": {
+   "title": "Stability map of few-body configurations: Routh, Maxwell, hierarchy, and dissipation",
+   "short": "Stability map",
+   "type": "Research article",
+   "abstract": "We verify whether a simple symplectic integrator reproduces, without prior information, the classical stability criteria for few-body configurations. The Gascheau-Routh limit for the Lagrange triangle (μ ≈ 0.0198 for masses 1:μ:μ), the Maxwell criterion for rings with a central body (n ≥ 7 and μ < 2.298/n³), and the hierarchical criterion of Mardling and Aarseth are reproduced, the last with good agreement for m₃ ≥ 1. Within the linearly stable region, we document islands of instability associated with the 2:1 resonance between the eigenfrequencies, at β ≈ 0.0237 to 0.0239, in agreement with Deprit and Deprit-Bartholomé (1967). A linear drag destroys the gyroscopic stability of the triangle in a time approximately proportional to 1/γ, as predicted by the Kelvin-Tait-Chetaev theorem.",
+   "kw": [
+    "stability",
+    "Routh criterion",
+    "Maxwell rings",
+    "hierarchical systems",
+    "2:1 resonance",
+    "dissipation"
+   ]
+  },
+  "FR-TC-04": {
+   "title": "Is there a universal coupling threshold for few-body stability?",
+   "short": "Universal coupling threshold?",
+   "type": "Research article · hypothesis tested",
+   "abstract": "We test the hypothesis that a single value of tidal coupling between Keplerian subsystems determines the stability threshold of few-body configurations. We define a standardized measure, the ratio of the tidal acceleration due to the external bodies to the internal acceleration of each subsystem, and compute it at nine simulated thresholds from three families: Lagrange triangles with unequal masses, Maxwell rings, and hierarchical systems. The values range from 0.66% to 5.1%, a spread of about a factor of eight, which refutes the universal constant and preserves an order-of-magnitude rule. Rings with n ≤ 6 are unstable even with coupling well below 1%. We propose that resonance overlap, in the sense of Chirikov, better explains both the common scale and the systematic differences between families.",
+   "kw": [
+    "tidal coupling",
+    "stability thresholds",
+    "resonance overlap",
+    "KAM theorem",
+    "Chirikov criterion"
+   ]
+  },
+  "FR-TC-05": {
+   "title": "Early signals of ejection in the three-body problem: the role of mass ratios",
+   "short": "Signals of ejection",
+   "type": "Research article",
+   "abstract": "We ask whether the binary that survives the disruption of a three-body system can be recognized before the third body is ejected. In 7,000 regularized planar integrations, starting from rest and with virial ratio 0.5, we compare equal masses, two small and one large, and two large and one small. With equal masses there is no early signal: the final pair only becomes definitively the most bound at the last close encounter, and the predictor based on pair energies is correct 35% to 45% of the time, close to chance. With unequal masses, the lightest body is ejected in 92% to 99.8% of the cases, in agreement with the approximate m⁻³ law, and the signal grows with the disparity: with masses 10, 10, and 1, the final pair is determined at half the time preceding the ejection. Even so, the rule that the two heaviest bodies remain predicts the outcome as well as or better than any dynamical signal. Two large masses eject the small one earlier and with fewer escape attempts.",
+   "kw": [
+    "three-body problem",
+    "ejection",
+    "final binary",
+    "mass ratio",
+    "predictability",
+    "regularization"
+   ]
+  },
+  "FR-TC-06": {
+   "title": "Does the orbital velocity of the pair predict the ejected body? A test against the mass ratios",
+   "short": "Velocity and ejection",
+   "type": "Research article · hypothesis tested",
+   "abstract": "We test whether the comparison between the orbital velocity of each pair and the arrival velocity of the third body predicts which body will be ejected in the disruption of three-body systems, and whether this information adds anything to the masses. In 4,200 regularized planar integrations, with fixed mass groups and with masses drawn at random between 1 and 10, we compare the lightest body predictor, two predictors based on the velocity ratio, and a conditional logit model that combines masses and velocities, evaluated by cross-validation. With equal masses, the velocity ratio carries a weak signal, with 34% to 47% success against 33% for chance. With unequal masses, velocity alone loses to the masses, and the combined model only outperforms them when two candidates have the same mass, in which case velocity breaks the tie. With random masses there is no gain. The fit recovers an ejection probability approximately proportional to the mass raised to the power −2.4, close to the known law with exponent −3.",
+   "kw": [
+    "three-body problem",
+    "ejection",
+    "hard and soft binaries",
+    "mass ratio",
+    "conditional logit",
+    "predictability"
+   ]
+  },
+  "FR-TC-07": {
+   "title": "The first dissenter and the first contact: what the onset of disruption reveals about the ejected body",
+   "short": "First contact",
+   "type": "Research article",
+   "abstract": "We examine whether the onset of the disruption of a three-body system reveals which body will be ejected. Starting from the perturbed Lagrange triangle, we define the first dissenter in four ways and find, in 4,400 regularized planar integrations, that it does not predict the ejected body: with equal masses, the success rate lies between 29% and 40%, at the level of chance, because 105 to 135 close encounters occur between the onset and the ejection; with unequal masses, the apparent signal is an effect of the mass. We then test, in 30,000 integrations with masses 1, 1, and q (q from 2 to 30) and three types of start, whether the light mass that first forms a close pair with the heavy one remains with it. In the symmetric start, this occurs in 64% to 83% of cases, with an advantage that grows with q, whereas initial proximity predicts nothing. In random starts, the effect falls to 54% to 61% and is largely confounded with the advantage of starting closer. An energy decomposition, in 18,000 additional integrations, shows the origin of the effect: when the first contact pair already holds more binding than the total energy of the system, the other light mass is expelled in the encounter itself and the light mass of the contact remains in 91% to 100% of cases; outside these cases, the effect is smaller and grows with the binding of the pair.",
+   "kw": [
+    "three-body problem",
+    "ejection",
+    "Lagrange triangle",
+    "instability",
+    "first contact",
+    "Heggie's law"
+   ]
+  },
+  "FR-TC-08": {
+   "title": "Half-life and heavy tail in the disruption of three-body systems",
+   "short": "Half-life",
+   "type": "Research article",
+   "abstract": "We measure the lifetime distribution of non-hierarchical three-body systems in 9,000 regularized planar integrations, with equal masses, with two light masses and one heavy mass, and with two heavy masses and one light mass, starting from rest and with virial ratio 0.5, up to ten thousand crossing times. The half-life, the median lifetime, ranges from about 3 to 30 crossing times and decreases with the mass disparity. The disruption, however, is not exponential: from 0.8% to 8% of the systems survive to one thousand crossing times, many orders of magnitude above the exponential prediction, and the survival tail approximately follows a power law. In the start from rest, the exponent lies between 0.63 and 0.94, close to the value 2/3 predicted for Lévy flights, and the long-lived systems are dominated by a single long excursion. In the virial start, the tail is heavier, with an exponent between 0.17 and 0.45, and, with a heavy pair, the long-lived systems are nearly stable hierarchical configurations, with hundreds of revolutions of the light body.",
+   "kw": [
+    "three-body problem",
+    "lifetime",
+    "half-life",
+    "Lévy flights",
+    "power law",
+    "hierarchical systems"
+   ]
+  },
+  "FR-TC-09": {
+   "title": "Memory and chance in the three-body problem: a planar test of the statistical theories",
+   "short": "Memory and chance",
+   "type": "Research article",
+   "abstract": "We test, in the planar three-body problem with zero total angular momentum, whether the system forgets its initial conditions and with what measure it occupies the final states. In a map of 34,115 free falls with equal masses, the dependence of the outcome on the initial configuration disappears, within the resolution of the test, after five phases of democratic interaction. The energy distribution of the final pair agrees with the phase-volume theory, but the eccentricity distribution does not: the theory predicts 49% of pairs with eccentricity above 0.9, and the simulations give 35%. Since the deviation does not depend on the history, it is not memory but a failure of uniform occupation. We directly measure the absorptivity of Kol's flux theory in 210,000 time-reversed scatterings. The flux multiplied by it reproduces, with no fitted parameter, the distributions with equal masses and reduces the error in the ejection probabilities with unequal masses to about one percentage point, against 4.2 points for the volume theory. Unlike the three-dimensional case, the absorptivity is indispensable for predicting which body is ejected. The residual withstands a finer grid, a larger launch distance, and another chaos criterion, and it is smaller than the variation of the measured fractions themselves with the lifetime of the system, which indicates the limit of a time-independent statistical description.",
+   "kw": [
+    "three-body problem",
+    "ergodicity",
+    "statistical theory",
+    "absorptivity",
+    "free fall",
+    "chaos"
+   ]
+  },
+  "FR-TC-10": {
+   "title": "Kol's evolution equations tested episode by episode and the structure of the absorptivity",
+   "short": "Evolution and absorptivity",
+   "type": "Research article",
+   "abstract": "We test the ingredients of Kol's statistical evolution equations for the planar three-body problem with zero total angular momentum, dividing 24,000 free falls into 110,117 chaotic episodes separated by excursions. The excursions that return are reabsorbed by chaos with the same absorptivity measured by external launch, from 0.06 to 0.23 depending on the channel. The exits from chaos have almost no memory, and the escape probabilities with unequal masses are predicted within the statistical error, with a mean error of 0.6 to 0.9 percentage point, when the absorptivity and the measurement use the same definition of chaotic episode; the residual of the previous note came from inconsistent definitions. The dependence of the outcomes on the lifetime comes from the first episode and from the regular escapes, two channels predicted by the theory. The duration of the chaotic episodes, however, is not exponential. The absorptivity does not follow a simple law of the kick and the encounter speed, which explain at most 71% of its variation and fail for masses not used in the fit. Maps of the first passage show smooth regular bands, excursion zones that are also smooth and concentrate most of the absorptivity, and a small direct chaotic set with a fractal boundary. The absorptivity of a whole run equals the probability that the first passage ends in excursion or in chaos (correlation of 0.98 in 147 situations), which reduces the problem to a single encounter; in it, the choice between flyby and exchange depends almost only on the masses, but there is not yet a universal law.",
+   "kw": [
+    "three-body problem",
+    "statistical theory",
+    "absorptivity",
+    "excursions",
+    "chaos",
+    "chaotic scattering"
+   ]
+  },
+  "FR-TC-11": {
+   "title": "Two mass rules in the three-body problem: the regular encounter and the exit from chaos",
+   "short": "Mass rules",
+   "type": "Research article",
+   "abstract": "We investigate how the masses decide who is ejected in the planar three-body problem with zero total angular momentum. In a single regular encounter, in 28 mass combinations and 24,316 runs, exchange takes place when the incoming body has more than about half the mass of the heavier binary member, according to a two-parameter curve that explains 94% of the variation and holds for mass ratios not used in the fit; who leaves the pair, when there is an exchange, is almost a coin toss, even with a member ten times lighter. With the incoming body of the same mass as the heavier member, a Newton's cradle effect expels that member in about one third of the cases. In the chaotic phases, in 13 mass sets, the fraction of exits of each body follows the flux factor of Kol's theory, which favors the lightest body, with a mean error of 0.035. The exits of the light body are definitive in 17% to 46% of the cases, against about 10% for the heavy ones, and this filter explains why the light body is the final ejected body in the vast majority of systems.",
+   "kw": [
+    "three-body problem",
+    "ejection",
+    "exchange",
+    "mass ratio",
+    "statistical theory",
+    "scattering"
+   ]
+  },
+  "FR-TC-12": {
+   "title": "An approximate formula for the absorptivity of the three-body problem",
+   "short": "Absorptivity formula",
+   "type": "Research article",
+   "abstract": "The absorptivity is the only piece of Kol's flux theory for the three-body problem that still has to be measured by simulation. Since it is fixed in the first passage, we decompose this passage into two rules: a mass rule, which decides between flying by and exchanging partners, and an energy rule, which decides whether the outgoing body stays bound to the pair. In 42,415 first passages in the plane with zero total angular momentum, the chance of staying bound falls with the binding of the pair and, in exchanges, with the mass gain of the new pair, according to logistic laws that explain up to 72% of the variation in mass combinations not used in the fit. The resulting formula, with eight constants fitted only on a mass grid, reproduces the measured absorptivity in seven channels outside this grid with R² of 0.72 to 0.77, on average over eccentricity, and, multiplied by the flux, predicts the escape chances with a mean error of 1.7 percentage points, against 4.2 for the volume theory and 2.5 for the flux without absorptivity. The dependence on eccentricity, strong in some channels, is captured only in part by the speed of the pair at apoapsis, and the distribution of the final eccentricity still requires the measured absorptivity.",
+   "kw": [
+    "three-body problem",
+    "absorptivity",
+    "statistical theory",
+    "partner exchange",
+    "empirical formula",
+    "scattering"
+   ]
+  },
+  "FR-TC-13": {
+   "title": "The eccentricity wall: why, without total rotation, a circular pair does not capture a light body",
+   "short": "The eccentricity wall",
+   "type": "Research article",
+   "abstract": "The approximate absorptivity formula of note FR-TC-12 erred in the final eccentricity when two heavy stars meet a light one. We show that the cause is a threshold: in 225,000 planar scatterings with zero total angular momentum, a body with mass less than about 0.9 times the reduced mass of the pair is not captured when the eccentricity of the pair is below a value that ranges from about 0.2 to 0.9 as the body gets lighter. Below this wall, the absorptivity is below 1% with 95% confidence. The wall is geometric: with zero angular momentum, the eccentricity of the pair fixes the passage distance of the incoming body, and there is no capture when it exceeds about one semimajor axis of the pair (from 0.9 to 1.75 semimajor axes, depending on the energy). For this reason the result holds only in this scenario. Including the wall raises the explained fraction of the absorptivity of the light channel outside the fit from 0.45 to 0.93, although the formula still does not reach the measured absorptivity in the free falls. In 48,000 free falls, 82% to 88% of the escapes come from a short last episode, whose final pair inherits the shape of the pair of the previous excursion. With the same criterion of chaotic origin in absorption and in emission, the flux theory with the measured absorptivity passes 8 of 9 tests of the final eccentricity and all tests of the escape chances, which corrects the method of the previous notes. Version 2: adds the geometric interpretation and restricts the scope of the conclusion.",
+   "kw": [
+    "three-body problem",
+    "absorptivity",
+    "capture",
+    "passage distance",
+    "dynamical memory",
+    "statistical theory"
+   ]
+  }
+ },
+ "fig": {
+  "A2": {
+   "x": "binary separation a_b (logarithmic scale)",
+   "y": "survival with binary ÷ control",
+   "control": "control",
+   "aria": "Survival time with the binary divided by that of the control, as a function of the binary separation"
+  },
+  "A4": {
+   "x": "tidal coupling at threshold (logarithmic scale)",
+   "rows": [
+    "Lagrange 1:μ:μ",
+    "Lagrange 1:μ:0.25μ",
+    "Lagrange 1:μ:4μ",
+    "Ring, n = 7",
+    "Ring, n = 8",
+    "Ring, n = 10",
+    "Hierarchical, m₃ = 0.1",
+    "Hierarchical, m₃ = 1",
+    "Hierarchical, m₃ = 10"
+   ],
+   "aria": "Tidal coupling at the stability threshold, by configuration"
+  },
+  "A5": {
+   "x": "success rate for the final pair",
+   "most": "most bound pair at half time",
+   "naive": "two heaviest",
+   "chance": "chance",
+   "na": "undefined",
+   "aria": "Success rate of the final pair predictors by mass group"
+  },
+  "A6": {
+   "x": "success rate for the ejected body",
+   "mass": "lightest",
+   "speed": "mean velocity",
+   "both": "combined model",
+   "chance": "chance",
+   "rows_last": "random",
+   "aria": "Success rate of the ejected body predictors by mass group"
+  },
+  "A7": {
+   "x": "mass ratio q (masses 1, 1, and q)",
+   "y": "fraction in which the light mass remains",
+   "c10": "contact at 10%",
+   "c30": "contact at 30%",
+   "near": "started closest",
+   "chance": "chance",
+   "aria": "First contact effect as a function of the mass ratio"
+  },
+  "A8": {
+   "x": "lifetime T (crossing times, logarithmic scale)",
+   "y": "fraction still bound",
+   "eq": "equal masses",
+   "l10": "1, 1, 10",
+   "h10": "10, 10, 1",
+   "rest": "rest",
+   "vir": "virial",
+   "aria": "Survival curves of three-body systems"
+  },
+  "A9": {
+   "x": "eccentricity of the final pair",
+   "y": "fraction per bin",
+   "meas": "simulation",
+   "sl": "phase volume",
+   "flux": "pure flux",
+   "fa": "flux × absorptivity",
+   "aria": "Eccentricity distribution of the final pair compared with three theoretical predictions"
+  },
+  "A10": {
+   "x": "pair phase (degrees)",
+   "y": "orientation (degrees)",
+   "panels": [
+    "(a) 1, 1, 1; x = 1.2; e = 0.5",
+    "(b) 1, 1, 1; x = 3; e = 0.15",
+    "(c) 1, 1, 1; x = 1.05; e = 0.85",
+    "(d) light vs. pair 3, 3; x = 1.2"
+   ],
+   "chaos": "chaos",
+   "ex0": "exchange (one leaves)",
+   "ex1": "exchange (the other leaves)",
+   "fly": "flyby",
+   "bound": "still bound",
+   "aria": "Maps of the result of the first passage as a function of the phase and orientation of the pair"
+  },
+  "A11": {
+   "x": "mass of the incoming body / mass of the heavier member",
+   "y": "exchange probability",
+   "mb": "pair 1 : {v}",
+   "fit": "fitted curve",
+   "aria": "Exchange probability in the first passage as a function of the mass ratio"
+  },
+  "A12": {
+   "x": "measured absorptivity",
+   "y": "absorptivity predicted by the formula",
+   "aria": "Absorptivity predicted by the formula against the one measured by simulation"
+  },
+  "A13": {
+   "x": "incoming body mass / reduced mass of the pair",
+   "y": "minimum eccentricity for capture",
+   "s11": "equal-mass pair (1,1)",
+   "s12": "unequal pair (1,2)",
+   "aria": "Minimum eccentricity of the pair for a light body to be captured, as a function of the relative mass"
+  }
+ },
+ "ui": {
+  "skip": "Skip to content",
+  "nav_notes": "Notes",
+  "nav_series": "Series",
+  "nav_method": "Method",
+  "nav_code": "Code",
+  "search_ph": "Search the notes",
+  "language": "Language",
+  "journal_sub": "Technical notes in physics",
+  "note": "Technical note",
+  "affiliation": "Independent researcher, São Paulo, Brazil",
+  "author_role": "Physics enthusiast",
+  "published": "Published",
+  "version": "Version",
+  "version_note": "v2: journal format and translations",
+  "date_long": "3 November 2026",
+  "date_short": "3 Nov. 2026",
+  "status": "Status",
+  "status_text": "Not peer reviewed",
+  "abstract": "Abstract",
+  "keywords": "Keywords",
+  "contents": "Contents",
+  "references": "References",
+  "figure": "Fig.",
+  "figure_long": "Figure",
+  "table": "Table",
+  "download_pdf": "Download PDF",
+  "pdf": "PDF",
+  "cite_as": "Cite as",
+  "cite_tpl": "W. W. M. da Cunha, “{title},” Física Revisitada, Technical Note {code} (2026), {url}.",
+  "series": "Series",
+  "part": "part {n} of {N}",
+  "prev": "Previous",
+  "next": "Next",
+  "overview": "Overview",
+  "all_notes": "All notes",
+  "more": "More",
+  "min_read": "min read",
+  "translation_note": "Translated from the original in Brazilian Portuguese.",
+  "other_langs": "This article in other languages",
+  "backmatter_transparency_title": "Transparency and use of artificial intelligence",
+  "backmatter_transparency_text": "The author is a lawyer and not a physicist. This work results from independent research, conducted with the assistance of artificial intelligence (a language model) in the literature searches, the programming of the simulations, the analysis of the results, the writing, and the translation. The author formulated the questions, followed the experiments, and is responsible for the published content.",
+  "backmatter_data_title": "Data and code availability",
+  "backmatter_data_text": "All numbers were obtained with scripts published at {codeurl}, which run on Node.js without external dependencies and allow the results to be reproduced.",
+  "backmatter_coi_title": "Conflict of interest",
+  "backmatter_coi_text": "The author declares no conflicts of interest. This work received no funding.",
+  "backmatter_review_title": "Review",
+  "backmatter_review_text": "This text has not undergone peer review and should be read as a working note. Corrections are recorded in the note itself, with the date.",
+  "notes_title": "All notes",
+  "notes_lead": "Filter by title, topic, or keyword.",
+  "filter_ph": "For example: resonance, Kapitza, Maxwell",
+  "filter_aria": "Filter notes",
+  "empty": "No notes found. Try another word.",
+  "series_eyebrow": "Series · celestial mechanics",
+  "series_order_title": "Reading order",
+  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, and the thirteenth measures the eccentricity wall below which a light body is not captured.",
+  "series_count": "{n} notes",
+  "foot_about": "Classical problems in physics revisited with artificial intelligence in the creative process: questions, numerical experiments, and verification against the literature.",
+  "foot_disc": "By Willian Wistuba Melo da Cunha, physics enthusiast. The author is a lawyer and not a physicist. The searches, simulations, and writing are carried out with AI assistance. The texts have not undergone peer review.",
+  "foot_how": "How we work",
+  "foot_nav": "Navigate",
+  "foot_series": "Series: three bodies",
+  "foot_method": "Method and transparency",
+  "foot_code": "Code",
+  "rss_desc": "Classical problems in physics revisited with AI in the creative process.",
+  "site_title": "Física Revisitada · classical problems in physics revisited with AI",
+  "site_desc": "Technical notes that revisit classical problems in physics with artificial intelligence in the creative process, with numerical experiments, open code, and PDFs in scientific article format, in Portuguese, English, German, and French.",
+  "notes_desc": "All technical notes of Física Revisitada, with search.",
+  "method_title": "Method and transparency",
+  "method_desc": "How Física Revisitada works: authorship, use of artificial intelligence, rules for the notes, and limitations.",
+  "code_title": "Code",
+  "code_desc": "Scripts used in the numerical experiments of Física Revisitada.",
+  "pdf_author": "Self-taught physics enthusiast",
+  "contact": "Contact"
+ },
+ "home": {
+  "eyebrow": "AI in the creative process",
+  "h1": "Classical problems in physics, <em>revisited</em>",
+  "lead": "Technical notes that take up established problems in physics with a declared method: curiosity formulates the question, artificial intelligence helps to search, program, and write, and the simulation decides. Each note follows the format of a scientific article and is also released as a PDF, in four languages.",
+  "cta_read": "Read the notes",
+  "cta_method": "About the method",
+  "stat_notes": "technical notes",
+  "stat_series": "series",
+  "stat_langs": "languages",
+  "stat_scripts": "open scripts",
+  "series_eyebrow": "Series",
+  "series_h2": "In progress",
+  "series_sub": "Each series gathers notes on a single classical problem, from a review of what is known to hypothesis tests.",
+  "series_card_eyebrow": "Series · {n} notes · celestial mechanics",
+  "series_link": "View the series →",
+  "latest_eyebrow": "Publications",
+  "latest_h2": "Latest notes",
+  "latest_sub": "Reviews, numerical experiments, and tested hypotheses, with code and references.",
+  "see_all": "View all →",
+  "method_eyebrow": "Method",
+  "method_h2": "How a note is born",
+  "steps": [
+   [
+    "Question",
+    "A doubt about a classical problem becomes a small, testable question capable of surprising."
+   ],
+   [
+    "Experiment",
+    "AI helps to program the simulation, always with a control group, several perturbations, and declared limitations."
+   ],
+   [
+    "Verification",
+    "The result is checked against the literature. What is already known is stated as such; what fails is also published."
+   ]
+  ],
+  "transp_eyebrow": "Transparency",
+  "transp_text": "Written by Willian Wistuba Melo da Cunha, physics enthusiast. The author is a lawyer and not a physicist. The literature searches, simulations, and writing are carried out with the assistance of artificial intelligence, and the results have not undergone peer review.",
+  "transp_link": "Read how the blog works"
+ },
+ "method_page": {
+  "eyebrow": "Method and transparency",
+  "h1": "How this blog works",
+  "lead": "Física Revisitada takes up classical problems in physics using artificial intelligence as a declared part of the creative process: to search the literature, program experiments, analyze results, write, and translate.",
+  "body": "<h2>Who writes</h2>{byline}<p>The author is a lawyer and is neither a professional physicist nor a professional mathematician. The questions that give rise to the notes come from curiosity about physics and from a habit of investigation, applied to classical problems, not from an academic program.</p><h2>The role of artificial intelligence</h2><p>A language model takes part in the literature searches, the programming of the simulations, the analysis of the numbers, the writing, and the translation. The author formulates the questions, follows the experiments, and decides what to publish. AI can be wrong with apparent confidence; for this reason each note declares its method, publishes its code, and separates original results from established literature.</p><h2>Rules for each note</h2><ul><li>Hypotheses pass three filters before being tested: they are small (a specific case), testable (the simulation can say no), and bold (they would surprise someone if they turned out to be right).</li><li>Experiments have a control group, several perturbations, and explicit disruption criteria.</li><li>When a result coincides with a known criterion, this is stated: reproducing the literature validates the simulator; it is not a discovery.</li><li>Negative results are published with the same care as positive ones.</li></ul><h2>Format</h2><p>The notes follow the conventions of scientific articles in physics: title, authorship and affiliation, date and version, abstract, keywords, numbered sections, equations, numbered figures and tables, numbered in-text citations, references, and closing statements on the use of AI, data, and conflicts of interest. The PDF is typeset in two columns with REVTeX, the LaTeX class used in the journals of the American Physical Society. The original is written in Portuguese; this English version is a translation, as are the German and French versions.</p><h2>What the notes are not</h2><p>They are not peer-reviewed articles and should not be cited as established results. They are working notes, open to verification.</p><h2>Corrections</h2><p>Errors that are identified are corrected in the note itself and in the PDF, with an indication of the date and of what changed.</p>"
+ },
+ "code_page": {
+  "eyebrow": "Reproducibility",
+  "h1": "Code for the experiments",
+  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 13.",
+  "intro": "Download them all to the same folder and run, for example, <code>node fase1.js</code>. Units use G = 1. The integrator is the kick-drift-kick leapfrog.",
+  "th_file": "File",
+  "th_what": "What it does",
+  "files": {
+   "core.js": "Leapfrog integrator and setup of the Lagrange triangle with arbitrary masses, optionally with a binary in place of one vertex.",
+   "fase1.js": "Gascheau-Routh limit with masses 1 : μ : μ.",
+   "fase2.js": "Binary in place of the dominant body, at the stability boundary.",
+   "fase3.js": "Rings of n bodies with a central body: Maxwell criterion.",
+   "fase4.js": "Dissipation acting on the stable triangle.",
+   "fase5.js": "Hierarchical systems with equal masses.",
+   "sim.js": "Vibrational stabilization: triangle with a central binary and control.",
+   "verify.js": "Lagrange thresholds with unequal masses.",
+   "verify2.js": "Ring thresholds and tidal coupling.",
+   "verify3.js": "Hierarchical thresholds with unequal masses.",
+   "ejecao/sim.py": "Ejection experiment (FR-TC-05): regularized chain integrator and pair diagnostics (Python, NumPy, Numba).",
+   "ejecao/run_all.py": "Runs the 7,000 runs of note FR-TC-05 and computes the signals for each run.",
+   "ejecao/summarize.py": "Generates the summary table of note FR-TC-05.",
+   "ejecao/run_speed.py": "Runs the 4,200 runs of note FR-TC-06 and computes the velocity ratio of each candidate.",
+   "ejecao/analyse_speed.py": "Compares the predictors and fits the combined model of note FR-TC-06.",
+   "ejecao/run_dissid.py": "First dissenter in the equal-mass Lagrange triangle (note FR-TC-07).",
+   "ejecao/run_dissid2.py": "First dissenter with unequal masses (note FR-TC-07).",
+   "ejecao/run_contato.py": "Runs the 30,000 runs of the first contact test (note FR-TC-07).",
+   "ejecao/analyse_contato.py": "Computes the rates and confidence intervals of the first contact test (note FR-TC-07).",
+   "ejecao/run_dureza.py": "Measures the pair binding at first contact (supplement to note FR-TC-07).",
+   "ejecao/run_vida.py": "Runs the 9,000 runs of note FR-TC-08 and measures the excursions of each system.",
+   "ejecao/analyse_vida.py": "Computes the half-life, survival, and tail exponent (note FR-TC-08).",
+   "ergo/sim.py": "Copy of the regularized integrator used in the experiments of note FR-TC-09.",
+   "ergo/run_ergo.py": "Runs the map of 34,115 free falls with equal masses and counts the scrambles (note FR-TC-09).",
+   "ergo/analyse_ergo.py": "Compares the energy and eccentricity distributions with the volume prediction and computes the uncertainty between neighbors (note FR-TC-09).",
+   "ergo/map_ergo.py": "Tests the spatial dependence of the outcome by map cells and draws the map (note FR-TC-09).",
+   "ergo/ergo_theory.py": "Planar version of the phase-volume prediction, analogous to that of Stone and Leigh (note FR-TC-09).",
+   "ergo/run_absorb.py": "Measures the absorptivity with equal masses through time-reversed scatterings (note FR-TC-09).",
+   "ergo/analyse_absorb.py": "Computes the flux-times-absorptivity prediction and compares it with the free falls (note FR-TC-09).",
+   "ergo/run_absorb2.py": "Measures the absorptivity per channel with unequal masses (note FR-TC-09).",
+   "ergo/run_ffrand.py": "Runs the random free falls with unequal masses (note FR-TC-09).",
+   "ergo/analyse17.py": "Compares the measured ejection fractions with the three predictions (note FR-TC-09).",
+   "ergo/sim2.py": "Variant of the integrator that records the distances between the pairs (note FR-TC-09, origin of the residual).",
+   "ergo/segs2.py": "Counts scrambles, democratic configurations, and excursions in each run (note FR-TC-09).",
+   "ergo/run_absorb4.py": "Absorptivity with a refined grid and configurable launch distance (note FR-TC-09).",
+   "ergo/run_ffrand3.py": "Free falls with unequal masses and excursion counting (note FR-TC-09).",
+   "ergo/analyse18.py": "Interpolation functions for the absorptivity and prediction per channel (note FR-TC-09).",
+   "ergo/an19.py": "Compares the prediction with the old grid, the fine grid, and launch at 40 semimajor axes (note FR-TC-09).",
+   "ergo/an20.py": "Compares the predictions with the range of measured fractions in seven selections of runs (note FR-TC-09).",
+   "ergo/run_episodes.py": "Divides the free falls into chaotic episodes and excursions (note FR-TC-10).",
+   "ergo/an_kol.py": "Tests the ingredients of Kol's evolution equations episode by episode (note FR-TC-10).",
+   "ergo/an_push.py": "Searches for a law for the absorptivity with the kick and the encounter speed (note FR-TC-10).",
+   "ergo/run_phase.py": "Map of the first passage as a function of the phase and orientation of the pair (note FR-TC-10).",
+   "ergo/an_phase.py": "Measures the regions of the maps and the uncertainty exponent (note FR-TC-10).",
+   "ergo/run_onepass.py": "Integrates only up to the first exit and records the energy of the pair after the first passage (note FR-TC-10).",
+   "ergo/an_onepass.py": "Single-passage model: distribution of the energy change and search for laws (note FR-TC-10).",
+   "ergo/run_massgrid.py": "First-passage mass grid: flyby or exchange and who leaves the pair (note FR-TC-11).",
+   "ergo/run_massrule.py": "Single encounter with the incoming body of the same mass as the heavier member (note FR-TC-11).",
+   "ergo/an_b2.py": "Distribution of the change in the energy of the pair in the first passage, by branch (note FR-TC-12).",
+   "ergo/an_b2c.py": "Logistic models of the chance of staying bound, with prediction leaving one mass combination out (note FR-TC-12).",
+   "ergo/an_b2d.py": "Compact logistic laws for the chance of staying bound (note FR-TC-12).",
+   "ergo/an_b2e.py": "Complete formula without eccentricity and test on the escape chances (note FR-TC-12).",
+   "ergo/an_ecc.py": "Effect of the eccentricity on the mass and energy rules (note FR-TC-12).",
+   "ergo/formula_v2.py": "Formula with eccentricity, fitted on the mass grid, and end-to-end test (note FR-TC-12).",
+   "ergo/run_wall.py": "First map of the eccentricity wall (pair 1-1, 40 runs per cell).",
+   "ergo/run_wall2.py": "Wall map with 225,000 runs: pair 1-1 with 12 masses and pair 1-2 with 6 masses.",
+   "ergo/an30.py": "Origin of the final eccentricity error in the set 3-3-1, by channel.",
+   "ergo/an30b.py": "Attempts to correct the formula with smooth terms (discarded).",
+   "ergo/an30c.py": "Diagnosis: formula with the wall applied to the channel 3,3,1.",
+   "ergo/an31.py": "Confidence intervals of the wall, reproducibility, and unequal pair.",
+   "ergo/run_onepass_light.py": "First passages in the light-body regime (69,300 runs).",
+   "ergo/an32.py": "Formula v3 (table in m_s/μ) and tests outside the fit.",
+   "ergo/an32b.py": "Test ceiling: flux times measured absorptivity.",
+   "ergo/an33.py": "KS test with a critical value that includes the uncertainty of the prediction.",
+   "ergo/an33b.py": "The residual as a function of the number of scrambles.",
+   "ergo/run_age.py": "48,000 free falls with the eccentricity of the pair in each excursion.",
+   "ergo/an34.py": "Memory between episodes and dependence on age.",
+   "ergo/an34b.py": "Test of the theory with a cut on the last episode.",
+   "ergo/an34c.py": "Consistent test: same scramble threshold in absorption and in emission.",
+   "ergo/an35.py": "Formulas v2 and v3 in the consistent test."
+  },
+  "note": "The scripts are working notes, written for clarity rather than performance. Some depend on <code>core.js</code> or <code>sim.js</code>."
+ }
+}

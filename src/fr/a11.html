@@ -1,0 +1,77 @@
+<h2>Introduction</h2>
+<p>Dans les systèmes de trois corps qui se désintègrent après une interaction longue, le corps le plus léger est presque toujours celui qui est éjecté <cite>5,6</cite>. Dans la note FR-TC-05, par exemple, le corps léger est sorti dans 92 % à 99,8 % des cas <cite>8</cite>. Cette règle est souvent lue comme une propriété de chaque rencontre : lorsque trois corps se rapprochent, le plus léger serait projeté vers l’extérieur. La note FR-TC-10 a cependant montré que l’absorptivité de la théorie de Kol est fixée au premier passage et que, lors de ce passage, le choix entre survol et échange de partenaire dépend presque uniquement des masses <cite>9</cite>. Cette note étudie entièrement le rôle des masses, à travers trois questions. Comment les masses décident-elles du résultat d’une seule rencontre régulière ? Comment décident-elles de qui sort d’une phase chaotique, selon le facteur de flux de la théorie de Kol <cite>1,2</cite> ? Et comment ces deux règles se combinent-elles pour produire la prédominance finale du corps le plus léger ?</p>
+
+<h2>Méthode</h2>
+<h3>Rencontre unique</h3>
+<p>Nous utilisons l’intégrateur régularisé des notes précédentes <cite>7</cite>, en mouvement plan avec \(G = 1\), moment cinétique total nul et énergie totale \(E_0 = -1\). Une paire de masses \(m_a = 1\) et \(m_b\), avec \(m_b\) de 0,1 à 1, reçoit un troisième corps de masse \(m_s\) de 0,1 à 10, lancé depuis 20 demi-grands axes, avec une phase et une orientation de la paire tirées au hasard, comme dans les mesures d’absorptivité de la note FR-TC-10. Nous utilisons trois valeurs de l’énergie relative de la paire (\(x = E_B/E_0\) = 1,2, 2 et 5), trois valeurs de l’excentricité (0,15, 0,5 et 0,85) et 100 simulations par cellule, pour 28 combinaisons de masses (24 316 simulations valides), intégrées jusqu’à la première sortie. Nous enregistrons qui sort : le corps incident (survol) ou l’un des membres de la paire (échange). Séparément, pour le cas où le corps incident a la même masse que le membre le plus lourd, nous avons effectué 8 100 simulations jusqu’à l’issue finale, avec \(m_b/m_a\) de 0,1 à 1.</p>
+<h3>Sorties du chaos</h3>
+<p>Pour les sorties des phases chaotiques, nous utilisons la décomposition en épisodes de la note FR-TC-10 <cite>9</cite>, appliquée à des chutes libres à moment cinétique total nul pour 13 groupes de masses : les quatre de cette note, avec 6 000 simulations chacun, et neuf autres, avec 2 000 simulations chacun, de (1, 1, 2) à (1, 5, 10). Pour chaque épisode chaotique postérieur au premier, nous enregistrons quel corps sort et si la sortie est définitive (échappement) ou temporaire (excursion). Nous comparons la fraction des sorties de chaque corps au facteur de flux de Kol, qui, dans le plan, est proportionnel à \(k_s = (m_a m_b)^3/(m_a + m_b)\), où \(m_a\) et \(m_b\) sont les masses de la paire qui reste <cite>1,9</cite>.</p>
+
+<h2>Résultats</h2>
+<h3>Rencontre unique : un seuil de masse et un tirage au sort</h3>
+<p>Lors d’une rencontre régulière, le choix entre survol et échange dépend presque uniquement du rapport entre la masse du corps incident et celle du membre le plus lourd de la paire (Fig. 1). Lorsque \(m_s\) est bien inférieur à la moitié de \(m_a\), le corps incident passe presque toujours et s’en va ; lorsque \(m_s\) est supérieur à \(m_a\), il échange presque toujours sa place avec l’un des membres. La courbe</p>
+<div class="eq">\[ P_{\rm troca} = \frac{1}{1 + (0{,}52\, m_a/m_s)^{1{,}9}} \]</div>
+<p>décrit les 24 combinaisons avec \(m_s \le 4\) avec \(R^2 = 0{,}94\) et une erreur moyenne de 0,08. Ajustée sans l’une des valeurs de \(m_b\) et utilisée pour la prévoir, elle se trompe en moyenne de 0,10. L’énergie et l’excentricité de la paire modifient peu le résultat : l’écart entre les neuf cellules de chaque combinaison est de 0,06. La masse du membre le plus léger n’intervient presque pas ; l’inclure n’améliore l’ajustement que de 0,94 à 0,95. Avec \(m_s = 10\), la fraction de survols remonte (de 4 % à 25 %), car un corps très lourd traverse la paire sans être capturé.</p>
+<figure data-fig="A11"><figcaption>Probabilité d’échange au premier passage en fonction du rapport entre la masse du corps incident et celle du membre le plus lourd de la paire, pour quatre rapports de masses au sein de la paire. La ligne en tirets est la courbe ajustée aux combinaisons avec \(m_s/m_a \le 4\).</figcaption></figure>
+<p>Lorsqu’il y a échange et que le corps incident a au moins la moitié de la masse du membre le plus lourd, le choix de qui sort est presque un tirage au sort entre les deux membres (Tableau I) : le plus lourd est expulsé dans 43 % à 62 % des échanges, même lorsque l’autre membre est dix fois plus léger. Ce n’est que lorsque le corps incident est léger et la paire très inégale que le membre léger sort nettement plus souvent. Ce comportement diffère de ce que l’on connaît pour les rencontres avec paramètre d’impact, dans lesquelles les échanges tendent à expulser le membre le plus léger <cite>3,4</cite>. Ici, à moment cinétique total nul, les rencontres sont presque frontales.</p>
+<div class="tblwrap"><p class="cap">Fraction des échanges au premier passage qui expulsent le membre le plus lourd de la paire, selon la masse du membre léger \(m_b\) (lignes) et du corps incident \(m_s\) (colonnes), avec \(m_a = 1\).</p><table>
+<thead><tr><th>\(m_b\)</th><th>\(m_s = 0{,}5\)</th><th>\(m_s = 1\)</th><th>\(m_s = 2\)</th><th>\(m_s = 4\)</th><th>\(m_s = 10\)</th></tr></thead>
+<tbody>
+<tr><td>0,1</td><td>0,35</td><td>0,46</td><td>0,56</td><td>0,54</td><td>0,45</td></tr>
+<tr><td>0,25</td><td>0,44</td><td>0,44</td><td>0,51</td><td>0,57</td><td>0,48</td></tr>
+<tr><td>0,5</td><td>0,62</td><td>0,43</td><td>0,47</td><td>0,49</td><td>0,47</td></tr>
+<tr><td>1</td><td>0,52</td><td>0,47</td><td>0,53</td><td>0,51</td><td>0,50</td></tr>
+</tbody></table></div>
+<h3>Le cas à masse égale : l’effet de pendule de Newton</h3>
+<p>Le cas où le corps incident a la même masse que le membre le plus lourd révèle le mécanisme (Tableau II). En suivant chaque rencontre jusqu’à la fin, le membre léger est expulsé dans 56 % à 60 % des cas avec \(m_b/m_a \le 0{,}5\), et le membre de masse égale dans 33 % à 38 %, même lorsque le membre léger a un dixième de sa masse. Lors de ces expulsions du membre de masse égale, l’énergie de la paire ne change presque pas (variation logarithmique médiane de \(-0{,}29\) à \(+0{,}05\)) : le corps incident prend la place du membre de même masse, comme dans le pendule de Newton, où la bille qui frappe s’arrête et celle de l’autre extrémité part, et le membre léger reste presque sur la même orbite autour du nouvel arrivant. Lorsque c’est le membre léger qui sort, la nouvelle paire, formée des deux corps lourds, est nettement plus liée (variation médiane de \(+0{,}40\) à \(+0{,}66\)). La fraction d’expulsions du membre léger est plus grande lorsque la paire est peu liée (environ 70 % avec \(x = 1{,}2\)) et plus faible lorsqu’elle est très liée (environ 50 % avec \(x = 5\)).</p>
+<div class="tblwrap"><p class="cap">Issue finale d’une rencontre unique dans laquelle le corps incident a la même masse \(m_a\) que le membre le plus lourd de la paire, selon le rapport \(m_b/m_a\) (environ 1 330 simulations par ligne).</p><table>
+<thead><tr><th>\(m_b/m_a\)</th><th>Sortie du membre léger</th><th>Sortie du membre de masse égale</th><th>Sortie du corps incident</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>0,39</td><td>0,40</td><td>0,21</td></tr>
+<tr><td>0,8</td><td>0,46</td><td>0,44</td><td>0,09</td></tr>
+<tr><td>0,5</td><td>0,57</td><td>0,38</td><td>0,04</td></tr>
+<tr><td>0,33</td><td>0,59</td><td>0,37</td><td>0,04</td></tr>
+<tr><td>0,2</td><td>0,60</td><td>0,33</td><td>0,07</td></tr>
+<tr><td>0,1</td><td>0,56</td><td>0,34</td><td>0,10</td></tr>
+</tbody></table></div>
+<h3>Sortie du chaos : le facteur de flux</h3>
+<p>Dans les phases chaotiques, la règle est différente. La fraction des sorties de chaque corps, en comptant les excursions et les échappements, suit en première approximation le facteur de flux \(k_s\) de la théorie de Kol (Tableau III) : l’erreur moyenne est de 0,035, et la corrélation entre les logarithmes des fractions mesurées et prévues est de 0,96. Le facteur \(k_s\) croît comme le cube du produit des masses de la paire qui reste, et c’est pourquoi il favorise fortement la sortie du plus léger. Les écarts les plus grands apparaissent pour les masses les plus extrêmes, où le facteur surestime la prédominance du corps léger : pour (1, 5, 10), par exemple, il prévoit 99 % et l’on mesure 90 %. C’est la partie que, dans la théorie, l’absorptivité corrige.</p>
+<div class="tblwrap"><p class="cap">Fraction des sorties d’épisodes chaotiques (postérieurs au premier) effectuées par le corps le plus léger, mesurée dans des chutes libres, comparée au facteur de flux \(k_s\) normalisé, par groupe de masses.</p><table>
+<thead><tr><th>Masses</th><th>Sorties</th><th>Mesuré</th><th>Facteur de flux</th></tr></thead>
+<tbody>
+<tr><td>1, 1, 2</td><td>1 483</td><td>0,889</td><td>0,914</td></tr>
+<tr><td>1, 1, 3</td><td>4 363</td><td>0,933</td><td>0,964</td></tr>
+<tr><td>1, 1, 5</td><td>1 717</td><td>0,967</td><td>0,988</td></tr>
+<tr><td>1, 1, 10</td><td>4 700</td><td>0,995</td><td>0,997</td></tr>
+<tr><td>2, 2, 1</td><td>2 564</td><td>0,776</td><td>0,750</td></tr>
+<tr><td>3, 3, 1</td><td>4 093</td><td>0,898</td><td>0,900</td></tr>
+<tr><td>5, 5, 1</td><td>340</td><td>0,906</td><td>0,974</td></tr>
+<tr><td>10, 10, 1</td><td>246</td><td>0,959</td><td>0,996</td></tr>
+<tr><td>1, 2, 3</td><td>4 841</td><td>0,776</td><td>0,821</td></tr>
+<tr><td>1, 2, 4</td><td>1 217</td><td>0,785</td><td>0,847</td></tr>
+<tr><td>1, 3, 5</td><td>987</td><td>0,850</td><td>0,939</td></tr>
+<tr><td>1, 5, 10</td><td>441</td><td>0,896</td><td>0,987</td></tr>
+</tbody></table></div>
+<h3>Le filtre des sorties définitives</h3>
+<p>Il reste à expliquer pourquoi la prédominance finale du corps léger est encore plus grande que sa fraction des sorties. La raison en est que les sorties n’ont pas le même destin (Tableau IV). Lorsque le corps léger sort d’une phase chaotique, la sortie est définitive dans 17 % à 46 % des cas, selon le groupe ; lorsqu’un corps lourd sort, elle est définitive moins souvent, dans 9 % à 13 % des cas pour les groupes comptant le plus de sorties, et le reste du temps il revient d’une excursion et le chaos recommence. La fraction finale des échappements de chaque corps est approximativement sa fraction des sorties multipliée par la chance que la sortie soit définitive. Pour (3, 3, 1), par exemple, 0,898 × 0,290 contre 0,102 × 0,123 donne au corps léger 95 % des échappements, comme mesuré.</p>
+<div class="tblwrap"><p class="cap">Par corps, fraction des sorties d’épisodes chaotiques, fraction de ces sorties qui sont définitives et fraction finale des échappements, pour quatre groupes de masses.</p><table>
+<thead><tr><th>Masses</th><th>Corps</th><th>Fraction des sorties</th><th>Sortie définitive</th><th>Fraction des échappements</th></tr></thead>
+<tbody>
+<tr><td>1, 1, 3</td><td>masse 1</td><td>0,933</td><td>0,248</td><td>0,974</td></tr>
+<tr><td>1, 1, 3</td><td>masse 3</td><td>0,067</td><td>0,092</td><td>0,026</td></tr>
+<tr><td>3, 3, 1</td><td>masse 1</td><td>0,898</td><td>0,290</td><td>0,954</td></tr>
+<tr><td>3, 3, 1</td><td>masse 3</td><td>0,102</td><td>0,123</td><td>0,046</td></tr>
+<tr><td>2, 2, 1</td><td>masse 1</td><td>0,776</td><td>0,173</td><td>0,848</td></tr>
+<tr><td>2, 2, 1</td><td>masse 2</td><td>0,224</td><td>0,108</td><td>0,152</td></tr>
+<tr><td>1, 2, 3</td><td>masse 1</td><td>0,776</td><td>0,251</td><td>0,851</td></tr>
+<tr><td>1, 2, 3</td><td>masse 2</td><td>0,178</td><td>0,168</td><td>0,131</td></tr>
+<tr><td>1, 2, 3</td><td>masse 3</td><td>0,046</td><td>0,090</td><td>0,018</td></tr>
+</tbody></table></div>
+
+<h2>Discussion</h2>
+<p>La règle selon laquelle le corps le plus léger est éjecté n’est pas une règle de chaque rencontre. Lors d’une rencontre unique et régulière, les masses décident seulement s’il y a échange, par un seuil sur le rapport entre la masse du corps incident et celle du membre le plus lourd de la paire ; le membre qui sort de la paire, lorsqu’il y a échange, est presque tiré au sort, et l’effet de pendule de Newton fait souvent sortir le membre de même masse que le nouvel arrivant. La préférence pour le corps léger apparaît dans les phases chaotiques, par le facteur de flux \(k_s\), qui croît comme le cube du produit des masses de la paire qui reste et mesure combien d’états de sortie chaque choix offre <cite>1</cite>. Elle est renforcée par un filtre : les sorties de corps lourds sont, pour la plupart, des excursions qui reviennent, alors que celles du corps léger sont plus souvent définitives. La prédominance finale du corps léger est le produit des deux.</p>
+<p>Pour la théorie de Kol, ce résultat sépare les deux parties de la prévision. La part des masses dans les sorties du chaos est, en première approximation, le facteur de flux, sans paramètre libre, et l’absorptivité corrige les cas extrêmes. La part des rencontres régulières, qui gouverne le premier passage et l’application régulière des équations d’évolution <cite>9</cite>, suit une autre loi, qui tient ici en une courbe à deux paramètres. Cette courbe est un premier ingrédient pour une formule de l’absorptivité, dont l’autre moitié, la chance que le corps qui sort reste lié, dépend de l’énergie de la paire.</p>
+<p>Les principales limites sont les suivantes. Tout est plan, à moment cinétique total nul, ce qui rend les rencontres presque frontales ; avec un moment cinétique, les échanges peuvent favoriser le corps léger, comme dans les sections efficaces connues <cite>3,4</cite>. La courbe d’échange a été ajustée sur 24 combinaisons de masses, et sa forme fonctionnelle est empirique. Pour les groupes de masses les plus extrêmes, le nombre de sorties chaotiques est faible (de 246 à 441), et la fraction de sorties définitives des corps lourds est mesurée avec peu de précision.</p>
+
+<h2>Conclusions</h2>
+<p>Dans le problème plan des trois corps à moment cinétique nul, il existe deux règles de masses. Lors d’une rencontre régulière, l’échange de partenaire se produit lorsque le corps incident a plus d’environ la moitié de la masse du membre le plus lourd de la paire, selon une courbe à deux paramètres qui explique 94 % de la variation, et le membre expulsé est presque tiré au sort ; lorsque le corps incident et l’un des membres ont des masses égales, un effet de pendule de Newton expulse ce membre dans environ un tiers des cas. Dans les phases chaotiques, la fraction des sorties de chaque corps suit le facteur de flux de Kol, qui favorise le corps léger. Comme les sorties des corps lourds tendent à être temporaires et celles du corps léger définitives, le corps léger finit par être l’éjecté final dans la grande majorité des systèmes.</p>

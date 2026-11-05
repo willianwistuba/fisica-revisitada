@@ -1,0 +1,59 @@
+<h2>Introduction</h2>
+<p>Before proposing new stabilization mechanisms, it is advisable to verify whether the simulator reproduces the classical criteria. This note reports that verification for three families of configurations: the Lagrange triangle with unequal masses <cite>1,2</cite>, rings with a dominant central body <cite>4</cite>, and hierarchical systems <cite>6</cite>. It adds the effect of dissipation on gyroscopic stability <cite>7</cite> and documents islands of resonant instability within the linearly stable region <cite>3</cite>. The simulation receives no information about the criteria; the thresholds emerge from direct integration.</p>
+
+<h2>Method</h2>
+<p>Units with \(G = 1\); leapfrog integration with a fixed step of 0.002, or an adaptive step proportional to \(r_{\min}^{3/2}\) in cases with close encounters; five perturbations per configuration, from \(10^{-4}\) to \(10^{-3}\) in position or velocity; integration limit between 600 and 3000 time units, depending on the family. A configuration is recorded as stable when no perturbation disrupts it within the limit, according to explicit geometric criteria for each family: relative deformation of the sides above 30%, angular deviation between neighbors above 30% of the spacing, or disruption of the inner binary.</p>
+
+<h2>Results</h2>
+<h3>Lagrange triangle: the Gascheau-Routh limit</h3>
+<p>For masses \(m_1, m_2, m_3\) in a rigidly rotating equilateral configuration, linear stability requires <cite>1,2</cite></p>
+<div class="eq">\[ (m_1 + m_2 + m_3)^2 > 27\,(m_1 m_2 + m_2 m_3 + m_3 m_1) . \]</div>
+<p>With masses \(1 : \mu : \mu\), the limit is \(\mu \approx 0.0198\); that is, the dominant body must have more than about 50 times the mass of each of the others. The simulation reproduces the limit: all perturbations remain bounded up to \(\mu = 0.0195\), with a maximum deformation of 3.9%; at \(\mu = 0.0205\) the deformation grows slowly to 18.5% without disruption within the integrated interval; from \(\mu = 0.022\) onward all perturbations disrupt the triangle, with a median survival time that falls from about 60 time units at \(\mu = 0.022\) to about 8 at \(\mu = 1\).</p>
+<h3>Islands of resonant instability</h3>
+<p>The Routh condition is linear. Within the linearly stable region, the two eigenfrequencies of small oscillations about the equilateral configuration, in the rotating frame, are given by</p>
+<div class="eq">\[ s^2 = \frac{1 \pm \sqrt{1 - 27\beta}}{2}, \qquad \beta = \frac{m_1 m_2 + m_2 m_3 + m_3 m_1}{(m_1 + m_2 + m_3)^2} . \]</div>
+<p>When the ratio \(s_1/s_2\) is a small integer, nonlinear terms can transfer energy between the modes. The scan with masses \(1 : \mu : \mu\) found exactly this: at \(\mu = 0.0122\) and \(\mu = 0.0124\), where \(s_1/s_2 = 2.02\) and \(1.996\), the larger perturbations (\(10^{-3}\)) disrupted the triangle, whereas at \(\mu = 0.0118\) and \(\mu = 0.0126\), with ratios 2.075 and 1.970, all perturbations remained bounded. With masses \(1 : \mu : 0.25\mu\), the same 2:1 resonance appeared at \(\mu = 0.020\) (\(\beta \approx 0.0239\)), within a range that the Routh criterion classifies as stable up to \(\mu \approx 0.032\).</p>
+<p>The result is consistent with the classical nonlinear analysis of the restricted problem, in which the 2:1 resonance between the libration frequencies occurs at \(\mu \approx 0.0243\) <cite>3</cite>; in terms of \(\beta\), the simulated value (\(\beta \approx 0.0237\) to \(0.0239\)) coincides. The 3:1 resonance, predicted near \(\mu \approx 0.0068\) in this family, did not manifest itself at the amplitudes tested.</p>
+<h3>Rings with a central body: the Maxwell criterion</h3>
+<p>In his 1859 essay on the rings of Saturn, Maxwell showed that \(n\) equal masses \(\mu\), equally spaced in a circular orbit around a dominant body, can be stable only if \(n \geq 7\), and provided that \(\mu\) remains below approximately \(2.298/n^3\) times the central mass <cite>4</cite>. The simulation yielded the times in Table I.</p>
+<div class="tblwrap"><p class="cap">Survival time, in time units, of rings of \(n\) bodies with a central body, for three perturbations, at multiples of the Maxwell mass limit. "Stable" indicates survival under all perturbations up to \(t = 600\).</p><table>
+<thead><tr><th>\(n\)</th><th>\(0.1\times\) limit</th><th>\(0.5\times\)</th><th>\(0.9\times\)</th><th>\(1.5\times\)</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>34 to 46</td><td>19 to 23</td><td>16 to 19</td><td>13 to 16</td></tr>
+<tr><td>4</td><td>58 to 70</td><td>30 to 35</td><td>23 to 28</td><td>20 to 23</td></tr>
+<tr><td>5</td><td>80 to 102</td><td>45 to 56</td><td>36 to 43</td><td>29 to 36</td></tr>
+<tr><td>6</td><td>122 to 159</td><td>69 to 87</td><td>58 to 73</td><td>34 to 40</td></tr>
+<tr><td>7</td><td>stable</td><td>stable</td><td>stable</td><td>32 to 37</td></tr>
+<tr><td>8</td><td>stable</td><td>stable</td><td>stable</td><td>32 to 37</td></tr>
+<tr><td>9</td><td>stable</td><td>stable</td><td>stable</td><td>29 to 36</td></tr>
+</tbody></table></div>
+<p>The transition between \(n = 6\) and \(n = 7\) is sharp, and finer scans placed the mass limit between \(1.0\) and \(1.1\) times the Maxwell value for \(n = 7\), 8, and 10. For \(n \leq 6\), the survival time increases as the ring mass decreases, but the instability persists, in agreement with the linear stability analysis of configurations with a dominant mass <cite>5</cite>.</p>
+<h3>Hierarchical systems</h3>
+<p>With a circular inner binary of equal masses and unit separation, and a third body of mass \(m_3\) in a circular outer orbit at distance \(D\), the simulated stability threshold is compared, in Table II, with the empirical criterion of Mardling and Aarseth <cite>6</cite>, which, for circular and coplanar orbits, reduces to</p>
+<div class="eq">\[ \frac{D}{a_{\text{in}}} > 2.8\left(1 + \frac{m_3}{m_1 + m_2}\right)^{2/5} . \]</div>
+<div class="tblwrap"><p class="cap">Critical distance of the third body, in units of the inner binary separation, obtained by simulation and from the Mardling-Aarseth criterion.</p><table>
+<thead><tr><th>\(m_3\)</th><th>Simulated critical \(D\)</th><th>Mardling and Aarseth</th></tr></thead>
+<tbody>
+<tr><td>0.1</td><td>2.4</td><td>2.86</td></tr>
+<tr><td>1</td><td>3.1</td><td>3.29</td></tr>
+<tr><td>10</td><td>5.8</td><td>5.73</td></tr>
+</tbody></table></div>
+<p>The agreement is good for \(m_3 \geq 1\). For \(m_3 = 0.1\), the simulated threshold is lower, which is expected: the criterion was calibrated to be conservative and covers eccentric orbits, and the integration here is limited to about 340 periods of the inner binary.</p>
+<h3>Dissipation and gyroscopic stability</h3>
+<p>The triangular Lagrange points are maxima of the effective potential in the rotating frame. Their stability, when it exists, is gyroscopic: the Coriolis force converts the displacement into motion around the point. The Kelvin-Tait-Chetaev theorem states that the gyroscopic stability of a potential maximum does not survive dissipation <cite>7</cite>. To verify this, a linear drag \(-\gamma(\mathbf{v} - \boldsymbol{\Omega} \times \mathbf{r})\) was applied to the smaller bodies of a stable triangle with \(\mu = 0.01\). Table III summarizes the result.</p>
+<div class="tblwrap"><p class="cap">Survival of the stable Lagrange triangle (\(\mu = 0.01\)) under linear drag with coefficient \(\gamma\), for two perturbations.</p><table>
+<thead><tr><th>\(\gamma\)</th><th>Survival</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>stable up to \(t = 3000\)</td></tr>
+<tr><td>\(10^{-4}\)</td><td>stable up to \(t = 3000\)</td></tr>
+<tr><td>\(10^{-3}\)</td><td>1459 and 2269</td></tr>
+<tr><td>\(10^{-2}\)</td><td>162 and 231</td></tr>
+</tbody></table></div>
+<p>The disruption time scales approximately as \(1/\gamma\), as expected for a dissipation-induced secular instability. For \(\gamma = 10^{-4}\), the characteristic time exceeds the integrated interval.</p>
+
+<h2>Discussion</h2>
+<p>In all stable families, the system decomposes into approximately Keplerian subsystems, and the coupling between them remains below a threshold. The separation of scales comes from mass (Routh), from distance (hierarchy), or from number and symmetry with a dominant mass (Maxwell). Within the stable regions, resonances between eigenfrequencies open islands of instability, and dissipation destroys stability of gyroscopic origin.</p>
+<p>The main limitations are the planar geometry, circular orbits, the small number of perturbations per point, and finite integration times, which differ between families. The thresholds should be read as reproductions of known criteria, which validate the simulator, and not as new results. The exception is the numerical location of the 2:1 resonant island in the \(1 : \mu : 0.25\mu\) family, which we did not find tabulated in the literature consulted.</p>
+
+<h2>Conclusions</h2>
+<p>The simulator reproduces, without prior knowledge of them, the criteria of Gascheau and Routh, of Maxwell, and of Mardling and Aarseth, and confirms the Kelvin-Tait-Chetaev theorem. The observed regularity suggests a common heuristic, namely that stability depends on a small coupling between Keplerian subsystems. The next note in the series tests whether these thresholds can be described by a single coupling number.</p>
