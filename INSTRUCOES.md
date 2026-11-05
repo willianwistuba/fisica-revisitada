@@ -151,6 +151,14 @@ Correção de nota já publicada: nova versão, nunca apagar. No site, parágraf
 - Hipóteses pelos três filtros: pequena, testável e corajosa; experimentos com grupo de controle e várias perturbações.
 - Cada nota informa o tamanho da amostra por caso medido.
 
+### 7.1 Forma de trabalhar (combinada em 5 nov. 2026)
+
+- Cada sessão começa com uma pergunta só, um critério de sucesso e um limite de tempo de cálculo, combinados com o autor antes de rodar.
+- Exploração: rápida e barata (poucas réplicas, aproximações), sempre anunciada como preliminar. Confirmação com os 95% completos só para o que vai ser publicado.
+- Metas de fórmula com tolerância fixada antes e teste de equivalência (o erro fica abaixo da tolerância com 95% de confiança), e não "a fórmula é perfeita?".
+- Publicação em lote: uma nota por achado relevante e consolidado, não a cada passo.
+- Conferir cada afirmação contra as notas anteriores e a literatura antes de escrevê-la.
+
 ## 8. Termos fixos de tradução
 
 | pt | en | de | fr |
