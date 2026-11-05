@@ -210,7 +210,7 @@
    "type": "Artigo de pesquisa",
    "date_long": "5 de novembro de 2026",
    "version_note": "v1: primeira publicação",
-   "abstract": "Testamos a teoria de fluxo de três corpos, com a absortividade medida, em quedas livres planas com momento angular total nulo, exigindo de três a quatro estados de embaralhamento antes da fuga, como na literatura, e o mesmo limiar na absorção e na emissão. Com 95% de confiança e correção de Holm, a teoria passa nos conjuntos de massas 3-3-1 e 1-2-3, nas frações de escape e na excentricidade final do par, mas falha na excentricidade final do conjunto 1-1-3. Ali, a falha cresce com a profundidade do caos: a estatística de Kolmogorov-Smirnov vai de 0,099 para 0,154, e a excentricidade média medida cai de 0,758 para 0,735, contra 0,792 prevista. A falha não vem da extrapolação da absortividade nem da régua de caos: uma régua alternativa, de configurações democráticas, dá o mesmo padrão. Refazendo as fugas com a geometria gravada, mostramos que só no 1-1-3 o regime do último episódio muda fortemente o formato final do par: a excentricidade média vai de 0,70, nos episódios mais misturados, a 0,87, nos mais hierárquicos. Duas explicações (mais tempo hierárquico e mais memória que no 1-2-3) foram testadas e descartadas, e o mecanismo segue em aberto.",
+   "abstract": "Testamos a teoria de fluxo de três corpos, com a absortividade medida, em quedas livres planas com momento angular total nulo, exigindo de três a quatro estados de embaralhamento antes da fuga, como na literatura, e o mesmo limiar na absorção e na emissão. Com 95% de confiança e correção de Holm, a teoria passa nos conjuntos de massas 3-3-1 e 1-2-3, nas frações de escape e na excentricidade final do par, mas falha na excentricidade final do conjunto 1-1-3. Ali, a falha cresce com a profundidade do caos: a estatística de Kolmogorov-Smirnov vai de 0,082 para 0,126, e a excentricidade média medida cai de 0,758 para 0,735, contra 0,784 e 0,779 previstas, por um excesso de pares de excentricidade moderada no canal em que sobra o par de massas 3 e 1. A falha não vem das bordas da grade de absortividade, que medimos também para pares quase radiais, nem da régua de caos: uma régua alternativa, de configurações democráticas, dá o mesmo padrão. Refazendo as fugas com a geometria gravada, mostramos que só no 1-1-3 o regime do último episódio muda fortemente o formato final do par: a excentricidade média vai de 0,70, nos episódios mais misturados, a 0,87, nos mais hierárquicos. Duas explicações (mais tempo hierárquico e mais memória que no 1-2-3) foram testadas e descartadas, e o mecanismo segue em aberto.",
    "kw": [
     "problema dos três corpos",
     "teoria de fluxo",
@@ -555,7 +555,9 @@
    "ergo/sim2c.py": "Integrador que para num instante dado e devolve o estado completo.",
    "ergo/run_gemeos.py": "Teste dos gêmeos com perturbação de 1e-6.",
    "ergo/run_gemeos2.py": "Teste dos gêmeos com perturbação ajustável.",
-   "ergo/run_gemeos3.py": "Confirmação do teste dos gêmeos com amostra nova."
+   "ergo/run_gemeos3.py": "Confirmação do teste dos gêmeos com amostra nova.",
+   "ergo/run_cauda.py": "Absortividade na borda e > 0,995, em grade de j = raiz de 1 - e² (FR-TC-15).",
+   "ergo/analise_v2.py": "Teste coerente com a borda medida, inclusive restrito a e até 0,995 (FR-TC-15)."
   },
   "note": "Os scripts são notas de trabalho, escritos para clareza e não para desempenho. Alguns dependem de <code>core.js</code> ou de <code>sim.js</code>."
  }
