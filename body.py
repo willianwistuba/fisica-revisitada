@@ -593,3 +593,42 @@ tick label style={font=\scriptsize},label style={font=\footnotesize}]
 \caption{""" + cap + r"""}\end{figure}
 """
 TEXFIG['A14'] = tex_fig_a14; SVGFIG['A14'] = svg_a14
+
+def _a15():
+    import json as _j; return _j.load(open('a15_points.json'))
+A15_K = ['1-1-3', '1-1-1', '1-2-3', '3-3-1']
+A15_C = {'1-1-3': 'hot', '1-1-1': 'accent', '1-2-3': 'ink', '3-3-1': 'muted'}
+A15_TC = {'1-1-3': 'frhot', '1-1-1': 'fraccent', '1-2-3': 'frink', '3-3-1': 'gray'}
+A15_D = {'1-1-3': '', '1-1-1': '', '1-2-3': ' stroke-dasharray="6 4"', '3-3-1': ' stroke-dasharray="2 3"'}
+def svg_a15(L):
+    f = L['fig']['A15']; D = _a15(); W, Hh, Lm, R, T, B = 640, 380, 64, 24, 56, 52; y0, y1 = 0.6, 0.9
+    X = lambda q: Lm + (W - Lm - R) * (q - 0.7) / 3.6; Y = lambda v: Hh - B - (Hh - B - T) * (v - y0) / (y1 - y0)
+    s = [f'<svg viewBox="0 0 {W} {Hh}" role="img" aria-label="{E(f["aria"])}">']
+    for j, k in enumerate(A15_K):
+        x0 = Lm + j * 140; s.append(f'<line x1="{x0}" y1="14" x2="{x0+18}" y2="14" stroke="var(--{A15_C[k]})" stroke-width="2.4"{A15_D[k]}/><text x="{x0+24}" y="18" class="lbl">{E(k)}</text>')
+    for v in [0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9]:
+        yy = Y(v); s.append(f'<line x1="{Lm}" y1="{yy:.1f}" x2="{W-R}" y2="{yy:.1f}" stroke="var(--line)"/><text x="{Lm-8}" y="{yy+4:.1f}" text-anchor="end" class="ax">{num(f"{v:.2f}", L)}</text>')
+    for q in (1, 2, 3, 4):
+        s.append(f'<text x="{X(q):.1f}" y="{Hh-B+18}" text-anchor="middle" class="ax">{q}</text>')
+    for k in A15_K:
+        pts = [(q + 1, v) for q, v in enumerate(D[k])]
+        s.append(f'<polyline points="{" ".join(f"{X(q):.1f},{Y(v):.1f}" for q, v in pts)}" fill="none" stroke="var(--{A15_C[k]})" stroke-width="2.4"{A15_D[k]}/>')
+        for q, v in pts: s.append(f'<circle cx="{X(q):.1f}" cy="{Y(v):.1f}" r="3.6" fill="var(--{A15_C[k]})"/>')
+    s.append(f'<text x="{(Lm+W-R)/2:.0f}" y="{Hh-10}" text-anchor="middle" class="ax">{E(f["x"])}</text><text x="{Lm}" y="{T-12}" class="ax">{E(f["y"])}</text>')
+    return ''.join(s) + '</svg>'
+def tex_fig_a15(L, cap):
+    f = L['fig']['A15']; D = _a15(); sep = '{,}' if L['decimal'] == ',' else '.'
+    t = lambda vs: ','.join(v.replace('.', sep) for v in vs)
+    sty = {'1-1-3': 'solid', '1-1-1': 'solid', '1-2-3': 'dashed', '3-3-1': 'dotted'}
+    pl = ''
+    for k in A15_K:
+        pl += r"\addplot[color=" + A15_TC[k] + r",very thick," + sty[k] + r",mark=*,mark size=1.4pt] coordinates {" + ' '.join(f'({q+1},{v})' for q, v in enumerate(D[k])) + "};\\addlegendentry{" + k + "}\n"
+    return r"""\begin{figure}[tb]\centering
+\begin{tikzpicture}\begin{axis}[width=\columnwidth,height=6.2cm,xmin=0.7,xmax=4.3,ymin=0.6,ymax=0.9,
+xtick={1,2,3,4},ytick={0.6,0.65,0.7,0.75,0.8,0.85,0.9},yticklabels={""" + t(['0.60', '0.65', '0.70', '0.75', '0.80', '0.85', '0.90']) + r"""},
+xlabel={""" + esc_text(f['x']) + r"""},ylabel={""" + esc_text(f['y']) + r"""},grid=major,grid style={line width=.2pt,draw=gray!30},legend pos=north west,legend columns=2,legend style={font=\scriptsize,draw=none,fill=white,fill opacity=0.9,text opacity=1},
+tick label style={font=\scriptsize},label style={font=\footnotesize}]
+""" + pl + r"""\end{axis}\end{tikzpicture}
+\caption{""" + cap + r"""}\end{figure}
+"""
+TEXFIG['A15'] = tex_fig_a15; SVGFIG['A15'] = svg_a15

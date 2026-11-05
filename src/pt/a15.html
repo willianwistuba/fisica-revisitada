@@ -1,0 +1,74 @@
+<h2>Introdução</h2>
+<p>Na teoria de fluxo de Kol, a chance de cada desfecho de um sistema de três corpos é o produto do fluxo de volume de fase, conhecido em forma fechada, por uma absortividade, que precisa ser medida por simulação <cite>1,2,3</cite>. A teoria vale para escapes que vêm de movimento caótico, e por isso os testes da literatura só consideram escapes precedidos de pelo menos três ou quatro estados de embaralhamento <cite>2,4</cite>. Um teste recente no caso plano encontrou discrepâncias e levantou a suspeita de que, no plano, o caos não chegue a misturar o espaço de fase <cite>5</cite>. Esse teste usou momento angular total alto e deixou em aberto o regime de rotação baixa.</p>
+<p>As notas FR-TC-13 e FR-TC-14 testaram a teoria no plano com momento angular total nulo, mas com um critério de caos mais brando, de dois embaralhamentos <cite>6,7</cite>. Esta nota refaz o teste com o critério da literatura, examina duas causas técnicas para a falha encontrada e procura o mecanismo dela na geometria do último episódio caótico.</p>
+
+<h2>Método</h2>
+<p>As simulações são as das notas anteriores: planas, com momento angular total nulo e o integrador de cadeia com regularização algorítmica <cite>8</cite>. Usamos três conjuntos de dados.</p>
+<ul>
+<li><b>Quedas livres:</b> 12.000 por conjunto de massas (1-1-3, 3-3-1, 1-2-3 e o controle 1-1-1), a partir do repouso, com o número de embaralhamentos de cada episódio e a excentricidade do par final <cite>6</cite>.</li>
+<li><b>Absortividade medida:</b> 26.400 corridas por canal (132 células de energia relativa \(x = E_B/E_0\) e excentricidade \(e\), com 200 corridas cada), contando os embaralhamentos antes da primeira excursão.</li>
+<li><b>Geometria:</b> as fugas com caos profundo refeitas a partir das mesmas sementes, gravando a cada passo o par mais ligado e a posição do terceiro corpo.</li>
+</ul>
+<p>Usamos duas réguas de caos. A primeira conta <b>embaralhamentos</b>, trechos em que nenhum par tem o terceiro corpo além de duas vezes o seu semieixo. A segunda conta <b>configurações democráticas</b>, os picos do raio de homologia acima de 0,33, que é a definição de Stone e Leigh <cite>4</cite>. Nos nossos dados, as duas andam juntas (correlação de 0,90 a 0,95), e há em média três configurações democráticas por embaralhamento.</p>
+<p>O teste é coerente: o mesmo limiar \(k\) vale dos dois lados. Na absorção, contamos pelo menos \(k\) eventos antes da primeira excursão; na emissão, pelo menos \(k\) no último episódio antes da fuga. A previsão é o fluxo plano, com peso \(x^{-2} e/\sqrt{1-e^2}\), vezes a absortividade medida <cite>5,6</cite>. A excentricidade final é comparada pelo teste de Kolmogorov-Smirnov (KS), e as frações de escape pelo teste \(\chi^2\). O valor crítico do KS vem de 200 reamostragens da absortividade medida, de modo que inclui a incerteza da própria previsão. Há correção de Holm nas seis comparações de cada família <cite>9</cite>. As análises de geometria e as de sensibilidade são exploratórias; o teste dos gêmeos foi confirmado com uma amostra nova, separada da usada na exploração.</p>
+
+<h2>Resultados</h2>
+<h3>A teoria com o critério da literatura</h3>
+<p>Com três e quatro embaralhamentos, a teoria passa nas duas perguntas nos conjuntos 3-3-1 e 1-2-3 e falha na excentricidade final do 1-1-3 (Tabela I). Com dois embaralhamentos, o 3-3-1 reprovava <cite>7</cite>. Essa reprovação some com caos mais profundo, como esperado de uma memória de curto alcance. A do 1-1-3, ao contrário, cresce: o KS vai de 0,099 para 0,154, e a excentricidade média medida cai de 0,758 para 0,735, enquanto a prevista fica em 0,792. As frações de escape passam em todos os casos.</p>
+<div class="tblwrap"><p class="cap">Teste coerente da teoria de fluxo com a absortividade medida e a régua de embaralhamentos. KS da excentricidade final, com o valor crítico de 95% obtido por reamostragem; \(p\) do formato e das frações de escape. Excentricidade média medida e prevista. Com a correção de Holm, só o formato do 1-1-3 reprova.</p><table>
+<thead><tr><th>\(k\)</th><th>Conjunto (n)</th><th>KS (crítico)</th><th>\(p\) formato</th><th>\(e\) médio medido / previsto</th><th>\(p\) escapes</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>1-1-3 (1.181)</td><td>0,099 (0,061)</td><td>\(&lt; 0{,}005\)</td><td>0,758 / 0,792</td><td>0,78</td></tr>
+<tr><td>3</td><td>3-3-1 (1.223)</td><td>0,044 (0,074)</td><td>0,41</td><td>0,840 / 0,850</td><td>0,10</td></tr>
+<tr><td>3</td><td>1-2-3 (1.159)</td><td>0,024 (0,062)</td><td>0,84</td><td>0,794 / 0,792</td><td>0,61</td></tr>
+<tr><td>4</td><td>1-1-3 (565)</td><td>0,154 (0,100)</td><td>\(&lt; 0{,}005\)</td><td>0,735 / 0,792</td><td>0,74</td></tr>
+<tr><td>4</td><td>3-3-1 (604)</td><td>0,062 (0,098)</td><td>0,42</td><td>0,843 / 0,836</td><td>0,55</td></tr>
+<tr><td>4</td><td>1-2-3 (552)</td><td>0,042 (0,094)</td><td>0,73</td><td>0,810 / 0,803</td><td>0,52</td></tr>
+</tbody></table></div>
+
+<h3>Duas causas técnicas descartadas</h3>
+<p><b>Absortividade fora da faixa medida.</b> A absortividade foi medida até \(x = 20\), e acima disso usamos o último valor medido. Só de 0,2% a 0,6% das fugas previstas caem nessa faixa. Trocar a absortividade ali por zero ou pelo dobro muda o KS do 1-1-3 em no máximo 0,002.</p>
+<p><b>Régua de caos.</b> Com a régua de configurações democráticas, o padrão se repete (Tabela II). Com seis configurações, caos raso, o 3-3-1 reprova e o 1-1-3 passa. Com oito e dez, equivalentes a cerca de três embaralhamentos, o 3-3-1 e o 1-2-3 passam e o 1-1-3 reprova, com a excentricidade média medida abaixo da prevista. A falha do 1-1-3 não depende, portanto, da régua escolhida.</p>
+<div class="tblwrap"><p class="cap">O mesmo teste com a régua de configurações democráticas (raio de homologia acima de 0,33), com 100 reamostragens e sem correção para comparações múltiplas (exploratório). KS, com o valor crítico de 95% entre parênteses, e \(p\); entre colchetes, o número de fugas.</p><table>
+<thead><tr><th>\(k\)</th><th>1-1-3</th><th>3-3-1</th><th>1-2-3</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>0,031 (0,040), \(p = 0{,}29\) [2.556]</td><td>0,085 (0,044), \(p &lt; 0{,}01\) [2.963]</td><td>0,018 (0,044), \(p = 0{,}83\) [2.463]</td></tr>
+<tr><td>8</td><td>0,085 (0,056), \(p &lt; 0{,}01\) [1.517]</td><td>0,038 (0,065), \(p = 0{,}49\) [1.408]</td><td>0,026 (0,054), \(p = 0{,}79\) [1.371]</td></tr>
+<tr><td>10</td><td>0,113 (0,075), \(p &lt; 0{,}01\) [988]</td><td>0,057 (0,082), \(p = 0{,}34\) [989]</td><td>0,038 (0,075), \(p = 0{,}65\) [909]</td></tr>
+</tbody></table></div>
+
+<h3>Dois regimes no último episódio</h3>
+<p>Refizemos as fugas com pelo menos três embaralhamentos no último episódio: 1.181 no 1-1-3, 1.159 no 1-2-3, 1.223 no 3-3-1 e 1.275 no 1-1-1. Em todas, o mesmo corpo escapou e a excentricidade final coincidiu com a original. Dividimos o tempo do último episódio em dois tipos. No <b>hierárquico</b>, o par mais ligado está bem definido e o terceiro corpo fica além de duas vezes o seu semieixo. Nos demais trechos, o terceiro está próximo e os pares se alternam.</p>
+<p>No 1-1-3, a excentricidade final depende fortemente da fração hierárquica do último episódio: a correlação de Spearman é de +0,295 (\(p = 4\times10^{-25}\)), e a excentricidade média vai de 0,70 no quarto com menos tempo hierárquico a 0,87 no quarto com mais (Fig. 1). Nos outros três conjuntos, a relação é fraca, entre +0,06 e +0,10 (Tabela III). Pares que terminam após um episódio mais misturado saem mais circulares. Isso é coerente com a queda da excentricidade média quando se exige caos mais profundo.</p>
+<div class="tblwrap"><p class="cap">Fração do último episódio no regime hierárquico (mediana e quartis) e correlação de Spearman entre essa fração e a excentricidade final, nas fugas com pelo menos três embaralhamentos no último episódio.</p><table>
+<thead><tr><th>Conjunto (n)</th><th>Fração hierárquica: mediana (quartis)</th><th>Correlação com \(e\) final</th></tr></thead>
+<tbody>
+<tr><td>1-1-1 (1.275)</td><td>0,55 (0,44 a 0,63)</td><td>+0,090 (\(p = 0{,}001\))</td></tr>
+<tr><td>1-1-3 (1.181)</td><td>0,41 (0,28 a 0,53)</td><td>+0,295 (\(p = 4\times10^{-25}\))</td></tr>
+<tr><td>1-2-3 (1.159)</td><td>0,25 (0,14 a 0,36)</td><td>+0,061 (\(p = 0{,}04\))</td></tr>
+<tr><td>3-3-1 (1.223)</td><td>0,16 (0,06 a 0,27)</td><td>+0,095 (\(p = 0{,}001\))</td></tr>
+</tbody></table></div>
+<figure data-fig="A15"><figcaption>Excentricidade final média por quarto da fração hierárquica do último episódio (1 = menos tempo hierárquico, 4 = mais), nas fugas com pelo menos três embaralhamentos no último episódio. Só no 1-1-3 o regime do último episódio muda muito o formato do par final.</figcaption></figure>
+<p>Uma primeira hipótese, a de que o 1-1-3 passaria mais tempo no regime hierárquico, foi registrada antes da medida nos conjuntos 1-1-1 e 3-3-1 e não se confirmou: o 1-1-1 passa mais tempo hierárquico (mediana de 0,55) e não tem o efeito. O que distingue o 1-1-3 não é a proporção de cada regime, e sim o quanto os dois regimes levam a pares diferentes.</p>
+
+<h3>Teste dos gêmeos</h3>
+<p>Para medir a memória diretamente, paramos cada fuga no início do seu último episódio e lançamos dali 20 cópias, com as posições perturbadas por uma fração \(\delta\) da escala do sistema. Com \(\delta = 10^{-6}\), as cópias praticamente repetem o original (desvio entre cópias de 0,06 a 0,09, contra 0,20 a 0,23 no conjunto), porque o episódio é curto demais para o caos ampliar a perturbação, e o teste não é informativo. Com \(\delta = 10^{-2}\), numa amostra nova de 800 fugas por conjunto, a correlação entre a excentricidade final do original e a média das cópias com pelo menos três embaralhamentos é de 0,31 no 1-1-3 (579 originais; intervalo de 95% de 0,23 a 0,38) e de 0,21 no 1-2-3 (589 originais; de 0,14 a 0,29). A diferença não é significativa (\(p = 0{,}08\)). Os dois conjuntos guardam memória parecida, e o 1-2-3 passa no teste da teoria assim mesmo, de modo que essa memória não explica a falha do 1-1-3. Um resultado contrário, visto numa exploração com 200 fugas, não se confirmou.</p>
+
+<h2>Discussão</h2>
+<p>Com o critério de caos da literatura, a teoria de fluxo com a absortividade medida descreve o plano sem rotação total em dois dos três conjuntos testados e falha de forma robusta no 1-1-3. A falha não vem da extrapolação da absortividade nem da régua de caos, e aumenta quando se exige caos mais profundo, ao contrário de um efeito de memória de curto alcance. Isso é compatível com a suspeita de que, no plano, a mistura do espaço de fase pode ser incompleta <cite>5</cite>, agora no regime de rotação nula, e com a coexistência de regiões regulares e caóticas descrita na literatura <cite>10,11</cite>.</p>
+<p>A geometria indica onde procurar. Só no 1-1-3 o tipo de movimento do último episódio muda o formato final: episódios mais hierárquicos dão pares excêntricos, e episódios mais misturados dão pares circulares. Isso é uma correlação, não uma prova de causa. A fronteira entre os regimes (duas vezes o semieixo) é uma escolha nossa, e não sabemos por que o efeito aparece no 1-1-3 e não nos outros conjuntos. Um teste natural é variar a massa do corpo central em degraus e ver se a ligação entre o regime e o formato final acompanha a falha da teoria.</p>
+<p>Limitações:</p>
+<ul>
+<li>tudo vale para simulações planas com momento angular total nulo e quatro conjuntos de massas;</li>
+<li>com quatro embaralhamentos restam de 552 a 604 fugas por conjunto;</li>
+<li>as análises de geometria e a Tabela II são exploratórias;</li>
+<li>a régua de embaralhamentos não é idêntica à usada pelos grupos de referência, embora a régua de configurações democráticas dê o mesmo padrão.</li>
+</ul>
+
+<h2>Conclusões</h2>
+<ul>
+<li>Com três e quatro embaralhamentos, o critério da literatura, a teoria de fluxo com absortividade medida passa, com 95% de confiança e correção de Holm, nos conjuntos 3-3-1 e 1-2-3, nas frações de escape e na excentricidade final.</li>
+<li>No conjunto 1-1-3, ela falha na excentricidade final, e a falha cresce com a profundidade do caos (KS de 0,099 para 0,154; excentricidade média medida de 0,758 para 0,735, contra 0,792 prevista).</li>
+<li>A falha não vem da absortividade fora da faixa medida nem da régua de caos.</li>
+<li>Só no 1-1-3 o regime do último episódio muda fortemente o formato final do par (de 0,70 a 0,87 entre quartos de tempo hierárquico). As hipóteses de "mais tempo hierárquico" e de "mais memória que o 1-2-3" foram testadas e descartadas.</li>
+</ul>

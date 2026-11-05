@@ -1,0 +1,74 @@
+<h2>Introduction</h2>
+<p>In Kol's flux theory, the probability of each outcome of a three-body system is the product of the phase-volume flux, known in closed form, and an absorptivity, which must be measured by simulation <cite>1,2,3</cite>. The theory holds for escapes that come from chaotic motion, and for this reason the tests in the literature only consider escapes preceded by at least three or four scramble states <cite>2,4</cite>. A recent test in the planar case found discrepancies and raised the suspicion that, in the plane, chaos does not fully mix phase space <cite>5</cite>. That test used high total angular momentum and left the low-rotation regime open.</p>
+<p>Notes FR-TC-13 and FR-TC-14 tested the theory in the plane with zero total angular momentum, but with a milder chaos criterion, of two scrambles <cite>6,7</cite>. This note repeats the test with the criterion of the literature, examines two technical causes for the failure found, and looks for its mechanism in the geometry of the last chaotic episode.</p>
+
+<h2>Method</h2>
+<p>The simulations are those of the previous notes: planar, with zero total angular momentum and the chain integrator with algorithmic regularization <cite>8</cite>. We use three data sets.</p>
+<ul>
+<li><b>Free falls:</b> 12,000 per mass set (1-1-3, 3-3-1, 1-2-3, and the control 1-1-1), starting from rest, with the number of scrambles of each episode and the eccentricity of the final pair <cite>6</cite>.</li>
+<li><b>Measured absorptivity:</b> 26,400 runs per channel (132 cells of relative energy \(x = E_B/E_0\) and eccentricity \(e\), with 200 runs each), counting the scrambles before the first excursion.</li>
+<li><b>Geometry:</b> the escapes with deep chaos rerun from the same seeds, recording at each step the most bound pair and the position of the third body.</li>
+</ul>
+<p>We use two chaos criteria. The first counts <b>scrambles</b>, stretches in which no pair has the third body beyond twice its semimajor axis. The second counts <b>democratic configurations</b>, the peaks of the homology radius above 0.33, which is the definition of Stone and Leigh <cite>4</cite>. In our data, the two go together (correlation of 0.90 to 0.95), and there are on average three democratic configurations per scramble.</p>
+<p>The test is consistent: the same threshold \(k\) applies on both sides. In absorption, we count at least \(k\) events before the first excursion; in emission, at least \(k\) in the last episode before the escape. The prediction is the planar flux, with weight \(x^{-2} e/\sqrt{1-e^2}\), times the measured absorptivity <cite>5,6</cite>. The final eccentricity is compared by the Kolmogorov-Smirnov (KS) test, and the escape fractions by the \(\chi^2\) test. The critical value of the KS comes from 200 resamplings of the measured absorptivity, so that it includes the uncertainty of the prediction itself. The Holm correction is applied to the six comparisons of each family <cite>9</cite>. The geometry and sensitivity analyses are exploratory; the twin test was confirmed with a new sample, separate from the one used in the exploration.</p>
+
+<h2>Results</h2>
+<h3>The theory with the criterion of the literature</h3>
+<p>With three and four scrambles, the theory passes both questions in the sets 3-3-1 and 1-2-3 and fails in the final eccentricity of 1-1-3 (Table I). With two scrambles, 3-3-1 failed <cite>7</cite>. That failure disappears with deeper chaos, as expected from a short-range memory. The failure of 1-1-3, by contrast, grows: the KS goes from 0.099 to 0.154, and the measured mean eccentricity drops from 0.758 to 0.735, while the predicted one stays at 0.792. The escape fractions pass in all cases.</p>
+<div class="tblwrap"><p class="cap">Consistent test of the flux theory with the measured absorptivity and the scramble criterion. KS of the final eccentricity, with the 95% critical value obtained by resampling; \(p\) of the shape and of the escape fractions. Measured and predicted mean eccentricity. With the Holm correction, only the shape of 1-1-3 fails.</p><table>
+<thead><tr><th>\(k\)</th><th>Set (n)</th><th>KS (critical)</th><th>\(p\) shape</th><th>mean \(e\) measured / predicted</th><th>\(p\) escapes</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>1-1-3 (1,181)</td><td>0.099 (0.061)</td><td>\(&lt; 0.005\)</td><td>0.758 / 0.792</td><td>0.78</td></tr>
+<tr><td>3</td><td>3-3-1 (1,223)</td><td>0.044 (0.074)</td><td>0.41</td><td>0.840 / 0.850</td><td>0.10</td></tr>
+<tr><td>3</td><td>1-2-3 (1,159)</td><td>0.024 (0.062)</td><td>0.84</td><td>0.794 / 0.792</td><td>0.61</td></tr>
+<tr><td>4</td><td>1-1-3 (565)</td><td>0.154 (0.100)</td><td>\(&lt; 0.005\)</td><td>0.735 / 0.792</td><td>0.74</td></tr>
+<tr><td>4</td><td>3-3-1 (604)</td><td>0.062 (0.098)</td><td>0.42</td><td>0.843 / 0.836</td><td>0.55</td></tr>
+<tr><td>4</td><td>1-2-3 (552)</td><td>0.042 (0.094)</td><td>0.73</td><td>0.810 / 0.803</td><td>0.52</td></tr>
+</tbody></table></div>
+
+<h3>Two technical causes ruled out</h3>
+<p><b>Absorptivity outside the measured range.</b> The absorptivity was measured up to \(x = 20\), and above that we use the last measured value. Only 0.2% to 0.6% of the predicted escapes fall in this range. Replacing the absorptivity there with zero or with twice its value changes the KS of 1-1-3 by at most 0.002.</p>
+<p><b>Chaos criterion.</b> With the criterion of democratic configurations, the pattern repeats (Table II). With six configurations, shallow chaos, 3-3-1 fails and 1-1-3 passes. With eight and ten, equivalent to about three scrambles, 3-3-1 and 1-2-3 pass and 1-1-3 fails, with the measured mean eccentricity below the predicted one. The failure of 1-1-3 therefore does not depend on the chosen criterion.</p>
+<div class="tblwrap"><p class="cap">The same test with the criterion of democratic configurations (homology radius above 0.33), with 100 resamplings and without correction for multiple comparisons (exploratory). KS, with the 95% critical value in parentheses, and \(p\); in brackets, the number of escapes.</p><table>
+<thead><tr><th>\(k\)</th><th>1-1-3</th><th>3-3-1</th><th>1-2-3</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>0.031 (0.040), \(p = 0.29\) [2,556]</td><td>0.085 (0.044), \(p &lt; 0.01\) [2,963]</td><td>0.018 (0.044), \(p = 0.83\) [2,463]</td></tr>
+<tr><td>8</td><td>0.085 (0.056), \(p &lt; 0.01\) [1,517]</td><td>0.038 (0.065), \(p = 0.49\) [1,408]</td><td>0.026 (0.054), \(p = 0.79\) [1,371]</td></tr>
+<tr><td>10</td><td>0.113 (0.075), \(p &lt; 0.01\) [988]</td><td>0.057 (0.082), \(p = 0.34\) [989]</td><td>0.038 (0.075), \(p = 0.65\) [909]</td></tr>
+</tbody></table></div>
+
+<h3>Two regimes in the last episode</h3>
+<p>We reran the escapes with at least three scrambles in the last episode: 1,181 in 1-1-3, 1,159 in 1-2-3, 1,223 in 3-3-1, and 1,275 in 1-1-1. In all of them, the same body escaped and the final eccentricity matched the original one. We divided the time of the last episode into two types. In the <b>hierarchical</b> regime, the most bound pair is well defined and the third body lies beyond twice its semimajor axis. In the remaining stretches, the third body is close and the pairs alternate.</p>
+<p>In 1-1-3, the final eccentricity depends strongly on the hierarchical fraction of the last episode: the Spearman correlation is +0.295 (\(p = 4\times10^{-25}\)), and the mean eccentricity goes from 0.70 in the quartile with the least hierarchical time to 0.87 in the quartile with the most (Fig. 1). In the other three sets, the relation is weak, between +0.06 and +0.10 (Table III). Pairs that end after a more mixed episode come out more circular. This is consistent with the drop in the mean eccentricity when deeper chaos is required.</p>
+<div class="tblwrap"><p class="cap">Fraction of the last episode in the hierarchical regime (median and quartiles) and Spearman correlation between this fraction and the final eccentricity, in the escapes with at least three scrambles in the last episode.</p><table>
+<thead><tr><th>Set (n)</th><th>Hierarchical fraction: median (quartiles)</th><th>Correlation with final \(e\)</th></tr></thead>
+<tbody>
+<tr><td>1-1-1 (1,275)</td><td>0.55 (0.44 to 0.63)</td><td>+0.090 (\(p = 0.001\))</td></tr>
+<tr><td>1-1-3 (1,181)</td><td>0.41 (0.28 to 0.53)</td><td>+0.295 (\(p = 4\times10^{-25}\))</td></tr>
+<tr><td>1-2-3 (1,159)</td><td>0.25 (0.14 to 0.36)</td><td>+0.061 (\(p = 0.04\))</td></tr>
+<tr><td>3-3-1 (1,223)</td><td>0.16 (0.06 to 0.27)</td><td>+0.095 (\(p = 0.001\))</td></tr>
+</tbody></table></div>
+<figure data-fig="A15"><figcaption>Mean final eccentricity by quartile of the hierarchical fraction of the last episode (1 = least hierarchical time, 4 = most), in the escapes with at least three scrambles in the last episode. Only in 1-1-3 does the regime of the last episode change the shape of the final pair substantially.</figcaption></figure>
+<p>A first hypothesis, that 1-1-3 would spend more time in the hierarchical regime, was registered before the measurement in the sets 1-1-1 and 3-3-1 and was not confirmed: 1-1-1 spends more time in the hierarchical regime (median of 0.55) and does not show the effect. What distinguishes 1-1-3 is not the proportion of each regime, but how differently the two regimes shape the resulting pairs.</p>
+
+<h3>Twin test</h3>
+<p>To measure the memory directly, we stopped each escape at the start of its last episode and launched 20 copies from there, with the positions perturbed by a fraction \(\delta\) of the system scale. With \(\delta = 10^{-6}\), the copies practically repeat the original (spread between copies of 0.06 to 0.09, against 0.20 to 0.23 in the whole set), because the episode is too short for chaos to amplify the perturbation, and the test is not informative. With \(\delta = 10^{-2}\), in a new sample of 800 escapes per set, the correlation between the final eccentricity of the original and the mean of the copies with at least three scrambles is 0.31 in 1-1-3 (579 originals; 95% interval from 0.23 to 0.38) and 0.21 in 1-2-3 (589 originals; from 0.14 to 0.29). The difference is not significant (\(p = 0.08\)). The two sets retain similar memory, and 1-2-3 passes the test of the theory nonetheless, so this memory does not explain the failure of 1-1-3. An opposite result, seen in an exploration with 200 escapes, was not confirmed.</p>
+
+<h2>Discussion</h2>
+<p>With the chaos criterion of the literature, the flux theory with the measured absorptivity describes the plane without total rotation in two of the three sets tested and fails robustly in 1-1-3. The failure does not come from the extrapolation of the absorptivity or from the chaos criterion, and it grows when deeper chaos is required, contrary to a short-range memory effect. This is compatible with the suspicion that, in the plane, the mixing of phase space may be incomplete <cite>5</cite>, now in the zero-rotation regime, and with the coexistence of regular and chaotic regions described in the literature <cite>10,11</cite>.</p>
+<p>The geometry indicates where to look. Only in 1-1-3 does the type of motion of the last episode change the final shape: more hierarchical episodes give eccentric pairs, and more mixed episodes give circular pairs. This is a correlation, not a proof of cause. The boundary between the regimes (twice the semimajor axis) is our choice, and we do not know why the effect appears in 1-1-3 and not in the other sets. A natural test is to vary the mass of the central body in steps and see whether the link between the regime and the final shape follows the failure of the theory.</p>
+<p>Limitations:</p>
+<ul>
+<li>everything holds for planar simulations with zero total angular momentum and four mass sets;</li>
+<li>with four scrambles, 552 to 604 escapes remain per set;</li>
+<li>the geometry analyses and Table II are exploratory;</li>
+<li>the scramble criterion is not identical to the one used by the reference groups, although the criterion of democratic configurations gives the same pattern.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<ul>
+<li>With three and four scrambles, the criterion of the literature, the flux theory with measured absorptivity passes, at 95% confidence and with Holm correction, in the sets 3-3-1 and 1-2-3, in the escape fractions and in the final eccentricity.</li>
+<li>In the set 1-1-3, it fails in the final eccentricity, and the failure grows with the depth of chaos (KS from 0.099 to 0.154; measured mean eccentricity from 0.758 to 0.735, against 0.792 predicted).</li>
+<li>The failure does not come from the absorptivity outside the measured range or from the chaos criterion.</li>
+<li>Only in 1-1-3 does the regime of the last episode strongly change the final shape of the pair (from 0.70 to 0.87 between quartiles of hierarchical time). The hypotheses of "more hierarchical time" and of "more memory than 1-2-3" were tested and ruled out.</li>
+</ul>

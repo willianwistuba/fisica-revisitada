@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "Das Dreikörperproblem",
-  "lead": "Warum es keine allgemeine Formel gibt, was Konfigurationen weniger Körper stabil macht, welche Stabilisierungsideen scheitern, was sich vor einer Ejektion vorhersagen lässt, wie lange ein System lebt und welches statistische Gesetz die Ausgänge bestimmt. Vierzehn Notizen, von den Grundlagen bis zur Prüfung von Hypothesen."
+  "lead": "Warum es keine allgemeine Formel gibt, was Konfigurationen weniger Körper stabil macht, welche Stabilisierungsideen scheitern, was sich vor einer Ejektion vorhersagen lässt, wie lange ein System lebt und welches statistische Gesetz die Ausgänge bestimmt. Fünfzehn Notizen, von den Grundlagen bis zur Prüfung von Hypothesen."
  },
  "articles": {
   "FR-TC-01": {
@@ -202,6 +202,22 @@
    ],
    "date_long": "5. November 2026",
    "version_note": "v1: Erstveröffentlichung"
+  },
+  "FR-TC-15": {
+   "title": "Wo die Flusstheorie in der Ebene ohne Rotation versagt: ein Test mit dem Chaoskriterium der Literatur",
+   "short": "Wo die Theorie versagt",
+   "type": "Forschungsartikel",
+   "abstract": "Wir prüfen die Flusstheorie dreier Körper mit der gemessenen Absorptivität in ebenen freien Fällen mit verschwindendem Gesamtdrehimpuls und verlangen, wie in der Literatur, drei bis vier Durchmischungszustände vor der Flucht sowie dieselbe Schwelle bei Absorption und Emission. Mit 95 % Konfidenz und Holm-Korrektur besteht die Theorie in den Massenensembles 3-3-1 und 1-2-3 bei den Fluchtanteilen und bei der Endexzentrizität des Paares, versagt aber bei der Endexzentrizität des Ensembles 1-1-3. Dort wächst das Versagen mit der Tiefe des Chaos: Die Kolmogorov-Smirnov-Statistik steigt von 0,099 auf 0,154, und die gemessene mittlere Exzentrizität sinkt von 0,758 auf 0,735, gegenüber 0,792 vorhergesagt. Das Versagen stammt weder aus der Extrapolation der Absorptivität noch aus dem Maßstab des Chaos: Ein alternativer Maßstab, der demokratische Konfigurationen zählt, ergibt dasselbe Muster. Indem wir die Fluchten mit aufgezeichneter Geometrie neu berechnen, zeigen wir, dass nur im Ensemble 1-1-3 das Regime der letzten Episode die Endform des Paares stark verändert: Die mittlere Exzentrizität steigt von 0,70 in den am stärksten durchmischten Episoden auf 0,87 in den am stärksten hierarchischen. Zwei Erklärungen (mehr hierarchische Zeit und mehr Gedächtnis als im Ensemble 1-2-3) wurden geprüft und verworfen, und der Mechanismus bleibt offen.",
+   "kw": [
+    "Dreikörperproblem",
+    "Flusstheorie",
+    "chaotische Absorptivität",
+    "Ergodizität",
+    "ebenes Problem",
+    "verschwindender Drehimpuls"
+   ],
+   "date_long": "5. November 2026",
+   "version_note": "v1: Erstveröffentlichung"
   }
  },
  "fig": {
@@ -313,6 +329,11 @@
    "s_v11": "Version 11",
    "s_crit": "kritischer 95-%-Wert",
    "aria": "Differenz zwischen der vorhergesagten und der gemessenen Verteilung der Endexzentrizität im Ensemble 1-2-3, Versionen 10 und 11"
+  },
+  "A15": {
+   "x": "Viertel des hierarchischen Anteils der letzten Episode",
+   "y": "mittlere Endexzentrizität",
+   "aria": "Mittlere Endexzentrizität pro Viertel des hierarchischen Anteils der letzten Episode, für vier Massenensembles"
   }
  },
  "ui": {
@@ -370,7 +391,7 @@
   "empty": "Keine Notiz gefunden. Versuchen Sie ein anderes Wort.",
   "series_eyebrow": "Reihe · Himmelsmechanik",
   "series_order_title": "Lesereihenfolge",
-  "series_order_text": "Die Notizen sind darauf angelegt, nacheinander gelesen zu werden: Die erste ordnet das Problem ein, die zweite prüft eine Stabilisierungshypothese, die dritte validiert den Simulator anhand klassischer Kriterien, die vierte prüft eine vereinheitlichende Heuristik, die fünfte untersucht Frühsignale der Ejektion, die sechste prüft, ob die Geschwindigkeit den herausgeschleuderten Körper besser vorhersagt als die Massen, die siebte untersucht den ersten Abweichler und den ersten Kontakt, die achte misst die Halbwertszeit der Systeme, die neunte prüft die statistischen Theorien der Ausgänge, die zehnte prüft die Entwicklungsgleichungen und kartiert die Absorptivität, die elfte trennt die beiden Massenregeln, die zwölfte schlägt eine Näherungsformel für die Absorptivität vor, die dreizehnte misst die Exzentrizitätsmauer, unterhalb derer ein leichter Körper nicht eingefangen wird, und die vierzehnte unterzieht die Formel einer formalen 95-%-Prüfung.",
+  "series_order_text": "Die Notizen sind darauf angelegt, nacheinander gelesen zu werden: Die erste ordnet das Problem ein, die zweite prüft eine Stabilisierungshypothese, die dritte validiert den Simulator anhand klassischer Kriterien, die vierte prüft eine vereinheitlichende Heuristik, die fünfte untersucht Frühsignale der Ejektion, die sechste prüft, ob die Geschwindigkeit den herausgeschleuderten Körper besser vorhersagt als die Massen, die siebte untersucht den ersten Abweichler und den ersten Kontakt, die achte misst die Halbwertszeit der Systeme, die neunte prüft die statistischen Theorien der Ausgänge, die zehnte prüft die Entwicklungsgleichungen und kartiert die Absorptivität, die elfte trennt die beiden Massenregeln, die zwölfte schlägt eine Näherungsformel für die Absorptivität vor, die dreizehnte misst die Exzentrizitätsmauer, unterhalb derer ein leichter Körper nicht eingefangen wird, die vierzehnte unterzieht die Formel einer formalen 95-%-Prüfung, und die fünfzehnte zeigt, wo die Flusstheorie in der Ebene ohne Rotation versagt.",
   "series_count": "{n} Notizen",
   "foot_about": "Klassische Probleme der Physik, neu betrachtet mit künstlicher Intelligenz im kreativen Prozess: Fragen, numerische Experimente und Abgleich mit der Literatur.",
   "foot_disc": "Von Willian Wistuba Melo da Cunha, Physikbegeisterter. Der Autor ist Jurist und kein Physiker. Recherche, Simulationen und Abfassung erfolgen mit Unterstützung durch KI. Die Texte haben kein Peer-Review durchlaufen.",
@@ -438,7 +459,7 @@
  "code_page": {
   "eyebrow": "Reproduzierbarkeit",
   "h1": "Code der Experimente",
-  "lead": "Die Zahlen in den Notizen stammen aus diesen Skripten: in JavaScript (Node.js, ohne Abhängigkeiten) für die Notizen 1 bis 4 und in Python (NumPy, SciPy und Numba) für die Notizen 5 bis 14.",
+  "lead": "Die Zahlen in den Notizen stammen aus diesen Skripten: in JavaScript (Node.js, ohne Abhängigkeiten) für die Notizen 1 bis 4 und in Python (NumPy, SciPy und Numba) für die Notizen 5 bis 15.",
   "intro": "Laden Sie alle Dateien in denselben Ordner herunter und führen Sie zum Beispiel <code>node fase1.js</code> aus. Die Einheiten verwenden G = 1. Der Integrator ist das Leapfrog-Verfahren (Kick-Drift-Kick).",
   "th_file": "Datei",
   "th_what": "Funktion",
@@ -521,7 +542,18 @@
    "ergo/rapido.py": "Anpassung von v11 im Training und schnelle Kontrolle in den freien Fällen.",
    "ergo/cv.py": "Kreuzvalidierung nach Massengruppen des schweren Regimes.",
    "ergo/diag_canais.py": "Gemessene Absorptivität gegenüber v11, Kanal für Kanal.",
-   "ergo/teto.py": "Vorhersage der freien Fälle mit der gemessenen Absorptivität."
+   "ergo/teto.py": "Vorhersage der freien Fälle mit der gemessenen Absorptivität.",
+   "ergo/an46.py": "Einheitlicher Test mit 3 und 4 Durchmischungen (FR-TC-15).",
+   "ergo/an47.py": "Sensitivität gegenüber der Absorptivität oberhalb von x = 20 und Maßstab der demokratischen Konfigurationen.",
+   "ergo/an47b.py": "Maßstab der demokratischen Konfigurationen mit 6, 8 und 10 Ereignissen.",
+   "ergo/an48.py": "Dauer pro Durchmischung und Endexzentrizität.",
+   "ergo/an49.py": "Partnertausch und Exzentrizität im Verlauf der Exkursionen.",
+   "ergo/run_geo.py": "Geometrie der letzten Episode (1-1-3 und 1-2-3), mit Neuberechnung derselben freien Fälle.",
+   "ergo/run_geo2.py": "Geometrie der letzten Episode (3-3-1 und 1-1-1).",
+   "ergo/sim2c.py": "Integrator, der zu einem gegebenen Zeitpunkt anhält und den vollständigen Zustand zurückgibt.",
+   "ergo/run_gemeos.py": "Zwillingstest mit einer Störung von 1e-6.",
+   "ergo/run_gemeos2.py": "Zwillingstest mit einstellbarer Störung.",
+   "ergo/run_gemeos3.py": "Bestätigung des Zwillingstests mit einer neuen Stichprobe."
   },
   "note": "Die Skripte sind Arbeitsnotizen, auf Verständlichkeit und nicht auf Leistung ausgelegt. Einige hängen von <code>core.js</code> oder <code>sim.js</code> ab."
  }

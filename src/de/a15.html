@@ -1,0 +1,74 @@
+<h2>Einleitung</h2>
+<p>In der Flusstheorie von Kol ist die Wahrscheinlichkeit jedes Ausgangs eines Dreikörpersystems das Produkt aus dem in geschlossener Form bekannten Fluss des Phasenvolumens und einer Absorptivität, die durch Simulation gemessen werden muss <cite>1,2,3</cite>. Die Theorie gilt für Fluchten, die aus chaotischer Bewegung hervorgehen, und deshalb berücksichtigen die Tests in der Literatur nur Fluchten, denen mindestens drei oder vier Durchmischungszustände vorausgehen <cite>2,4</cite>. Ein neuerer Test im ebenen Fall fand Abweichungen und weckte den Verdacht, dass das Chaos in der Ebene den Phasenraum nicht vollständig durchmischt <cite>5</cite>. Dieser Test verwendete einen hohen Gesamtdrehimpuls und ließ das Regime geringer Rotation offen.</p>
+<p>Die Notizen FR-TC-13 und FR-TC-14 haben die Theorie in der Ebene mit verschwindendem Gesamtdrehimpuls geprüft, jedoch mit einem milderen Chaoskriterium von zwei Durchmischungen <cite>6,7</cite>. Diese Notiz wiederholt den Test mit dem Kriterium der Literatur, untersucht zwei technische Ursachen für das gefundene Versagen und sucht seinen Mechanismus in der Geometrie der letzten chaotischen Episode.</p>
+
+<h2>Methode</h2>
+<p>Die Simulationen sind die der vorherigen Notizen: eben, mit verschwindendem Gesamtdrehimpuls und dem Kettenintegrator mit algorithmischer Regularisierung <cite>8</cite>. Wir verwenden drei Datensätze.</p>
+<ul>
+<li><b>Freie Fälle:</b> 12.000 pro Massenensemble (1-1-3, 3-3-1, 1-2-3 und die Kontrolle 1-1-1), aus der Ruhe, mit der Zahl der Durchmischungen jeder Episode und der Exzentrizität des Endpaares <cite>6</cite>.</li>
+<li><b>Gemessene Absorptivität:</b> 26.400 Läufe pro Kanal (132 Zellen aus relativer Energie \(x = E_B/E_0\) und Exzentrizität \(e\), mit je 200 Läufen), wobei die Durchmischungen vor der ersten Exkursion gezählt werden.</li>
+<li><b>Geometrie:</b> die Fluchten mit tiefem Chaos, aus denselben Startwerten neu berechnet, wobei bei jedem Schritt das am stärksten gebundene Paar und die Position des dritten Körpers aufgezeichnet werden.</li>
+</ul>
+<p>Wir verwenden zwei Maßstäbe für das Chaos. Der erste zählt <b>Durchmischungen</b>, Abschnitte, in denen kein Paar den dritten Körper jenseits des Doppelten seiner großen Halbachse hat. Der zweite zählt <b>demokratische Konfigurationen</b>, die Maxima des Homologieradius oberhalb von 0,33, nach der Definition von Stone und Leigh <cite>4</cite>. In unseren Daten gehen beide Hand in Hand (Korrelation von 0,90 bis 0,95), und auf eine Durchmischung kommen im Mittel drei demokratische Konfigurationen.</p>
+<p>Der Test ist einheitlich: Dieselbe Schwelle \(k\) gilt auf beiden Seiten. Bei der Absorption zählen wir mindestens \(k\) Ereignisse vor der ersten Exkursion; bei der Emission mindestens \(k\) in der letzten Episode vor der Flucht. Die Vorhersage ist der ebene Fluss mit dem Gewicht \(x^{-2} e/\sqrt{1-e^2}\), multipliziert mit der gemessenen Absorptivität <cite>5,6</cite>. Die Endexzentrizität wird mit dem Kolmogorov-Smirnov-Test (KS) verglichen, die Fluchtanteile mit dem \(\chi^2\)-Test. Der kritische Wert des KS stammt aus 200 Neuziehungen der gemessenen Absorptivität und schließt damit die Unsicherheit der Vorhersage selbst ein. In den sechs Vergleichen jeder Familie wird die Holm-Korrektur angewandt <cite>9</cite>. Die Analysen der Geometrie und der Sensitivität sind explorativ; der Zwillingstest wurde mit einer neuen Stichprobe bestätigt, getrennt von der in der Exploration verwendeten.</p>
+
+<h2>Ergebnisse</h2>
+<h3>Die Theorie mit dem Kriterium der Literatur</h3>
+<p>Mit drei und vier Durchmischungen besteht die Theorie beide Fragen in den Ensembles 3-3-1 und 1-2-3 und fällt bei der Endexzentrizität des Ensembles 1-1-3 durch (Tabelle I). Mit zwei Durchmischungen fiel das Ensemble 3-3-1 durch <cite>7</cite>. Diese Ablehnung verschwindet bei tieferem Chaos, wie von einem Gedächtnis kurzer Reichweite zu erwarten. Die des Ensembles 1-1-3 wächst dagegen: KS steigt von 0,099 auf 0,154, und die gemessene mittlere Exzentrizität sinkt von 0,758 auf 0,735, während die vorhergesagte bei 0,792 bleibt. Die Fluchtanteile bestehen in allen Fällen.</p>
+<div class="tblwrap"><p class="cap">Einheitlicher Test der Flusstheorie mit der gemessenen Absorptivität und dem Durchmischungsmaßstab. KS der Endexzentrizität, mit dem durch Neuziehung gewonnenen kritischen 95-%-Wert; \(p\) der Form und der Fluchtanteile. Gemessene und vorhergesagte mittlere Exzentrizität. Mit der Holm-Korrektur fällt nur die Form des Ensembles 1-1-3 durch.</p><table>
+<thead><tr><th>\(k\)</th><th>Ensemble (n)</th><th>KS (kritisch)</th><th>\(p\) Form</th><th>mittleres \(e\) gemessen / vorhergesagt</th><th>\(p\) Fluchten</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>1-1-3 (1.181)</td><td>0,099 (0,061)</td><td>\(&lt; 0{,}005\)</td><td>0,758 / 0,792</td><td>0,78</td></tr>
+<tr><td>3</td><td>3-3-1 (1.223)</td><td>0,044 (0,074)</td><td>0,41</td><td>0,840 / 0,850</td><td>0,10</td></tr>
+<tr><td>3</td><td>1-2-3 (1.159)</td><td>0,024 (0,062)</td><td>0,84</td><td>0,794 / 0,792</td><td>0,61</td></tr>
+<tr><td>4</td><td>1-1-3 (565)</td><td>0,154 (0,100)</td><td>\(&lt; 0{,}005\)</td><td>0,735 / 0,792</td><td>0,74</td></tr>
+<tr><td>4</td><td>3-3-1 (604)</td><td>0,062 (0,098)</td><td>0,42</td><td>0,843 / 0,836</td><td>0,55</td></tr>
+<tr><td>4</td><td>1-2-3 (552)</td><td>0,042 (0,094)</td><td>0,73</td><td>0,810 / 0,803</td><td>0,52</td></tr>
+</tbody></table></div>
+
+<h3>Zwei ausgeschlossene technische Ursachen</h3>
+<p><b>Absorptivität außerhalb des gemessenen Bereichs.</b> Die Absorptivität wurde bis \(x = 20\) gemessen, und darüber verwenden wir den letzten gemessenen Wert. Nur 0,2 % bis 0,6 % der vorhergesagten Fluchten fallen in diesen Bereich. Ersetzt man die Absorptivität dort durch null oder durch das Doppelte, ändert sich der KS des Ensembles 1-1-3 um höchstens 0,002.</p>
+<p><b>Maßstab des Chaos.</b> Mit dem Maßstab der demokratischen Konfigurationen wiederholt sich das Muster (Tabelle II). Mit sechs Konfigurationen, also flachem Chaos, fällt das Ensemble 3-3-1 durch und das Ensemble 1-1-3 besteht. Mit acht und zehn, was etwa drei Durchmischungen entspricht, bestehen die Ensembles 3-3-1 und 1-2-3, und das Ensemble 1-1-3 fällt durch, mit einer gemessenen mittleren Exzentrizität unterhalb der vorhergesagten. Das Versagen im Ensemble 1-1-3 hängt also nicht vom gewählten Maßstab ab.</p>
+<div class="tblwrap"><p class="cap">Derselbe Test mit dem Maßstab der demokratischen Konfigurationen (Homologieradius oberhalb von 0,33), mit 100 Neuziehungen und ohne Korrektur für Mehrfachvergleiche (explorativ). KS, mit dem kritischen 95-%-Wert in Klammern, und \(p\); in eckigen Klammern die Zahl der Fluchten.</p><table>
+<thead><tr><th>\(k\)</th><th>1-1-3</th><th>3-3-1</th><th>1-2-3</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>0,031 (0,040), \(p = 0{,}29\) [2.556]</td><td>0,085 (0,044), \(p &lt; 0{,}01\) [2.963]</td><td>0,018 (0,044), \(p = 0{,}83\) [2.463]</td></tr>
+<tr><td>8</td><td>0,085 (0,056), \(p &lt; 0{,}01\) [1.517]</td><td>0,038 (0,065), \(p = 0{,}49\) [1.408]</td><td>0,026 (0,054), \(p = 0{,}79\) [1.371]</td></tr>
+<tr><td>10</td><td>0,113 (0,075), \(p &lt; 0{,}01\) [988]</td><td>0,057 (0,082), \(p = 0{,}34\) [989]</td><td>0,038 (0,075), \(p = 0{,}65\) [909]</td></tr>
+</tbody></table></div>
+
+<h3>Zwei Regime in der letzten Episode</h3>
+<p>Wir haben die Fluchten mit mindestens drei Durchmischungen in der letzten Episode neu berechnet: 1.181 im Ensemble 1-1-3, 1.159 im Ensemble 1-2-3, 1.223 im Ensemble 3-3-1 und 1.275 im Ensemble 1-1-1. In allen entkam derselbe Körper, und die Endexzentrizität stimmte mit der ursprünglichen überein. Wir teilen die Zeit der letzten Episode in zwei Arten. Im <b>hierarchischen</b> Regime ist das am stärksten gebundene Paar klar bestimmt, und der dritte Körper befindet sich jenseits des Doppelten seiner großen Halbachse. In den übrigen Abschnitten ist der dritte Körper nah, und die Paare wechseln sich ab.</p>
+<p>Im Ensemble 1-1-3 hängt die Endexzentrizität stark vom hierarchischen Anteil der letzten Episode ab: Die Spearman-Korrelation beträgt +0,295 (\(p = 4\times10^{-25}\)), und die mittlere Exzentrizität steigt von 0,70 im Viertel mit der wenigsten hierarchischen Zeit auf 0,87 im Viertel mit der meisten (Abb. 1). In den anderen drei Ensembles ist der Zusammenhang schwach, zwischen +0,06 und +0,10 (Tabelle III). Paare, die nach einer stärker durchmischten Episode enden, kommen kreisförmiger heraus. Das passt zum Rückgang der mittleren Exzentrizität, wenn tieferes Chaos verlangt wird.</p>
+<div class="tblwrap"><p class="cap">Anteil der letzten Episode im hierarchischen Regime (Median und Quartile) und Spearman-Korrelation zwischen diesem Anteil und der Endexzentrizität, in den Fluchten mit mindestens drei Durchmischungen in der letzten Episode.</p><table>
+<thead><tr><th>Ensemble (n)</th><th>Hierarchischer Anteil: Median (Quartile)</th><th>Korrelation mit dem End-\(e\)</th></tr></thead>
+<tbody>
+<tr><td>1-1-1 (1.275)</td><td>0,55 (0,44 bis 0,63)</td><td>+0,090 (\(p = 0{,}001\))</td></tr>
+<tr><td>1-1-3 (1.181)</td><td>0,41 (0,28 bis 0,53)</td><td>+0,295 (\(p = 4\times10^{-25}\))</td></tr>
+<tr><td>1-2-3 (1.159)</td><td>0,25 (0,14 bis 0,36)</td><td>+0,061 (\(p = 0{,}04\))</td></tr>
+<tr><td>3-3-1 (1.223)</td><td>0,16 (0,06 bis 0,27)</td><td>+0,095 (\(p = 0{,}001\))</td></tr>
+</tbody></table></div>
+<figure data-fig="A15"><figcaption>Mittlere Endexzentrizität pro Viertel des hierarchischen Anteils der letzten Episode (1 = wenigste hierarchische Zeit, 4 = meiste), in den Fluchten mit mindestens drei Durchmischungen in der letzten Episode. Nur im Ensemble 1-1-3 verändert das Regime der letzten Episode die Form des Endpaares stark.</figcaption></figure>
+<p>Eine erste Hypothese, nach der das Ensemble 1-1-3 mehr Zeit im hierarchischen Regime verbringen würde, wurde vor der Messung in den Ensembles 1-1-1 und 3-3-1 festgehalten und bestätigte sich nicht: Das Ensemble 1-1-1 verbringt mehr Zeit hierarchisch (Median 0,55) und zeigt den Effekt nicht. Was das Ensemble 1-1-3 auszeichnet, ist nicht der Anteil jedes Regimes, sondern wie stark die beiden Regime zu unterschiedlichen Paaren führen.</p>
+
+<h3>Zwillingstest</h3>
+<p>Um das Gedächtnis direkt zu messen, halten wir jede Flucht zu Beginn ihrer letzten Episode an und starten von dort 20 Kopien, deren Positionen um einen Bruchteil \(\delta\) der Systemskala gestört sind. Mit \(\delta = 10^{-6}\) wiederholen die Kopien das Original praktisch (Streuung zwischen den Kopien von 0,06 bis 0,09, gegenüber 0,20 bis 0,23 im Ensemble), weil die Episode zu kurz ist, als dass das Chaos die Störung verstärken könnte, und der Test ist nicht aussagekräftig. Mit \(\delta = 10^{-2}\), in einer neuen Stichprobe von 800 Fluchten pro Ensemble, beträgt die Korrelation zwischen der Endexzentrizität des Originals und dem Mittel der Kopien mit mindestens drei Durchmischungen 0,31 im Ensemble 1-1-3 (579 Originale; 95-%-Intervall von 0,23 bis 0,38) und 0,21 im Ensemble 1-2-3 (589 Originale; von 0,14 bis 0,29). Der Unterschied ist nicht signifikant (\(p = 0{,}08\)). Beide Ensembles bewahren ein ähnliches Gedächtnis, und das Ensemble 1-2-3 besteht den Test der Theorie trotzdem, sodass dieses Gedächtnis das Versagen im Ensemble 1-1-3 nicht erklärt. Ein gegenteiliges Ergebnis, das in einer Exploration mit 200 Fluchten auftrat, bestätigte sich nicht.</p>
+
+<h2>Diskussion</h2>
+<p>Mit dem Chaoskriterium der Literatur beschreibt die Flusstheorie mit der gemessenen Absorptivität die Ebene ohne Gesamtrotation in zwei der drei geprüften Ensembles und versagt robust im Ensemble 1-1-3. Das Versagen stammt weder aus der Extrapolation der Absorptivität noch aus dem Maßstab des Chaos, und es nimmt zu, wenn tieferes Chaos verlangt wird, im Gegensatz zu einem Gedächtniseffekt kurzer Reichweite. Das ist vereinbar mit dem Verdacht, dass die Durchmischung des Phasenraums in der Ebene unvollständig sein kann <cite>5</cite>, nun im Regime verschwindender Rotation, und mit der in der Literatur beschriebenen Koexistenz regulärer und chaotischer Bereiche <cite>10,11</cite>.</p>
+<p>Die Geometrie zeigt, wo zu suchen ist. Nur im Ensemble 1-1-3 verändert die Art der Bewegung in der letzten Episode die Endform: Stärker hierarchische Episoden ergeben exzentrische Paare, stärker durchmischte Episoden ergeben kreisförmige Paare. Das ist eine Korrelation, kein Beweis einer Ursache. Die Grenze zwischen den Regimen (das Doppelte der großen Halbachse) ist unsere Wahl, und wir wissen nicht, warum der Effekt im Ensemble 1-1-3 auftritt und nicht in den anderen Ensembles. Ein naheliegender Test ist, die Masse des zentralen Körpers stufenweise zu variieren und zu prüfen, ob die Verbindung zwischen Regime und Endform dem Versagen der Theorie folgt.</p>
+<p>Einschränkungen:</p>
+<ul>
+<li>alles gilt für ebene Simulationen mit verschwindendem Gesamtdrehimpuls und vier Massenensembles;</li>
+<li>mit vier Durchmischungen bleiben 552 bis 604 Fluchten pro Ensemble;</li>
+<li>die Analysen der Geometrie und Tabelle II sind explorativ;</li>
+<li>der Durchmischungsmaßstab ist nicht identisch mit dem der Referenzgruppen, obwohl der Maßstab der demokratischen Konfigurationen dasselbe Muster ergibt.</li>
+</ul>
+
+<h2>Schlussfolgerungen</h2>
+<ul>
+<li>Mit drei und vier Durchmischungen, dem Kriterium der Literatur, besteht die Flusstheorie mit gemessener Absorptivität mit 95 % Konfidenz und Holm-Korrektur in den Ensembles 3-3-1 und 1-2-3, bei den Fluchtanteilen und bei der Endexzentrizität.</li>
+<li>Im Ensemble 1-1-3 versagt sie bei der Endexzentrizität, und das Versagen wächst mit der Tiefe des Chaos (KS von 0,099 auf 0,154; gemessene mittlere Exzentrizität von 0,758 auf 0,735, gegenüber 0,792 vorhergesagt).</li>
+<li>Das Versagen stammt weder von der Absorptivität außerhalb des gemessenen Bereichs noch vom Maßstab des Chaos.</li>
+<li>Nur im Ensemble 1-1-3 verändert das Regime der letzten Episode die Endform des Paares stark (von 0,70 bis 0,87 zwischen den Vierteln hierarchischer Zeit). Die Hypothesen „mehr hierarchische Zeit“ und „mehr Gedächtnis als das Ensemble 1-2-3“ wurden geprüft und verworfen.</li>
+</ul>

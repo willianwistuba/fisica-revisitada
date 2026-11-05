@@ -119,7 +119,7 @@ f.addEventListener('input',run);run();}})();</script>'''
         refs=''.join(f'<li id="ref-{k+1}"><span class="rn">[{k+1}]</span><span>{E(t)}'+(f' <a href="{u}">{E(u.replace("https://",""))}</a>' if u else '')+'</span></li>' for k,(t,u) in enumerate(a['refs']))
         toc=''.join(f'<li class="l{lv}"><a href="#{sid}"><span>{no}</span> {E(t)}</a></li>' for sid,no,t,lv in a['toc'])
         stoc=''.join(f'<li{" class=\"on\"" if b is a else ""}><span>{b["part"]:02d}</span><a href="{b["url"]}">{E(b["short"])}</a></li>' for b in A)
-        cite=ui['cite_tpl'].replace('{title}',a['title']).replace('{code}',a['code']).replace('{url}',SITE+a['url'])
+        cite=ui['cite_tpl'].replace('{title}',a['title']).replace('{code}',a['code']).replace('{date}',a.get('date_short',ui.get('date_short',''))).replace('{url}',SITE+a['url'])
         langs=''.join(f'<a href="{url(l,"art",a["slug"])}" hreflang="{HREFLANG[l]}" lang="{HREFLANG[l]}"{" aria-current=\"true\"" if l==lang else ""}>{E(I[l]["name"])}</a>' for l in LANGS)
         tn=f'<p class="trnote">{E(ui["translation_note"])} <a href="{url("pt","art",a["slug"])}" hreflang="pt-BR">PT</a></p>' if ui['translation_note'] else ''
         part=ui['part'].replace('{n}',str(a['part'])).replace('{N}',str(N))

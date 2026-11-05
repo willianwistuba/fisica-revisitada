@@ -5,7 +5,7 @@
  "decimal": ".",
  "series": {
   "title": "The three-body problem",
-  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Fourteen notes, from foundations to hypothesis testing."
+  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Fifteen notes, from foundations to hypothesis testing."
  },
  "articles": {
   "FR-TC-01": {
@@ -202,6 +202,22 @@
    ],
    "date_long": "5 November 2026",
    "version_note": "v1: first publication"
+  },
+  "FR-TC-15": {
+   "title": "Where flux theory fails in the plane without rotation: a test with the chaos criterion of the literature",
+   "short": "Where the theory fails",
+   "type": "Research article",
+   "abstract": "We test the three-body flux theory, with the measured absorptivity, in planar free falls with zero total angular momentum, requiring three to four scramble states before the escape, as in the literature, and the same threshold in absorption and in emission. At 95% confidence and with Holm correction, the theory passes in the mass sets 3-3-1 and 1-2-3, in the escape fractions and in the final eccentricity of the pair, but fails in the final eccentricity of the set 1-1-3. There, the failure grows with the depth of chaos: the Kolmogorov-Smirnov statistic goes from 0.099 to 0.154, and the measured mean eccentricity drops from 0.758 to 0.735, against 0.792 predicted. The failure does not come from the extrapolation of the absorptivity or from the chaos criterion: an alternative criterion, based on democratic configurations, gives the same pattern. Rerunning the escapes with the geometry recorded, we show that only in 1-1-3 does the regime of the last episode strongly change the final shape of the pair: the mean eccentricity goes from 0.70, in the most mixed episodes, to 0.87, in the most hierarchical ones. Two explanations (more hierarchical time and more memory than in 1-2-3) were tested and ruled out, and the mechanism remains open.",
+   "kw": [
+    "three-body problem",
+    "flux theory",
+    "chaotic absorptivity",
+    "ergodicity",
+    "planar problem",
+    "zero angular momentum"
+   ],
+   "date_long": "5 November 2026",
+   "version_note": "v1: first publication"
   }
  },
  "fig": {
@@ -313,6 +329,11 @@
    "s_v11": "version 11",
    "s_crit": "95% critical value",
    "aria": "Difference between the predicted and the measured distribution of the final eccentricity in the set 1-2-3, versions 10 and 11"
+  },
+  "A15": {
+   "x": "quartile of the hierarchical fraction of the last episode",
+   "y": "mean final eccentricity",
+   "aria": "Mean final eccentricity by quartile of the hierarchical fraction of the last episode, for four mass sets"
   }
  },
  "ui": {
@@ -370,7 +391,7 @@
   "empty": "No notes found. Try another word.",
   "series_eyebrow": "Series · celestial mechanics",
   "series_order_title": "Reading order",
-  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, the thirteenth measures the eccentricity wall below which a light body is not captured, and the fourteenth subjects the formula to a formal 95% test.",
+  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, the thirteenth measures the eccentricity wall below which a light body is not captured, the fourteenth subjects the formula to a formal 95% test, and the fifteenth shows where flux theory fails in the plane without rotation.",
   "series_count": "{n} notes",
   "foot_about": "Classical problems in physics revisited with artificial intelligence in the creative process: questions, numerical experiments, and verification against the literature.",
   "foot_disc": "By Willian Wistuba Melo da Cunha, physics enthusiast. The author is a lawyer and not a physicist. The searches, simulations, and writing are carried out with AI assistance. The texts have not undergone peer review.",
@@ -438,7 +459,7 @@
  "code_page": {
   "eyebrow": "Reproducibility",
   "h1": "Code for the experiments",
-  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 14.",
+  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 15.",
   "intro": "Download them all to the same folder and run, for example, <code>node fase1.js</code>. Units use G = 1. The integrator is the kick-drift-kick leapfrog.",
   "th_file": "File",
   "th_what": "What it does",
@@ -521,7 +542,18 @@
    "ergo/rapido.py": "Fit of v11 on the training set and quick check in the free falls.",
    "ergo/cv.py": "Cross-validation by mass groups of the heavy regime.",
    "ergo/diag_canais.py": "Measured absorptivity against v11, channel by channel.",
-   "ergo/teto.py": "Prediction of the free falls with the measured absorptivity."
+   "ergo/teto.py": "Prediction of the free falls with the measured absorptivity.",
+   "ergo/an46.py": "Consistent test with 3 and 4 scrambles (FR-TC-15).",
+   "ergo/an47.py": "Sensitivity to the absorptivity above x = 20 and criterion of democratic configurations.",
+   "ergo/an47b.py": "Criterion of democratic configurations with 6, 8, and 10 events.",
+   "ergo/an48.py": "Duration per scramble and final eccentricity.",
+   "ergo/an49.py": "Partner exchange and eccentricity along the excursions.",
+   "ergo/run_geo.py": "Geometry of the last episode (1-1-3 and 1-2-3), rerunning the same free falls.",
+   "ergo/run_geo2.py": "Geometry of the last episode (3-3-1 and 1-1-1).",
+   "ergo/sim2c.py": "Integrator that stops at a given instant and returns the full state.",
+   "ergo/run_gemeos.py": "Twin test with a perturbation of 1e-6.",
+   "ergo/run_gemeos2.py": "Twin test with an adjustable perturbation.",
+   "ergo/run_gemeos3.py": "Confirmation of the twin test with a new sample."
   },
   "note": "The scripts are working notes, written for clarity rather than performance. Some depend on <code>core.js</code> or <code>sim.js</code>."
  }

@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "O problema dos três corpos",
-  "lead": "Por que não há fórmula geral, o que torna configurações de poucos corpos estáveis, quais ideias de estabilização falham, o que se pode prever antes de uma ejeção, quanto tempo um sistema vive e qual é a lei estatística dos desfechos. Catorze notas, do fundamento ao teste de hipóteses."
+  "lead": "Por que não há fórmula geral, o que torna configurações de poucos corpos estáveis, quais ideias de estabilização falham, o que se pode prever antes de uma ejeção, quanto tempo um sistema vive e qual é a lei estatística dos desfechos. Quinze notas, do fundamento ao teste de hipóteses."
  },
  "articles": {
   "FR-TC-01": {
@@ -201,7 +201,25 @@
     "validação fora da amostra"
    ],
    "date_long": "5 de novembro de 2026",
-   "version_note": "v1: primeira publicação"
+   "version_note": "v1: primeira publicação",
+   "date_short": "5 nov. 2026"
+  },
+  "FR-TC-15": {
+   "title": "Onde a teoria de fluxo falha no plano sem rotação: um teste com o critério de caos da literatura",
+   "short": "Onde a teoria falha",
+   "type": "Artigo de pesquisa",
+   "date_long": "5 de novembro de 2026",
+   "version_note": "v1: primeira publicação",
+   "abstract": "Testamos a teoria de fluxo de três corpos, com a absortividade medida, em quedas livres planas com momento angular total nulo, exigindo de três a quatro estados de embaralhamento antes da fuga, como na literatura, e o mesmo limiar na absorção e na emissão. Com 95% de confiança e correção de Holm, a teoria passa nos conjuntos de massas 3-3-1 e 1-2-3, nas frações de escape e na excentricidade final do par, mas falha na excentricidade final do conjunto 1-1-3. Ali, a falha cresce com a profundidade do caos: a estatística de Kolmogorov-Smirnov vai de 0,099 para 0,154, e a excentricidade média medida cai de 0,758 para 0,735, contra 0,792 prevista. A falha não vem da extrapolação da absortividade nem da régua de caos: uma régua alternativa, de configurações democráticas, dá o mesmo padrão. Refazendo as fugas com a geometria gravada, mostramos que só no 1-1-3 o regime do último episódio muda fortemente o formato final do par: a excentricidade média vai de 0,70, nos episódios mais misturados, a 0,87, nos mais hierárquicos. Duas explicações (mais tempo hierárquico e mais memória que no 1-2-3) foram testadas e descartadas, e o mecanismo segue em aberto.",
+   "kw": [
+    "problema dos três corpos",
+    "teoria de fluxo",
+    "absortividade caótica",
+    "ergodicidade",
+    "problema plano",
+    "momento angular nulo"
+   ],
+   "date_short": "5 nov. 2026"
   }
  },
  "fig": {
@@ -313,6 +331,11 @@
    "s_v11": "versão 11",
    "s_crit": "crítico de 95%",
    "aria": "Diferença entre a distribuição prevista e a medida da excentricidade final no conjunto 1-2-3, versões 10 e 11"
+  },
+  "A15": {
+   "x": "quarto da fração hierárquica do último episódio",
+   "y": "excentricidade final média",
+   "aria": "Excentricidade final média por quarto da fração hierárquica do último episódio, para quatro conjuntos de massas"
   }
  },
  "ui": {
@@ -344,7 +367,7 @@
   "download_pdf": "Baixar PDF",
   "pdf": "PDF",
   "cite_as": "Como citar",
-  "cite_tpl": "CUNHA, Willian Wistuba Melo da. {title}. Física Revisitada, nota técnica {code}, 3 nov. 2026. Disponível em: {url}.",
+  "cite_tpl": "CUNHA, Willian Wistuba Melo da. {title}. Física Revisitada, nota técnica {code}, {date}. Disponível em: {url}.",
   "series": "Série",
   "part": "parte {n} de {N}",
   "prev": "Anterior",
@@ -370,7 +393,7 @@
   "empty": "Nenhuma nota encontrada. Tente outra palavra.",
   "series_eyebrow": "Série · mecânica celeste",
   "series_order_title": "Ordem de leitura",
-  "series_order_text": "As notas foram escritas para ser lidas em sequência: a primeira situa o problema, a segunda testa uma hipótese de estabilização, a terceira valida o simulador contra critérios clássicos, a quarta testa uma heurística unificadora, a quinta investiga sinais antecipados da ejeção, a sexta testa se a velocidade prevê o corpo ejetado melhor que as massas, a sétima examina o primeiro dissidente e o primeiro contato, a oitava mede a meia-vida dos sistemas, a nona testa as teorias estatísticas dos desfechos, a décima testa as equações de evolução e mapeia a absortividade, a décima primeira separa as duas regras de massas, a décima segunda propõe uma fórmula aproximada para a absortividade, a décima terceira mede o muro de excentricidade abaixo do qual um corpo leve não é capturado e a décima quarta submete a fórmula a uma prova formal de 95%.",
+  "series_order_text": "As notas foram escritas para ser lidas em sequência: a primeira situa o problema, a segunda testa uma hipótese de estabilização, a terceira valida o simulador contra critérios clássicos, a quarta testa uma heurística unificadora, a quinta investiga sinais antecipados da ejeção, a sexta testa se a velocidade prevê o corpo ejetado melhor que as massas, a sétima examina o primeiro dissidente e o primeiro contato, a oitava mede a meia-vida dos sistemas, a nona testa as teorias estatísticas dos desfechos, a décima testa as equações de evolução e mapeia a absortividade, a décima primeira separa as duas regras de massas, a décima segunda propõe uma fórmula aproximada para a absortividade, a décima terceira mede o muro de excentricidade abaixo do qual um corpo leve não é capturado, a décima quarta submete a fórmula a uma prova formal de 95% e a décima quinta mostra onde a teoria de fluxo falha no plano sem rotação.",
   "series_count": "{n} notas",
   "foot_about": "Problemas clássicos da física revistos com inteligência artificial no processo criativo: perguntas, experimentos numéricos e verificação contra a literatura.",
   "foot_disc": "Por Willian Wistuba Melo da Cunha, entusiasta de física. O autor é advogado e não é físico. As buscas, as simulações e a redação contam com assistência de IA. Os textos não passaram por revisão por pares.",
@@ -438,7 +461,7 @@
  "code_page": {
   "eyebrow": "Reprodutibilidade",
   "h1": "Código dos experimentos",
-  "lead": "Os números das notas vêm destes scripts: em JavaScript (Node.js, sem dependências) para as notas 1 a 4 e em Python (NumPy, SciPy e Numba) para as notas 5 a 14.",
+  "lead": "Os números das notas vêm destes scripts: em JavaScript (Node.js, sem dependências) para as notas 1 a 4 e em Python (NumPy, SciPy e Numba) para as notas 5 a 15.",
   "intro": "Baixe todos para a mesma pasta e rode, por exemplo, <code>node fase1.js</code>. As unidades usam G = 1. O integrador é o leapfrog no esquema kick-drift-kick.",
   "th_file": "Arquivo",
   "th_what": "O que faz",
@@ -521,7 +544,18 @@
    "ergo/rapido.py": "Ajuste da v11 no treino e conferência rápida nas quedas livres.",
    "ergo/cv.py": "Validação cruzada por grupos de massas do regime pesado.",
    "ergo/diag_canais.py": "Absortividade medida contra a v11, canal a canal.",
-   "ergo/teto.py": "Previsão das quedas livres com a absortividade medida."
+   "ergo/teto.py": "Previsão das quedas livres com a absortividade medida.",
+   "ergo/an46.py": "Teste coerente com 3 e 4 embaralhamentos (FR-TC-15).",
+   "ergo/an47.py": "Sensibilidade à absortividade acima de x = 20 e régua de configurações democráticas.",
+   "ergo/an47b.py": "Régua de configurações democráticas com 6, 8 e 10 eventos.",
+   "ergo/an48.py": "Duração por embaralhamento e excentricidade final.",
+   "ergo/an49.py": "Troca de parceiro e excentricidade ao longo das excursões.",
+   "ergo/run_geo.py": "Geometria do último episódio (1-1-3 e 1-2-3), refazendo as mesmas quedas livres.",
+   "ergo/run_geo2.py": "Geometria do último episódio (3-3-1 e 1-1-1).",
+   "ergo/sim2c.py": "Integrador que para num instante dado e devolve o estado completo.",
+   "ergo/run_gemeos.py": "Teste dos gêmeos com perturbação de 1e-6.",
+   "ergo/run_gemeos2.py": "Teste dos gêmeos com perturbação ajustável.",
+   "ergo/run_gemeos3.py": "Confirmação do teste dos gêmeos com amostra nova."
   },
   "note": "Os scripts são notas de trabalho, escritos para clareza e não para desempenho. Alguns dependem de <code>core.js</code> ou de <code>sim.js</code>."
  }

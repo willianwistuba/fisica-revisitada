@@ -7,7 +7,7 @@ def build_tex(a,lang,L):
     _,body,_=render(a,lang,L)
     refs=''.join(f'\\bibitem{{r{i+1}}} '+esc_text(t)+(' \\href{'+u.replace('%','\\%').replace('#','\\#')+'}{\\nolinkurl{'+u.replace('https://','').replace('%','\\%').replace('#','\\#')+'}}' if u else '')+'\n' for i,(t,u) in enumerate(a['refs']))
     aurl=SITE+url(lang,'art',a['slug'])
-    cite=esc_text(ui['cite_tpl'].replace('{title}',m['title']).replace('{code}',a['code']).replace('{url}','URLX')).replace('URLX','\\url{'+aurl+'}')
+    cite=esc_text(ui['cite_tpl'].replace('{title}',m['title']).replace('{code}',a['code']).replace('{date}',m.get('date_short',ui.get('date_short',''))).replace('{url}','URLX')).replace('URLX','\\url{'+aurl+'}')
     tn=('\\\\[2pt]\\textit{'+esc_text(ui['translation_note'])+'}') if ui['translation_note'] else ''
     data=esc_text(ui['backmatter_data_text'].replace('{codeurl}','CODEX')).replace('CODEX','\\url{'+SITE+url(lang,'code')+'}')
     bab=BABEL[lang]

@@ -156,4 +156,17 @@ ARTS=[
    ('S. Holm, A simple sequentially rejective multiple test procedure, Scand. J. Stat. 6, 65 (1979).','https://www.jstor.org/stable/4615733'),
    ('T. Hastie, R. Tibshirani, and J. Friedman, The Elements of Statistical Learning, 2nd ed. (Springer, New York, 2009).','https://doi.org/10.1007/978-0-387-84858-7'),
  ]),
+ dict(slug='onde-a-teoria-falha', src='a15.html', part=15, code='FR-TC-15', date_iso='2026-11-05', version_num='1', refs=[
+   ('B. Kol, Flux-based statistical prediction of three-body outcomes, Celest. Mech. Dyn. Astron. 133, 17 (2021).','https://doi.org/10.1007/s10569-021-10015-x'),
+   ('V. Manwadkar, B. Kol, A. A. Trani, and N. W. C. Leigh, Testing the flux-based statistical prediction of the three-body problem, Mon. Not. R. Astron. Soc. 506, 692 (2021).','https://arxiv.org/abs/2101.03661'),
+   ('V. Manwadkar, A. A. Trani, and B. Kol, Measurement of three-body chaotic absorptivity predicts chaotic outcome distribution, Celest. Mech. Dyn. Astron. 136, 4 (2024).','https://doi.org/10.1007/s10569-023-10174-z'),
+   ('N. C. Stone and N. W. C. Leigh, A statistical solution to the chaotic, non-hierarchical three-body problem, Nature 576, 406 (2019).','https://doi.org/10.1038/s41586-019-1833-8'),
+   ('Y. Dandekar, E. Springer, S. Zard, A. A. Trani, B. Kol, and O. Birnholtz, Planar three-body problem: theoretical predictions and simulation results, arXiv:2608.30414 (2026).','https://arxiv.org/abs/2608.30414'),
+   ('W. W. M. da Cunha, Física Revisitada, Technical Note FR-TC-13 (2026).',SITE+'/artigos/muro-de-excentricidade/'),
+   ('W. W. M. da Cunha, Física Revisitada, Technical Note FR-TC-14 (2026).',SITE+'/artigos/formula-posta-a-prova/'),
+   ('S. Mikkola and K. Tanikawa, Algorithmic regularization of the few-body problem, Mon. Not. R. Astron. Soc. 310, 745 (1999).','https://doi.org/10.1046/j.1365-8711.1999.02982.x'),
+   ('S. Holm, A simple sequentially rejective multiple test procedure, Scand. J. Stat. 6, 65 (1979).','https://www.jstor.org/stable/4615733'),
+   ('A. A. Trani, N. W. C. Leigh, T. C. N. Boekholt, and S. Portegies Zwart, Isles of regularity in a sea of chaos amid the gravitational three-body problem, arXiv:2403.03247 (2024).','https://arxiv.org/abs/2403.03247'),
+   ('H. D. Parischewsky, A. A. Trani, and N. W. C. Leigh, Chaos in the vicinity of a singularity in the three-body problem: the equilateral triangle experiment in the zero angular momentum limit, SciPost Phys. Core 6, 016 (2023).','https://arxiv.org/abs/2108.06335'),
+ ]),
 ]
