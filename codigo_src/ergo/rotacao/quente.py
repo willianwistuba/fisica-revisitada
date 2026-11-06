@@ -5,7 +5,7 @@ import rot, sim2r
 import run_episodes as RE, run_age as ER
 from sim2 import PAIRS, initial_conditions
 from rodar_tres import KQ
-MS = {'1-1-3': ([1., 1., 3.], 1_200_000_000, 0.0), '1-2-3': ([1., 2., 3.], 1_300_000_000, 0.0), '1-1-3-rot': ([1., 1., 3.], 1_400_000_000, 0.3)}
+MS = {'1-1-3': ([1., 1., 3.], 1_200_000_000, 0.0), '1-2-3': ([1., 2., 3.], 1_300_000_000, 0.0), '1-1-3-rot': ([1., 1., 3.], 1_400_000_000, 0.3), '1-1-3-rot07': ([1., 1., 3.], 1_500_000_000, 0.7)}
 CONJ = sys.argv[3] if len(sys.argv) > 3 else '1-1-3'
 def task(i):
     mm = np.array(MS[CONJ][0]); rng = np.random.default_rng(MS[CONJ][1] + i)

@@ -11,3 +11,7 @@ Leitura: se o 1-2-3 passar, a falha do E65 é do 1-1-3 com L = 0; se reprovar, o
 ## E65c (escrito em 6 nov. 2026, 15h50, antes dos dados)
 Mesmo ensemble de velocidades sorteadas, agora com rotação: depois de zerar L e reescalar para K/|W| = 0,5, soma-se uma rotação rígida que dá L/L0 = 0,3 exato (L0 do par 1-3). 12.000 corridas do 1-1-3, sementes 1.400.000.000 + i. Previsão com a absortividade medida em λ = 0,3 na rodada 2 da FR-TC-16 (E60). KS do formato, k = 3 e 4, 500 reamostragens, Holm sobre 2.
 Leitura: se passar, a dependência do ensemble é um efeito de L = 0 (reforça a FR-TC-16); se reprovar, o ensemble de velocidades sorteadas desloca a excentricidade também com rotação.
+
+## E65e (escrito em 6 nov. 2026, 16h00, antes dos dados)
+Igual ao E65c com L/L0 = 0,7; sementes 1.500.000.000 + i; previsão com a absortividade da E60 em λ = 0,7; KS, k = 3 e 4, 500 reamostragens, Holm sobre 2.
+Leitura: se passar, o resíduo do ensemble cai com a rotação até sumir; se reprovar, persiste em rotação moderada.
