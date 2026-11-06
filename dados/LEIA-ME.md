@@ -24,3 +24,7 @@ Scripts em `codigo_src/ergo/rotacao/` (`rot.py`, `sim2r.py`, `rodar.py`, `analis
 # Dados brutos do regime de Dandekar et al. (E61, 6 nov. 2026)
 
 `dados_dandekar.tar.xz`, pasta `pacote_dk/`: quedas livres com rotação rígida (12.000 por conjunto) e absortividade dos 3 canais nos dois sentidos para 10-15-20 (L/L0 = 1,0567) e 5-15-25 (L/L0 = 1,0263); `ci_<conjunto>.csv` com 12.000 corridas por conjunto na condição inicial de Dandekar et al. (exploratório); `resultado_dandekar.json`, `PREREGISTRO_DANDEKAR.md` e `bench_dandekar.json`. Scripts: `rodar_dandekar.py`, `analise_dandekar.py`, `ci_dandekar.py`, `bench_dandekar.py`.
+
+# E65 (6 nov. 2026)
+
+`dados_quente.tar.xz`: 12.000 corridas do 1-1-3 com L = 0 e velocidades sorteadas (K/|W| = 0,5) e `resultado_quente.json`. Script `codigo_src/ergo/rotacao/quente.py`; pré-registro `PREREGISTRO_QUENTE.md`.
