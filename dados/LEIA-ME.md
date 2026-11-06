@@ -16,3 +16,7 @@ Os scripts que geraram e analisaram esses arquivos estão em `codigo_src/ergo/`.
 - `resultado_rotacao.json`, `PREREGISTRO.md` e `bench.json` (custo medido).
 
 Scripts em `codigo_src/ergo/rotacao/` (`rot.py`, `sim2r.py`, `rodar.py`, `analise_rot.py`, `fluxo_plano_L.py`, `confere_L0.py`, `checa_L.py`, `bench.py`).
+
+# Dados brutos da confirmação prógrado/retrógrado (E60, 6 nov. 2026)
+
+`dados_rotacao_conf.tar.xz`, pasta `pacote_conf/`: mesmo formato da E59, com sementes novas e λ = 0,1; 0,3 e 0,7 (72.000 quedas livres e 1.254.000 corridas de absortividade), mais `resultado_conf.json` e `PREREGISTRO_CONF.md`. Análise: `codigo_src/ergo/rotacao/analise_conf.py`.
