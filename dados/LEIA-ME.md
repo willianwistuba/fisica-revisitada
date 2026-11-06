@@ -27,4 +27,4 @@ Scripts em `codigo_src/ergo/rotacao/` (`rot.py`, `sim2r.py`, `rodar.py`, `analis
 
 # E65 (6 nov. 2026)
 
-`dados_quente.tar.xz`: 12.000 corridas do 1-1-3 com L = 0 e velocidades sorteadas (K/|W| = 0,5) e `resultado_quente.json`. Script `codigo_src/ergo/rotacao/quente.py`; pré-registro `PREREGISTRO_QUENTE.md`.
+`dados_quente.tar.xz`: 12.000 corridas do 1-1-3 e 12.000 do 1-2-3 (controle) com L = 0 e velocidades sorteadas (K/|W| = 0,5), `resultado_quente.json` e `resultado_quente_123.json`. Script `codigo_src/ergo/rotacao/quente.py`; pré-registro `PREREGISTRO_QUENTE.md`.
