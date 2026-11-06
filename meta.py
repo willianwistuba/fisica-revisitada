@@ -180,4 +180,15 @@ ARTS=[
    ('S. Holm, A simple sequentially rejective multiple test procedure, Scand. J. Stat. 6, 65 (1979).','https://www.jstor.org/stable/4615733'),
    ('H. D. Parischewsky, A. A. Trani, and N. W. C. Leigh, Chaos in the vicinity of a singularity in the three-body problem: the equilateral triangle experiment in the zero angular momentum limit, SciPost Phys. Core 6, 016 (2023).','https://arxiv.org/abs/2108.06335'),
  ]),
+ dict(slug='assimetria-com-rotacao-alta', src='a17.html', part=17, code='FR-TC-17', date_iso='2026-11-06', version_num='1', refs=[
+   ('B. Kol, Flux-based statistical prediction of three-body outcomes, Celest. Mech. Dyn. Astron. 133, 17 (2021).','https://doi.org/10.1007/s10569-021-10015-x'),
+   ('V. Manwadkar, B. Kol, A. A. Trani, and N. W. C. Leigh, Testing the flux-based statistical prediction of the three-body problem, Mon. Not. R. Astron. Soc. 506, 692 (2021).','https://arxiv.org/abs/2101.03661'),
+   ('V. Manwadkar, A. A. Trani, and B. Kol, Measurement of three-body chaotic absorptivity predicts chaotic outcome distribution, Celest. Mech. Dyn. Astron. 136, 4 (2024).','https://doi.org/10.1007/s10569-023-10174-z'),
+   ('Y. Dandekar, E. Springer, S. Zard, A. A. Trani, B. Kol, and O. Birnholtz, Planar three-body problem: theoretical predictions and simulation results, arXiv:2608.30414 (2026).','https://arxiv.org/abs/2608.30414'),
+   ('W. W. M. da Cunha, Física Revisitada, Technical Note FR-TC-16 (2026).',SITE+'/artigos/rotacao-e-sentido/'),
+   ('W. W. M. da Cunha, Física Revisitada, Technical Note FR-TC-15 (2026).',SITE+'/artigos/onde-a-teoria-falha/'),
+   ('S. Mikkola and K. Tanikawa, Algorithmic regularization of the few-body problem, Mon. Not. R. Astron. Soc. 310, 745 (1999).','https://doi.org/10.1046/j.1365-8711.1999.02982.x'),
+   ('S. Holm, A simple sequentially rejective multiple test procedure, Scand. J. Stat. 6, 65 (1979).','https://www.jstor.org/stable/4615733'),
+   ('S. Mama (Zard), Three-body system in two dimensions, MSc thesis, Bar-Ilan University (2024).','https://www.biuastrograv.com/members'),
+ ]),
 ]

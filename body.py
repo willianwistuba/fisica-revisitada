@@ -678,3 +678,44 @@ tick label style={font=\scriptsize},label style={font=\footnotesize}]
 \caption{""" + cap + r"""}\end{figure}
 """
 TEXFIG['A16'] = tex_fig_a16; SVGFIG['A16'] = svg_a16
+
+def _a17():
+    import json as _j; return _j.load(open('a17_points.json'))
+A17_SETS = [('10-15-20', 0.62, 0.82, [0.65, 0.70, 0.75, 0.80]), ('5-15-25', 0.92, 0.99, [0.93, 0.95, 0.97, 0.99])]
+A17_KEYS = [('cego', None, 'muted', 'gray'), ('prev', 'prev_ic', 'accent', 'fraccent'), ('ff', 'ff_ic', 'hot', 'frhot'), ('ci', 'ci_ic', 'hot', 'frhot'), ('pub', 'pub_ic', 'ink', 'frink')]
+def svg_a17(L):
+    f = L['fig']['A17']; D = _a17(); W, Hh, T, B = 640, 360, 40, 64
+    s = [f'<svg viewBox="0 0 {W} {Hh}" role="img" aria-label="{E(f["aria"])}">']
+    for j, (nome, y0, y1, ticks) in enumerate(A17_SETS):
+        Lm = 60 + j * 320; Rr = Lm + 250
+        X = lambda i: Lm + 25 + i * (Rr - Lm - 50) / 4; Y = lambda v: Hh - B - (Hh - B - T) * (v - y0) / (y1 - y0)
+        s.append(f'<text x="{(Lm+Rr)/2:.0f}" y="{T-16}" text-anchor="middle" class="lbl">{E(nome)}</text>')
+        for v in ticks:
+            yy = Y(v); s.append(f'<line x1="{Lm}" y1="{yy:.1f}" x2="{Rr}" y2="{yy:.1f}" stroke="var(--line)"/><text x="{Lm-6}" y="{yy+4:.1f}" text-anchor="end" class="ax">{num(f"{v:.2f}", L)}</text>')
+        d = D[nome]
+        for i, (k, ic, c, _) in enumerate(A17_KEYS):
+            xx = X(i)
+            if ic: s.append(f'<line x1="{xx:.1f}" y1="{Y(d[ic][0]):.1f}" x2="{xx:.1f}" y2="{Y(d[ic][1]):.1f}" stroke="var(--{c})" stroke-width="1.8"/>')
+            if k == 'pub': s.append(f'<rect x="{xx-4.5:.1f}" y="{Y(d[k])-4.5:.1f}" width="9" height="9" fill="var(--{c})"/>')
+            elif k == 'cego': s.append(f'<circle cx="{xx:.1f}" cy="{Y(d[k]):.1f}" r="4.5" fill="none" stroke="var(--{c})" stroke-width="1.8"/>')
+            else: s.append(f'<circle cx="{xx:.1f}" cy="{Y(d[k]):.1f}" r="4.5" fill="var(--{c})"/>')
+            s.append(f'<text x="{xx:.1f}" y="{Hh-B+18}" text-anchor="middle" class="ax">{E(f["x" + str(i + 1)])}</text>')
+    s.append(f'<text x="20" y="{T-16}" class="ax">{E(f["y"])}</text>')
+    return ''.join(s) + '</svg>'
+def tex_fig_a17(L, cap):
+    f = L['fig']['A17']; D = _a17(); sep = '{,}' if L['decimal'] == ',' else '.'
+    out = r"\begin{figure}[tb]\centering" + "\n" + r"\begin{tikzpicture}" + "\n"
+    for j, (nome, y0, y1, ticks) in enumerate(A17_SETS):
+        d = D[nome]; pl = ''
+        for i, (k, ic, _, tc) in enumerate(A17_KEYS):
+            mk = 'square*' if k == 'pub' else ('o' if k == 'cego' else '*')
+            if ic:
+                pl += r"\addplot[color=" + tc + r",only marks,mark=" + mk + r",mark size=1.8pt,error bars/.cd,y dir=both,y explicit] coordinates {(" + f"{i+1},{d[k]}) -= (0,{d[k]-d[ic][0]:.4f}) += (0,{d[ic][1]-d[k]:.4f})" + "};\n"
+            else:
+                pl += r"\addplot[color=" + tc + r",only marks,mark=" + mk + r",mark size=1.8pt] coordinates {(" + f"{i+1},{d[k]})" + "};\n"
+        out += (r"\begin{axis}[at={(" + f"{0.52*j:.2f}" + r"\columnwidth,0)},width=0.53\columnwidth,height=5.4cm,xmin=0.4,xmax=5.6,ymin=" + str(y0) + ",ymax=" + str(y1) +
+                r",xtick={1,2,3,4,5},xticklabels={" + ','.join('{' + esc_text(f['x' + str(i)]) + '}' for i in range(1, 6)) + r"},x tick label style={font=\tiny,rotate=55,anchor=east},"
+                r"ytick={" + ','.join(str(v) for v in ticks) + r"},yticklabels={" + ','.join(f"{v:.2f}".replace('.', sep) for v in ticks) + r"},y tick label style={font=\tiny},title={\footnotesize " + nome + r"},"
+                + (r"ylabel={\footnotesize " + esc_text(f['y']) + r"}," if j == 0 else '') + r"grid=major,grid style={line width=.2pt,draw=gray!30}]" + "\n" + pl + r"\end{axis}" + "\n")
+    return out + r"\end{tikzpicture}" + "\n" + r"\caption{" + cap + r"}\end{figure}" + "\n"
+TEXFIG['A17'] = tex_fig_a17; SVGFIG['A17'] = svg_a17

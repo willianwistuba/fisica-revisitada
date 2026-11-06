@@ -1,0 +1,62 @@
+<h2>Einleitung</h2>
+<p>Dandekar et al. haben die Flusstheorie von Kol im ebenen Dreikörperproblem mit 1 Million Simulationen pro Massenensemble geprüft, stets mit einem Gesamtdrehimpuls über \(L_0\) <cite>1,4</cite>. Ohne Messung der Absorptivität lag die ebene Theorie in zwei Punkten falsch. Die Fluchtanteile lagen näher an der dreidimensionalen Vorhersage, auf weniger als 1 %, als an der ebenen, was die Autoren als überraschend bezeichneten. Und das Verhältnis zwischen prograden und retrograden Endpaaren, das die Theorie auf 1 festlegt, reichte von 0,90 bis 144 und wuchs mit dem Kontrast zwischen den Massen. Als Ursachen nannten sie die „emissivitätsblinde“ Näherung und eine mögliche unvollständige Durchmischung des Phasenraums in der Ebene.</p>
+<p>Die Notiz FR-TC-16 hat gezeigt, dass bei geringer Rotation die für beide Drehsinne des Paares getrennt gemessene Absorptivität den prograden Anteil vorhersagt <cite>5</cite>. Diese Notiz überträgt dieselbe Methode auf das Regime von Dandekar et al., mit zwei ihrer Massenensembles und der Rotation der von ihnen verwendeten Anfangsbedingung. Die vor den Daten festgelegte Frage lautet, ob die gemessene Absorptivität die beiden Abweichungen erklärt.</p>
+
+<h2>Methode</h2>
+<p><b>Theorie.</b> In der Ebene ist das Flussgewicht für ein Paar mit relativer Energie \(x = E_B/E\), Exzentrizität \(e\) und Drehsinn \(s\) relativ zur Gesamtrotation \((L_0^2/2)\,x^{-2}\,e/\sqrt{1-e^2}\), gleich in beiden Drehsinnen und unabhängig von \(L\) <cite>4,5</cite>. Die Vorhersage für jeden Ausgang ist die Summe über die drei Fluchtkanäle und beide Drehsinne von \((m_a m_b)^3/(m_a+m_b)\) mal diesem Gewicht mal der gemessenen Absorptivität \(A_k(x, e, s; L)\). Ohne Absorptivität ist der Anteil jedes Körpers gleich \(L_0^2\) des verbleibenden Paares geteilt durch die Summe der drei, und der prograde Anteil ist 1/2.</p>
+<p><b>Ensembles und Rotation.</b> Wir verwenden die Ensembles 10-15-20 und 5-15-25 von Dandekar et al., letzteres mit dem größten Kontrast und der größten Asymmetrie <cite>4</cite>. Die Rotation ist die ihrer Anfangsbedingung: \(L/L_0\) = 1,0567 und 1,0263, mit \(L_0 = \sqrt{k_B/(-2E)}\) des schwersten Paares (Tabelle 1 bei Dandekar et al.).</p>
+<ul>
+<li><b>Freie Fälle mit Rotation:</b> 12.000 pro Ensemble, mit den Positionen der freien Fälle aus der Ruhe und einer starren Rotation, die exakt das obige \(L/L_0\) ergibt <cite>5</cite>.</li>
+<li><b>Absorptivität:</b> die drei Kanäle jedes Ensembles in beiden Drehsinnen, 132 Zellen in \(x\) und \(e\) und 77 Zellen nahezu radialer Paare, je 200 Läufe (250.800 pro Ensemble). Keine Zelle blieb ohne Treffer.</li>
+<li><b>Chaos:</b> mindestens \(k\) Durchmischungen vor der ersten Exkursion bei der Absorption und in der letzten Episode vor der Flucht bei der Emission, mit \(k\) = 3 und 4 <cite>6</cite>.</li>
+</ul>
+<p>Der Integrator ist der Kettenintegrator mit algorithmischer Regularisierung der vorherigen Notizen <cite>7</cite>. 1,7 % und 1,9 % der freien Fälle endeten nicht bis zur Zeitgrenze; der relative Energiefehler blieb unter \(2 \times 10^{-8}\). Von den 501.600 Absorptivitätsläufen hatten 7 einen hohen Energiefehler, und keiner davon zählte als Chaos.</p>
+<p><b>Präregistrierte Tests.</b> Die erste Familie vergleicht die Vorhersage mit unseren freien Fällen: prograder Anteil (exakter Test, mit der Binomialverteilung gezogen aus der Verteilung der Vorhersage, gewonnen durch 500 Neuziehungen der Absorptivität) und Fluchtanteile (\(\chi^2\) mit 2 Freiheitsgraden), für beide Ensembles und beide \(k\). Die zweite Familie vergleicht die Vorhersage mit den von Dandekar et al. publizierten Zahlen: den prograden Anteil und den Fluchtanteil des leichtesten Körpers. Jede Familie umfasst 8 Tests, mit Holm-Korrektur bei 95 % <cite>8</cite>. Vorab wurde festgelegt: Gilt die Theorie, hängt der chaotische Ausgang nur von den Massen, der Energie und dem Drehimpuls ab, und beide Familien müssen bestehen; ein Durchfallen nur in der zweiten würde auf einen Unterschied im Auswahlkriterium oder im Ensemble hinweisen.</p>
+<p><b>Explorativ.</b> Wir haben außerdem 12.000 Läufe pro Ensemble in der Anfangsbedingung von Dandekar et al. durchgeführt (kreisförmiges Paar mit großer Halbachse 5, leichtester Körper in Ruhe im Abstand 100 vom Schwerpunkt des Paares, zufällige Phase), mit unserem Integrator und unserem Chaoskriterium. Da das \(L/L_0\) dieser Bedingung genau das in der Absorptivität verwendete ist, gilt dieselbe Vorhersage. Schließlich haben wir auf diese Läufe ihren zeitbasierten Chaosschnitt angewandt (Lebensdauer von mindestens 80 Jahren und mindestens 10 Jahre zwischen dem Ende der letzten Exkursion und der Flucht).</p>
+
+<h2>Ergebnisse</h2>
+<h3>Die Absorptivität erklärt die Asymmetrie und die Fluchten in unseren Simulationen</h3>
+<p>Die erste Familie besteht alle 8 Tests (Tabelle I). Im Ensemble 5-15-25 ist die Asymmetrie extrem, mit 79 bis 105 prograden Paaren pro retrogradem, und die Vorhersage mit der gemessenen Absorptivität ergibt 82 bis 86, ohne freien Parameter. Im Ensemble 10-15-20 beträgt das gemessene Verhältnis 2,1 bis 2,2 gegenüber 1,9 bis 2,2 vorhergesagt. Auch die Fluchtanteile stimmen überein; das kleinste \(p\), 0,008 im Ensemble 5-15-25 mit \(k = 3\), liegt über der Grenze von 0,00625 der Korrektur. Die Form der Endexzentrizität besteht in allen vier Fällen (explorativ; KS von 0,029 bis 0,051).</p>
+<div class="tblwrap"><p class="cap">Unsere freien Fälle mit der Rotation von Dandekar et al., verglichen mit der Vorhersage mit der gemessenen Absorptivität. Prograder Anteil, Verhältnis zwischen prograden und retrograden Paaren und Fluchtanteil des leichtesten Körpers. Mit der Holm-Korrektur über die 8 Tests bestehen alle. Ohne Absorptivität sagt die Theorie einen prograden Anteil von 0,5 und einen Anteil des leichten Körpers von 0,658 (10-15-20) und 0,939 (5-15-25) voraus.</p><table>
+<thead><tr><th>Ensemble (n)</th><th>\(k\)</th><th>Prograd</th><th>Verhältnis</th><th>Leichter K.</th></tr></thead>
+<tbody>
+<tr><td>10-15-20 (1.172)</td><td>3</td><td>0,675 / 0,692</td><td>2,1 / 2,2</td><td>0,777 / 0,782</td></tr>
+<tr><td>10-15-20 (511)</td><td>4</td><td>0,685 / 0,654</td><td>2,2 / 1,9</td><td>0,783 / 0,770</td></tr>
+<tr><td>5-15-25 (1.832)</td><td>3</td><td>0,987 / 0,989</td><td>79 / 86</td><td>0,939 / 0,954</td></tr>
+<tr><td>5-15-25 (849)</td><td>4</td><td>0,991 / 0,988</td><td>105 / 82</td><td>0,940 / 0,950</td></tr>
+</tbody></table></div>
+
+<h3>Vergleich mit den publizierten Zahlen</h3>
+<p>Die zweite Familie besteht im Ensemble 10-15-20 und fällt im Ensemble 5-15-25 durch (Tabelle II). Im Ensemble 10-15-20 stimmt der vorhergesagte Anteil des leichten Körpers, 0,782, mit dem publizierten, 0,7827, überein, und der vorhergesagte prograde Anteil, 0,692, ist mit dem publizierten, 0,675, vereinbar (\(p = 0{,}14\)). Die „überraschende“ Übereinstimmung mit der dreidimensionalen Vorhersage (0,7834) ist in diesem Ensemble ein Effekt der Absorptivität. Im Ensemble 5-15-25 liegen die publizierten Zahlen (0,975 für den leichten Körper und Verhältnis 144) über der Vorhersage (0,954 und 86), mit \(p &lt; 0{,}001\).</p>
+<div class="tblwrap"><p class="cap">Von Dandekar et al. publizierte Zahlen, Vorhersage mit der gemessenen Absorptivität und unsere Läufe in ihrer Anfangsbedingung, in den beiden letzten Spalten alle mit \(k = 3\). Nach der Holm-Korrektur besteht die Vorhersage gegenüber den publizierten Zahlen im Ensemble 10-15-20 und fällt im Ensemble 5-15-25 durch.</p><table>
+<thead><tr><th>Ensemble</th><th>Größe</th><th>Publiziert</th><th>Vorhergesagt</th><th>Ihre Bed.</th></tr></thead>
+<tbody>
+<tr><td>10-15-20</td><td>prograd</td><td>0,675</td><td>0,692</td><td>0,684</td></tr>
+<tr><td>10-15-20</td><td>leichter K.</td><td>0,783</td><td>0,782</td><td>0,767</td></tr>
+<tr><td>5-15-25</td><td>prograd</td><td>0,993</td><td>0,989</td><td>0,990</td></tr>
+<tr><td>5-15-25</td><td>leichter K.</td><td>0,975</td><td>0,954</td><td>0,962</td></tr>
+</tbody></table></div>
+
+<h3>Die Abweichung im Ensemble 5-15-25 hängt vom Auswahlkriterium ab</h3>
+<p>In der Anfangsbedingung von Dandekar et al. und mit unserem Chaoskriterium stimmt die Vorhersage im Ensemble 5-15-25 wieder: prograder Anteil 0,990 und 0,985 (\(k\) = 3 und 4) gegenüber 0,989 und 0,988 vorhergesagt, und leichter Körper 0,962 und 0,949 gegenüber 0,954 und 0,950 (Abb. 1). Im Ensemble 10-15-20 liegt der leichte Körper in dieser Bedingung 1,1 und 2,0 Standardabweichungen unter der Vorhersage, mit \(k\) = 3 und 4.</p>
+<p>Ihr zeitbasierter Chaosschnitt lässt sich aus dem Publizierten nicht exakt reproduzieren, weil der Artikel weder definiert, wie das Ende einer Exkursion markiert wird, noch welcher Zeitpunkt als Lebensdauer zählt. Auf unsere Läufe mit zwei vernünftigen Lesarten des Lebensdauer-Zeitpunkts angewandt (die letzte enge Begegnung oder die Erkennung der Flucht), behält der Schnitt im Ensemble 5-15-25 2,0 % oder 8,6 % der Systeme (sie berichten 6 %), und der Anteil des leichten Körpers reicht von 0,934 bis 0,981. Diese Spanne, allein durch den Wechsel des Auswahlkriteriums gewonnen, ist größer als der Unterschied zwischen unserer Vorhersage und der publizierten Zahl. Der frühere Code der Gruppe, im Anhang der Dissertation von Mama Zard, verwendet eine andere Anfangsbedingung und wendet keinen Chaosschnitt an <cite>9</cite>.</p>
+<figure data-fig="A17"><figcaption>Fluchtanteil des leichtesten Körpers mit der Rotation \(L/L_0\) von Dandekar et al., in beiden Ensembles. Von links nach rechts: Vorhersage ohne Absorptivität, Vorhersage mit der gemessenen Absorptivität, unsere freien Fälle mit Rotation, unsere Läufe in ihrer Anfangsbedingung und der publizierte Wert. Messungen mit mindestens drei Durchmischungen in der letzten Episode; 95-%-Balken (Wilson für die Messungen, Neuziehung für die Vorhersage, publizierter Standardfehler).</figcaption></figure>
+
+<h2>Diskussion</h2>
+<p>Im Regime von Dandekar et al. genügt die pro Drehsinn gemessene Absorptivität, um in unseren Simulationen die Asymmetrie zwischen den Drehsinnen bis etwa 100 zu 1 und die Fluchtanteile vorherzusagen, in beiden Ensembles und mit beiden Chaoskriterien. Das stützt die erste von ihnen vorgeschlagene Ursache, die emissivitätsblinde Näherung, und zeigt in den gemessenen Observablen kein Anzeichen unvollständiger Durchmischung.</p>
+<p>Die verbleibende Abweichung, im Ensemble 5-15-25 und gegenüber den publizierten Zahlen, hat die Größenordnung der von uns gemessenen Empfindlichkeit gegenüber dem Auswahlkriterium und verschwindet, wenn ihre Anfangsbedingung mit unserem Kriterium ausgewertet wird. Mit dem Publizierten lässt sich nicht entscheiden, ob sie allein vom zeitbasierten Schnitt herrührt. Eine mögliche Erklärung ist, dass im Ensemble 5-15-25 ein Teil der Fluchten des leichten Körpers nach kurzen chaotischen Episoden erfolgt, die ein zeitbasierter Schnitt annehmen und ein Schnitt nach Durchmischungen ablehnen kann; diese Notiz prüft diese Hypothese nicht.</p>
+<p>Einschränkungen:</p>
+<ul>
+<li>zwei der acht Massenensembles von Dandekar et al. und eine einzige Rotationsstufe pro Ensemble;</li>
+<li>der Vergleich mit den publizierten Zahlen hängt von Auswahlkriterien ab, die nicht dieselben und nicht vollständig beschrieben sind;</li>
+<li>mit vier Durchmischungen bleiben 442 bis 849 Fluchten pro Fall;</li>
+<li>der physikalische Mechanismus der Abhängigkeit der Absorptivität vom Drehsinn wurde nicht untersucht.</li>
+</ul>
+
+<h2>Schlussfolgerungen</h2>
+<ul>
+<li>Mit der Rotation und den Ensembles 10-15-20 und 5-15-25 von Dandekar et al. besteht die Flusstheorie mit der gemessenen Absorptivität die 8 präregistrierten Tests gegenüber unseren Simulationen: prograder Anteil und Fluchtanteile, mit 95 % Konfidenz und Holm-Korrektur.</li>
+<li>Die Asymmetrie zwischen prograden und retrograden Paaren, von 2 zu 1 bis etwa 100 zu 1, wird von der gemessenen Absorptivität ohne freien Parameter vorhergesagt.</li>
+<li>Im Ensemble 10-15-20 reproduziert die Vorhersage die publizierten Zahlen; die Übereinstimmung mit der dreidimensionalen Vorhersage ist ein Effekt der Absorptivität.</li>
+<li>Im Ensemble 5-15-25 liegen die publizierten Zahlen über der Vorhersage, aber diese Abweichung hat die Größenordnung der Empfindlichkeit gegenüber dem Auswahlkriterium und verschwindet in ihrer Anfangsbedingung mit unserem Chaoskriterium.</li>
+</ul>

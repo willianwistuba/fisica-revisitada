@@ -1,0 +1,62 @@
+<h2>Introduction</h2>
+<p>Dandekar et al. tested Kol's flux theory in the planar three-body problem with 1 million simulations per mass set, always with total angular momentum above \(L_0\) <cite>1,4</cite>. Without measuring the absorptivity, the planar theory got two things wrong. The escape fractions came closer to the three-dimensional prediction, within 1%, than to the planar one, something the authors called surprising. And the ratio between prograde and retrograde final pairs, which the theory fixes at 1, ranged from 0.90 to 144, growing with the contrast between the masses. As causes, they pointed to the emissivity-blind approximation and to a possible incomplete mixing of phase space in the plane.</p>
+<p>Note FR-TC-16 showed that, at low rotation, the absorptivity measured separately for the two senses of rotation of the pair predicts the prograde fraction <cite>5</cite>. This note takes the same method to the regime of Dandekar et al., with two of their mass sets and the rotation of the initial condition they used. The question, fixed before the data, is whether the measured absorptivity explains the two discrepancies.</p>
+
+<h2>Method</h2>
+<p><b>Theory.</b> In the plane, the flux weight for a pair with relative energy \(x = E_B/E\), eccentricity \(e\), and sense \(s\) relative to the total rotation is \((L_0^2/2)\,x^{-2}\,e/\sqrt{1-e^2}\), equal in the two senses and independent of \(L\) <cite>4,5</cite>. The prediction for each outcome is the sum, over the three escape channels and the two senses, of \((m_a m_b)^3/(m_a+m_b)\) times this weight times the measured absorptivity \(A_k(x, e, s; L)\). Without absorptivity, the fraction of each body equals the \(L_0^2\) of the remaining pair divided by the sum of the three, and the prograde fraction equals 1/2.</p>
+<p><b>Sets and rotation.</b> We use the sets 10-15-20 and 5-15-25 of Dandekar et al., the latter being the one with the highest contrast and the greatest asymmetry <cite>4</cite>. The rotation is that of their initial condition: \(L/L_0\) = 1.0567 and 1.0263, with \(L_0 = \sqrt{k_B/(-2E)}\) of the heaviest pair (Table 1 of Dandekar et al.).</p>
+<ul>
+<li><b>Free falls with rotation:</b> 12,000 per set, with the positions of the free falls from rest and a rigid rotation that gives exactly the \(L/L_0\) above <cite>5</cite>.</li>
+<li><b>Absorptivity:</b> the three channels of each set in the two senses, 132 cells of \(x\) and \(e\) and 77 cells of nearly radial pairs, 200 runs each (250,800 per set). No cell was left unreached.</li>
+<li><b>Chaos:</b> at least \(k\) scrambles before the first excursion, in absorption, and in the last episode before the escape, in emission, with \(k\) = 3 and 4 <cite>6</cite>.</li>
+</ul>
+<p>The integrator is the chain integrator with algorithmic regularization of the previous notes <cite>7</cite>. Of the free falls, 1.7% and 1.9% did not end by the time limit; the relative energy error stayed below \(2 \times 10^{-8}\). Of the 501,600 absorptivity runs, 7 had a high energy error, and none counted as chaos.</p>
+<p><b>Preregistered tests.</b> The first family compares the prediction with our free falls: prograde fraction (exact test, with the binomial drawn from the distribution of the prediction obtained by 500 resamplings of the absorptivity) and escape fractions (\(\chi^2\) with 2 degrees of freedom), for the two sets and the two values of \(k\). The second family compares the prediction with the numbers published by Dandekar et al.: the prograde fraction and the escape fraction of the lightest body. Each family has 8 tests, with Holm correction at 95% <cite>8</cite>. It was fixed beforehand that, if the theory holds, the chaotic outcome depends only on the masses, the energy, and the angular momentum, and both families should pass; a failure only in the second would point to a difference in the selection criterion or in the ensemble.</p>
+<p><b>Exploratory.</b> We also ran 12,000 runs per set in the initial condition of Dandekar et al. (circular pair with semi-major axis 5, lightest body at rest at 100 from the center of mass of the pair, random phase), with our integrator and our chaos yardstick. Since the \(L/L_0\) of this condition is exactly the one used in the absorptivity, the same prediction applies. Finally, we applied to these runs the time-based chaos cut they used (lifetime of at least 80 years and at least 10 years between the end of the last excursion and the escape).</p>
+
+<h2>Results</h2>
+<h3>The absorptivity explains the asymmetry and the escapes in our simulations</h3>
+<p>The first family passes all 8 tests (Table I). In 5-15-25 the asymmetry is extreme, with 79 to 105 prograde pairs per retrograde one, and the prediction with the measured absorptivity gives 82 to 86, with no free parameter. In 10-15-20 the measured ratio is 2.1 to 2.2 against 1.9 to 2.2 predicted. The escape fractions also match; the smallest \(p\), 0.008 in 5-15-25 with \(k = 3\), lies above the threshold of 0.00625 of the correction. The shape of the final eccentricity passes in all four cases (exploratory; KS from 0.029 to 0.051).</p>
+<div class="tblwrap"><p class="cap">Our free falls with the rotation of Dandekar et al., measured against the prediction with the measured absorptivity. Prograde fraction, ratio between prograde and retrograde pairs, and escape fraction of the lightest body. With the Holm correction over the 8 tests, all pass. Without absorptivity, the theory predicts a prograde fraction of 0.5 and a light-body fraction of 0.658 (10-15-20) and 0.939 (5-15-25).</p><table>
+<thead><tr><th>Set (n)</th><th>\(k\)</th><th>Prograde</th><th>Ratio</th><th>Light body</th></tr></thead>
+<tbody>
+<tr><td>10-15-20 (1,172)</td><td>3</td><td>0.675 / 0.692</td><td>2.1 / 2.2</td><td>0.777 / 0.782</td></tr>
+<tr><td>10-15-20 (511)</td><td>4</td><td>0.685 / 0.654</td><td>2.2 / 1.9</td><td>0.783 / 0.770</td></tr>
+<tr><td>5-15-25 (1,832)</td><td>3</td><td>0.987 / 0.989</td><td>79 / 86</td><td>0.939 / 0.954</td></tr>
+<tr><td>5-15-25 (849)</td><td>4</td><td>0.991 / 0.988</td><td>105 / 82</td><td>0.940 / 0.950</td></tr>
+</tbody></table></div>
+
+<h3>Comparison with the published numbers</h3>
+<p>The second family passes in 10-15-20 and fails in 5-15-25 (Table II). In 10-15-20, the predicted light-body fraction, 0.782, coincides with the published one, 0.7827, and the predicted prograde fraction, 0.692, is compatible with the published one, 0.675 (\(p = 0.14\)). The "surprising" agreement with the three-dimensional prediction (0.7834) is, in this set, an effect of the absorptivity. In 5-15-25, the published numbers (0.975 for the light body and a ratio of 144) lie above the prediction (0.954 and 86), with \(p &lt; 0.001\).</p>
+<div class="tblwrap"><p class="cap">Numbers published by Dandekar et al., prediction with the measured absorptivity, and our runs in their initial condition, all with \(k = 3\) in the last two columns. By the Holm correction, the prediction passes in 10-15-20 and fails in 5-15-25 against the published numbers.</p><table>
+<thead><tr><th>Set</th><th>Quantity</th><th>Published</th><th>Predicted</th><th>Their condition</th></tr></thead>
+<tbody>
+<tr><td>10-15-20</td><td>prograde</td><td>0.675</td><td>0.692</td><td>0.684</td></tr>
+<tr><td>10-15-20</td><td>light body</td><td>0.783</td><td>0.782</td><td>0.767</td></tr>
+<tr><td>5-15-25</td><td>prograde</td><td>0.993</td><td>0.989</td><td>0.990</td></tr>
+<tr><td>5-15-25</td><td>light body</td><td>0.975</td><td>0.954</td><td>0.962</td></tr>
+</tbody></table></div>
+
+<h3>The difference in 5-15-25 depends on the selection criterion</h3>
+<p>In the initial condition of Dandekar et al., with our chaos yardstick, the prediction matches again in 5-15-25: prograde fraction 0.990 and 0.985 (\(k\) = 3 and 4) against 0.989 and 0.988 predicted, and light body 0.962 and 0.949 against 0.954 and 0.950 (Fig. 1). In 10-15-20, in this condition, the light body lies 1.1 and 2.0 standard deviations below the prediction with \(k\) = 3 and 4.</p>
+<p>The time-based chaos cut they used cannot be reproduced exactly from what is published, because the paper does not define how the end of an excursion is marked nor which instant counts as the lifetime. Applied to our runs with two reasonable readings of the lifetime instant (the last close encounter or the detection of the escape), the cut retains 2.0% or 8.6% of the systems in 5-15-25 (they report 6%), and the light-body fraction ranges from 0.934 to 0.981. This range, obtained only by changing the selection criterion, is larger than the difference between our prediction and the published number. The group's earlier code, attached to the thesis of Mama Zard, uses another initial condition and applies no chaos cut <cite>9</cite>.</p>
+<figure data-fig="A17"><figcaption>Fraction of escapes of the lightest body with the rotation \(L/L_0\) of Dandekar et al., in the two sets. From left to right: prediction without absorptivity, prediction with the measured absorptivity, our free falls with rotation, our runs in their initial condition, and the published value. Measurements with at least three scrambles in the last episode; 95% bars (Wilson for the measurements, resampling for the prediction, published standard error).</figcaption></figure>
+
+<h2>Discussion</h2>
+<p>In the regime of Dandekar et al., the absorptivity measured per sense is enough to predict, in our simulations, the asymmetry between the senses up to about 100 to 1 and the escape fractions, in both sets and with both chaos criteria. This supports the first cause they suggested, the emissivity-blind approximation, and shows no sign of incomplete mixing in the measured observables.</p>
+<p>The remaining difference, in 5-15-25 and against the published numbers, has the scale of the sensitivity to the selection criterion that we measured, and it disappears when their initial condition is analyzed with our yardstick. With what is published, it is not possible to decide whether it comes only from the time-based cut. One possible explanation is that, in 5-15-25, part of the light-body escapes occur after short chaotic episodes, which a time-based cut may accept and a scramble-based cut rejects; this note does not test this hypothesis.</p>
+<p>Limitations:</p>
+<ul>
+<li>two of the eight mass sets of Dandekar et al. and a single rotation level per set;</li>
+<li>the comparison with the published numbers depends on selection criteria that are not the same and are not fully described;</li>
+<li>with four scrambles, 442 to 849 escapes remain per case;</li>
+<li>the physical mechanism of the dependence of the absorptivity on the sense was not analyzed.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<ul>
+<li>With the rotation and the sets 10-15-20 and 5-15-25 of Dandekar et al., flux theory with the measured absorptivity passes the 8 preregistered tests against our simulations: prograde fraction and escape fractions, at 95% confidence and with Holm correction.</li>
+<li>The asymmetry between prograde and retrograde pairs, from 2 to 1 up to about 100 to 1, is predicted by the measured absorptivity, with no free parameter.</li>
+<li>In 10-15-20, the prediction reproduces the published numbers; the agreement with the three-dimensional prediction is an effect of the absorptivity.</li>
+<li>In 5-15-25, the published numbers lie above the prediction, but this difference has the scale of the sensitivity to the selection criterion and vanishes in their initial condition with our chaos yardstick.</li>
+</ul>

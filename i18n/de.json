@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "Das Dreikörperproblem",
-  "lead": "Warum es keine allgemeine Formel gibt, was Konfigurationen weniger Körper stabil macht, welche Stabilisierungsideen scheitern, was sich vor einer Ejektion vorhersagen lässt, wie lange ein System lebt und welches statistische Gesetz die Ausgänge bestimmt. Sechzehn Notizen, von den Grundlagen bis zur Prüfung von Hypothesen."
+  "lead": "Warum es keine allgemeine Formel gibt, was Konfigurationen weniger Körper stabil macht, welche Stabilisierungsideen scheitern, was sich vor einer Ejektion vorhersagen lässt, wie lange ein System lebt und welches statistische Gesetz die Ausgänge bestimmt. Siebzehn Notizen, von den Grundlagen bis zur Prüfung von Hypothesen."
  },
  "articles": {
   "FR-TC-01": {
@@ -235,6 +235,23 @@
     "ebenes Problem"
    ],
    "date_short": "6. Nov. 2026"
+  },
+  "FR-TC-17": {
+   "title": "Hohe Rotation in der Ebene: Die Absorptivität erklärt die Asymmetrie von bis zu 100 zu 1 zwischen den Drehsinnen",
+   "short": "Hohe Rotation und Asymmetrie",
+   "type": "Forschungsartikel",
+   "date_long": "6. November 2026",
+   "version_note": "v1: Erstveröffentlichung",
+   "abstract": "Wir übertragen den Test der Flusstheorie dreier Körper mit der gemessenen Absorptivität auf das von Dandekar et al. untersuchte Regime hoher Rotation, mit den Massenensembles 10-15-20 und 5-15-25 und der Rotation ihrer Anfangsbedingung (L/L0 von 1,06 und 1,03). Ohne Absorptivität sagt die Theorie gleich viele prograde wie retrograde Endpaare voraus, und sie maßen Verhältnisse von 2,08 und 144. In freien Fällen mit Rotation messen wir die Absorptivität für beide Drehsinne des Paares getrennt und prüfen die Vorhersage in 8 präregistrierten Tests mit 95 % Konfidenz und Holm-Korrektur. Alle bestehen: Die Absorptivität sagt ohne freien Parameter Verhältnisse von etwa 2 zu 1 im Ensemble 10-15-20 und von 79 bis 105 zu 1 im Ensemble 5-15-25 voraus, dazu die Fluchtanteile jedes Körpers. Gegenüber den publizierten Zahlen besteht die Vorhersage im Ensemble 10-15-20, wo der vorhergesagte Anteil des leichten Körpers, 0,782, mit dem publizierten, 0,783, übereinstimmt, und erklärt die von den Autoren bemerkte Übereinstimmung mit der dreidimensionalen Vorhersage als Effekt der Absorptivität. Im Ensemble 5-15-25 liegen die publizierten Zahlen über der Vorhersage; diese Abweichung hat die Größenordnung der von uns gemessenen Empfindlichkeit gegenüber dem Auswahlkriterium des Chaos und verschwindet, wenn ihre Anfangsbedingung mit unserem Kriterium ausgewertet wird (explorativ).",
+   "kw": [
+    "Dreikörperproblem",
+    "Flusstheorie",
+    "chaotische Absorptivität",
+    "Drehimpuls",
+    "prograde und retrograde Bahnen",
+    "ebenes Problem"
+   ],
+   "date_short": "6. Nov. 2026"
   }
  },
  "fig": {
@@ -359,6 +376,15 @@
    "med": "gemessen",
    "prev": "vorhergesagt",
    "ref": "ohne Absorptivität"
+  },
+  "A17": {
+   "y": "Fluchtanteil des leichten Körpers",
+   "aria": "Fluchtanteil des leichtesten Körpers in den Ensembles 10-15-20 und 5-15-25: Vorhersagen mit und ohne Absorptivität, Messungen und publizierter Wert",
+   "x1": "ohne Absorptivität",
+   "x2": "vorhergesagt",
+   "x3": "freier Fall",
+   "x4": "ihre Bedingung",
+   "x5": "publiziert"
   }
  },
  "ui": {
@@ -416,7 +442,7 @@
   "empty": "Keine Notiz gefunden. Versuchen Sie ein anderes Wort.",
   "series_eyebrow": "Reihe · Himmelsmechanik",
   "series_order_title": "Lesereihenfolge",
-  "series_order_text": "Die Notizen sind darauf angelegt, nacheinander gelesen zu werden: Die erste ordnet das Problem ein, die zweite prüft eine Stabilisierungshypothese, die dritte validiert den Simulator anhand klassischer Kriterien, die vierte prüft eine vereinheitlichende Heuristik, die fünfte untersucht Frühsignale der Ejektion, die sechste prüft, ob die Geschwindigkeit den herausgeschleuderten Körper besser vorhersagt als die Massen, die siebte untersucht den ersten Abweichler und den ersten Kontakt, die achte misst die Halbwertszeit der Systeme, die neunte prüft die statistischen Theorien der Ausgänge, die zehnte prüft die Entwicklungsgleichungen und kartiert die Absorptivität, die elfte trennt die beiden Massenregeln, die zwölfte schlägt eine Näherungsformel für die Absorptivität vor, die dreizehnte misst die Exzentrizitätsmauer, unterhalb derer ein leichter Körper nicht eingefangen wird, die vierzehnte unterzieht die Formel einer formalen 95-%-Prüfung, die fünfzehnte zeigt, wo die Flusstheorie in der Ebene ohne Rotation versagt, und die sechzehnte zeigt, dass dieses Versagen mit Rotation verschwindet und die Absorptivität die Asymmetrie zwischen den Drehsinnen erklärt.",
+  "series_order_text": "Die Notizen sind darauf angelegt, nacheinander gelesen zu werden: Die erste ordnet das Problem ein, die zweite prüft eine Stabilisierungshypothese, die dritte validiert den Simulator anhand klassischer Kriterien, die vierte prüft eine vereinheitlichende Heuristik, die fünfte untersucht Frühsignale der Ejektion, die sechste prüft, ob die Geschwindigkeit den herausgeschleuderten Körper besser vorhersagt als die Massen, die siebte untersucht den ersten Abweichler und den ersten Kontakt, die achte misst die Halbwertszeit der Systeme, die neunte prüft die statistischen Theorien der Ausgänge, die zehnte prüft die Entwicklungsgleichungen und kartiert die Absorptivität, die elfte trennt die beiden Massenregeln, die zwölfte schlägt eine Näherungsformel für die Absorptivität vor, die dreizehnte misst die Exzentrizitätsmauer, unterhalb derer ein leichter Körper nicht eingefangen wird, die vierzehnte unterzieht die Formel einer formalen 95-%-Prüfung, die fünfzehnte zeigt, wo die Flusstheorie in der Ebene ohne Rotation versagt, die sechzehnte zeigt, dass dieses Versagen mit Rotation verschwindet und die Absorptivität die Asymmetrie zwischen den Drehsinnen erklärt, und die siebzehnte überträgt diesen Test auf das Regime hoher Rotation von Dandekar et al.",
   "series_count": "{n} Notizen",
   "foot_about": "Klassische Probleme der Physik, neu betrachtet mit künstlicher Intelligenz im kreativen Prozess: Fragen, numerische Experimente und Abgleich mit der Literatur.",
   "foot_disc": "Von Willian Wistuba Melo da Cunha, Physikbegeisterter. Der Autor ist Jurist und kein Physiker. Recherche, Simulationen und Abfassung erfolgen mit Unterstützung durch KI. Die Texte haben kein Peer-Review durchlaufen.",
@@ -484,7 +510,7 @@
  "code_page": {
   "eyebrow": "Reproduzierbarkeit",
   "h1": "Code der Experimente",
-  "lead": "Die Zahlen in den Notizen stammen aus diesen Skripten: in JavaScript (Node.js, ohne Abhängigkeiten) für die Notizen 1 bis 4 und in Python (NumPy, SciPy und Numba) für die Notizen 5 bis 16.",
+  "lead": "Die Zahlen in den Notizen stammen aus diesen Skripten: in JavaScript (Node.js, ohne Abhängigkeiten) für die Notizen 1 bis 4 und in Python (NumPy, SciPy und Numba) für die Notizen 5 bis 17.",
   "intro": "Laden Sie alle Dateien in denselben Ordner herunter und führen Sie zum Beispiel <code>node fase1.js</code> aus. Die Einheiten verwenden G = 1. Der Integrator ist das Leapfrog-Verfahren (Kick-Drift-Kick).",
   "th_file": "Datei",
   "th_what": "Funktion",
@@ -592,7 +618,11 @@
    "ergo/rotacao/fluxo_plano_L.py": "Prüft das Gewicht des ebenen Flusses mit Rotation durch Zufallsziehung (FR-TC-16).",
    "ergo/rotacao/rodar.py": "Führt die freien Fälle und die Absorptivität beider Runden aus (FR-TC-16).",
    "ergo/rotacao/analise_rot.py": "Tests der Form, der Fluchten und des prograden Anteils mit Holm-Korrektur (FR-TC-16).",
-   "ergo/rotacao/analise_conf.py": "Analyse der Bestätigungsrunde mit den präregistrierten Holm-Familien (FR-TC-16)."
+   "ergo/rotacao/analise_conf.py": "Analyse der Bestätigungsrunde mit den präregistrierten Holm-Familien (FR-TC-16).",
+   "ergo/rotacao/rodar_dandekar.py": "Führt die freien Fälle und die Absorptivität im Regime hoher Rotation von Dandekar et al. aus (FR-TC-17).",
+   "ergo/rotacao/analise_dandekar.py": "Präregistrierte Tests gegenüber unseren Simulationen und gegenüber den publizierten Zahlen (FR-TC-17).",
+   "ergo/rotacao/ci_dandekar.py": "Läufe in der Anfangsbedingung von Dandekar et al. mit unserem Chaoskriterium (FR-TC-17).",
+   "ergo/rotacao/corte_dandekar.py": "Empfindlichkeit der Anteile gegenüber dem Auswahlkriterium des Chaos (FR-TC-17)."
   },
   "note": "Die Skripte sind Arbeitsnotizen, auf Verständlichkeit und nicht auf Leistung ausgelegt. Einige hängen von <code>core.js</code> oder <code>sim.js</code> ab."
  }

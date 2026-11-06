@@ -5,7 +5,7 @@
  "decimal": ".",
  "series": {
   "title": "The three-body problem",
-  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Sixteen notes, from foundations to hypothesis testing."
+  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Seventeen notes, from foundations to hypothesis testing."
  },
  "articles": {
   "FR-TC-01": {
@@ -235,6 +235,23 @@
     "planar problem"
    ],
    "date_short": "6 Nov. 2026"
+  },
+  "FR-TC-17": {
+   "title": "High rotation in the plane: the absorptivity explains the asymmetry of up to 100 to 1 between the senses",
+   "short": "High rotation and asymmetry",
+   "type": "Research article",
+   "date_long": "6 November 2026",
+   "version_note": "v1: first publication",
+   "abstract": "We take the test of the three-body flux theory with the measured absorptivity to the high-rotation regime studied by Dandekar et al., with the mass sets 10-15-20 and 5-15-25 and the rotation of their initial condition (L/L0 of 1.06 and 1.03). Without absorptivity, the theory predicts equal numbers of prograde and retrograde final pairs, and they measured ratios of 2.08 and 144. In free falls with rotation, we measure the absorptivity separately for the two senses of rotation of the pair and test the prediction in 8 preregistered tests, at 95% confidence and with Holm correction. All pass: the absorptivity predicts, with no free parameter, ratios of about 2 to 1 in 10-15-20 and of 79 to 105 to 1 in 5-15-25, as well as the escape fractions of each body. Against the published numbers, the prediction passes in 10-15-20, where the predicted light-body fraction, 0.782, coincides with the published one, 0.783, and it explains as an effect of the absorptivity the agreement with the three-dimensional prediction noted by the authors. In 5-15-25, the published numbers lie above the prediction; this difference has the scale of the sensitivity to the chaos selection criterion, which we measure, and it vanishes when their initial condition is analyzed with our criterion (exploratory).",
+   "kw": [
+    "three-body problem",
+    "flux theory",
+    "chaotic absorptivity",
+    "angular momentum",
+    "prograde and retrograde orbits",
+    "planar problem"
+   ],
+   "date_short": "6 Nov. 2026"
   }
  },
  "fig": {
@@ -359,6 +376,15 @@
    "med": "measured",
    "prev": "predicted",
    "ref": "without absorptivity"
+  },
+  "A17": {
+   "y": "light-body escape fraction",
+   "aria": "Fraction of escapes of the lightest body in the sets 10-15-20 and 5-15-25: predictions with and without absorptivity, measurements, and published value",
+   "x1": "no absorptivity",
+   "x2": "predicted",
+   "x3": "free fall",
+   "x4": "their condition",
+   "x5": "published"
   }
  },
  "ui": {
@@ -416,7 +442,7 @@
   "empty": "No notes found. Try another word.",
   "series_eyebrow": "Series · celestial mechanics",
   "series_order_title": "Reading order",
-  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, the thirteenth measures the eccentricity wall below which a light body is not captured, the fourteenth subjects the formula to a formal 95% test, the fifteenth shows where flux theory fails in the plane without rotation, and the sixteenth shows that, with rotation, this failure disappears and the absorptivity explains the asymmetry between the senses of rotation.",
+  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, the thirteenth measures the eccentricity wall below which a light body is not captured, the fourteenth subjects the formula to a formal 95% test, the fifteenth shows where flux theory fails in the plane without rotation, the sixteenth shows that, with rotation, this failure disappears and the absorptivity explains the asymmetry between the senses of rotation, and the seventeenth takes this test to the high-rotation regime of Dandekar et al.",
   "series_count": "{n} notes",
   "foot_about": "Classical problems in physics revisited with artificial intelligence in the creative process: questions, numerical experiments, and verification against the literature.",
   "foot_disc": "By Willian Wistuba Melo da Cunha, physics enthusiast. The author is a lawyer and not a physicist. The searches, simulations, and writing are carried out with AI assistance. The texts have not undergone peer review.",
@@ -484,7 +510,7 @@
  "code_page": {
   "eyebrow": "Reproducibility",
   "h1": "Code for the experiments",
-  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 16.",
+  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 17.",
   "intro": "Download them all to the same folder and run, for example, <code>node fase1.js</code>. Units use G = 1. The integrator is the kick-drift-kick leapfrog.",
   "th_file": "File",
   "th_what": "What it does",
@@ -592,7 +618,11 @@
    "ergo/rotacao/fluxo_plano_L.py": "Checks the planar flux weight with rotation by random sampling (FR-TC-16).",
    "ergo/rotacao/rodar.py": "Runs the free falls and the absorptivity of the two rounds (FR-TC-16).",
    "ergo/rotacao/analise_rot.py": "Shape, escape, and prograde-fraction tests with Holm correction (FR-TC-16).",
-   "ergo/rotacao/analise_conf.py": "Analysis of the confirmation round, with the preregistered Holm families (FR-TC-16)."
+   "ergo/rotacao/analise_conf.py": "Analysis of the confirmation round, with the preregistered Holm families (FR-TC-16).",
+   "ergo/rotacao/rodar_dandekar.py": "Runs the free falls and the absorptivity in the high-rotation regime of Dandekar et al. (FR-TC-17).",
+   "ergo/rotacao/analise_dandekar.py": "Preregistered tests against our simulations and against the published numbers (FR-TC-17).",
+   "ergo/rotacao/ci_dandekar.py": "Runs in the initial condition of Dandekar et al. with our chaos yardstick (FR-TC-17).",
+   "ergo/rotacao/corte_dandekar.py": "Sensitivity of the fractions to the chaos selection criterion (FR-TC-17)."
   },
   "note": "The scripts are working notes, written for clarity rather than performance. Some depend on <code>core.js</code> or <code>sim.js</code>."
  }

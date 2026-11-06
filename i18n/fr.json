@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "Le problème des trois corps",
-  "lead": "Pourquoi il n’existe pas de formule générale, ce qui rend stables les configurations à peu de corps, quelles idées de stabilisation échouent, ce que l’on peut prévoir avant une éjection, combien de temps vit un système et quelle est la loi statistique des issues. Seize notes, des fondements aux tests d’hypothèses."
+  "lead": "Pourquoi il n’existe pas de formule générale, ce qui rend stables les configurations à peu de corps, quelles idées de stabilisation échouent, ce que l’on peut prévoir avant une éjection, combien de temps vit un système et quelle est la loi statistique des issues. Dix-sept notes, des fondements aux tests d’hypothèses."
  },
  "articles": {
   "FR-TC-01": {
@@ -235,6 +235,23 @@
     "problème plan"
    ],
    "date_short": "6 nov. 2026"
+  },
+  "FR-TC-17": {
+   "title": "Forte rotation dans le plan : l’absorptivité explique l’asymétrie allant jusqu’à 100 contre 1 entre les sens",
+   "short": "Forte rotation et asymétrie",
+   "type": "Article de recherche",
+   "date_long": "6 novembre 2026",
+   "version_note": "v1 : première publication",
+   "abstract": "Nous étendons le test de la théorie de flux à trois corps avec l’absorptivité mesurée au régime de forte rotation étudié par Dandekar et al., avec les ensembles de masses 10-15-20 et 5-15-25 et la rotation de leur condition initiale (L/L0 de 1,06 et 1,03). Sans absorptivité, la théorie prévoit autant de paires finales progrades que rétrogrades, et ils ont mesuré des rapports de 2,08 et 144. Dans des chutes libres avec rotation, nous mesurons l’absorptivité séparément pour les deux sens de rotation de la paire et testons la prévision par 8 tests préenregistrés, avec 95 % de confiance et correction de Holm. Tous passent : l’absorptivité prévoit, sans paramètre libre, des rapports d’environ 2 contre 1 dans le 10-15-20 et de 79 à 105 contre 1 dans le 5-15-25, ainsi que les fractions d’échappement de chaque corps. Face aux nombres publiés, la prévision passe dans le 10-15-20, où la fraction prévue du corps léger, 0,782, coïncide avec la valeur publiée, 0,783, et explique comme un effet de l’absorptivité l’accord avec la prévision tridimensionnelle relevé par les auteurs. Dans le 5-15-25, les nombres publiés se situent au-dessus de la prévision ; cet écart est de l’ordre de la sensibilité au critère de sélection du chaos, que nous mesurons, et il disparaît lorsque leur condition initiale est analysée avec notre critère (exploratoire).",
+   "kw": [
+    "problème des trois corps",
+    "théorie de flux",
+    "absorptivité chaotique",
+    "moment cinétique",
+    "orbites progrades et rétrogrades",
+    "problème plan"
+   ],
+   "date_short": "6 nov. 2026"
   }
  },
  "fig": {
@@ -359,6 +376,15 @@
    "med": "mesurée",
    "prev": "prévue",
    "ref": "sans absorptivité"
+  },
+  "A17": {
+   "y": "fraction d’échappements du corps léger",
+   "aria": "Fraction des échappements du corps le plus léger dans les ensembles 10-15-20 et 5-15-25 : prévisions avec et sans absorptivité, mesures et valeur publiée",
+   "x1": "sans absorptivité",
+   "x2": "prévue",
+   "x3": "chute libre",
+   "x4": "leur condition",
+   "x5": "publiée"
   }
  },
  "ui": {
@@ -416,7 +442,7 @@
   "empty": "Aucune note trouvée. Essayez un autre mot.",
   "series_eyebrow": "Série · mécanique céleste",
   "series_order_title": "Ordre de lecture",
-  "series_order_text": "Les notes ont été écrites pour être lues dans l’ordre : la première situe le problème, la deuxième teste une hypothèse de stabilisation, la troisième valide le simulateur par rapport aux critères classiques, la quatrième teste une heuristique unificatrice, la cinquième étudie les signaux anticipés de l’éjection, la sixième teste si la vitesse prédit le corps éjecté mieux que les masses, la septième examine le premier dissident et le premier contact, la huitième mesure la demi-vie des systèmes, la neuvième teste les théories statistiques des issues, la dixième teste les équations d’évolution et cartographie l’absorptivité, la onzième sépare les deux règles de masses, la douzième propose une formule approchée pour l’absorptivité, la treizième mesure le mur d’excentricité au-dessous duquel un corps léger n’est pas capturé, la quatorzième soumet la formule à une épreuve formelle à 95 %, la quinzième montre où la théorie de flux échoue dans le plan sans rotation et la seizième montre qu’avec la rotation cet échec disparaît et que l’absorptivité explique l’asymétrie entre les sens de rotation.",
+  "series_order_text": "Les notes ont été écrites pour être lues dans l’ordre : la première situe le problème, la deuxième teste une hypothèse de stabilisation, la troisième valide le simulateur par rapport aux critères classiques, la quatrième teste une heuristique unificatrice, la cinquième étudie les signaux anticipés de l’éjection, la sixième teste si la vitesse prédit le corps éjecté mieux que les masses, la septième examine le premier dissident et le premier contact, la huitième mesure la demi-vie des systèmes, la neuvième teste les théories statistiques des issues, la dixième teste les équations d’évolution et cartographie l’absorptivité, la onzième sépare les deux règles de masses, la douzième propose une formule approchée pour l’absorptivité, la treizième mesure le mur d’excentricité au-dessous duquel un corps léger n’est pas capturé, la quatorzième soumet la formule à une épreuve formelle à 95 %, la quinzième montre où la théorie de flux échoue dans le plan sans rotation, la seizième montre qu’avec la rotation cet échec disparaît et que l’absorptivité explique l’asymétrie entre les sens de rotation et la dix-septième étend ce test au régime de forte rotation de Dandekar et al.",
   "series_count": "{n} notes",
   "foot_about": "Des problèmes classiques de la physique revisités avec l’intelligence artificielle dans le processus créatif : questions, expériences numériques et vérification par rapport à la littérature.",
   "foot_disc": "Par Willian Wistuba Melo da Cunha, passionné de physique. L’auteur est avocat et n’est pas physicien. Les recherches, les simulations et la rédaction bénéficient de l’assistance de l’IA. Les textes n’ont pas été évalués par les pairs.",
@@ -484,7 +510,7 @@
  "code_page": {
   "eyebrow": "Reproductibilité",
   "h1": "Code des expériences",
-  "lead": "Les nombres des notes proviennent de ces scripts : en JavaScript (Node.js, sans dépendances) pour les notes 1 à 4 et en Python (NumPy, SciPy et Numba) pour les notes 5 à 16.",
+  "lead": "Les nombres des notes proviennent de ces scripts : en JavaScript (Node.js, sans dépendances) pour les notes 1 à 4 et en Python (NumPy, SciPy et Numba) pour les notes 5 à 17.",
   "intro": "Téléchargez-les tous dans un même dossier et exécutez, par exemple, <code>node fase1.js</code>. Les unités sont telles que G = 1. L’intégrateur est le schéma saute-mouton (kick-drift-kick).",
   "th_file": "Fichier",
   "th_what": "Rôle",
@@ -592,7 +618,11 @@
    "ergo/rotacao/fluxo_plano_L.py": "Vérifie par tirage aléatoire le poids du flux plan avec rotation (FR-TC-16).",
    "ergo/rotacao/rodar.py": "Lance les chutes libres et l’absorptivité des deux campagnes (FR-TC-16).",
    "ergo/rotacao/analise_rot.py": "Tests de forme, d’échappements et de fraction prograde avec correction de Holm (FR-TC-16).",
-   "ergo/rotacao/analise_conf.py": "Analyse de la campagne de confirmation, avec les familles de Holm préenregistrées (FR-TC-16)."
+   "ergo/rotacao/analise_conf.py": "Analyse de la campagne de confirmation, avec les familles de Holm préenregistrées (FR-TC-16).",
+   "ergo/rotacao/rodar_dandekar.py": "Lance les chutes libres et l’absorptivité dans le régime de forte rotation de Dandekar et al. (FR-TC-17).",
+   "ergo/rotacao/analise_dandekar.py": "Tests préenregistrés face à nos simulations et face aux nombres publiés (FR-TC-17).",
+   "ergo/rotacao/ci_dandekar.py": "Simulations dans la condition initiale de Dandekar et al. avec notre critère de chaos (FR-TC-17).",
+   "ergo/rotacao/corte_dandekar.py": "Sensibilité des fractions au critère de sélection du chaos (FR-TC-17)."
   },
   "note": "Les scripts sont des notes de travail, écrits pour la clarté et non pour la performance. Certains dépendent de <code>core.js</code> ou de <code>sim.js</code>."
  }

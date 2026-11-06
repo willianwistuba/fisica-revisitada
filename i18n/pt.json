@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "O problema dos três corpos",
-  "lead": "Por que não há fórmula geral, o que torna configurações de poucos corpos estáveis, quais ideias de estabilização falham, o que se pode prever antes de uma ejeção, quanto tempo um sistema vive e qual é a lei estatística dos desfechos. Dezesseis notas, do fundamento ao teste de hipóteses."
+  "lead": "Por que não há fórmula geral, o que torna configurações de poucos corpos estáveis, quais ideias de estabilização falham, o que se pode prever antes de uma ejeção, quanto tempo um sistema vive e qual é a lei estatística dos desfechos. Dezessete notas, do fundamento ao teste de hipóteses."
  },
  "articles": {
   "FR-TC-01": {
@@ -237,6 +237,23 @@
     "problema plano"
    ],
    "date_short": "6 nov. 2026"
+  },
+  "FR-TC-17": {
+   "title": "Rotação alta no plano: a absortividade explica a assimetria de até 100 para 1 entre os sentidos",
+   "short": "Rotação alta e assimetria",
+   "type": "Artigo de pesquisa",
+   "date_long": "6 de novembro de 2026",
+   "version_note": "v1: primeira publicação",
+   "abstract": "Levamos o teste da teoria de fluxo de três corpos com a absortividade medida ao regime de rotação alta estudado por Dandekar e colaboradores, com os conjuntos de massas 10-15-20 e 5-15-25 e a rotação da condição inicial deles (L/L0 de 1,06 e 1,03). Sem absortividade, a teoria prevê o mesmo número de pares finais prógrados e retrógrados, e eles mediram razões de 2,08 e 144. Em quedas livres com rotação, medimos a absortividade separadamente para os dois sentidos de giro do par e testamos a previsão em 8 testes pré-registrados, com 95% de confiança e correção de Holm. Todos passam: a absortividade prevê, sem parâmetro livre, razões de cerca de 2 para 1 no 10-15-20 e de 79 a 105 para 1 no 5-15-25, além das frações de escape de cada corpo. Contra os números publicados, a previsão passa no 10-15-20, onde a fração do corpo leve prevista, 0,782, coincide com a publicada, 0,783, e explica como efeito da absortividade a concordância com a previsão tridimensional notada pelos autores. No 5-15-25, os números publicados ficam acima da previsão; essa diferença tem a escala da sensibilidade ao critério de seleção do caos, que medimos, e some quando a condição inicial deles é analisada com o nosso critério (exploratório).",
+   "kw": [
+    "problema dos três corpos",
+    "teoria de fluxo",
+    "absortividade caótica",
+    "momento angular",
+    "órbitas prógradas e retrógradas",
+    "problema plano"
+   ],
+   "date_short": "6 nov. 2026"
   }
  },
  "fig": {
@@ -361,6 +378,15 @@
    "med": "medida",
    "prev": "prevista",
    "ref": "sem absortividade"
+  },
+  "A17": {
+   "y": "fração de fugas do corpo leve",
+   "aria": "Fração de fugas do corpo mais leve nos conjuntos 10-15-20 e 5-15-25: previsões com e sem absortividade, medidas e valor publicado",
+   "x1": "sem absortividade",
+   "x2": "prevista",
+   "x3": "queda livre",
+   "x4": "condição deles",
+   "x5": "publicado"
   }
  },
  "ui": {
@@ -418,7 +444,7 @@
   "empty": "Nenhuma nota encontrada. Tente outra palavra.",
   "series_eyebrow": "Série · mecânica celeste",
   "series_order_title": "Ordem de leitura",
-  "series_order_text": "As notas foram escritas para ser lidas em sequência: a primeira situa o problema, a segunda testa uma hipótese de estabilização, a terceira valida o simulador contra critérios clássicos, a quarta testa uma heurística unificadora, a quinta investiga sinais antecipados da ejeção, a sexta testa se a velocidade prevê o corpo ejetado melhor que as massas, a sétima examina o primeiro dissidente e o primeiro contato, a oitava mede a meia-vida dos sistemas, a nona testa as teorias estatísticas dos desfechos, a décima testa as equações de evolução e mapeia a absortividade, a décima primeira separa as duas regras de massas, a décima segunda propõe uma fórmula aproximada para a absortividade, a décima terceira mede o muro de excentricidade abaixo do qual um corpo leve não é capturado, a décima quarta submete a fórmula a uma prova formal de 95%, a décima quinta mostra onde a teoria de fluxo falha no plano sem rotação e a décima sexta mostra que, com rotação, essa falha some e a absortividade explica a assimetria entre os sentidos de giro.",
+  "series_order_text": "As notas foram escritas para ser lidas em sequência: a primeira situa o problema, a segunda testa uma hipótese de estabilização, a terceira valida o simulador contra critérios clássicos, a quarta testa uma heurística unificadora, a quinta investiga sinais antecipados da ejeção, a sexta testa se a velocidade prevê o corpo ejetado melhor que as massas, a sétima examina o primeiro dissidente e o primeiro contato, a oitava mede a meia-vida dos sistemas, a nona testa as teorias estatísticas dos desfechos, a décima testa as equações de evolução e mapeia a absortividade, a décima primeira separa as duas regras de massas, a décima segunda propõe uma fórmula aproximada para a absortividade, a décima terceira mede o muro de excentricidade abaixo do qual um corpo leve não é capturado, a décima quarta submete a fórmula a uma prova formal de 95%, a décima quinta mostra onde a teoria de fluxo falha no plano sem rotação, a décima sexta mostra que, com rotação, essa falha some e a absortividade explica a assimetria entre os sentidos de giro e a décima sétima leva esse teste ao regime de rotação alta de Dandekar e colaboradores.",
   "series_count": "{n} notas",
   "foot_about": "Problemas clássicos da física revistos com inteligência artificial no processo criativo: perguntas, experimentos numéricos e verificação contra a literatura.",
   "foot_disc": "Por Willian Wistuba Melo da Cunha, entusiasta de física. O autor é advogado e não é físico. As buscas, as simulações e a redação contam com assistência de IA. Os textos não passaram por revisão por pares.",
@@ -486,7 +512,7 @@
  "code_page": {
   "eyebrow": "Reprodutibilidade",
   "h1": "Código dos experimentos",
-  "lead": "Os números das notas vêm destes scripts: em JavaScript (Node.js, sem dependências) para as notas 1 a 4 e em Python (NumPy, SciPy e Numba) para as notas 5 a 16.",
+  "lead": "Os números das notas vêm destes scripts: em JavaScript (Node.js, sem dependências) para as notas 1 a 4 e em Python (NumPy, SciPy e Numba) para as notas 5 a 17.",
   "intro": "Baixe todos para a mesma pasta e rode, por exemplo, <code>node fase1.js</code>. As unidades usam G = 1. O integrador é o leapfrog no esquema kick-drift-kick.",
   "th_file": "Arquivo",
   "th_what": "O que faz",
@@ -594,7 +620,11 @@
    "ergo/rotacao/fluxo_plano_L.py": "Confere por sorteio o peso do fluxo plano com rotação (FR-TC-16).",
    "ergo/rotacao/rodar.py": "Roda as quedas livres e a absortividade das duas rodadas (FR-TC-16).",
    "ergo/rotacao/analise_rot.py": "Testes de formato, escapes e fração prógrada com correção de Holm (FR-TC-16).",
-   "ergo/rotacao/analise_conf.py": "Análise da rodada de confirmação, com as famílias de Holm pré-registradas (FR-TC-16)."
+   "ergo/rotacao/analise_conf.py": "Análise da rodada de confirmação, com as famílias de Holm pré-registradas (FR-TC-16).",
+   "ergo/rotacao/rodar_dandekar.py": "Roda as quedas livres e a absortividade no regime de rotação alta de Dandekar e colaboradores (FR-TC-17).",
+   "ergo/rotacao/analise_dandekar.py": "Testes pré-registrados contra as nossas simulações e contra os números publicados (FR-TC-17).",
+   "ergo/rotacao/ci_dandekar.py": "Corridas na condição inicial de Dandekar e colaboradores com a nossa régua de caos (FR-TC-17).",
+   "ergo/rotacao/corte_dandekar.py": "Sensibilidade das frações ao critério de seleção do caos (FR-TC-17)."
   },
   "note": "Os scripts são notas de trabalho, escritos para clareza e não para desempenho. Alguns dependem de <code>core.js</code> ou de <code>sim.js</code>."
  }
