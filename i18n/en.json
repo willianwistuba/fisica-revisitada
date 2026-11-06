@@ -5,7 +5,7 @@
  "decimal": ".",
  "series": {
   "title": "The three-body problem",
-  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Fifteen notes, from foundations to hypothesis testing."
+  "lead": "Why there is no general formula, what makes few-body configurations stable, which stabilization ideas fail, what can be predicted before an ejection, how long a system lives, and what the statistical law of outcomes is. Sixteen notes, from foundations to hypothesis testing."
  },
  "articles": {
   "FR-TC-01": {
@@ -218,6 +218,23 @@
    ],
    "date_long": "5 November 2026",
    "version_note": "v1: first publication"
+  },
+  "FR-TC-16": {
+   "title": "Rotation in the plane: the failure of flux theory disappears and the absorptivity explains the asymmetry between the senses",
+   "short": "Rotation and sense",
+   "type": "Research article",
+   "date_long": "6 November 2026",
+   "version_note": "v1: first publication",
+   "abstract": "We test the three-body flux theory, with the measured absorptivity, in planar free falls with total angular momentum between 0.1 and 0.7 times the L0 of the heaviest pair, in the mass sets 1-1-3 and 1-2-3, requiring three or four scramble states before the escape. We show that, in the plane, the flux weight does not depend on the total angular momentum: rotation enters only through the absorptivity, which we measure separately for the two senses of rotation of the pair. In two preregistered rounds, with independent seeds, the theory passes in the shape of the final eccentricity of both sets. The failure of 1-1-3 found with zero angular momentum does not survive rotation: the only failure, a marginal one, did not repeat with new data, and with a rotation of 0.1 the test already passes (exploratory). The fraction of prograde final pairs, which the theory without absorptivity fixes at 1/2, is predicted by the measured absorptivity in the eight confirmatory tests, at 95% confidence and with Holm correction, including where the asymmetry is strong (2.16 prograde pairs per retrograde one in 1-2-3 with a rotation of 0.7) and where it changes sign (retrograde excess with 0.3). In the low-rotation regime, the asymmetry between the senses is explained by the absorptivity.",
+   "kw": [
+    "three-body problem",
+    "flux theory",
+    "chaotic absorptivity",
+    "angular momentum",
+    "prograde and retrograde orbits",
+    "planar problem"
+   ],
+   "date_short": "6 Nov. 2026"
   }
  },
  "fig": {
@@ -334,6 +351,14 @@
    "x": "quartile of the hierarchical fraction of the last episode",
    "y": "mean final eccentricity",
    "aria": "Mean final eccentricity by quartile of the hierarchical fraction of the last episode, for four mass sets"
+  },
+  "A16": {
+   "x": "total rotation λ = L/L0",
+   "y": "fraction of prograde final pairs",
+   "aria": "Fraction of prograde final pairs as a function of the total rotation, measured and predicted, for the mass sets 1-1-3 and 1-2-3",
+   "med": "measured",
+   "prev": "predicted",
+   "ref": "without absorptivity"
   }
  },
  "ui": {
@@ -391,7 +416,7 @@
   "empty": "No notes found. Try another word.",
   "series_eyebrow": "Series · celestial mechanics",
   "series_order_title": "Reading order",
-  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, the thirteenth measures the eccentricity wall below which a light body is not captured, the fourteenth subjects the formula to a formal 95% test, and the fifteenth shows where flux theory fails in the plane without rotation.",
+  "series_order_text": "The notes were written to be read in sequence: the first situates the problem, the second tests a stabilization hypothesis, the third validates the simulator against classical criteria, the fourth tests a unifying heuristic, the fifth investigates early signals of ejection, the sixth tests whether velocity predicts the ejected body better than the masses, the seventh examines the first dissenter and the first contact, the eighth measures the half-life of the systems, the ninth tests the statistical theories of outcomes, the tenth tests the evolution equations and maps the absorptivity, the eleventh separates the two mass rules, the twelfth proposes an approximate formula for the absorptivity, the thirteenth measures the eccentricity wall below which a light body is not captured, the fourteenth subjects the formula to a formal 95% test, the fifteenth shows where flux theory fails in the plane without rotation, and the sixteenth shows that, with rotation, this failure disappears and the absorptivity explains the asymmetry between the senses of rotation.",
   "series_count": "{n} notes",
   "foot_about": "Classical problems in physics revisited with artificial intelligence in the creative process: questions, numerical experiments, and verification against the literature.",
   "foot_disc": "By Willian Wistuba Melo da Cunha, physics enthusiast. The author is a lawyer and not a physicist. The searches, simulations, and writing are carried out with AI assistance. The texts have not undergone peer review.",
@@ -459,7 +484,7 @@
  "code_page": {
   "eyebrow": "Reproducibility",
   "h1": "Code for the experiments",
-  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 15.",
+  "lead": "The numbers in the notes come from these scripts: in JavaScript (Node.js, without dependencies) for notes 1 to 4 and in Python (NumPy, SciPy, and Numba) for notes 5 to 16.",
   "intro": "Download them all to the same folder and run, for example, <code>node fase1.js</code>. Units use G = 1. The integrator is the kick-drift-kick leapfrog.",
   "th_file": "File",
   "th_what": "What it does",
@@ -561,7 +586,13 @@
    "ergo/escada/run_age.py": "Free falls of the mass ladder 1-1-M (FR-TC-15).",
    "ergo/escada/run_abs_escada.py": "Absorptivity of both channels at each ladder step, including the edge (FR-TC-15).",
    "ergo/escada/analise_escada.py": "Coherent test on the ladder, with Holm correction and trend with mass (FR-TC-15).",
-   "ergo/escada/geo_escada.py": "Geometry of the last episode at each ladder step (FR-TC-15)."
+   "ergo/escada/geo_escada.py": "Geometry of the last episode at each ladder step (FR-TC-15).",
+   "ergo/rotacao/rot.py": "Absorptivity with the sense of rotation of the pair and free falls with rigid rotation (FR-TC-16).",
+   "ergo/rotacao/sim2r.py": "Copy of the integrator that also returns the sense of rotation of the final pair (FR-TC-16).",
+   "ergo/rotacao/fluxo_plano_L.py": "Checks the planar flux weight with rotation by random sampling (FR-TC-16).",
+   "ergo/rotacao/rodar.py": "Runs the free falls and the absorptivity of the two rounds (FR-TC-16).",
+   "ergo/rotacao/analise_rot.py": "Shape, escape, and prograde-fraction tests with Holm correction (FR-TC-16).",
+   "ergo/rotacao/analise_conf.py": "Analysis of the confirmation round, with the preregistered Holm families (FR-TC-16)."
   },
   "note": "The scripts are working notes, written for clarity rather than performance. Some depend on <code>core.js</code> or <code>sim.js</code>."
  }

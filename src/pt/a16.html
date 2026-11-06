@@ -1,0 +1,70 @@
+<h2>Introdução</h2>
+<p>Na teoria de fluxo de Kol, a chance de cada desfecho de um sistema de três corpos é o produto do fluxo de volume de fase, conhecido em forma fechada, por uma absortividade (ou emissividade), que precisa ser medida por simulação <cite>1,2,3</cite>. No caso plano, Dandekar e colaboradores testaram a teoria com momento angular total alto, \(L \geq L_0\), sem medir a absortividade <cite>4</cite>. Eles encontraram duas discrepâncias: as frações de escape ficaram mais perto da previsão tridimensional que da plana, e a razão entre pares finais prógrados e retrógrados variou de 0,90 a 144, quando a teoria sem absortividade prevê 1. Como causas, apontaram essa aproximação "cega à emissividade" e uma possível mistura incompleta do espaço de fase no plano, e deixaram o regime de rotação baixa, \(L \leq L_0\), como trabalho futuro.</p>
+<p>A nota FR-TC-15 testou a teoria com a absortividade medida no extremo oposto, \(L = 0\), e encontrou uma falha robusta no formato da excentricidade final do conjunto de massas 1-1-3 <cite>5</cite>. Esta nota preenche o intervalo entre os dois regimes, \(0 &lt; L \leq L_0\), com a absortividade medida separadamente para os dois sentidos de giro do par. Ela responde a duas perguntas, cada uma fixada antes dos dados que a decidem: a falha do 1-1-3 continua quando o sistema gira? E a absortividade medida explica a assimetria entre pares prógrados e retrógrados?</p>
+
+<h2>Método</h2>
+<p><b>Fluxo com rotação.</b> No plano, a medida do fluxo, depois de integrar a energia e o momento angular do corpo que sai e os ângulos, é \((2\pi)^3\,dL_s\,dL_B\), com \(|L_B| \leq L_s = \sqrt{k_B/(-2E_B)}\) e \(k_B = \mu_B (G m_a m_b)^2\) <cite>4</cite>. Nas variáveis da série, a energia relativa \(x = E_B/E\), a excentricidade \(e\) e o sentido \(s = \pm 1\) do par em relação à rotação total, isso dá, para cada sentido,</p>
+<div class="eq">\[ dF = \frac{L_0^2}{2}\, x^{-2}\, \frac{e}{\sqrt{1-e^2}}\; dx\, de, \qquad L_0 = \sqrt{\frac{k_B}{-2E}}. \]</div>
+<p>O peso não depende de \(L\), e somando os dois sentidos ele volta ao de \(L = 0\) usado nas notas anteriores <cite>5,6</cite>. Conferimos essa troca de variáveis por sorteio (4 milhões de pontos; \(\chi^2\) por grau de liberdade de 1,08 e 0,99 nos dois sentidos). A rotação entra só pela absortividade \(A_k(x, e, s; L)\), porque o corpo que chega precisa trazer o momento angular que falta, \(L_F = L - s\,L_s\sqrt{1-e^2}\). Por isso, sem absortividade, a teoria prevê metade de pares prógrados em qualquer \(L\). A previsão para cada conjunto de massas é a soma, sobre os canais de fuga e os dois sentidos, de \((m_a m_b)^3/(m_a+m_b)\) vezes o peso acima vezes \(A_k\).</p>
+<p><b>Simulações.</b> Usamos o mesmo integrador de cadeia com regularização algorítmica das notas anteriores <cite>7</cite>.</p>
+<ul>
+<li><b>Quedas livres com rotação:</b> as posições iniciais são as das quedas livres do repouso <cite>6</cite>, e cada sistema recebe uma rotação rígida com velocidade angular escolhida para que \(L/L_0 = \lambda\) exatamente, com a energia que resulta. \(L_0\) é o do par mais pesado (1,837 no 1-1-3 e 4,648 no 1-2-3, em unidades com \(G = 1\) e \(E = -1\)). Com \(\lambda = 0\), o gerador reproduz exatamente corridas antigas. São 12.000 quedas livres por conjunto e por \(\lambda\), até 1.000 tempos de cruzamento.</li>
+<li><b>Absortividade por sentido:</b> o espalhamento invertido no tempo das notas anteriores, agora com o par girando nos dois sentidos e o corpo que chega com \(L_F = L - L_B\). Para cada canal, sentido e \(\lambda\), medimos 132 células de \(x\) e \(e\) até 0,995 e 77 células na borda dos pares quase radiais, com 200 corridas cada (83.600 por canal e \(\lambda\)). Nenhuma célula ficou sem alcance.</li>
+</ul>
+<p>Conjuntos de massas: 1-1-3, onde a teoria falhou com \(L = 0\), e 1-2-3, onde ela passou, como controle. O critério de caos é o da FR-TC-15: pelo menos \(k\) embaralhamentos antes da primeira excursão, na absorção, e no último episódio antes da fuga, na emissão, com \(k\) = 3 e 4 <cite>5</cite>.</p>
+<p><b>Duas rodadas pré-registradas.</b> Na primeira (\(\lambda\) = 0,3 e 0,7), a pergunta fixada antes dos dados foi o formato da excentricidade final: oito testes de Kolmogorov-Smirnov (KS), com valor crítico obtido por 500 reamostragens da absortividade medida, e correção de Holm sobre os oito <cite>8</cite>. A fração prógrada foi examinada ali só como exploração. A segunda rodada repetiu o desenho com sementes novas, independentes das da primeira, e acrescentou \(\lambda = 0{,}1\). Sua pergunta principal foi a fração prógrada: oito testes \(z\) bicaudais, com a variância binomial da amostra mais a variância da previsão, e correção de Holm sobre os oito. A pergunta secundária, com família de Holm própria, foi repetir o teste de formato do 1-1-3 com \(\lambda = 0{,}7\). Os resultados com \(\lambda = 0{,}1\) são exploratórios.</p>
+<p><b>Qualidade numérica.</b> De 1,1% a 1,4% das quedas livres não terminaram até o limite de tempo, e o erro relativo de energia ficou abaixo de \(5 \times 10^{-8}\) nelas. Das 2.090.000 corridas de absortividade, 8 tiveram erro de energia alto, e nenhuma delas contou como caos.</p>
+
+<h2>Resultados</h2>
+<h3>A falha do 1-1-3 some com rotação</h3>
+<p>Na primeira rodada, o controle 1-2-3 passa nos quatro testes (Tabela I). O 1-1-3 passa com folga com \(\lambda = 0{,}3\), com KS de 0,028 e 0,040, contra 0,101 e 0,126 com \(L = 0\) <cite>5</cite>. Com \(\lambda = 0{,}7\) e \(k = 3\), ele reprovou por margem mínima (\(p = 0{,}006\), contra o limite de 0,00625 que a correção de Holm exigia), e passou com \(k = 4\). Pela regra de leitura fixada antes, isso dizia que a falha depende da rotação.</p>
+<div class="tblwrap"><p class="cap">Formato da excentricidade final na primeira rodada. KS, com o valor crítico de 95% obtido por 500 reamostragens da absortividade medida entre parênteses, e \(p\) antes da correção. Excentricidade média medida e prevista. Com a correção de Holm sobre os oito testes, só o 1-1-3 com \(\lambda = 0{,}7\) e \(k = 3\) reprova.</p><table>
+<thead><tr><th>\(\lambda\)</th><th>\(k\)</th><th>Conjunto (n)</th><th>KS (crítico)</th><th>\(p\)</th><th>\(e\) médio</th></tr></thead>
+<tbody>
+<tr><td>0,3</td><td>3</td><td>1-1-3 (1.111)</td><td>0,028 (0,052)</td><td>0,57</td><td>0,775 / 0,782</td></tr>
+<tr><td>0,3</td><td>4</td><td>1-1-3 (580)</td><td>0,040 (0,078)</td><td>0,62</td><td>0,773 / 0,775</td></tr>
+<tr><td>0,7</td><td>3</td><td>1-1-3 (1.136)</td><td>0,067 (0,051)</td><td>0,006</td><td>0,807 / 0,827</td></tr>
+<tr><td>0,7</td><td>4</td><td>1-1-3 (544)</td><td>0,073 (0,077)</td><td>0,070</td><td>0,805 / 0,822</td></tr>
+<tr><td>0,3</td><td>3</td><td>1-2-3 (1.157)</td><td>0,036 (0,051)</td><td>0,24</td><td>0,878 / 0,884</td></tr>
+<tr><td>0,3</td><td>4</td><td>1-2-3 (547)</td><td>0,036 (0,073)</td><td>0,67</td><td>0,880 / 0,883</td></tr>
+<tr><td>0,7</td><td>3</td><td>1-2-3 (1.293)</td><td>0,026 (0,045)</td><td>0,53</td><td>0,857 / 0,857</td></tr>
+<tr><td>0,7</td><td>4</td><td>1-2-3 (515)</td><td>0,042 (0,074)</td><td>0,54</td><td>0,847 / 0,854</td></tr>
+</tbody></table></div>
+<p>A reprovação marginal não se repetiu com dados novos. Na segunda rodada, o 1-1-3 com \(\lambda = 0{,}7\) passa nos dois testes da família secundária: KS de 0,032 (crítico 0,054) com \(k = 3\) e de 0,071 (crítico 0,078) com \(k = 4\). Ainda na segunda rodada, o 1-1-3 passa também com \(\lambda = 0{,}3\) (KS de 0,055, crítico 0,056, com \(k = 3\); 0,044, crítico 0,081, com \(k = 4\)) e, de forma exploratória, com \(\lambda = 0{,}1\) (0,041, crítico 0,051; 0,038, crítico 0,075). O controle 1-2-3 passa em todos os casos, e a excentricidade média medida fica de 0,002 a 0,021 abaixo da prevista no 1-1-3, contra 0,026 a 0,044 com \(L = 0\) <cite>5</cite>. A falha do 1-1-3, portanto, não sobrevive nem a uma rotação pequena.</p>
+
+<h3>A absortividade explica a assimetria entre os sentidos</h3>
+<p>Na primeira rodada, a fração prógrada prevista com a absortividade medida coincidiu com a medida nos oito casos (\(p\) de 0,51 a 0,94), o que motivou a pergunta principal da segunda rodada. Com dados novos, a previsão passa nos oito testes, com \(p\) de 0,11 a 1,00 antes da correção (Tabela II).</p>
+<div class="tblwrap"><p class="cap">Fração de fugas com par final prógrado na segunda rodada, medida e prevista pela teoria de fluxo com a absortividade medida em cada sentido, e \(p\) do teste \(z\) bicaudal antes da correção. Com a correção de Holm sobre os oito testes, todos passam. Sem absortividade, a teoria prevê 0,5 em todos os casos.</p><table>
+<thead><tr><th>\(\lambda\)</th><th>\(k\)</th><th>Conjunto (n)</th><th>Medida</th><th>Prevista</th><th>\(p\)</th></tr></thead>
+<tbody>
+<tr><td>0,3</td><td>3</td><td>1-1-3 (1.172)</td><td>0,434</td><td>0,456</td><td>0,31</td></tr>
+<tr><td>0,3</td><td>4</td><td>1-1-3 (558)</td><td>0,419</td><td>0,471</td><td>0,11</td></tr>
+<tr><td>0,7</td><td>3</td><td>1-1-3 (1.157)</td><td>0,514</td><td>0,547</td><td>0,13</td></tr>
+<tr><td>0,7</td><td>4</td><td>1-1-3 (571)</td><td>0,525</td><td>0,524</td><td>0,98</td></tr>
+<tr><td>0,3</td><td>3</td><td>1-2-3 (1.213)</td><td>0,437</td><td>0,444</td><td>0,74</td></tr>
+<tr><td>0,3</td><td>4</td><td>1-2-3 (550)</td><td>0,449</td><td>0,429</td><td>0,52</td></tr>
+<tr><td>0,7</td><td>3</td><td>1-2-3 (1.322)</td><td>0,684</td><td>0,691</td><td>0,66</td></tr>
+<tr><td>0,7</td><td>4</td><td>1-2-3 (521)</td><td>0,691</td><td>0,691</td><td>1,00</td></tr>
+</tbody></table></div>
+<p>A assimetria é real e muda de sinal com a rotação (Fig. 1). Com \(\lambda = 0{,}3\), sobram pares retrógrados: a fração prógrada medida fica 4,5 desvios-padrão abaixo de 0,5 no 1-1-3 e 4,4 no 1-2-3. Com \(\lambda = 0{,}7\), sobram prógrados no 1-2-3, com 2,16 pares prógrados por retrógrado (13,4 desvios-padrão acima de 0,5), enquanto o 1-1-3 fica perto do equilíbrio. Com \(\lambda = 0{,}1\), a previsão acerta em três dos quatro casos; no 1-2-3 com \(k = 4\), a fração medida é 0,421 contra 0,487 prevista (\(p = 0{,}026\) sem correção, exploratório). As frações de escape de cada corpo passam nos 20 casos das duas rodadas.</p>
+<figure data-fig="A16"><figcaption>Fração de fugas com par final prógrado em função de \(\lambda = L/L_0\), na segunda rodada, com pelo menos três embaralhamentos no último episódio. Pontos: medida, com o intervalo de Wilson de 95%. Linhas: previsão da teoria de fluxo com a absortividade medida em cada sentido; em \(\lambda = 0\), a simetria fixa 0,5. Tracejado: a previsão sem absortividade. O ponto \(\lambda = 0{,}1\) é exploratório.</figcaption></figure>
+
+<h2>Discussão</h2>
+<p>No regime de rotação baixa, a assimetria entre pares prógrados e retrógrados vem toda da absortividade. O fluxo é simétrico nos dois sentidos, mas a chance de um encontro virar caos depende de como o corpo que chega gira em relação ao par, e essa dependência, medida canal a canal, basta para prever a fração prógrada sem nenhum parâmetro livre. Isso apoia, nesse regime, a primeira causa sugerida por Dandekar e colaboradores, a aproximação cega à emissividade <cite>4</cite>. Nossos testes não mostram sinal de mistura incompleta nos observáveis medidos, mas também não cobrem o regime \(L \geq L_0\) nem as condições iniciais deles.</p>
+<p>A falha do 1-1-3 com \(L = 0\) desaparece já com \(\lambda = 0{,}1\). Isso sugere que ela é própria do caso sem rotação, em que trajetórias que passam perto da colisão tripla e regiões regulares têm papel especial <cite>9</cite>, e não das massas 1-1-3. Essa leitura é uma hipótese: o ensemble com rotação rígida não é o mesmo ensemble do repouso, e o ponto \(\lambda = 0{,}1\) é exploratório.</p>
+<p>Limitações:</p>
+<ul>
+<li>dois conjuntos de massas, três níveis de rotação, todos com \(L\) no máximo 0,7 vez o \(L_0\) do par mais pesado;</li>
+<li>um único tipo de condição inicial, a queda livre com rotação rígida;</li>
+<li>com quatro embaralhamentos restam de 515 a 580 fugas por caso;</li>
+<li>o valor crítico com 500 reamostragens dá um piso de \(p = 0{,}002\), o que deixa a reprovação marginal da primeira rodada sensível ao sorteio das reamostragens;</li>
+<li>o mecanismo físico da dependência da absortividade com o sentido não foi analisado.</li>
+</ul>
+
+<h2>Conclusões</h2>
+<ul>
+<li>No plano, o peso do fluxo da teoria de Kol não depende do momento angular total, e a rotação entra só pela absortividade, que passa a depender do sentido de giro do par.</li>
+<li>Com rotação \(0{,}1 \leq L/L_0 \leq 0{,}7\), a teoria com a absortividade medida passa no formato da excentricidade final dos conjuntos 1-1-3 e 1-2-3. A falha do 1-1-3 com \(L = 0\) não sobrevive à rotação: a única reprovação, marginal, não se repetiu com dados novos.</li>
+<li>A teoria com a absortividade medida prevê a fração de pares prógrados nos oito testes confirmatórios, com 95% de confiança e correção de Holm, inclusive onde a assimetria é forte (2,16 pares prógrados por retrógrado no 1-2-3 com \(\lambda = 0{,}7\)) e onde ela muda de sinal.</li>
+<li>No regime \(0 &lt; L \leq L_0\), a assimetria entre os sentidos, que a teoria sem absortividade não prevê, é explicada pela absortividade medida.</li>
+</ul>

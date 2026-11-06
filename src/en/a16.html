@@ -1,0 +1,70 @@
+<h2>Introduction</h2>
+<p>In Kol's flux theory, the probability of each outcome of a three-body system is the product of the phase-volume flux, known in closed form, and an absorptivity (or emissivity), which must be measured by simulation <cite>1,2,3</cite>. In the planar case, Dandekar and collaborators tested the theory with high total angular momentum, \(L \geq L_0\), without measuring the absorptivity <cite>4</cite>. They found two discrepancies: the escape fractions were closer to the three-dimensional prediction than to the planar one, and the ratio between prograde and retrograde final pairs varied from 0.90 to 144, when the theory without absorptivity predicts 1. As causes, they pointed to this "emissivity-blind" approximation and to a possible incomplete mixing of phase space in the plane, and they left the low-rotation regime, \(L \leq L_0\), as future work.</p>
+<p>Note FR-TC-15 tested the theory with the absorptivity measured at the opposite extreme, \(L = 0\), and found a robust failure in the shape of the final eccentricity of the mass set 1-1-3 <cite>5</cite>. This note fills the interval between the two regimes, \(0 &lt; L \leq L_0\), with the absorptivity measured separately for the two senses of rotation of the pair. It answers two questions, each fixed before the data that decide it: does the failure of 1-1-3 persist when the system rotates? And does the measured absorptivity explain the asymmetry between prograde and retrograde pairs?</p>
+
+<h2>Method</h2>
+<p><b>Flux with rotation.</b> In the plane, the flux measure, after integrating over the energy and angular momentum of the escaping body and over the angles, is \((2\pi)^3\,dL_s\,dL_B\), with \(|L_B| \leq L_s = \sqrt{k_B/(-2E_B)}\) and \(k_B = \mu_B (G m_a m_b)^2\) <cite>4</cite>. In the variables of the series, the relative energy \(x = E_B/E\), the eccentricity \(e\), and the sense \(s = \pm 1\) of the pair relative to the total rotation, this gives, for each sense,</p>
+<div class="eq">\[ dF = \frac{L_0^2}{2}\, x^{-2}\, \frac{e}{\sqrt{1-e^2}}\; dx\, de, \qquad L_0 = \sqrt{\frac{k_B}{-2E}}. \]</div>
+<p>The weight does not depend on \(L\), and summing the two senses it returns to the one for \(L = 0\) used in the previous notes <cite>5,6</cite>. We checked this change of variables by random sampling (4 million points; \(\chi^2\) per degree of freedom of 1.08 and 0.99 in the two senses). Rotation enters only through the absorptivity \(A_k(x, e, s; L)\), because the incoming body must bring the missing angular momentum, \(L_F = L - s\,L_s\sqrt{1-e^2}\). For this reason, without absorptivity, the theory predicts half prograde pairs at any \(L\). The prediction for each mass set is the sum, over the escape channels and the two senses, of \((m_a m_b)^3/(m_a+m_b)\) times the weight above times \(A_k\).</p>
+<p><b>Simulations.</b> We use the same chain integrator with algorithmic regularization as in the previous notes <cite>7</cite>.</p>
+<ul>
+<li><b>Free falls with rotation:</b> the initial positions are those of the free falls from rest <cite>6</cite>, and each system receives a rigid rotation with angular velocity chosen so that \(L/L_0 = \lambda\) exactly, with the resulting energy. \(L_0\) is that of the heaviest pair (1.837 in 1-1-3 and 4.648 in 1-2-3, in units with \(G = 1\) and \(E = -1\)). With \(\lambda = 0\), the generator exactly reproduces earlier runs. There are 12,000 free falls per set and per \(\lambda\), up to 1,000 crossing times.</li>
+<li><b>Absorptivity per sense:</b> the time-reversed scattering of the previous notes, now with the pair rotating in both senses and the incoming body with \(L_F = L - L_B\). For each channel, sense, and \(\lambda\), we measured 132 cells of \(x\) and \(e\) up to 0.995 and 77 cells at the edge of the nearly radial pairs, with 200 runs each (83,600 per channel and \(\lambda\)). No cell was left unreached.</li>
+</ul>
+<p>Mass sets: 1-1-3, where the theory failed with \(L = 0\), and 1-2-3, where it passed, as a control. The chaos criterion is that of FR-TC-15: at least \(k\) scrambles before the first excursion, in absorption, and in the last episode before the escape, in emission, with \(k\) = 3 and 4 <cite>5</cite>.</p>
+<p><b>Two preregistered rounds.</b> In the first (\(\lambda\) = 0.3 and 0.7), the question fixed before the data was the shape of the final eccentricity: eight Kolmogorov-Smirnov (KS) tests, with the critical value obtained by 500 resamplings of the measured absorptivity, and Holm correction over the eight <cite>8</cite>. The prograde fraction was examined there only as exploration. The second round repeated the design with new seeds, independent of those of the first, and added \(\lambda = 0.1\). Its main question was the prograde fraction: eight two-sided \(z\) tests, with the binomial variance of the sample plus the variance of the prediction, and Holm correction over the eight. The secondary question, with its own Holm family, was to repeat the shape test of 1-1-3 with \(\lambda = 0.7\). The results with \(\lambda = 0.1\) are exploratory.</p>
+<p><b>Numerical quality.</b> From 1.1% to 1.4% of the free falls did not end by the time limit, and the relative energy error stayed below \(5 \times 10^{-8}\) in them. Of the 2,090,000 absorptivity runs, 8 had a high energy error, and none of them counted as chaos.</p>
+
+<h2>Results</h2>
+<h3>The failure of 1-1-3 disappears with rotation</h3>
+<p>In the first round, the control 1-2-3 passes all four tests (Table I). The set 1-1-3 passes comfortably with \(\lambda = 0.3\), with KS of 0.028 and 0.040, against 0.101 and 0.126 with \(L = 0\) <cite>5</cite>. With \(\lambda = 0.7\) and \(k = 3\), it failed by a minimal margin (\(p = 0.006\), against the threshold of 0.00625 required by the Holm correction), and passed with \(k = 4\). By the reading rule fixed beforehand, this said that the failure depends on rotation.</p>
+<div class="tblwrap"><p class="cap">Shape of the final eccentricity in the first round. KS, with the 95% critical value obtained by 500 resamplings of the measured absorptivity in parentheses, and \(p\) before the correction. Measured and predicted mean eccentricity. With the Holm correction over the eight tests, only 1-1-3 with \(\lambda = 0.7\) and \(k = 3\) fails.</p><table>
+<thead><tr><th>\(\lambda\)</th><th>\(k\)</th><th>Set (n)</th><th>KS (critical)</th><th>\(p\)</th><th>mean \(e\)</th></tr></thead>
+<tbody>
+<tr><td>0.3</td><td>3</td><td>1-1-3 (1,111)</td><td>0.028 (0.052)</td><td>0.57</td><td>0.775 / 0.782</td></tr>
+<tr><td>0.3</td><td>4</td><td>1-1-3 (580)</td><td>0.040 (0.078)</td><td>0.62</td><td>0.773 / 0.775</td></tr>
+<tr><td>0.7</td><td>3</td><td>1-1-3 (1,136)</td><td>0.067 (0.051)</td><td>0.006</td><td>0.807 / 0.827</td></tr>
+<tr><td>0.7</td><td>4</td><td>1-1-3 (544)</td><td>0.073 (0.077)</td><td>0.070</td><td>0.805 / 0.822</td></tr>
+<tr><td>0.3</td><td>3</td><td>1-2-3 (1,157)</td><td>0.036 (0.051)</td><td>0.24</td><td>0.878 / 0.884</td></tr>
+<tr><td>0.3</td><td>4</td><td>1-2-3 (547)</td><td>0.036 (0.073)</td><td>0.67</td><td>0.880 / 0.883</td></tr>
+<tr><td>0.7</td><td>3</td><td>1-2-3 (1,293)</td><td>0.026 (0.045)</td><td>0.53</td><td>0.857 / 0.857</td></tr>
+<tr><td>0.7</td><td>4</td><td>1-2-3 (515)</td><td>0.042 (0.074)</td><td>0.54</td><td>0.847 / 0.854</td></tr>
+</tbody></table></div>
+<p>The marginal failure did not repeat with new data. In the second round, 1-1-3 with \(\lambda = 0.7\) passes both tests of the secondary family: KS of 0.032 (critical 0.054) with \(k = 3\) and of 0.071 (critical 0.078) with \(k = 4\). Still in the second round, 1-1-3 also passes with \(\lambda = 0.3\) (KS of 0.055, critical 0.056, with \(k = 3\); 0.044, critical 0.081, with \(k = 4\)) and, in an exploratory way, with \(\lambda = 0.1\) (0.041, critical 0.051; 0.038, critical 0.075). The control 1-2-3 passes in all cases, and the measured mean eccentricity lies 0.002 to 0.021 below the predicted one in 1-1-3, against 0.026 to 0.044 with \(L = 0\) <cite>5</cite>. The failure of 1-1-3, therefore, does not survive even a small rotation.</p>
+
+<h3>The absorptivity explains the asymmetry between the senses</h3>
+<p>In the first round, the prograde fraction predicted with the measured absorptivity matched the measured one in all eight cases (\(p\) from 0.51 to 0.94), which motivated the main question of the second round. With new data, the prediction passes all eight tests, with \(p\) from 0.11 to 1.00 before the correction (Table II).</p>
+<div class="tblwrap"><p class="cap">Fraction of escapes with a prograde final pair in the second round, measured and predicted by the flux theory with the absorptivity measured in each sense, and \(p\) of the two-sided \(z\) test before the correction. With the Holm correction over the eight tests, all pass. Without absorptivity, the theory predicts 0.5 in all cases.</p><table>
+<thead><tr><th>\(\lambda\)</th><th>\(k\)</th><th>Set (n)</th><th>Measured</th><th>Predicted</th><th>\(p\)</th></tr></thead>
+<tbody>
+<tr><td>0.3</td><td>3</td><td>1-1-3 (1,172)</td><td>0.434</td><td>0.456</td><td>0.31</td></tr>
+<tr><td>0.3</td><td>4</td><td>1-1-3 (558)</td><td>0.419</td><td>0.471</td><td>0.11</td></tr>
+<tr><td>0.7</td><td>3</td><td>1-1-3 (1,157)</td><td>0.514</td><td>0.547</td><td>0.13</td></tr>
+<tr><td>0.7</td><td>4</td><td>1-1-3 (571)</td><td>0.525</td><td>0.524</td><td>0.98</td></tr>
+<tr><td>0.3</td><td>3</td><td>1-2-3 (1,213)</td><td>0.437</td><td>0.444</td><td>0.74</td></tr>
+<tr><td>0.3</td><td>4</td><td>1-2-3 (550)</td><td>0.449</td><td>0.429</td><td>0.52</td></tr>
+<tr><td>0.7</td><td>3</td><td>1-2-3 (1,322)</td><td>0.684</td><td>0.691</td><td>0.66</td></tr>
+<tr><td>0.7</td><td>4</td><td>1-2-3 (521)</td><td>0.691</td><td>0.691</td><td>1.00</td></tr>
+</tbody></table></div>
+<p>The asymmetry is real and changes sign with rotation (Fig. 1). With \(\lambda = 0.3\), retrograde pairs are in excess: the measured prograde fraction lies 4.5 standard deviations below 0.5 in 1-1-3 and 4.4 in 1-2-3. With \(\lambda = 0.7\), prograde pairs are in excess in 1-2-3, with 2.16 prograde pairs per retrograde one (13.4 standard deviations above 0.5), while 1-1-3 stays close to balance. With \(\lambda = 0.1\), the prediction is right in three of the four cases; in 1-2-3 with \(k = 4\), the measured fraction is 0.421 against 0.487 predicted (\(p = 0.026\) without correction, exploratory). The escape fractions of each body pass in the 20 cases of the two rounds.</p>
+<figure data-fig="A16"><figcaption>Fraction of escapes with a prograde final pair as a function of \(\lambda = L/L_0\), in the second round, with at least three scrambles in the last episode. Points: measurement, with the 95% Wilson interval. Lines: prediction of the flux theory with the absorptivity measured in each sense; at \(\lambda = 0\), symmetry fixes 0.5. Dashed: the prediction without absorptivity. The point \(\lambda = 0.1\) is exploratory.</figcaption></figure>
+
+<h2>Discussion</h2>
+<p>In the low-rotation regime, the asymmetry between prograde and retrograde pairs comes entirely from the absorptivity. The flux is symmetric in the two senses, but the chance that an encounter turns into chaos depends on how the incoming body rotates relative to the pair, and this dependence, measured channel by channel, is enough to predict the prograde fraction without any free parameter. This supports, in this regime, the first cause suggested by Dandekar and collaborators, the emissivity-blind approximation <cite>4</cite>. Our tests show no sign of incomplete mixing in the measured observables, but they also do not cover the regime \(L \geq L_0\) or their initial conditions.</p>
+<p>The failure of 1-1-3 with \(L = 0\) already disappears with \(\lambda = 0.1\). This suggests that it is specific to the case without rotation, in which trajectories passing close to triple collision and regular regions play a special role <cite>9</cite>, and not to the masses 1-1-3. This reading is a hypothesis: the ensemble with rigid rotation is not the same ensemble as that from rest, and the point \(\lambda = 0.1\) is exploratory.</p>
+<p>Limitations:</p>
+<ul>
+<li>two mass sets, three rotation levels, all with \(L\) at most 0.7 times the \(L_0\) of the heaviest pair;</li>
+<li>a single type of initial condition, the free fall with rigid rotation;</li>
+<li>with four scrambles, 515 to 580 escapes remain per case;</li>
+<li>the critical value with 500 resamplings gives a floor of \(p = 0.002\), which leaves the marginal failure of the first round sensitive to the draw of the resamplings;</li>
+<li>the physical mechanism of the dependence of the absorptivity on the sense was not analyzed.</li>
+</ul>
+
+<h2>Conclusions</h2>
+<ul>
+<li>In the plane, the flux weight of Kol's theory does not depend on the total angular momentum, and rotation enters only through the absorptivity, which comes to depend on the sense of rotation of the pair.</li>
+<li>With rotation \(0.1 \leq L/L_0 \leq 0.7\), the theory with the measured absorptivity passes in the shape of the final eccentricity of the sets 1-1-3 and 1-2-3. The failure of 1-1-3 with \(L = 0\) does not survive rotation: the only failure, a marginal one, did not repeat with new data.</li>
+<li>The theory with the measured absorptivity predicts the fraction of prograde pairs in the eight confirmatory tests, at 95% confidence and with Holm correction, including where the asymmetry is strong (2.16 prograde pairs per retrograde one in 1-2-3 with \(\lambda = 0.7\)) and where it changes sign.</li>
+<li>In the regime \(0 &lt; L \leq L_0\), the asymmetry between the senses, which the theory without absorptivity does not predict, is explained by the measured absorptivity.</li>
+</ul>

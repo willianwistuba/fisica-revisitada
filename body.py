@@ -632,3 +632,49 @@ tick label style={font=\scriptsize},label style={font=\footnotesize}]
 \caption{""" + cap + r"""}\end{figure}
 """
 TEXFIG['A15'] = tex_fig_a15; SVGFIG['A15'] = svg_a15
+
+def _a16():
+    import json as _j; return _j.load(open('a16_points.json'))
+A16_K = ['1-1-3', '1-2-3']
+A16_C = {'1-1-3': 'hot', '1-2-3': 'accent'}
+A16_TC = {'1-1-3': 'frhot', '1-2-3': 'fraccent'}
+def svg_a16(L):
+    f = L['fig']['A16']; D = _a16(); W, Hh, Lm, R, T, B = 640, 380, 64, 24, 56, 52; y0, y1 = 0.35, 0.75
+    X = lambda q: Lm + (W - Lm - R) * (q + 0.04) / 0.8; Y = lambda v: Hh - B - (Hh - B - T) * (v - y0) / (y1 - y0)
+    s = [f'<svg viewBox="0 0 {W} {Hh}" role="img" aria-label="{E(f["aria"])}">']
+    x0 = Lm
+    for k in A16_K:
+        s.append(f'<circle cx="{x0+6}" cy="14" r="4" fill="var(--{A16_C[k]})"/><text x="{x0+16}" y="18" class="lbl">{E(k)} {E(f["med"])}</text>'); x0 += 150
+        s.append(f'<line x1="{x0}" y1="14" x2="{x0+18}" y2="14" stroke="var(--{A16_C[k]})" stroke-width="2.4"/><text x="{x0+24}" y="18" class="lbl">{E(f["prev"])}</text>'); x0 += 110
+    for v in [0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75]:
+        yy = Y(v); s.append(f'<line x1="{Lm}" y1="{yy:.1f}" x2="{W-R}" y2="{yy:.1f}" stroke="var(--line)"/><text x="{Lm-8}" y="{yy+4:.1f}" text-anchor="end" class="ax">{num(f"{v:.2f}", L)}</text>')
+    for q in (0, 0.1, 0.3, 0.5, 0.7):
+        s.append(f'<text x="{X(q):.1f}" y="{Hh-B+18}" text-anchor="middle" class="ax">{num(f"{q:g}", L)}</text>')
+    s.append(f'<line x1="{Lm}" y1="{Y(0.5):.1f}" x2="{W-R}" y2="{Y(0.5):.1f}" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="6 4"/><text x="{W-R-4}" y="{Y(0.5)-6:.1f}" text-anchor="end" class="ax">{E(f["ref"])}</text>')
+    for j, k in enumerate(A16_K):
+        dx = -5 if j == 0 else 5
+        pts = [(0.0, 0.5)] + [(p['lam'], p['prev']) for p in D[k]]
+        s.append(f'<polyline points="{" ".join(f"{X(q):.1f},{Y(v):.1f}" for q, v in pts)}" fill="none" stroke="var(--{A16_C[k]})" stroke-width="2.4"/>')
+        for p in D[k]:
+            xx = X(p['lam']) + dx
+            s.append(f'<line x1="{xx:.1f}" y1="{Y(p["lo"]):.1f}" x2="{xx:.1f}" y2="{Y(p["hi"]):.1f}" stroke="var(--{A16_C[k]})" stroke-width="1.6"/><circle cx="{xx:.1f}" cy="{Y(p["med"]):.1f}" r="4.2" fill="var(--{A16_C[k]})"/>')
+    s.append(f'<text x="{(Lm+W-R)/2:.0f}" y="{Hh-10}" text-anchor="middle" class="ax">{E(f["x"])}</text><text x="{Lm}" y="{T-12}" class="ax">{E(f["y"])}</text>')
+    return ''.join(s) + '</svg>'
+def tex_fig_a16(L, cap):
+    f = L['fig']['A16']; D = _a16(); sep = '{,}' if L['decimal'] == ',' else '.'
+    t = lambda vs: ','.join(v.replace('.', sep) for v in vs)
+    pl = ''
+    for j, k in enumerate(A16_K):
+        dx = -0.008 if j == 0 else 0.008
+        pl += r"\addplot[color=" + A16_TC[k] + r",only marks,mark=*,mark size=1.6pt,error bars/.cd,y dir=both,y explicit] coordinates {" + ' '.join(f"({p['lam']+dx:.3f},{p['med']}) -= (0,{p['med']-p['lo']:.4f}) += (0,{p['hi']-p['med']:.4f})" for p in D[k]) + "};\\addlegendentry{" + k + " " + esc_text(f['med']) + "}\n"
+        pl += r"\addplot[color=" + A16_TC[k] + r",very thick] coordinates {(0,0.5) " + ' '.join(f"({p['lam']},{p['prev']})" for p in D[k]) + "};\\addlegendentry{" + esc_text(f['prev']) + "}\n"
+    pl += r"\addplot[color=gray,thick,dashed,domain=0:0.76] {0.5};\addlegendentry{" + esc_text(f['ref']) + "}\n"
+    return r"""\begin{figure}[tb]\centering
+\begin{tikzpicture}\begin{axis}[width=\columnwidth,height=6.2cm,xmin=-0.04,xmax=0.76,ymin=0.35,ymax=0.75,
+xtick={0,0.1,0.3,0.5,0.7},xticklabels={""" + t(['0', '0.1', '0.3', '0.5', '0.7']) + r"""},ytick={0.4,0.5,0.6,0.7},yticklabels={""" + t(['0.40', '0.50', '0.60', '0.70']) + r"""},
+xlabel={""" + esc_text(f['x']) + r"""},ylabel={""" + esc_text(f['y']) + r"""},grid=major,grid style={line width=.2pt,draw=gray!30},legend pos=north west,legend columns=2,legend style={font=\scriptsize,draw=none,fill=white,fill opacity=0.9,text opacity=1},
+tick label style={font=\scriptsize},label style={font=\footnotesize}]
+""" + pl + r"""\end{axis}\end{tikzpicture}
+\caption{""" + cap + r"""}\end{figure}
+"""
+TEXFIG['A16'] = tex_fig_a16; SVGFIG['A16'] = svg_a16

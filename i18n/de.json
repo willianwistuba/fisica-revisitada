@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "Das Dreikörperproblem",
-  "lead": "Warum es keine allgemeine Formel gibt, was Konfigurationen weniger Körper stabil macht, welche Stabilisierungsideen scheitern, was sich vor einer Ejektion vorhersagen lässt, wie lange ein System lebt und welches statistische Gesetz die Ausgänge bestimmt. Fünfzehn Notizen, von den Grundlagen bis zur Prüfung von Hypothesen."
+  "lead": "Warum es keine allgemeine Formel gibt, was Konfigurationen weniger Körper stabil macht, welche Stabilisierungsideen scheitern, was sich vor einer Ejektion vorhersagen lässt, wie lange ein System lebt und welches statistische Gesetz die Ausgänge bestimmt. Sechzehn Notizen, von den Grundlagen bis zur Prüfung von Hypothesen."
  },
  "articles": {
   "FR-TC-01": {
@@ -218,6 +218,23 @@
    ],
    "date_long": "5. November 2026",
    "version_note": "v1: Erstveröffentlichung"
+  },
+  "FR-TC-16": {
+   "title": "Rotation in der Ebene: Das Versagen der Flusstheorie verschwindet, und die Absorptivität erklärt die Asymmetrie zwischen den Drehsinnen",
+   "short": "Rotation und Drehsinn",
+   "type": "Forschungsartikel",
+   "date_long": "6. November 2026",
+   "version_note": "v1: Erstveröffentlichung",
+   "abstract": "Wir prüfen die Flusstheorie dreier Körper mit der gemessenen Absorptivität in ebenen freien Fällen mit einem Gesamtdrehimpuls zwischen dem 0,1- und dem 0,7-Fachen des L0 des schwersten Paares, in den Massenensembles 1-1-3 und 1-2-3, und verlangen drei oder vier Durchmischungszustände vor der Flucht. Wir zeigen, dass das Gewicht des Flusses in der Ebene nicht vom Gesamtdrehimpuls abhängt: Die Rotation geht nur über die Absorptivität ein, die wir für beide Drehsinne des Paares getrennt messen. In zwei präregistrierten Runden mit unabhängigen Startwerten besteht die Theorie bei der Form der Endexzentrizität beider Ensembles. Das bei verschwindendem Drehimpuls gefundene Versagen des Ensembles 1-1-3 übersteht die Rotation nicht: Die einzige, knappe Ablehnung wiederholte sich mit neuen Daten nicht, und mit einer Rotation von 0,1 besteht der Test bereits (explorativ). Der Anteil prograder Endpaare, den die Theorie ohne Absorptivität auf 1/2 festlegt, wird von der gemessenen Absorptivität in den acht konfirmatorischen Tests mit 95 % Konfidenz und Holm-Korrektur vorhergesagt, auch dort, wo die Asymmetrie stark ist (2,16 prograde Paare pro retrogradem im Ensemble 1-2-3 mit einer Rotation von 0,7), und dort, wo sie das Vorzeichen wechselt (retrograder Überschuss bei 0,3). Im Regime geringer Rotation wird die Asymmetrie zwischen den Drehsinnen durch die Absorptivität erklärt.",
+   "kw": [
+    "Dreikörperproblem",
+    "Flusstheorie",
+    "chaotische Absorptivität",
+    "Drehimpuls",
+    "prograde und retrograde Bahnen",
+    "ebenes Problem"
+   ],
+   "date_short": "6. Nov. 2026"
   }
  },
  "fig": {
@@ -334,6 +351,14 @@
    "x": "Viertel des hierarchischen Anteils der letzten Episode",
    "y": "mittlere Endexzentrizität",
    "aria": "Mittlere Endexzentrizität pro Viertel des hierarchischen Anteils der letzten Episode, für vier Massenensembles"
+  },
+  "A16": {
+   "x": "Gesamtrotation λ = L/L0",
+   "y": "Anteil prograder Endpaare",
+   "aria": "Anteil prograder Endpaare in Abhängigkeit von der Gesamtrotation, gemessen und vorhergesagt, für die Ensembles 1-1-3 und 1-2-3",
+   "med": "gemessen",
+   "prev": "vorhergesagt",
+   "ref": "ohne Absorptivität"
   }
  },
  "ui": {
@@ -391,7 +416,7 @@
   "empty": "Keine Notiz gefunden. Versuchen Sie ein anderes Wort.",
   "series_eyebrow": "Reihe · Himmelsmechanik",
   "series_order_title": "Lesereihenfolge",
-  "series_order_text": "Die Notizen sind darauf angelegt, nacheinander gelesen zu werden: Die erste ordnet das Problem ein, die zweite prüft eine Stabilisierungshypothese, die dritte validiert den Simulator anhand klassischer Kriterien, die vierte prüft eine vereinheitlichende Heuristik, die fünfte untersucht Frühsignale der Ejektion, die sechste prüft, ob die Geschwindigkeit den herausgeschleuderten Körper besser vorhersagt als die Massen, die siebte untersucht den ersten Abweichler und den ersten Kontakt, die achte misst die Halbwertszeit der Systeme, die neunte prüft die statistischen Theorien der Ausgänge, die zehnte prüft die Entwicklungsgleichungen und kartiert die Absorptivität, die elfte trennt die beiden Massenregeln, die zwölfte schlägt eine Näherungsformel für die Absorptivität vor, die dreizehnte misst die Exzentrizitätsmauer, unterhalb derer ein leichter Körper nicht eingefangen wird, die vierzehnte unterzieht die Formel einer formalen 95-%-Prüfung, und die fünfzehnte zeigt, wo die Flusstheorie in der Ebene ohne Rotation versagt.",
+  "series_order_text": "Die Notizen sind darauf angelegt, nacheinander gelesen zu werden: Die erste ordnet das Problem ein, die zweite prüft eine Stabilisierungshypothese, die dritte validiert den Simulator anhand klassischer Kriterien, die vierte prüft eine vereinheitlichende Heuristik, die fünfte untersucht Frühsignale der Ejektion, die sechste prüft, ob die Geschwindigkeit den herausgeschleuderten Körper besser vorhersagt als die Massen, die siebte untersucht den ersten Abweichler und den ersten Kontakt, die achte misst die Halbwertszeit der Systeme, die neunte prüft die statistischen Theorien der Ausgänge, die zehnte prüft die Entwicklungsgleichungen und kartiert die Absorptivität, die elfte trennt die beiden Massenregeln, die zwölfte schlägt eine Näherungsformel für die Absorptivität vor, die dreizehnte misst die Exzentrizitätsmauer, unterhalb derer ein leichter Körper nicht eingefangen wird, die vierzehnte unterzieht die Formel einer formalen 95-%-Prüfung, die fünfzehnte zeigt, wo die Flusstheorie in der Ebene ohne Rotation versagt, und die sechzehnte zeigt, dass dieses Versagen mit Rotation verschwindet und die Absorptivität die Asymmetrie zwischen den Drehsinnen erklärt.",
   "series_count": "{n} Notizen",
   "foot_about": "Klassische Probleme der Physik, neu betrachtet mit künstlicher Intelligenz im kreativen Prozess: Fragen, numerische Experimente und Abgleich mit der Literatur.",
   "foot_disc": "Von Willian Wistuba Melo da Cunha, Physikbegeisterter. Der Autor ist Jurist und kein Physiker. Recherche, Simulationen und Abfassung erfolgen mit Unterstützung durch KI. Die Texte haben kein Peer-Review durchlaufen.",
@@ -459,7 +484,7 @@
  "code_page": {
   "eyebrow": "Reproduzierbarkeit",
   "h1": "Code der Experimente",
-  "lead": "Die Zahlen in den Notizen stammen aus diesen Skripten: in JavaScript (Node.js, ohne Abhängigkeiten) für die Notizen 1 bis 4 und in Python (NumPy, SciPy und Numba) für die Notizen 5 bis 15.",
+  "lead": "Die Zahlen in den Notizen stammen aus diesen Skripten: in JavaScript (Node.js, ohne Abhängigkeiten) für die Notizen 1 bis 4 und in Python (NumPy, SciPy und Numba) für die Notizen 5 bis 16.",
   "intro": "Laden Sie alle Dateien in denselben Ordner herunter und führen Sie zum Beispiel <code>node fase1.js</code> aus. Die Einheiten verwenden G = 1. Der Integrator ist das Leapfrog-Verfahren (Kick-Drift-Kick).",
   "th_file": "Datei",
   "th_what": "Funktion",
@@ -561,7 +586,13 @@
    "ergo/escada/run_age.py": "Freie Fälle der Massenleiter 1-1-M (FR-TC-15).",
    "ergo/escada/run_abs_escada.py": "Absorptivität beider Kanäle auf jeder Stufe der Leiter, einschließlich des Randes (FR-TC-15).",
    "ergo/escada/analise_escada.py": "Kohärenter Test auf der Leiter, mit Holm-Korrektur und Trend mit der Masse (FR-TC-15).",
-   "ergo/escada/geo_escada.py": "Geometrie der letzten Episode auf jeder Stufe der Leiter (FR-TC-15)."
+   "ergo/escada/geo_escada.py": "Geometrie der letzten Episode auf jeder Stufe der Leiter (FR-TC-15).",
+   "ergo/rotacao/rot.py": "Absorptivität mit dem Drehsinn des Paares und freie Fälle mit starrer Rotation (FR-TC-16).",
+   "ergo/rotacao/sim2r.py": "Kopie des Integrators, die auch den Drehsinn des Endpaares zurückgibt (FR-TC-16).",
+   "ergo/rotacao/fluxo_plano_L.py": "Prüft das Gewicht des ebenen Flusses mit Rotation durch Zufallsziehung (FR-TC-16).",
+   "ergo/rotacao/rodar.py": "Führt die freien Fälle und die Absorptivität beider Runden aus (FR-TC-16).",
+   "ergo/rotacao/analise_rot.py": "Tests der Form, der Fluchten und des prograden Anteils mit Holm-Korrektur (FR-TC-16).",
+   "ergo/rotacao/analise_conf.py": "Analyse der Bestätigungsrunde mit den präregistrierten Holm-Familien (FR-TC-16)."
   },
   "note": "Die Skripte sind Arbeitsnotizen, auf Verständlichkeit und nicht auf Leistung ausgelegt. Einige hängen von <code>core.js</code> oder <code>sim.js</code> ab."
  }

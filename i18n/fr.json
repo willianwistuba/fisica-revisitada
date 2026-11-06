@@ -5,7 +5,7 @@
  "decimal": ",",
  "series": {
   "title": "Le problème des trois corps",
-  "lead": "Pourquoi il n’existe pas de formule générale, ce qui rend stables les configurations à peu de corps, quelles idées de stabilisation échouent, ce que l’on peut prévoir avant une éjection, combien de temps vit un système et quelle est la loi statistique des issues. Quinze notes, des fondements aux tests d’hypothèses."
+  "lead": "Pourquoi il n’existe pas de formule générale, ce qui rend stables les configurations à peu de corps, quelles idées de stabilisation échouent, ce que l’on peut prévoir avant une éjection, combien de temps vit un système et quelle est la loi statistique des issues. Seize notes, des fondements aux tests d’hypothèses."
  },
  "articles": {
   "FR-TC-01": {
@@ -218,6 +218,23 @@
    ],
    "date_long": "5 novembre 2026",
    "version_note": "v1 : première publication"
+  },
+  "FR-TC-16": {
+   "title": "Rotation dans le plan : l’échec de la théorie de flux disparaît et l’absorptivité explique l’asymétrie entre les sens",
+   "short": "Rotation et sens",
+   "type": "Article de recherche",
+   "date_long": "6 novembre 2026",
+   "version_note": "v1 : première publication",
+   "abstract": "Nous testons la théorie de flux à trois corps, avec l’absorptivité mesurée, dans des chutes libres planes à moment cinétique total compris entre 0,1 et 0,7 fois le L0 de la paire la plus lourde, dans les ensembles de masses 1-1-3 et 1-2-3, en exigeant trois ou quatre états de brassage avant l’échappement. Nous montrons que, dans le plan, le poids du flux ne dépend pas du moment cinétique total : la rotation n’intervient que par l’absorptivité, que nous mesurons séparément pour les deux sens de rotation de la paire. Dans deux campagnes préenregistrées, avec des graines indépendantes, la théorie passe sur la forme de l’excentricité finale des deux ensembles. L’échec du 1-1-3 constaté à moment cinétique nul ne survit pas à la rotation : le seul échec, marginal, ne s’est pas répété avec des données nouvelles, et avec une rotation de 0,1 le test passe déjà (exploratoire). La fraction de paires finales progrades, que la théorie sans absorptivité fixe à 1/2, est prévue par l’absorptivité mesurée dans les huit tests confirmatoires, avec 95 % de confiance et correction de Holm, y compris là où l’asymétrie est forte (2,16 paires progrades par rétrograde dans le 1-2-3 avec une rotation de 0,7) et là où elle change de signe (excès de rétrogrades avec 0,3). Dans le régime de faible rotation, l’asymétrie entre les sens est expliquée par l’absorptivité.",
+   "kw": [
+    "problème des trois corps",
+    "théorie de flux",
+    "absorptivité chaotique",
+    "moment cinétique",
+    "orbites progrades et rétrogrades",
+    "problème plan"
+   ],
+   "date_short": "6 nov. 2026"
   }
  },
  "fig": {
@@ -334,6 +351,14 @@
    "x": "quart de la fraction hiérarchique du dernier épisode",
    "y": "excentricité finale moyenne",
    "aria": "Excentricité finale moyenne par quart de la fraction hiérarchique du dernier épisode, pour quatre ensembles de masses"
+  },
+  "A16": {
+   "x": "rotation totale λ = L/L0",
+   "y": "fraction de paires finales progrades",
+   "aria": "Fraction de paires finales progrades en fonction de la rotation totale, mesurée et prévue, pour les ensembles 1-1-3 et 1-2-3",
+   "med": "mesurée",
+   "prev": "prévue",
+   "ref": "sans absorptivité"
   }
  },
  "ui": {
@@ -391,7 +416,7 @@
   "empty": "Aucune note trouvée. Essayez un autre mot.",
   "series_eyebrow": "Série · mécanique céleste",
   "series_order_title": "Ordre de lecture",
-  "series_order_text": "Les notes ont été écrites pour être lues dans l’ordre : la première situe le problème, la deuxième teste une hypothèse de stabilisation, la troisième valide le simulateur par rapport aux critères classiques, la quatrième teste une heuristique unificatrice, la cinquième étudie les signaux anticipés de l’éjection, la sixième teste si la vitesse prédit le corps éjecté mieux que les masses, la septième examine le premier dissident et le premier contact, la huitième mesure la demi-vie des systèmes, la neuvième teste les théories statistiques des issues, la dixième teste les équations d’évolution et cartographie l’absorptivité, la onzième sépare les deux règles de masses, la douzième propose une formule approchée pour l’absorptivité, la treizième mesure le mur d’excentricité au-dessous duquel un corps léger n’est pas capturé, la quatorzième soumet la formule à une épreuve formelle à 95 % et la quinzième montre où la théorie de flux échoue dans le plan sans rotation.",
+  "series_order_text": "Les notes ont été écrites pour être lues dans l’ordre : la première situe le problème, la deuxième teste une hypothèse de stabilisation, la troisième valide le simulateur par rapport aux critères classiques, la quatrième teste une heuristique unificatrice, la cinquième étudie les signaux anticipés de l’éjection, la sixième teste si la vitesse prédit le corps éjecté mieux que les masses, la septième examine le premier dissident et le premier contact, la huitième mesure la demi-vie des systèmes, la neuvième teste les théories statistiques des issues, la dixième teste les équations d’évolution et cartographie l’absorptivité, la onzième sépare les deux règles de masses, la douzième propose une formule approchée pour l’absorptivité, la treizième mesure le mur d’excentricité au-dessous duquel un corps léger n’est pas capturé, la quatorzième soumet la formule à une épreuve formelle à 95 %, la quinzième montre où la théorie de flux échoue dans le plan sans rotation et la seizième montre qu’avec la rotation cet échec disparaît et que l’absorptivité explique l’asymétrie entre les sens de rotation.",
   "series_count": "{n} notes",
   "foot_about": "Des problèmes classiques de la physique revisités avec l’intelligence artificielle dans le processus créatif : questions, expériences numériques et vérification par rapport à la littérature.",
   "foot_disc": "Par Willian Wistuba Melo da Cunha, passionné de physique. L’auteur est avocat et n’est pas physicien. Les recherches, les simulations et la rédaction bénéficient de l’assistance de l’IA. Les textes n’ont pas été évalués par les pairs.",
@@ -459,7 +484,7 @@
  "code_page": {
   "eyebrow": "Reproductibilité",
   "h1": "Code des expériences",
-  "lead": "Les nombres des notes proviennent de ces scripts : en JavaScript (Node.js, sans dépendances) pour les notes 1 à 4 et en Python (NumPy, SciPy et Numba) pour les notes 5 à 15.",
+  "lead": "Les nombres des notes proviennent de ces scripts : en JavaScript (Node.js, sans dépendances) pour les notes 1 à 4 et en Python (NumPy, SciPy et Numba) pour les notes 5 à 16.",
   "intro": "Téléchargez-les tous dans un même dossier et exécutez, par exemple, <code>node fase1.js</code>. Les unités sont telles que G = 1. L’intégrateur est le schéma saute-mouton (kick-drift-kick).",
   "th_file": "Fichier",
   "th_what": "Rôle",
@@ -561,7 +586,13 @@
    "ergo/escada/run_age.py": "Chutes libres de l’échelle de masses 1-1-M (FR-TC-15).",
    "ergo/escada/run_abs_escada.py": "Absorptivité des deux canaux à chaque palier de l’échelle, bord compris (FR-TC-15).",
    "ergo/escada/analise_escada.py": "Test cohérent sur l’échelle, avec correction de Holm et tendance avec la masse (FR-TC-15).",
-   "ergo/escada/geo_escada.py": "Géométrie du dernier épisode à chaque palier de l’échelle (FR-TC-15)."
+   "ergo/escada/geo_escada.py": "Géométrie du dernier épisode à chaque palier de l’échelle (FR-TC-15).",
+   "ergo/rotacao/rot.py": "Absorptivité selon le sens de rotation de la paire et chutes libres avec rotation rigide (FR-TC-16).",
+   "ergo/rotacao/sim2r.py": "Copie de l’intégrateur qui renvoie aussi le sens de rotation de la paire finale (FR-TC-16).",
+   "ergo/rotacao/fluxo_plano_L.py": "Vérifie par tirage aléatoire le poids du flux plan avec rotation (FR-TC-16).",
+   "ergo/rotacao/rodar.py": "Lance les chutes libres et l’absorptivité des deux campagnes (FR-TC-16).",
+   "ergo/rotacao/analise_rot.py": "Tests de forme, d’échappements et de fraction prograde avec correction de Holm (FR-TC-16).",
+   "ergo/rotacao/analise_conf.py": "Analyse de la campagne de confirmation, avec les familles de Holm préenregistrées (FR-TC-16)."
   },
   "note": "Les scripts sont des notes de travail, écrits pour la clarté et non pour la performance. Certains dépendent de <code>core.js</code> ou de <code>sim.js</code>."
  }
