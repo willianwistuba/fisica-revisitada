@@ -20,3 +20,7 @@ Scripts em `codigo_src/ergo/rotacao/` (`rot.py`, `sim2r.py`, `rodar.py`, `analis
 # Dados brutos da confirmação prógrado/retrógrado (E60, 6 nov. 2026)
 
 `dados_rotacao_conf.tar.xz`, pasta `pacote_conf/`: mesmo formato da E59, com sementes novas e λ = 0,1; 0,3 e 0,7 (72.000 quedas livres e 1.254.000 corridas de absortividade), mais `resultado_conf.json` e `PREREGISTRO_CONF.md`. Análise: `codigo_src/ergo/rotacao/analise_conf.py`.
+
+# Dados brutos do regime de Dandekar et al. (E61, 6 nov. 2026)
+
+`dados_dandekar.tar.xz`, pasta `pacote_dk/`: quedas livres com rotação rígida (12.000 por conjunto) e absortividade dos 3 canais nos dois sentidos para 10-15-20 (L/L0 = 1,0567) e 5-15-25 (L/L0 = 1,0263); `ci_<conjunto>.csv` com 12.000 corridas por conjunto na condição inicial de Dandekar et al. (exploratório); `resultado_dandekar.json`, `PREREGISTRO_DANDEKAR.md` e `bench_dandekar.json`. Scripts: `rodar_dandekar.py`, `analise_dandekar.py`, `ci_dandekar.py`, `bench_dandekar.py`.
